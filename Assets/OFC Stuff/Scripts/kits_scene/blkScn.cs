@@ -33,21 +33,21 @@ public class blkScn : MonoBehaviour
 	[HideInInspector]
 	public Transform house_8;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject infoBox_1;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject infoBox_2;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject infoBox_3;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject infoBox_4;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject infoBox_5;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject infoBox_6;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject infoBox_7;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject infoBox_8;
 
 	public energyScoring h1;
