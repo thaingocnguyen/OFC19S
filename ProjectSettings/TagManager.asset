@@ -7,12 +7,7 @@ TagManager:
   - recycle
   - recycle_truck
   - blue_pile
-  - match2
-  - match3
-  - tetrisObj
   - wall
-  - CounterClockButton
-  - ClockButton
   - UpButton
   - DownButton
   - RightButton
@@ -42,6 +37,8 @@ TagManager:
   - 3x3
   - 2x2
   - 12000
+  - ClockButton
+  - 3000
   layers:
   - Default
   - TransparentFX

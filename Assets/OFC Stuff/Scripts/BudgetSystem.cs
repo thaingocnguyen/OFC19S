@@ -82,6 +82,7 @@ public class BudgetSystem : MonoBehaviour
 
     public IEnumerator NoMoney()
     {
+        budgetTxt.text = "";
         ending.text = "You have ran out of money";
         SolarButtons.SetActive(true);
         yield return new WaitForSeconds(1f);
