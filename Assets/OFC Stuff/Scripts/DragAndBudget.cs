@@ -18,7 +18,7 @@ public class DragAndBudget : MonoBehaviour
     
     bool budgetMoreThanZero;
 
-    //public energyScoring engScore;
+    public energyScoring engScore;
 
     void Awake()
     {
@@ -33,12 +33,6 @@ public class DragAndBudget : MonoBehaviour
     {
         initialPosition = gameObject.transform.position;
         initialRotation = gameObject.transform.rotation;
-
-        //dragDistance = Vector3.Distance(PuzzleCreatorScript.transform.position, Camera.main.transform.position);
-       
-
-
-        //Debug.Log(dragDistance);
     }
 
     // Update is called once per frame
@@ -85,7 +79,7 @@ public class DragAndBudget : MonoBehaviour
                
                 transform.position = closest;
                 StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().UpdateBudget(gameObject.tag));
-                //engScore.count++;
+                engScore.count++;
             }
         }
         else

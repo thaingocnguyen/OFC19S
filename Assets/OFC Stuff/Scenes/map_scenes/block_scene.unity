@@ -3797,7 +3797,7 @@ GameObject:
   - component: {fileID: 316053471}
   m_Layer: 0
   m_Name: HOUSE_3
-  m_TagString: HOUSE3
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7690,7 +7690,7 @@ MonoBehaviour:
   budgetTxt: {fileID: 2050953316}
   subtractBudgetTxt: {fileID: 248374034}
   ending: {fileID: 1878526730}
-  SolarButtons: {fileID: 727553684}
+  SolarButtons: {fileID: 1568328987}
   YesNoButtons: {fileID: 1612511220}
 --- !u!4 &720950789
 Transform:
