@@ -1,0 +1,225 @@
+fileFormatVersion: 2
+guid: 156986c3cecdfad4aa00c3f428606ef3
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cartoon_Boy_Body
+    100002: Cartoon_Boy_Button_main_1
+    100004: Cartoon_Boy_Button_main_2
+    100006: Cartoon_Boy_Button_thread_1
+    100008: Cartoon_Boy_Button_thread_2
+    100010: Cartoon_Boy_Button_thread_3
+    100012: Cartoon_Boy_Button_thread_4
+    100014: Cartoon_Boy_cloth_01
+    100016: Cartoon_Boy_Down_Teeth
+    100018: Cartoon_Boy_Hairs
+    100020: Cartoon_Boy_hat_red
+    100022: Cartoon_Boy_inner_mouth
+    100024: Cartoon_Boy_jeans
+    100026: Cartoon_Boy_jeans_bottom_L
+    100028: Cartoon_Boy_jeans_bottom_R
+    100030: Cartoon_Boy_L_eye
+    100032: Cartoon_Boy_L_shoe_base
+    100034: Cartoon_Boy_L_shoe_less
+    100036: Cartoon_Boy_L_shoe_p1
+    100038: Cartoon_Boy_R_eye
+    100040: Cartoon_Boy_R_shoe_base
+    100042: Cartoon_Boy_R_shoe_less
+    100044: Cartoon_Boy_R_shoe_p1
+    100046: Cartoon_Boy_T_shirt_in
+    100048: Cartoon_Boy_Up_Teeth
+    100050: //RootNode
+    100052: tongue2_Cartoon_Boy
+    400000: Cartoon_Boy_Body
+    400002: Cartoon_Boy_Button_main_1
+    400004: Cartoon_Boy_Button_main_2
+    400006: Cartoon_Boy_Button_thread_1
+    400008: Cartoon_Boy_Button_thread_2
+    400010: Cartoon_Boy_Button_thread_3
+    400012: Cartoon_Boy_Button_thread_4
+    400014: Cartoon_Boy_cloth_01
+    400016: Cartoon_Boy_Down_Teeth
+    400018: Cartoon_Boy_Hairs
+    400020: Cartoon_Boy_hat_red
+    400022: Cartoon_Boy_inner_mouth
+    400024: Cartoon_Boy_jeans
+    400026: Cartoon_Boy_jeans_bottom_L
+    400028: Cartoon_Boy_jeans_bottom_R
+    400030: Cartoon_Boy_L_eye
+    400032: Cartoon_Boy_L_shoe_base
+    400034: Cartoon_Boy_L_shoe_less
+    400036: Cartoon_Boy_L_shoe_p1
+    400038: Cartoon_Boy_R_eye
+    400040: Cartoon_Boy_R_shoe_base
+    400042: Cartoon_Boy_R_shoe_less
+    400044: Cartoon_Boy_R_shoe_p1
+    400046: Cartoon_Boy_T_shirt_in
+    400048: Cartoon_Boy_Up_Teeth
+    400050: //RootNode
+    400052: tongue2_Cartoon_Boy
+    2100000: skin_matSG
+    2100002: cloths_matSG
+    2100004: tongue_mouthSG
+    2100006: hairSG
+    2100008: hat_Hat_matSG
+    2100010: Eye_matSG
+    2100012: tongue_tongue_mateSG
+    2300000: Cartoon_Boy_Body
+    2300002: Cartoon_Boy_Button_main_1
+    2300004: Cartoon_Boy_Button_main_2
+    2300006: Cartoon_Boy_Button_thread_1
+    2300008: Cartoon_Boy_Button_thread_2
+    2300010: Cartoon_Boy_Button_thread_3
+    2300012: Cartoon_Boy_Button_thread_4
+    2300014: Cartoon_Boy_cloth_01
+    2300016: Cartoon_Boy_Down_Teeth
+    2300018: Cartoon_Boy_Hairs
+    2300020: Cartoon_Boy_hat_red
+    2300022: Cartoon_Boy_inner_mouth
+    2300024: Cartoon_Boy_jeans
+    2300026: Cartoon_Boy_jeans_bottom_L
+    2300028: Cartoon_Boy_jeans_bottom_R
+    2300030: Cartoon_Boy_L_eye
+    2300032: Cartoon_Boy_L_shoe_base
+    2300034: Cartoon_Boy_L_shoe_less
+    2300036: Cartoon_Boy_L_shoe_p1
+    2300038: Cartoon_Boy_R_eye
+    2300040: Cartoon_Boy_R_shoe_base
+    2300042: Cartoon_Boy_R_shoe_less
+    2300044: Cartoon_Boy_R_shoe_p1
+    2300046: Cartoon_Boy_T_shirt_in
+    2300048: Cartoon_Boy_Up_Teeth
+    2300050: tongue2_Cartoon_Boy
+    3300000: Cartoon_Boy_Body
+    3300002: Cartoon_Boy_Button_main_1
+    3300004: Cartoon_Boy_Button_main_2
+    3300006: Cartoon_Boy_Button_thread_1
+    3300008: Cartoon_Boy_Button_thread_2
+    3300010: Cartoon_Boy_Button_thread_3
+    3300012: Cartoon_Boy_Button_thread_4
+    3300014: Cartoon_Boy_cloth_01
+    3300016: Cartoon_Boy_Down_Teeth
+    3300018: Cartoon_Boy_Hairs
+    3300020: Cartoon_Boy_hat_red
+    3300022: Cartoon_Boy_inner_mouth
+    3300024: Cartoon_Boy_jeans
+    3300026: Cartoon_Boy_jeans_bottom_L
+    3300028: Cartoon_Boy_jeans_bottom_R
+    3300030: Cartoon_Boy_L_eye
+    3300032: Cartoon_Boy_L_shoe_base
+    3300034: Cartoon_Boy_L_shoe_less
+    3300036: Cartoon_Boy_L_shoe_p1
+    3300038: Cartoon_Boy_R_eye
+    3300040: Cartoon_Boy_R_shoe_base
+    3300042: Cartoon_Boy_R_shoe_less
+    3300044: Cartoon_Boy_R_shoe_p1
+    3300046: Cartoon_Boy_T_shirt_in
+    3300048: Cartoon_Boy_Up_Teeth
+    3300050: tongue2_Cartoon_Boy
+    4300000: Cartoon_Boy_Body
+    4300002: Cartoon_Boy_Button_main_1
+    4300004: Cartoon_Boy_Button_main_2
+    4300006: Cartoon_Boy_Button_thread_1
+    4300008: Cartoon_Boy_Button_thread_2
+    4300010: Cartoon_Boy_Button_thread_3
+    4300012: Cartoon_Boy_Button_thread_4
+    4300014: Cartoon_Boy_cloth_01
+    4300016: Cartoon_Boy_Down_Teeth
+    4300018: Cartoon_Boy_Hairs
+    4300020: Cartoon_Boy_hat_red
+    4300022: Cartoon_Boy_inner_mouth
+    4300024: Cartoon_Boy_jeans
+    4300026: Cartoon_Boy_jeans_bottom_L
+    4300028: Cartoon_Boy_jeans_bottom_R
+    4300030: Cartoon_Boy_L_eye
+    4300032: Cartoon_Boy_L_shoe_base
+    4300034: Cartoon_Boy_L_shoe_less
+    4300036: Cartoon_Boy_L_shoe_p1
+    4300038: Cartoon_Boy_R_eye
+    4300040: Cartoon_Boy_R_shoe_base
+    4300042: Cartoon_Boy_R_shoe_less
+    4300044: Cartoon_Boy_R_shoe_p1
+    4300046: Cartoon_Boy_T_shirt_in
+    4300048: Cartoon_Boy_Up_Teeth
+    4300050: tongue2_Cartoon_Boy
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
