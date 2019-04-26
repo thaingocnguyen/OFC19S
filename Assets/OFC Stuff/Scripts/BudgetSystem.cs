@@ -97,8 +97,11 @@ public class BudgetSystem : MonoBehaviour
 
     public void ContinueGame()
     {
+        Application.Quit();
+        /*
         SolarButtons.SetActive(false);
         ending.text = "Would you like to connect your solar panels to the grid?";
         YesNoButtons.SetActive(true);
+        */
     }
 }

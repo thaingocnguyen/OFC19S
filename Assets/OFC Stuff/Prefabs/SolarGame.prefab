@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1444538684245469318}
   m_Layer: 0
   m_Name: PuzzleCreatorScript
-  m_TagString: Untagged
+  m_TagString: puzzle4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,11 +330,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2by2
       objectReference: {fileID: 0}
-    - target: {fileID: 2123990059051031277, guid: eec94ac8cdb5238429d937ca26052673,
-        type: 3}
-      propertyPath: m_TagString
-      value: 2x2
-      objectReference: {fileID: 0}
     - target: {fileID: 2123990059051031280, guid: eec94ac8cdb5238429d937ca26052673,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -392,6 +387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 402464610233435952, guid: eec94ac8cdb5238429d937ca26052673,
         type: 3}
+      propertyPath: dragDistance
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 402464610233435952, guid: eec94ac8cdb5238429d937ca26052673,
+        type: 3}
       propertyPath: Prefab
       value: 
       objectReference: {fileID: 1444538685557021625}
@@ -420,11 +420,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 4by4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399358222075233829, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
-        type: 3}
-      propertyPath: m_TagString
-      value: 4x4
       objectReference: {fileID: 0}
     - target: {fileID: 8399358222075233824, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
         type: 3}
@@ -481,6 +476,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8890363733365216542, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
+        type: 3}
+      propertyPath: dragDistance
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890363733365216542, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
+        type: 3}
+      propertyPath: PuzzleCreatorScript
+      value: 
+      objectReference: {fileID: 1444538684245469316}
     - target: {fileID: 8890363733365216542, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
         type: 3}
       propertyPath: Prefab
