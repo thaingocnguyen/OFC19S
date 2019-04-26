@@ -8,12 +8,13 @@ public class DragAndBudget : MonoBehaviour
     Vector3 initialPosition;
     Quaternion initialRotation;
 
-    float dragDistance = 9.1f; //distance to drag mouse
+    public float dragDistance = 11f; //distance to drag mouse
     float zPosSolar;
     private Vector3 objPos;
-    public GameObject PuzzleCreatorScript;
-    public GameObject BudgetSystem;
+    private GameObject PuzzleCreatorScript;
+    private GameObject BudgetSystem;
     public GameObject Prefab;
+    
     bool budgetMoreThanZero;
 
     //public energyScoring engScore;
