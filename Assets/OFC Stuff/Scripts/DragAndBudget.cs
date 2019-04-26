@@ -11,9 +11,10 @@ public class DragAndBudget : MonoBehaviour
     public float dragDistance = 11f; //distance to drag mouse
     float zPosSolar;
     private Vector3 objPos;
-    private GameObject PuzzleCreatorScript;
+    public GameObject PuzzleCreatorScript;
     private GameObject BudgetSystem;
     public GameObject Prefab;
+    //public string puzzleName = "PuzzleCreatorScript";
     
     bool budgetMoreThanZero;
 
@@ -21,9 +22,10 @@ public class DragAndBudget : MonoBehaviour
 
     void Awake()
     {
-
+        //Debug.Log(puzzleName);
         BudgetSystem = GameObject.Find("BudgetSystem");
         PuzzleCreatorScript = GameObject.Find("PuzzleCreatorScript");
+
 
     }
     // Use this for initialization
@@ -61,12 +63,13 @@ public class DragAndBudget : MonoBehaviour
     void OnMouseUp()
     {
         budgetMoreThanZero = BudgetSystem.GetComponent<BudgetSystem>().ifBudgetNotZero(gameObject.tag);
-
+        Debug.Log(budgetMoreThanZero);
         if (budgetMoreThanZero)
         {
             //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
 
             Vector3 closest = PuzzleCreatorScript.GetComponent<CreatePuzzle>().GetNearestPointOnGrid(transform.position);
+            Debug.Log(closest);
 
             if (closest == new Vector3(0, 0, 0))
             {
