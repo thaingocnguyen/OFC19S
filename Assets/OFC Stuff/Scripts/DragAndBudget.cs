@@ -71,10 +71,12 @@ public class DragAndBudget : MonoBehaviour
             if (closest == new Vector3(0, 0, 0))
             {
                 //transform.position = initialPosition;
+                Debug.Log("HI");
                 Destroy(gameObject);
             }
             else
             {
+               
                 transform.position = closest;
                 StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().UpdateBudget(gameObject.tag));
                 //engScore.count++;
