@@ -61,6 +61,33 @@ public class BudgetSystem : MonoBehaviour
         subtractBudgetTxt.text = "";
     }
 
+    public IEnumerator AddBudget(string tag)
+    {
+        if (tag == "12000")
+        {
+
+            budget = budget + 12000;
+            budgetTxt.text = "Budget: " + budget;
+            subtractBudgetTxt.text = " +$12000";
+        }
+        else if (tag == "3000")
+        {
+
+            budget = budget + 3000;
+            budgetTxt.text = "Budget: " + budget;
+            subtractBudgetTxt.text = " +$3000";
+        }
+
+        else
+        {
+
+            budgetTxt.text = "Budget: " + budget;
+        }
+
+        yield return new WaitForSeconds(0.7f);
+        subtractBudgetTxt.text = "";
+    }
+
     public bool ifBudgetNotZero(string tag)
     {
         if (tag == "12000")
@@ -92,16 +119,50 @@ public class BudgetSystem : MonoBehaviour
 
     public void RestartGame()
     {
-        //reset game
+        Application.Quit();
     }
 
-    public void ContinueGame()
+    public void DonePls()
     {
-        Application.Quit();
-        /*
-        SolarButtons.SetActive(false);
-        ending.text = "Would you like to connect your solar panels to the grid?";
-        YesNoButtons.SetActive(true);
-        */
+        StartCoroutine(ContinueGame());
     }
+
+    public IEnumerator ContinueGame()
+    {
+       
+        
+        SolarButtons.SetActive(false);
+        ending.text = "Connecting the solar panels to the grid will give you electrical credit.";
+        yield return new WaitForSeconds(5f);
+        ending.text = "Would you like to connect your solar panels to the grid?";
+        yield return new WaitForSeconds(3f);
+        YesNoButtons.SetActive(true);
+        
+    }
+
+    public IEnumerator NoThanks()
+    {
+
+
+        
+        ending.text = "Aww.";
+        yield return new WaitForSeconds(2f);
+        Application.Quit();
+
+
+    }
+
+    public IEnumerator SureWhyNot()
+    {
+
+
+
+        ending.text = "Awesome!";
+        yield return new WaitForSeconds(2f);
+        Application.Quit();
+
+
+    }
+
+
 }

@@ -14,23 +14,23 @@ public class blkScn : MonoBehaviour
 
     public GameObject brdBtn;
 
-    [HideInInspector]
+    //[HideInInspector]
     public Transform mainTrans;
-    [HideInInspector]
+    //[HideInInspector]
 	public Transform house_1;
-	[HideInInspector]
+	//[HideInInspector]
 	public Transform house_2;
-	[HideInInspector]
+	//[HideInInspector]
 	public Transform house_3;
-	[HideInInspector]
+	//[HideInInspector]
 	public Transform house_4;
-	[HideInInspector]
+	//[HideInInspector]
 	public Transform house_5;
-	[HideInInspector]
+	//[HideInInspector]
 	public Transform house_6;
-	[HideInInspector]
+	//[HideInInspector]
 	public Transform house_7;
-	[HideInInspector]
+	//[HideInInspector]
 	public Transform house_8;
 
 	//[HideInInspector]

@@ -72,7 +72,22 @@ public class DragAndBudget : MonoBehaviour
             {
                 //transform.position = initialPosition;
                 //Debug.Log("HI");
+                StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().AddBudget(gameObject.tag));
                 Destroy(gameObject);
+
+                if (gameObject.tag == "12000")
+                {
+                    if (engScore.score > 3f)
+                    {
+                        engScore.score -= 4f;
+                    }
+                } else if (gameObject.tag == "3000")
+                {
+                    if (engScore.score > 1f)
+                    {
+                        engScore.score -= 2f;
+                    }
+                }
             }
             else
             {
@@ -80,11 +95,26 @@ public class DragAndBudget : MonoBehaviour
                 transform.position = closest;
                 StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().UpdateBudget(gameObject.tag));
                 engScore.count++;
+                if (gameObject.tag == "12000")
+                {
+                    if (engScore.score < 10)
+                    {
+                        engScore.score += 4f;
+                    }
+                } else if (gameObject.tag == "3000")
+                {
+                    if (engScore.score < 10)
+                    {
+                        engScore.score += 2f;
+                    }
+                }
             }
         }
         else
         {
+           
             Destroy(gameObject);
+            
             //StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().NoMoney());
         }
     }
