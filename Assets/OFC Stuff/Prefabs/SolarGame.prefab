@@ -78,10 +78,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f8152a963671c42a405e1f510127b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1268927736494576, guid: c1ea3d7b78565a047a9abb0737b18572, type: 3}
+  gridCubePrefab: {fileID: 1268927736494576, guid: c1ea3d7b78565a047a9abb0737b18572,
+    type: 3}
   parent: {fileID: 1444538685606842938}
-  row: 5
-  col: 13
+  row: 4
+  col: 6
 --- !u!1 &1444538685606842938
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,11 +417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1444538684056187483}
     m_Modifications:
-    - target: {fileID: 8399358222075233829, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
-        type: 3}
-      propertyPath: m_Name
-      value: 4by4
-      objectReference: {fileID: 0}
     - target: {fileID: 8399358222075233824, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -475,6 +471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399358222075233829, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
+        type: 3}
+      propertyPath: m_Name
+      value: 4by4
       objectReference: {fileID: 0}
     - target: {fileID: 8890363733365216542, guid: 9a039fa136ca44448b644ae1a4bbb1c4,
         type: 3}

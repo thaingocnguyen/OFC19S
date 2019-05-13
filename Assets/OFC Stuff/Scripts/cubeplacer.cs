@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cubeplacer : MonoBehaviour {
+public class CubePlacer : MonoBehaviour {
 
     private Grid grid;
 

@@ -64,11 +64,9 @@ public class DragAndBudget : MonoBehaviour
         if (budgetMoreThanZero)
         {
             //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
-
             Vector3 closest = PuzzleCreatorScript.GetComponent<CreatePuzzle>().GetNearestPointOnGrid(transform.position);
-            //Debug.Log(closest);
 
-
+            // Return panel to the pile if the location placed is not near grid 
             if (closest == new Vector3(0, 0, 0))
             {
                 // Only if panel has been placed will the budget be incremented
@@ -92,11 +90,12 @@ public class DragAndBudget : MonoBehaviour
                 }
                 Destroy(gameObject);
             }
+            // Place panel on grid
             else 
             {
+                transform.position = closest;
                 if (!panel.GetComponent<SolarPanel>().PanelPlaced)
                 {
-                    transform.position = closest;
                     StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().DecrementBudget(gameObject.tag));
                     panel.GetComponent<SolarPanel>().PanelPlaced = true;
                     engScore.count++;
@@ -117,9 +116,9 @@ public class DragAndBudget : MonoBehaviour
                 }
             }
         }
+        // If there is not enough budget, do not allow the user to place more solar panels 
         else
         {
-           
             Destroy(gameObject);
             //StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().NoMoney());
         }

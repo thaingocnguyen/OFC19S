@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CreatePuzzle : MonoBehaviour {
-    public GameObject prefab;
+    public GameObject gridCubePrefab;
     public GameObject parent;
     public int row;
     public int col;
@@ -25,9 +25,8 @@ public class CreatePuzzle : MonoBehaviour {
     }
 
 
-        // Use this for initialization
-        void Start () {
-        
+    // Use this for initialization
+    void Start () {
         //parentPos = parent.transform.position;
         MakePuzzle();
         pos = parent.transform.position;
@@ -47,7 +46,7 @@ public class CreatePuzzle : MonoBehaviour {
             {
                 
                
-                GameObject child = Instantiate(prefab, pos, Quaternion.identity);
+                GameObject child = Instantiate(gridCubePrefab, pos, Quaternion.identity);
                 
                 child.transform.parent = parent.transform;
                 child.transform.localPosition = new Vector3(0, 0, 0);
