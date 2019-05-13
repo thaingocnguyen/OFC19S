@@ -12,6 +12,7 @@ public class blkScn : MonoBehaviour
 
     private float moveSpeed = 12.2f;
 
+    // Go back button 
     public GameObject brdBtn;
 
     //[HideInInspector]
@@ -59,6 +60,9 @@ public class blkScn : MonoBehaviour
 	public energyScoring h7;
 	public energyScoring h8;
 
+    // Whether camera is at bird eye view or house view.
+    //  - True: Bird eye view 
+    //  - False: House view 
 	private bool isBird = true;
 
 	public int houses = 5;
@@ -94,6 +98,7 @@ public class blkScn : MonoBehaviour
     void Update()
     {
     	ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        // Continuously checks to see if house is selected 
     	houseSelector("HOUSE1", house_1, infoBox_1);
     	houseSelector("HOUSE2", house_2, infoBox_2);
     	houseSelector("HOUSE3", house_3, infoBox_3);

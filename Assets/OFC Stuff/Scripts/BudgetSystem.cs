@@ -34,7 +34,7 @@ public class BudgetSystem : MonoBehaviour
         }
     }
 
-    public IEnumerator UpdateBudget(string tag)
+    public IEnumerator DecrementBudget(string tag)
     {
         if (tag == "12000")
         {
@@ -61,7 +61,7 @@ public class BudgetSystem : MonoBehaviour
         subtractBudgetTxt.text = "";
     }
 
-    public IEnumerator AddBudget(string tag)
+    public IEnumerator IncrementBudget(string tag)
     {
         if (tag == "12000")
         {

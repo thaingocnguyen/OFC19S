@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 8399358222075233830}
   - component: {fileID: 8399358222075233831}
   - component: {fileID: 8890363733365216542}
+  - component: {fileID: 6403751582822240823}
   m_Layer: 0
   m_Name: 4by4
   m_TagString: 12000
@@ -395,9 +396,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c0b42c2bc79f847bd274639e497aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragDistance: 10.8
   PuzzleCreatorScript: {fileID: 0}
-  BudgetSystem: {fileID: 0}
-  Prefab: {fileID: 8399358222075233829}
+  panel: {fileID: 8399358222075233829}
+  engScore: {fileID: 0}
+--- !u!114 &6403751582822240823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399358222075233829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a91e44cab5124d15a1f08506507031a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8399358222096653592
 GameObject:
   m_ObjectHideFlags: 0

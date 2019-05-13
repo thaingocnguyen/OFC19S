@@ -13,10 +13,11 @@ public class DragAndBudget : MonoBehaviour
     private Vector3 objPos;
     public GameObject PuzzleCreatorScript;
     private GameObject BudgetSystem;
-    public GameObject Prefab;
+    public GameObject panel;
     //public string puzzleName = "PuzzleCreatorScript";
     
     bool budgetMoreThanZero;
+
 
     public energyScoring engScore;
 
@@ -43,9 +44,8 @@ public class DragAndBudget : MonoBehaviour
 
     void OnMouseDown()
     {
-        
-       
-        Instantiate(Prefab, initialPosition, initialRotation);
+        // Instantiate a new solar panel when it is clicked on 
+        Instantiate(panel, initialPosition, initialRotation);
     }
 
     void OnMouseDrag()
@@ -60,52 +60,59 @@ public class DragAndBudget : MonoBehaviour
     void OnMouseUp()
     {
         budgetMoreThanZero = BudgetSystem.GetComponent<BudgetSystem>().ifBudgetNotZero(gameObject.tag);
-        Debug.Log(budgetMoreThanZero);
+        //Debug.Log(budgetMoreThanZero);
         if (budgetMoreThanZero)
         {
             //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
 
             Vector3 closest = PuzzleCreatorScript.GetComponent<CreatePuzzle>().GetNearestPointOnGrid(transform.position);
-            Debug.Log(closest);
+            //Debug.Log(closest);
+
 
             if (closest == new Vector3(0, 0, 0))
             {
-                //transform.position = initialPosition;
-                //Debug.Log("HI");
-                StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().AddBudget(gameObject.tag));
-                Destroy(gameObject);
-
-                if (gameObject.tag == "12000")
+                // Only if panel has been placed will the budget be incremented
+                if (panel.GetComponent<SolarPanel>().PanelPlaced)
                 {
-                    if (engScore.score > 3f)
+                    StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().IncrementBudget(gameObject.tag));
+                    if (gameObject.tag == "12000")
                     {
-                        engScore.score -= 4f;
+                        if (engScore.score > 3f)
+                        {
+                            engScore.score -= 4f;
+                        }
                     }
-                } else if (gameObject.tag == "3000")
-                {
-                    if (engScore.score > 1f)
+                    else if (gameObject.tag == "3000")
                     {
-                        engScore.score -= 2f;
+                        if (engScore.score > 1f)
+                        {
+                            engScore.score -= 2f;
+                        }
                     }
                 }
+                Destroy(gameObject);
             }
-            else
+            else 
             {
-               
-                transform.position = closest;
-                StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().UpdateBudget(gameObject.tag));
-                engScore.count++;
-                if (gameObject.tag == "12000")
+                if (!panel.GetComponent<SolarPanel>().PanelPlaced)
                 {
-                    if (engScore.score < 10)
+                    transform.position = closest;
+                    StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().DecrementBudget(gameObject.tag));
+                    panel.GetComponent<SolarPanel>().PanelPlaced = true;
+                    engScore.count++;
+                    if (gameObject.tag == "12000")
                     {
-                        engScore.score += 4f;
+                        if (engScore.score < 10)
+                        {
+                            engScore.score += 4f;
+                        }
                     }
-                } else if (gameObject.tag == "3000")
-                {
-                    if (engScore.score < 10)
+                    else if (gameObject.tag == "3000")
                     {
-                        engScore.score += 2f;
+                        if (engScore.score < 10)
+                        {
+                            engScore.score += 2f;
+                        }
                     }
                 }
             }
@@ -114,7 +121,6 @@ public class DragAndBudget : MonoBehaviour
         {
            
             Destroy(gameObject);
-            
             //StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().NoMoney());
         }
     }
