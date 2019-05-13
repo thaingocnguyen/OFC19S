@@ -10437,7 +10437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1105961684}
   m_Layer: 0
-  m_Name: Targets
+  m_Name: HouseTargets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12243,6 +12243,16 @@ PrefabInstance:
       propertyPath: engScore
       value: 
       objectReference: {fileID: 1741240090}
+    - target: {fileID: 4053866010080589823, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: isShaded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710364412410979177, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: isShaded
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea0d64bbaf8762c41a384d3f7fc4c54e, type: 3}
 --- !u!1 &1233051602
@@ -15427,16 +15437,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: 12000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684245469318, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: row
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684245469318, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: col
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1444538684010363341, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}

@@ -195,7 +195,6 @@ public class blkScn : MonoBehaviour
 
     		if (Input.GetMouseButtonDown (0) && isBird && houses > 0) {
 				if (hit.collider.tag == name ) {
-					Debug.Log(hit.collider.tag);
 					Camera.main.transform.position = target.position;
 					Camera.main.transform.rotation = target.rotation;
 					isBird = false;

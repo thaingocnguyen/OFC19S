@@ -101,14 +101,14 @@ public class DragAndBudget : MonoBehaviour
                     engScore.count++;
                     if (gameObject.tag == "12000")
                     {
-                        if (engScore.score < 10)
+                        if (engScore.score < 10 && !panel.GetComponent<SolarPanel>().isShaded)
                         {
                             engScore.score += 4f;
                         }
                     }
                     else if (gameObject.tag == "3000")
                     {
-                        if (engScore.score < 10)
+                        if (engScore.score < 10 && !panel.GetComponent<SolarPanel>().isShaded)
                         {
                             engScore.score += 2f;
                         }
