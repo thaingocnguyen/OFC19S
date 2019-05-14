@@ -11,12 +11,19 @@ public class BudgetSystem : MonoBehaviour
     public GameObject SolarButtons;
     public GameObject YesNoButtons;
 
-    int budget = 90000;
+    public GameObject energyBar;
 
+    [SerializeField]
+    int maxBudget;
+
+    private void Awake()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
-    {
-        budgetTxt.text = "Budget: " + budget;
+    { 
+        budgetTxt.text = "Budget: " + maxBudget;
         subtractBudgetTxt.text = "";
         ending.text = "";
         SolarButtons.SetActive(false);
@@ -26,10 +33,10 @@ public class BudgetSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (budget == 0)
+        if (maxBudget == 0)
         {
             budgetTxt.text = "Budget: 0";
-            budget = -1;
+            maxBudget = -1;
             StartCoroutine(NoMoney());
         }
     }
@@ -39,22 +46,22 @@ public class BudgetSystem : MonoBehaviour
         if (tag == "12000")
         {
 
-            budget = budget - 12000;
-            budgetTxt.text = "Budget: " + budget;
+            maxBudget = maxBudget - 12000;
+            budgetTxt.text = "Budget: " + maxBudget;
             subtractBudgetTxt.text = " -$12000";
         }
         else if (tag == "3000")
         {
 
-            budget = budget - 3000;
-            budgetTxt.text = "Budget: " + budget;
+            maxBudget = maxBudget - 3000;
+            budgetTxt.text = "Budget: " + maxBudget;
             subtractBudgetTxt.text = " -$3000";
         }
 
         else
         {
 
-            budgetTxt.text = "Budget: " + budget;
+            budgetTxt.text = "Budget: " + maxBudget;
         }
 
         yield return new WaitForSeconds(0.7f);
@@ -66,22 +73,22 @@ public class BudgetSystem : MonoBehaviour
         if (tag == "12000")
         {
 
-            budget = budget + 12000;
-            budgetTxt.text = "Budget: " + budget;
+            maxBudget = maxBudget + 12000;
+            budgetTxt.text = "Budget: " + maxBudget;
             subtractBudgetTxt.text = " +$12000";
         }
         else if (tag == "3000")
         {
 
-            budget = budget + 3000;
-            budgetTxt.text = "Budget: " + budget;
+            maxBudget = maxBudget + 3000;
+            budgetTxt.text = "Budget: " + maxBudget;
             subtractBudgetTxt.text = " +$3000";
         }
 
         else
         {
 
-            budgetTxt.text = "Budget: " + budget;
+            budgetTxt.text = "Budget: " + maxBudget;
         }
 
         yield return new WaitForSeconds(0.7f);
@@ -92,13 +99,13 @@ public class BudgetSystem : MonoBehaviour
     {
         if (tag == "12000")
         {
-            if ((budget - 12000) < 0)
+            if ((maxBudget - 12000) < 0)
             { return false; }
             else { return true; }
         }
         else if (tag == "3000")
         {
-            if ((budget - 3000) < 0)
+            if ((maxBudget - 3000) < 0)
             { return false; }
             else { return true; }
         }
@@ -111,6 +118,8 @@ public class BudgetSystem : MonoBehaviour
     {
         budgetTxt.text = "";
         ending.text = "You have ran out of money";
+        yield return new WaitForSeconds(5f);
+        ending.text = "Your energy score is ";
         SolarButtons.SetActive(true);
         yield return new WaitForSeconds(1f);
 
