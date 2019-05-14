@@ -13,13 +13,20 @@ public class BudgetSystem : MonoBehaviour
 
     public GameObject energyBar;
 
+    public energyScoring engScore;
+
     [SerializeField]
     int maxBudget;
 
-    private void Awake()
-    {
+    //#region Singleton
+    //public static BudgetSystem Instance;
 
-    }
+    //private void Awake()
+    //{
+    //    Instance = this;
+    //}
+    //#endregion Singleton
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -119,7 +126,7 @@ public class BudgetSystem : MonoBehaviour
         budgetTxt.text = "";
         ending.text = "You have ran out of money";
         yield return new WaitForSeconds(5f);
-        ending.text = "Your energy score is ";
+        ending.text = "Your energy score is " + engScore.score;
         SolarButtons.SetActive(true);
         yield return new WaitForSeconds(1f);
 
