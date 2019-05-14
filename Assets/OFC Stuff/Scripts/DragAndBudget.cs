@@ -12,7 +12,7 @@ public class DragAndBudget : MonoBehaviour
     float zPosSolar;
     private Vector3 objPos;
     public GameObject PuzzleCreatorScript;
-    private GameObject BudgetSystem;
+
     public GameObject panel;
     //public string puzzleName = "PuzzleCreatorScript";
     
@@ -23,10 +23,6 @@ public class DragAndBudget : MonoBehaviour
 
     void Awake()
     {
-        //Debug.Log(puzzleName);
-        BudgetSystem = GameObject.Find("BudgetSystem");
-        //PuzzleCreatorScript = GameObject.Find("PuzzleCreatorScript");
-
 
     }
     // Use this for initialization
@@ -59,7 +55,7 @@ public class DragAndBudget : MonoBehaviour
 
     void OnMouseUp()
     {
-        budgetMoreThanZero = BudgetSystem.GetComponent<BudgetSystem>().ifBudgetNotZero(gameObject.tag);
+        budgetMoreThanZero = BudgetSystem.Instance.ifBudgetNotZero(gameObject.tag);
         //Debug.Log(budgetMoreThanZero);
         if (budgetMoreThanZero)
         {
@@ -72,7 +68,7 @@ public class DragAndBudget : MonoBehaviour
                 // Only if panel has been placed will the budget be incremented
                 if (panel.GetComponent<SolarPanel>().PanelPlaced)
                 {
-                    StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().IncrementBudget(gameObject.tag));
+                    StartCoroutine(BudgetSystem.Instance.IncrementBudget(gameObject.tag));
                     if (gameObject.tag == "12000")
                     {
                         if (engScore.score > 3f)
@@ -96,7 +92,7 @@ public class DragAndBudget : MonoBehaviour
                 transform.position = closest;
                 if (!panel.GetComponent<SolarPanel>().PanelPlaced)
                 {
-                    StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().DecrementBudget(gameObject.tag));
+                    StartCoroutine(BudgetSystem.Instance.DecrementBudget(gameObject.tag));
                     panel.GetComponent<SolarPanel>().PanelPlaced = true;
                     engScore.count++;
                     if (gameObject.tag == "12000")
@@ -120,7 +116,6 @@ public class DragAndBudget : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            //StartCoroutine(BudgetSystem.GetComponent<BudgetSystem>().NoMoney());
         }
     }
 }

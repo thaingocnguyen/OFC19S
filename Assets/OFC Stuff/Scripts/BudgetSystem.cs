@@ -12,20 +12,21 @@ public class BudgetSystem : MonoBehaviour
     public GameObject YesNoButtons;
 
     public GameObject energyBar;
-
-    public energyScoring engScore;
+    int energyScore;
 
     [SerializeField]
     int maxBudget;
+    int maxEnergyScore;
 
-    //#region Singleton
-    //public static BudgetSystem Instance;
+    #region Singleton
+    public static BudgetSystem Instance;
 
-    //private void Awake()
-    //{
-    //    Instance = this;
-    //}
-    //#endregion Singleton
+    private void Awake()
+    {
+        Instance = this;
+        energyScore = 0; 
+    }
+    #endregion Singleton
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,17 @@ public class BudgetSystem : MonoBehaviour
             maxBudget = -1;
             StartCoroutine(NoMoney());
         }
+    }
+
+    public void incrementEnergyScore(int points)
+    {
+        energyScore = Mathf.Clamp(energyScore + points, 0, maxEnergyScore);
+        updateEnergyBar();
+    }
+
+    private void updateEnergyBar()
+    {
+        energyBar.transform.localScale = new Vector3(energyScore / maxEnergyScore, 1, 1);
     }
 
     public IEnumerator DecrementBudget(string tag)
