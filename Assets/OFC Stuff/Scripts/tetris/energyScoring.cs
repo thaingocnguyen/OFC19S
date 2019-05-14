@@ -24,7 +24,7 @@ public class energyScoring : MonoBehaviour
     		isPlaced = false;
     	}
 
-        engBar.SetSize(score *0.0182f);
+        engBar.SetSize(score * 0.0182f);
 
 
     }
