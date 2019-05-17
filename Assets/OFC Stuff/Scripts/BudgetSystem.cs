@@ -35,7 +35,7 @@ public class BudgetSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        budgetTxt.text = "Budget: " + maxBudget;
+        budgetTxt.text = "Budget: $" + maxBudget;
         currentBudget = maxBudget;
         subtractBudgetTxt.text = "";
         ending.text = "";
@@ -48,7 +48,7 @@ public class BudgetSystem : MonoBehaviour
     {
         if (currentBudget == 0)
         {
-            budgetTxt.text = "Budget: 0";
+            budgetTxt.text = "Budget: $0";
             currentBudget = -1;
             StartCoroutine(NoMoney());
         }
@@ -82,21 +82,21 @@ public class BudgetSystem : MonoBehaviour
         {
 
             currentBudget = currentBudget - 12000;
-            budgetTxt.text = "Budget: " + currentBudget;
+            budgetTxt.text = "Budget: $" + currentBudget;
             subtractBudgetTxt.text = " -$12000";
         }
         else if (tag == "3000")
         {
 
             currentBudget = currentBudget - 3000;
-            budgetTxt.text = "Budget: " + currentBudget;
+            budgetTxt.text = "Budget: $" + currentBudget;
             subtractBudgetTxt.text = " -$3000";
         }
 
         else
         {
 
-            budgetTxt.text = "Budget: " + currentBudget;
+            budgetTxt.text = "Budget: $" + currentBudget;
         }
 
         yield return new WaitForSeconds(0.7f);
@@ -109,21 +109,21 @@ public class BudgetSystem : MonoBehaviour
         {
 
             currentBudget = currentBudget + 12000;
-            budgetTxt.text = "Budget: " + currentBudget;
+            budgetTxt.text = "Budget: $" + currentBudget;
             subtractBudgetTxt.text = " +$12000";
         }
         else if (tag == "3000")
         {
 
             currentBudget = currentBudget + 3000;
-            budgetTxt.text = "Budget: " + currentBudget;
+            budgetTxt.text = "Budget: $" + currentBudget;
             subtractBudgetTxt.text = " +$3000";
         }
 
         else
         {
 
-            budgetTxt.text = "Budget: " + currentBudget;
+            budgetTxt.text = "Budget: $" + currentBudget;
         }
 
         yield return new WaitForSeconds(0.7f);
