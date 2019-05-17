@@ -1409,7 +1409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &140923157
 Transform:
   m_ObjectHideFlags: 0
@@ -3401,7 +3401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &268013733
 Transform:
   m_ObjectHideFlags: 0
@@ -4074,7 +4074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &348047549
 Transform:
   m_ObjectHideFlags: 0
@@ -8507,7 +8507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &800869689
 Transform:
   m_ObjectHideFlags: 0
@@ -10725,7 +10725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1122747296
 Transform:
   m_ObjectHideFlags: 0
@@ -13304,7 +13304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1323315058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14903,7 +14903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1481005522
 Transform:
   m_ObjectHideFlags: 0
@@ -15123,7 +15123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1515588683
 Transform:
   m_ObjectHideFlags: 0
@@ -22295,12 +22295,12 @@ PrefabInstance:
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 897
+      value: 792
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 322
+      value: 213
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
@@ -22475,6 +22475,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnergyBar_7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424516957266188476, guid: 191f4245f2dbf4ef78dfa1ee0a439842,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4424516957266188477, guid: 191f4245f2dbf4ef78dfa1ee0a439842,
         type: 3}

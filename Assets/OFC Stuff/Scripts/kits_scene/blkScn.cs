@@ -108,7 +108,7 @@ public class blkScn : MonoBehaviour
     	houseSelector("HOUSE7", house_7, infoBox_7);
     	houseSelector("HOUSE8", house_8, infoBox_8);
 
- 		placingHouses();
+ 		//placingHouses();
 
  		score.text = "HOUSE COUNT: " + houses.ToString();
 
@@ -117,71 +117,71 @@ public class blkScn : MonoBehaviour
         
     }
 
-    private void placingHouses () {
-    	if (h1.isPlaced  && minOne) {
-    		houses--;
-    		minOne = false;
-    	} else if (!h1.isPlaced && !minOne) {
-    		houses++;
-    		minOne = true;
-    	}
+    //private void placingHouses () {
+    //	if (h1.isPlaced  && minOne) {
+    //		houses--;
+    //		minOne = false;
+    //	} else if (!h1.isPlaced && !minOne) {
+    //		houses++;
+    //		minOne = true;
+    //	}
 
-    	if (h2.isPlaced  && minTwo) {
-    		houses--;
-    		minTwo = false;
-    	} else if (!h2.isPlaced && !minTwo) {
-    		houses++;
-    		minTwo = true;
-    	}
+    //	if (h2.isPlaced  && minTwo) {
+    //		houses--;
+    //		minTwo = false;
+    //	} else if (!h2.isPlaced && !minTwo) {
+    //		houses++;
+    //		minTwo = true;
+    //	}
 
-    	if (h3.isPlaced  && minThree) {
-    		houses--;
-    		minThree = false;
-    	} else if (!h3.isPlaced && !minThree) {
-    		houses++;
-    		minThree = true;
-    	}
+    //	if (h3.isPlaced  && minThree) {
+    //		houses--;
+    //		minThree = false;
+    //	} else if (!h3.isPlaced && !minThree) {
+    //		houses++;
+    //		minThree = true;
+    //	}
 
-    	if (h4.isPlaced  && minFour) {
-    		houses--;
-    		minFour = false;
-    	} else if (!h4.isPlaced && !minFour) {
-    		houses++;
-    		minFour = true;
-    	}
+    //	if (h4.isPlaced  && minFour) {
+    //		houses--;
+    //		minFour = false;
+    //	} else if (!h4.isPlaced && !minFour) {
+    //		houses++;
+    //		minFour = true;
+    //	}
 
-    	if (h5.isPlaced  && minFive) {
-    		houses--;
-    		minFive = false;
-    	} else if (!h5.isPlaced && !minFive) {
-    		houses++;
-    		minFive = true;
-    	}
+    //	if (h5.isPlaced  && minFive) {
+    //		houses--;
+    //		minFive = false;
+    //	} else if (!h5.isPlaced && !minFive) {
+    //		houses++;
+    //		minFive = true;
+    //	}
 
-    	if (h6.isPlaced  && minSix) {
-    		houses--;
-    		minSix = false;
-    	} else if (!h6.isPlaced && !minSix) {
-    		houses++;
-    		minSix = true;
-    	}
+    //	if (h6.isPlaced  && minSix) {
+    //		houses--;
+    //		minSix = false;
+    //	} else if (!h6.isPlaced && !minSix) {
+    //		houses++;
+    //		minSix = true;
+    //	}
 
-    	if (h7.isPlaced  && minSeven) {
-    		houses--;
-    		minSeven = false;
-    	} else if (!h7.isPlaced && !minSeven) {
-    		houses++;
-    		minSeven = true;
-    	}
+    //	if (h7.isPlaced  && minSeven) {
+    //		houses--;
+    //		minSeven = false;
+    //	} else if (!h7.isPlaced && !minSeven) {
+    //		houses++;
+    //		minSeven = true;
+    //	}
 
-    	if (h8.isPlaced  && minEight) {
-    		houses--;
-    		minEight = false;
-    	} else if (!h8.isPlaced && !minEight) {
-    		houses++;
-    		minEight = true;
-    	}
-    }
+    //	if (h8.isPlaced  && minEight) {
+    //		houses--;
+    //		minEight = false;
+    //	} else if (!h8.isPlaced && !minEight) {
+    //		houses++;
+    //		minEight = true;
+    //	}
+    //}
 
     private void houseSelector(string name, Transform target, GameObject infoBox) {
     	if (Physics.Raycast (ray, out hit) ) {

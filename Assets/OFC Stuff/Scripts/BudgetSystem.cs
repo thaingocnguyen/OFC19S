@@ -63,14 +63,12 @@ public class BudgetSystem : MonoBehaviour
     {
         currentEnergyScore = Mathf.Clamp(currentEnergyScore + points, 0, maxEnergyScore);
         updateEnergyBar();
-        print(currentEnergyScore);
     }
 
     public void decrementEnergyScore(int points)
     {
         currentEnergyScore = Mathf.Clamp(currentEnergyScore - points, 0, maxEnergyScore);
         updateEnergyBar();
-        print(currentEnergyScore);
     }
 
     private void updateEnergyBar()
