@@ -11,12 +11,15 @@ public class BudgetSystem : MonoBehaviour
     public GameObject SolarButtons;
     public GameObject YesNoButtons;
 
-    public GameObject energyBar;
-    int energyScore;
+    [SerializeField]
+    GameObject energyBar;
 
     [SerializeField]
     int maxBudget;
-    int maxEnergyScore;
+
+    int currentBudget;
+    float maxEnergyScore = 100;
+    float currentEnergyScore;
 
     #region Singleton
     public static BudgetSystem Instance;
@@ -24,14 +27,16 @@ public class BudgetSystem : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        energyScore = 0; 
+        currentEnergyScore = 0;
+        updateEnergyBar();
     }
     #endregion Singleton
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
         budgetTxt.text = "Budget: " + maxBudget;
+        currentBudget = maxBudget;
         subtractBudgetTxt.text = "";
         ending.text = "";
         SolarButtons.SetActive(false);
@@ -41,23 +46,36 @@ public class BudgetSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (maxBudget == 0)
+        if (currentBudget == 0)
         {
             budgetTxt.text = "Budget: 0";
-            maxBudget = -1;
+            currentBudget = -1;
             StartCoroutine(NoMoney());
         }
     }
 
+    public float EnergyScore
+    {
+        get { return currentEnergyScore; }
+        set { currentEnergyScore = value; }
+    }
     public void incrementEnergyScore(int points)
     {
-        energyScore = Mathf.Clamp(energyScore + points, 0, maxEnergyScore);
+        currentEnergyScore = Mathf.Clamp(currentEnergyScore + points, 0, maxEnergyScore);
         updateEnergyBar();
+        print(currentEnergyScore);
+    }
+
+    public void decrementEnergyScore(int points)
+    {
+        currentEnergyScore = Mathf.Clamp(currentEnergyScore - points, 0, maxEnergyScore);
+        updateEnergyBar();
+        print(currentEnergyScore);
     }
 
     private void updateEnergyBar()
     {
-        energyBar.transform.localScale = new Vector3(energyScore / maxEnergyScore, 1, 1);
+        energyBar.transform.localScale = new Vector3(1, currentEnergyScore / maxEnergyScore, 1);
     }
 
     public IEnumerator DecrementBudget(string tag)
@@ -65,22 +83,22 @@ public class BudgetSystem : MonoBehaviour
         if (tag == "12000")
         {
 
-            maxBudget = maxBudget - 12000;
-            budgetTxt.text = "Budget: " + maxBudget;
+            currentBudget = currentBudget - 12000;
+            budgetTxt.text = "Budget: " + currentBudget;
             subtractBudgetTxt.text = " -$12000";
         }
         else if (tag == "3000")
         {
 
-            maxBudget = maxBudget - 3000;
-            budgetTxt.text = "Budget: " + maxBudget;
+            currentBudget = currentBudget - 3000;
+            budgetTxt.text = "Budget: " + currentBudget;
             subtractBudgetTxt.text = " -$3000";
         }
 
         else
         {
 
-            budgetTxt.text = "Budget: " + maxBudget;
+            budgetTxt.text = "Budget: " + currentBudget;
         }
 
         yield return new WaitForSeconds(0.7f);
@@ -92,22 +110,22 @@ public class BudgetSystem : MonoBehaviour
         if (tag == "12000")
         {
 
-            maxBudget = maxBudget + 12000;
-            budgetTxt.text = "Budget: " + maxBudget;
+            currentBudget = currentBudget + 12000;
+            budgetTxt.text = "Budget: " + currentBudget;
             subtractBudgetTxt.text = " +$12000";
         }
         else if (tag == "3000")
         {
 
-            maxBudget = maxBudget + 3000;
-            budgetTxt.text = "Budget: " + maxBudget;
+            currentBudget = currentBudget + 3000;
+            budgetTxt.text = "Budget: " + currentBudget;
             subtractBudgetTxt.text = " +$3000";
         }
 
         else
         {
 
-            budgetTxt.text = "Budget: " + maxBudget;
+            budgetTxt.text = "Budget: " + currentBudget;
         }
 
         yield return new WaitForSeconds(0.7f);
@@ -118,13 +136,13 @@ public class BudgetSystem : MonoBehaviour
     {
         if (tag == "12000")
         {
-            if ((maxBudget - 12000) < 0)
+            if ((currentBudget - 12000) < 0)
             { return false; }
             else { return true; }
         }
         else if (tag == "3000")
         {
-            if ((maxBudget - 3000) < 0)
+            if ((currentBudget - 3000) < 0)
             { return false; }
             else { return true; }
         }
@@ -138,7 +156,7 @@ public class BudgetSystem : MonoBehaviour
         budgetTxt.text = "";
         ending.text = "You have ran out of money";
         yield return new WaitForSeconds(5f);
-        ending.text = "Your energy score is " + engScore.score;
+        ending.text = "Your energy score is " + currentEnergyScore;
         SolarButtons.SetActive(true);
         yield return new WaitForSeconds(1f);
 

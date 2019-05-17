@@ -14,12 +14,11 @@ public class DragAndBudget : MonoBehaviour
     public GameObject PuzzleCreatorScript;
 
     public GameObject panel;
-    //public string puzzleName = "PuzzleCreatorScript";
     
     bool budgetMoreThanZero;
 
 
-    public energyScoring engScore;
+    //public energyScoring engScore;
 
     void Awake()
     {
@@ -56,7 +55,6 @@ public class DragAndBudget : MonoBehaviour
     void OnMouseUp()
     {
         budgetMoreThanZero = BudgetSystem.Instance.ifBudgetNotZero(gameObject.tag);
-        //Debug.Log(budgetMoreThanZero);
         if (budgetMoreThanZero)
         {
             //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
@@ -71,16 +69,16 @@ public class DragAndBudget : MonoBehaviour
                     StartCoroutine(BudgetSystem.Instance.IncrementBudget(gameObject.tag));
                     if (gameObject.tag == "12000")
                     {
-                        if (engScore.score > 3f)
+                        if (BudgetSystem.Instance.EnergyScore > 3)
                         {
-                            engScore.score -= 4f;
+                            BudgetSystem.Instance.decrementEnergyScore(4);
                         }
                     }
                     else if (gameObject.tag == "3000")
                     {
-                        if (engScore.score > 1f)
+                        if (BudgetSystem.Instance.EnergyScore > 1)
                         {
-                            engScore.score -= 2f;
+                            BudgetSystem.Instance.decrementEnergyScore(2);
                         }
                     }
                 }
@@ -94,19 +92,19 @@ public class DragAndBudget : MonoBehaviour
                 {
                     StartCoroutine(BudgetSystem.Instance.DecrementBudget(gameObject.tag));
                     panel.GetComponent<SolarPanel>().PanelPlaced = true;
-                    engScore.count++;
+
                     if (gameObject.tag == "12000")
                     {
-                        if (engScore.score < 10 && !panel.GetComponent<SolarPanel>().isShaded)
+                        if (!panel.GetComponent<SolarPanel>().isShaded)
                         {
-                            engScore.score += 4f;
+                            BudgetSystem.Instance.incrementEnergyScore(4);
                         }
                     }
                     else if (gameObject.tag == "3000")
                     {
-                        if (engScore.score < 10 && !panel.GetComponent<SolarPanel>().isShaded)
+                        if (!panel.GetComponent<SolarPanel>().isShaded)
                         {
-                            engScore.score += 2f;
+                            BudgetSystem.Instance.incrementEnergyScore(4);
                         }
                     }
                 }
