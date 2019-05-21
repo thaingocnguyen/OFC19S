@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public Animator animator;
     public Animator tutorialButtonAnimator;
+    public Animator startQuestAnimator;
 
 	private Queue<string> sentences;
 
@@ -61,6 +62,7 @@ public class DialogueManager : MonoBehaviour {
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
+        startQuestAnimator.SetBool("IsOnScreen", true);
 	}
 
 }
