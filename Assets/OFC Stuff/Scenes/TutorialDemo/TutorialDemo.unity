@@ -679,7 +679,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 53bd2da7b9ef39c4d9448fad5700e900, type: 3}
+    m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
     m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 53bd2da7b9ef39c4d9448fad5700e900, type: 3}
+    m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
     m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
@@ -1221,7 +1221,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 53bd2da7b9ef39c4d9448fad5700e900, type: 3}
+    m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
     m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
@@ -1504,12 +1504,17 @@ MonoBehaviour:
     - "Hey there! My name is Rene\xE9"
     - I believe that the bigger impact will come from using renewable energy resources
       and no reliance on fossil fuels. Food waste is just a drop in the bucket.
-    - 'Description of quest '
-    - Solar panels needs direct sunlight to produce power
-    - "Vancouver is 49\xB0 N of the equator. The sun's rays are at an angle with Vancouver.
-      What angle would produce the most power?"
-    - 'Some sentences on BGC credit? '
-    - Great job! Now let's begin placing solar panels on roofs.
+    - 'This is the SOLAR quest. The aim of this quest is to maximize the amount of
+      energy generated while minimizing the amount of budget used by retrofitting
+      the houses on this block with solar panels. '
+    - "Solar panels needs direct sunlight to produce power. Vancouver is 49\xB0 N
+      of the equator. The sun's rays are at an angle with Vancouver. As such, panels
+      should face South to be the most efficient."
+    - 'Use the Sun Slider to observe how the sunlight varies on the roofs of houses
+      throughout the day. Take note of where the roofs are facing. '
+    - Click on houses to zoom in and modify solar panels on the roof.
+    - Once you're done, click CALCULATE to calculate the amount of energy that can
+      be generated. Now let's begin placing solar panels on roofs!
 --- !u!95 &1743615525
 Animator:
   serializedVersion: 3
@@ -1587,7 +1592,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 53bd2da7b9ef39c4d9448fad5700e900, type: 3}
+    m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
