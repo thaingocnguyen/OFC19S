@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public Animator animator;
     public Animator tutorialButtonAnimator;
+    public Animator skipTutorialAnimator;
     public Animator startQuestAnimator;
 
 	private Queue<string> sentences;
@@ -23,6 +24,7 @@ public class DialogueManager : MonoBehaviour {
 	{
 		animator.SetBool("IsOpen", true);
         tutorialButtonAnimator.SetBool("isOnScreen", false);
+        skipTutorialAnimator.SetBool("IsOnScreen", false);
 
         nameText.text = dialogue.name;
 
