@@ -2821,6 +2821,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 119573307}
     m_Modifications:
+    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_Name
+      value: SolarGame
+      objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2875,11 +2880,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Name
-      value: SolarGame
       objectReference: {fileID: 0}
     - target: {fileID: 1444538684100060140, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -4955,10 +4955,10 @@ RectTransform:
   m_Father: {fileID: 838862285}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -321}
-  m_SizeDelta: {x: 631.30005, y: 440.8}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 102}
+  m_SizeDelta: {x: 365.66, y: 187.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &424873043 stripped
 GameObject:
@@ -6071,10 +6071,10 @@ RectTransform:
   m_Father: {fileID: 838862285}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 484, y: -290}
-  m_SizeDelta: {x: 308.4, y: 110.9}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -183, y: 85}
+  m_SizeDelta: {x: 308.40002, y: 110.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526408225
 MonoBehaviour:
@@ -7940,7 +7940,7 @@ PrefabInstance:
     - target: {fileID: 3812823618955453040, guid: 6083092d4b6e7a5458d786bde18ec5c3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 3812823618955453040, guid: 6083092d4b6e7a5458d786bde18ec5c3,
         type: 3}
@@ -11838,6 +11838,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1573269478}
     m_Modifications:
+    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_Name
+      value: SolarGame (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11892,11 +11897,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Name
-      value: SolarGame (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1444538684100060140, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -12213,6 +12213,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1741240089}
     m_Modifications:
+    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_Name
+      value: SolarGame (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12267,11 +12272,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Name
-      value: SolarGame (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1444538684100060140, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -12537,10 +12537,10 @@ RectTransform:
   m_Father: {fileID: 838862285}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 28, y: 17}
-  m_SizeDelta: {x: -1820, y: -980}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 695, y: -358}
+  m_SizeDelta: {x: -486, y: -230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1237622395
 PrefabInstance:
@@ -12856,6 +12856,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1475552057}
     m_Modifications:
+    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_Name
+      value: SolarGame (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12910,11 +12915,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Name
-      value: SolarGame (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1444538684100060140, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -14019,8 +14019,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: -76}
-  m_SizeDelta: {x: 106.2, y: 25}
+  m_AnchoredPosition: {x: 137, y: 8.25}
+  m_SizeDelta: {x: 113.7, y: 28.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1378826440
 MonoBehaviour:
@@ -14043,7 +14043,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -14246,8 +14246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -146}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -54}
+  m_SizeDelta: {x: 199.6, y: 37.428}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1396929025
 MonoBehaviour:
@@ -14270,7 +14270,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
     m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
@@ -14298,6 +14298,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 846910436}
     m_Modifications:
+    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_Name
+      value: SolarGame (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14352,11 +14357,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Name
-      value: SolarGame (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1444538684100060140, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -15578,6 +15578,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 255853668}
     m_Modifications:
+    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_Name
+      value: SolarGame (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15632,11 +15637,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Name
-      value: SolarGame (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1444538684100060140, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -16272,9 +16272,9 @@ RectTransform:
   m_Father: {fileID: 838862285}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -553, y: -260}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 114, y: 115}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555845411
@@ -16673,6 +16673,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1485711912}
     m_Modifications:
+    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_Name
+      value: SolarGame
+      objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16727,11 +16732,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Name
-      value: SolarGame
       objectReference: {fileID: 0}
     - target: {fileID: 1444538685557021604, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -18102,7 +18102,7 @@ MonoBehaviour:
   m_text: Use the slider to see how the sunlight on the roofs of houses changes throughout
     the day
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -19608,6 +19608,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 316053470}
     m_Modifications:
+    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_Name
+      value: SolarGame
+      objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19662,11 +19667,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Name
-      value: SolarGame
       objectReference: {fileID: 0}
     - target: {fileID: 1444538685606842919, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -20408,7 +20408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137, y: -77}
+  m_AnchoredPosition: {x: -137, y: 8.999985}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1931043109
@@ -20432,7 +20432,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -22747,6 +22747,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 838862285}
     m_Modifications:
+    - target: {fileID: 2105391089979719283, guid: cadf956acb3c1445dbc361cef0261a7d,
+        type: 3}
+      propertyPath: m_Name
+      value: EnergyBar
+      objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22805,42 +22810,42 @@ PrefabInstance:
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 587
+      value: -68
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 140
+      value: -164
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 76.7
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 278
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1678684001504267847, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
@@ -22851,11 +22856,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2105391089979719283, guid: cadf956acb3c1445dbc361cef0261a7d,
-        type: 3}
-      propertyPath: m_Name
-      value: EnergyBar
       objectReference: {fileID: 0}
     - target: {fileID: 2105391091272896831, guid: cadf956acb3c1445dbc361cef0261a7d,
         type: 3}
@@ -22957,6 +22957,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105391089870088988, guid: cadf956acb3c1445dbc361cef0261a7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105391089870088988, guid: cadf956acb3c1445dbc361cef0261a7d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 38.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105391089870088988, guid: cadf956acb3c1445dbc361cef0261a7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105391090530121933, guid: cadf956acb3c1445dbc361cef0261a7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105391090530121933, guid: cadf956acb3c1445dbc361cef0261a7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105391090530121933, guid: cadf956acb3c1445dbc361cef0261a7d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 64.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105391090530121933, guid: cadf956acb3c1445dbc361cef0261a7d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 193.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cadf956acb3c1445dbc361cef0261a7d, type: 3}
