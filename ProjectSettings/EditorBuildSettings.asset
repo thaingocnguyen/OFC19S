@@ -15,21 +15,21 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/OFC Stuff/Scenes/recycle/recycle_proto.unity
+    path: Assets/Scenes/recycle/recycle_proto.unity
     guid: d787ab06fc7953447bb116d95cfdf182
   - enabled: 0
-    path: Assets/SuburbNeighborhoodHousePack/Scenes/DayHouseInteriorExterior.unity
+    path: Assets/ThirdParty/SuburbNeighborhoodHousePack/Scenes/DayHouseInteriorExterior.unity
     guid: 038012af2c7311944bfdc9fc02fa1d3e
   - enabled: 0
-    path: Assets/OFC Stuff/Scenes/TETRIS/TETRIS_two.unity
+    path: Assets/Scenes/TETRIS/TETRIS_two.unity
     guid: 7fc212503198b4642ba5c19a12703e8a
   - enabled: 1
-    path: Assets/OFC Stuff/Scenes/map_scenes/kits_scene.unity
+    path: Assets/Scenes/map_scenes/kits_scene.unity
     guid: 61192affdd190834f886f6874830cd5f
   - enabled: 0
-    path: Assets/OFC Stuff/Scenes/TutorialDemo/TutorialDemo.unity
+    path: Assets/Scenes/TutorialDemo/TutorialDemo.unity
     guid: 6b0a0e5d954e691479bb47934fa51d7d
   - enabled: 1
-    path: Assets/OFC Stuff/Scenes/map_scenes/block_scene.unity
+    path: Assets/Scenes/map_scenes/block_scene.unity
     guid: b92e4dc19cebac7478c02508830200e2
   m_configObjects: {}
