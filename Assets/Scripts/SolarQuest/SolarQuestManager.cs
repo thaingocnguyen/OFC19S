@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class SolarQuestManager : MonoBehaviour
 {
-
-    public Animator startQuestAnimator;
+    public Camera startCam;
+    public Camera questCam;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        startQuestAnimator.SetBool("IsOnScreen", true);
+        startCam.enabled = true;
+        questCam.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
-    {
-
+    { 
     }
 }
