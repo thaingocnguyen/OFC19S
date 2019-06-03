@@ -29,7 +29,7 @@ public class GridGenerator : MonoBehaviour {
     // Use this for initialization
     void Start () {
         MakePuzzle();
-       
+        pos = transform.position;       
     }
 	
 	// Update is called once per frame
@@ -45,7 +45,7 @@ public class GridGenerator : MonoBehaviour {
             for(c = 0; c < col; c++)
             {
 
-                
+     
                 GameObject gridCube = Instantiate(gridCubePrefab, pos, transform.rotation);
                 gridCube.transform.parent = transform;
                 gridCube.transform.localPosition = new Vector3(0, 0, 0);
@@ -55,7 +55,7 @@ public class GridGenerator : MonoBehaviour {
                 newPos = new Vector3(pos.x + space * c, pos.y + space * r, pos.z);
                 gridCube.transform.localPosition = newPos;
 
-                posArray[i] = gridCube.transform.localPosition;
+                posArray[i] = gridCube.transform.position;
                 i++;
 
             }
@@ -68,8 +68,8 @@ public class GridGenerator : MonoBehaviour {
     
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
-        Debug.Log(position);
-        float smallestDistance = 2f;
+
+        float smallestDistance = 8f;
         result = new Vector3(0, 0, 0);
 
         for (int count = 0; count < posArray.Length - 1; count++)

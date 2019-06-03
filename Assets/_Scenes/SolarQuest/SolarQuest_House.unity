@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9de71adba5b48db8415350ef49d356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragDistance: 10.8
+  dragDistance: 9
   panelCount: 3
   GridGeneratorScript: {fileID: 212369402}
   panel: {fileID: 63350812}
@@ -2674,7 +2674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9de71adba5b48db8415350ef49d356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragDistance: 10.8
+  dragDistance: 9
   panelCount: 3
   GridGeneratorScript: {fileID: 212369402}
   panel: {fileID: 1445683380}
