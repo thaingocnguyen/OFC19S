@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreatePuzzle : MonoBehaviour {
-    public GameObject gridCubePrefab;
-    public GameObject parent;
-    public int row;
-    public int col;
+public class GridGenerator : MonoBehaviour {
+    [SerializeField]
+    GameObject gridCubePrefab;
+    [SerializeField]
+    int row;
+    [SerializeField]
+    int col;
     Vector3 pos;
     Vector3 newPos;
-    Vector3 parentPos;
     Vector3[] posArray;
     float space = 1.5f;
     int c;
@@ -27,9 +28,7 @@ public class CreatePuzzle : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //parentPos = parent.transform.position;
         MakePuzzle();
-        pos = parent.transform.position;
        
     }
 	
@@ -40,24 +39,25 @@ public class CreatePuzzle : MonoBehaviour {
 
     void MakePuzzle()
     {
+        pos = gameObject.transform.position;
         for(r = 0; r < row; r++)
         {
             for(c = 0; c < col; c++)
             {
-                
-               
-                GameObject child = Instantiate(gridCubePrefab, pos, Quaternion.identity);
-                
-                child.transform.parent = parent.transform;
-                child.transform.localPosition = new Vector3(0, 0, 0);
-                child.transform.localRotation = Quaternion.identity;
 
-                newPos = new Vector3(child.transform.localPosition.x + space * c, child.transform.localPosition.y + space * r, child.transform.localPosition.z);
-                child.transform.localPosition = newPos;
-
-                i = i + 1;
-                posArray[i-1] = child.transform.position;
                 
+                GameObject gridCube = Instantiate(gridCubePrefab, pos, transform.rotation);
+                gridCube.transform.parent = transform;
+                gridCube.transform.localPosition = new Vector3(0, 0, 0);
+                gridCube.transform.localRotation = Quaternion.identity;
+
+                pos = gridCube.transform.localPosition;
+                newPos = new Vector3(pos.x + space * c, pos.y + space * r, pos.z);
+                gridCube.transform.localPosition = newPos;
+
+                posArray[i] = gridCube.transform.localPosition;
+                i++;
+
             }
                       
         }
@@ -68,6 +68,7 @@ public class CreatePuzzle : MonoBehaviour {
     
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
+        Debug.Log(position);
         float smallestDistance = 2f;
         result = new Vector3(0, 0, 0);
 

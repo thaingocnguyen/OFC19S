@@ -44,7 +44,7 @@ public class DragBudgetVsEnergy : MonoBehaviour {
     {
         //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
 
-        Vector3 closest = PuzzleCreatorScript.GetComponent<CreatePuzzle>().GetNearestPointOnGrid(transform.position);
+        Vector3 closest = PuzzleCreatorScript.GetComponent<GridGenerator>().GetNearestPointOnGrid(transform.position);
 
         if (closest == new Vector3(0, 0, 0))
         {

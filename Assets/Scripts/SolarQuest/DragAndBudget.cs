@@ -11,7 +11,7 @@ public class DragAndBudget : MonoBehaviour
     public float dragDistance = 10.8f; //distance to drag mouse
     float zPosSolar;
     private Vector3 objPos;
-    public GameObject PuzzleCreatorScript;
+    public GameObject GridGeneratorScript;
 
     public GameObject panel;
     
@@ -58,7 +58,7 @@ public class DragAndBudget : MonoBehaviour
         if (budgetMoreThanZero)
         {
             //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
-            Vector3 closest = PuzzleCreatorScript.GetComponent<CreatePuzzle>().GetNearestPointOnGrid(transform.position);
+            Vector3 closest = GridGeneratorScript.GetComponent<GridGenerator>().GetNearestPointOnGrid(transform.position);
 
             // Return panel to the pile if the location placed is not near grid 
             if (closest == new Vector3(0, 0, 0))

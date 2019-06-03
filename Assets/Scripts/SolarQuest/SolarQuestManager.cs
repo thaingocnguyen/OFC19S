@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SolarQuestManager : MonoBehaviour
 {
+    public bool debugMode;
     [SerializeField]
     Camera startCam;
     [SerializeField]

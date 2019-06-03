@@ -29,7 +29,7 @@ public class CubePlacer : MonoBehaviour {
     {
         var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
         GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
-
+        Debug.Log("placed cube at " + finalPosition);
         //GameObject.CreatePrimitive(PrimitiveType.Sphere).transform.position = nearPoint;
     }
 }
