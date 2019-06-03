@@ -14,6 +14,9 @@ public class TextboxManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    [SerializeField]
+    GameObject character;
+
     // Use this for initialization
     void Awake()
     {
@@ -33,6 +36,7 @@ public class TextboxManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+        character.SetActive(true);
     }
 
     public void DisplayNextSentence()

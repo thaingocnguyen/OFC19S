@@ -16,6 +16,12 @@ public class SolarQuestManager : MonoBehaviour
     [SerializeField]
     GameObject SolarGame;
 
+    [SerializeField]
+    GameObject tutorialUI;
+
+    [SerializeField]
+    GameObject character;
+
     enum GameState
     {
         Tutorial,
@@ -30,16 +36,14 @@ public class SolarQuestManager : MonoBehaviour
         startCam.enabled = true;
         questCam.enabled = false;
         SolarGame.SetActive(false);
+        tutorialUI.SetActive(false);
+        character.SetActive(false);
 
         TutorialManager.GetComponent<TextboxManager>().onTutorialEnd += Handle_OnTutorialEnd;
 
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     void Handle_OnTutorialEnd()
     {
@@ -48,6 +52,7 @@ public class SolarQuestManager : MonoBehaviour
             currentState = GameState.Quest;
             startCam.enabled = false;
             questCam.enabled = true;
+
             SolarGame.SetActive(true);
         }
     }
