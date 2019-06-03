@@ -13,6 +13,9 @@ public class SolarQuestManager : MonoBehaviour
     [SerializeField]
     GameObject TutorialManager;
 
+    [SerializeField]
+    GameObject SolarGame;
+
     enum GameState
     {
         Tutorial,
@@ -26,6 +29,7 @@ public class SolarQuestManager : MonoBehaviour
         // Start out using tutorial camera 
         startCam.enabled = true;
         questCam.enabled = false;
+        SolarGame.SetActive(false);
 
         TutorialManager.GetComponent<TextboxManager>().onTutorialEnd += Handle_OnTutorialEnd;
 
@@ -44,6 +48,7 @@ public class SolarQuestManager : MonoBehaviour
             currentState = GameState.Quest;
             startCam.enabled = false;
             questCam.enabled = true;
+            SolarGame.SetActive(true);
         }
     }
 

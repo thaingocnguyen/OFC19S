@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class selector : MonoBehaviour
+public class StartSolarQuest : MonoBehaviour
 {
     private Renderer renderer;
 
@@ -26,7 +26,7 @@ public class selector : MonoBehaviour
     }
 
     void OnMouseDown() {
-    	SceneManager.LoadScene("block_scene");
+    	SceneManager.LoadScene("SolarQuest_House");
     }
 
     void OnMouseEnter()
