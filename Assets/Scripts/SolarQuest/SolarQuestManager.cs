@@ -4,19 +4,46 @@ using UnityEngine;
 
 public class SolarQuestManager : MonoBehaviour
 {
-    public Camera startCam;
-    public Camera questCam;
+    [SerializeField]
+    Camera startCam;
+    [SerializeField]
+    Camera questCam;
 
+    [SerializeField]
+    GameObject TutorialManager;
 
-    // Start is called before the first frame update
+    enum GameState
+    {
+        Tutorial,
+        Quest
+    }
+
+    GameState currentState = GameState.Tutorial;
+
     void Start()
     {
+        // Start out using tutorial camera 
         startCam.enabled = true;
         questCam.enabled = false;
+
+        TutorialManager.GetComponent<TextboxManager>().onTutorialEnd += Handle_OnTutorialEnd;
+
+
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
     }
+
+    void Handle_OnTutorialEnd()
+    {
+        if (currentState == GameState.Tutorial)
+        {
+            currentState = GameState.Quest;
+            startCam.enabled = false;
+            questCam.enabled = true;
+        }
+    }
+
 }

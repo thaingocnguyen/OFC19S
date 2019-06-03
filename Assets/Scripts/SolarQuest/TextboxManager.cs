@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class TextboxManager : MonoBehaviour
 {
 
+    public delegate void TutorialDelegate();
+    public TutorialDelegate onTutorialEnd;
 
     public Text titleText;
     public Text infoText;
@@ -58,6 +60,8 @@ public class TextboxManager : MonoBehaviour
 
     void EndDialogue()
     {
+        GetComponent<Animator>().SetBool("IsOnScreen", false);
+        onTutorialEnd();
     }
 
 }
