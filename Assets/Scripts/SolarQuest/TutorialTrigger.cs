@@ -10,7 +10,7 @@ public class TutorialTrigger : MonoBehaviour
 
     public void TriggerTutorial()
     {
-        FindObjectOfType<TextboxManager>().StartTutorial(tutorial);
+        FindObjectOfType<TutorialManager>().StartTutorial(tutorial);
         GetComponent<Animator>().SetBool("IsOnScreen", false);
     }
 

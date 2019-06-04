@@ -9,9 +9,11 @@ public class SolarQuestManager : MonoBehaviour
     Camera startCam;
     [SerializeField]
     Camera questCam;
+    [SerializeField]
+    Camera southCam;
 
     [SerializeField]
-    GameObject TutorialManager;
+    GameObject tutorialManager;
 
     [SerializeField]
     GameObject SolarGame;
@@ -35,15 +37,24 @@ public class SolarQuestManager : MonoBehaviour
         // Start out using tutorial camera 
         startCam.enabled = true;
         questCam.enabled = false;
+        southCam.enabled = false;
         SolarGame.SetActive(false);
         tutorialUI.SetActive(false);
         character.SetActive(false);
 
-        TutorialManager.GetComponent<TextboxManager>().onTutorialEnd += Handle_OnTutorialEnd;
-
-
+        tutorialManager.GetComponent<TutorialManager>().onSliderTutorialReached += Handle_OnSliderTutorialReached;
+        tutorialManager.GetComponent<TutorialManager>().onTutorialEnd += Handle_OnTutorialEnd;
     }
 
+    void Handle_OnSliderTutorialReached()
+    {
+        startCam.enabled = false;
+        southCam.enabled = true;
+
+        tutorialUI.SetActive(true);
+        character.SetActive(false);
+
+    }
 
     void Handle_OnTutorialEnd()
     {
