@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SolarQuestIntro : MonoBehaviour
+public class SolarQuestQuiz : MonoBehaviour
 {
 
     public Text mainText;
