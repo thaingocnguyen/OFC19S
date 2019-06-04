@@ -29,9 +29,6 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField]
     Tutorial tutorialHolder;
-
-    [SerializeField]
-    GameObject solarQuestIntroScript;
     
 
   

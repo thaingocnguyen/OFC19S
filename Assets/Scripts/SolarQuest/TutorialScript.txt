@@ -10,4 +10,4 @@ Let's try out a quick activity to answer this question!
 
 Try playing with the slider below to see how the sunlight on the roof of this house changes throughout a typical day. One you're done, click Done. 
 
-
+Applying what you've learnt, which direction should solar panels face in order to receive the most sunlight?

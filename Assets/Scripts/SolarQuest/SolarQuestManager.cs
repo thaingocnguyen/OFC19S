@@ -14,18 +14,16 @@ public class SolarQuestManager : MonoBehaviour
 
     [SerializeField]
     GameObject tutorialManager;
-
     [SerializeField]
     GameObject SolarGame;
-
     [SerializeField]
     GameObject tutorialUI;
-
     [SerializeField]
     GameObject character;
-
     [SerializeField]
     GameObject quizButtons;
+    [SerializeField]
+    GameObject energyBar;
 
 
     #region HintPanel
@@ -54,6 +52,7 @@ public class SolarQuestManager : MonoBehaviour
         questCam.enabled = false;
         southCam.enabled = false;
         SolarGame.SetActive(false);
+        energyBar.SetActive(false);
         tutorialUI.SetActive(false);
         character.SetActive(false);
         quizButtons.SetActive(false);
@@ -71,8 +70,9 @@ public class SolarQuestManager : MonoBehaviour
             currentState = GameState.Quest;
             startCam.enabled = false;
             questCam.enabled = true;
-
+            character.SetActive(false);
             SolarGame.SetActive(true);
+            energyBar.SetActive(true);
         }
     }
 
