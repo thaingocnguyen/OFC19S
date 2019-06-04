@@ -1426,7 +1426,7 @@ RectTransform:
   - {fileID: 1983112148}
   - {fileID: 1307651068}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2706,7 +2706,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
 --- !u!81 &107487512
 AudioListener:
@@ -2857,7 +2857,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 53.018, y: -90.00001, z: 0}
 --- !u!1001 &114182691
 PrefabInstance:
@@ -13231,7 +13231,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!108 &575524959
 Light:
@@ -17554,6 +17554,7 @@ MonoBehaviour:
   character: {fileID: 1707064770}
   sliderTutorialAnimator: {fileID: 684305257}
   tutorialHolder: {fileID: 1010611247}
+  continueButton: {fileID: 7304408785650560064}
 --- !u!95 &729386643
 Animator:
   serializedVersion: 3
@@ -18623,8 +18624,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 729386642}
-        m_MethodName: FinishSliderTutorial
+      - m_Target: {fileID: 1704837161}
+        m_MethodName: SolarQuestDone
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19673,8 +19674,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 729386642}
-        m_MethodName: SliderTutorialInstructionRead
+      - m_Target: {fileID: 1704837161}
+        m_MethodName: SolarQuestInstructionsRead
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20236,7 +20237,7 @@ Transform:
   - {fileID: 1438593446}
   - {fileID: 168507686}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &837684000
 PrefabInstance:
@@ -37159,7 +37160,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1612442657
 PrefabInstance:
@@ -39287,7 +39288,7 @@ MonoBehaviour:
   quizButtons: {fileID: 1099620822}
   energyBar: {fileID: 873731979}
   budget: {fileID: 199838068}
-  solarGameHelpTextAnimator: {fileID: 0}
+  solarGameHelpTextAnimator: {fileID: 1307651069}
   hint1: {fileID: 171832592}
   hint2: {fileID: 1780079408}
   hint3: {fileID: 1060036403}
@@ -39308,7 +39309,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1704837163
 MonoBehaviour:
@@ -46602,7 +46603,7 @@ PrefabInstance:
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}

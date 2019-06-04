@@ -29,8 +29,11 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField]
     Tutorial tutorialHolder;
-    
 
+    [SerializeField]
+    GameObject continueButton;
+
+    private bool displayingSentence = false;
   
 
     // Use this for initialization
@@ -65,18 +68,24 @@ public class TutorialManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        if (!displayingSentence)
+        {
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     IEnumerator TypeSentence(string sentence)
     {
+        displayingSentence = true;
+        continueButton.SetActive(false);
         infoText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             infoText.text += letter;
             yield return null;
         }
+        continueButton.SetActive(true);
+        displayingSentence = false;
     }
 
 
@@ -124,6 +133,7 @@ public class TutorialManager : MonoBehaviour
 
         DisplayNextSentence();
         character.SetActive(true);
+        continueButton.SetActive(false);
         quizDone = true;
         onQuizStart();
     }
