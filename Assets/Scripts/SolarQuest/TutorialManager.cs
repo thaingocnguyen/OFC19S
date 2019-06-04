@@ -10,6 +10,8 @@ public class TutorialManager : MonoBehaviour
     public delegate void TutorialDelegate();
     public TutorialDelegate onTutorialEnd;
     public TutorialDelegate onSliderTutorialReached;
+    public TutorialDelegate onQuizStart;
+    public TutorialDelegate onQuizEnd;
 
     public Text titleText;
     public Text infoText;
@@ -17,6 +19,7 @@ public class TutorialManager : MonoBehaviour
     private Queue<string> sentences;
 
     private bool sliderTutorialDone = false;
+    private bool quizDone = false;
 
     [SerializeField]
     GameObject character;
@@ -27,14 +30,16 @@ public class TutorialManager : MonoBehaviour
     [SerializeField]
     Tutorial tutorialHolder;
 
+    [SerializeField]
+    GameObject solarQuestIntroScript;
+    
+
+  
+
     // Use this for initialization
     void Awake()
     {
         sentences = new Queue<string>();
-    }
-
-    private void Start()
-    {
     }
 
     public void StartTutorial(Tutorial tutorial)
@@ -77,6 +82,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+
     private void ProcessNextTutorial()
     {
         if(!sliderTutorialDone)
@@ -91,12 +97,14 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    // Triggered when player has finished reading instruction for slider tutorial
     public void SliderTutorialInstructionRead()
     {
         sliderTutorialAnimator.SetBool("displayInstruction", false);
         sliderTutorialAnimator.SetBool("instructionRead", true);
     }
 
+    // Close slider tutorial and load the quiz 
     public void FinishSliderTutorial()
     {
         sliderTutorialDone = true;
@@ -104,6 +112,7 @@ public class TutorialManager : MonoBehaviour
         LoadQuiz();
     }
 
+    // Load quiz checking student's understanding on direction of the sun 
     private void LoadQuiz()
     {
         GetComponent<Animator>().SetBool("IsOnScreen", true);
@@ -118,8 +127,11 @@ public class TutorialManager : MonoBehaviour
 
         DisplayNextSentence();
         character.SetActive(true);
+        quizDone = true;
+        onQuizStart();
     }
 
+    // Close tutorial pane
     private void EndTutorial()
     {
         GetComponent<Animator>().SetBool("IsOnScreen", false);
