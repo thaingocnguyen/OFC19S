@@ -24,6 +24,8 @@ public class SolarQuestManager : MonoBehaviour
     GameObject quizButtons;
     [SerializeField]
     GameObject energyBar;
+    [SerializeField]
+    GameObject budget;
 
 
     #region HintPanel
@@ -45,35 +47,56 @@ public class SolarQuestManager : MonoBehaviour
 
     GameState currentState = GameState.Tutorial;
 
-    void Start()
+    private void Awake()
     {
         // Start out using tutorial camera 
         startCam.enabled = true;
         questCam.enabled = false;
         southCam.enabled = false;
-        SolarGame.SetActive(false);
-        energyBar.SetActive(false);
-        tutorialUI.SetActive(false);
+
         character.SetActive(false);
+
+        // Set all final quest ui items to be inactive
+        SolarGame.SetActive(false);
+        budget.SetActive(false);
+        energyBar.SetActive(false);
+
+        // Set all quiz ui items to be inactive
+        tutorialUI.SetActive(false);
         quizButtons.SetActive(false);
         SetStatusHintPanel(false);
 
+        // Set up for delegates
         tutorialManager.GetComponent<TutorialManager>().onSliderTutorialReached += Handle_OnSliderTutorialReached;
         tutorialManager.GetComponent<TutorialManager>().onTutorialEnd += Handle_OnTutorialEnd;
-        tutorialManager.GetComponent<TutorialManager>().onQuizStart += Handle_OnQuizStart;;
+        tutorialManager.GetComponent<TutorialManager>().onQuizStart += Handle_OnQuizStart; ;
     }
+
 
     void Handle_OnTutorialEnd()
     {
         if (currentState == GameState.Tutorial)
         {
             currentState = GameState.Quest;
+
+            // Switch cameras
             startCam.enabled = false;
             questCam.enabled = true;
+
+            // Remove character from screen
             character.SetActive(false);
-            SolarGame.SetActive(true);
+            tutorialUI.SetActive(false);
+
+            // Set solar game ui items for be active
             energyBar.SetActive(true);
+            budget.SetActive(true);
+            SolarGame.SetActive(true);
         }
+    }
+
+    public void SkipDebug()
+    {
+        Handle_OnTutorialEnd();
     }
 
     void Handle_OnSliderTutorialReached()

@@ -8,10 +8,8 @@ public class Tutorial : MonoBehaviour
 
     public string tutorialName;
 
-    [TextArea]
     public string[] sentences;
 
-    [TextArea]
     public string[] quizSentences;
 
 }

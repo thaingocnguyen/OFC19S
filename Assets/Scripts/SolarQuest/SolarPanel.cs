@@ -20,10 +20,4 @@ public class SolarPanel : MonoBehaviour
         get { return isPanelPlaced; }
         set { isPanelPlaced = value; }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

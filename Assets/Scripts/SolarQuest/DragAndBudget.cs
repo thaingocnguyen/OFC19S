@@ -18,11 +18,12 @@ public class DragAndBudget : MonoBehaviour
     bool budgetMoreThanZero;
 
 
+
     //public energyScoring engScore;
 
     void Awake()
     {
-
+        
     }
     // Use this for initialization
     void Start()
@@ -31,11 +32,6 @@ public class DragAndBudget : MonoBehaviour
         initialRotation = gameObject.transform.rotation;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     void OnMouseDown()
     {

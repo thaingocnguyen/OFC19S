@@ -36,7 +36,6 @@ public class BudgetSystem : MonoBehaviour
         budgetText.text = "Budget: $" + maxBudget;
         currentBudget = maxBudget;
         subtractBudgetText.text = "";
-        ending.text = "";
     }
 
     // Update is called once per frame
