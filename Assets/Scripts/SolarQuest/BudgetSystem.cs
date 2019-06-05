@@ -13,7 +13,7 @@ public class BudgetSystem : MonoBehaviour
     GameObject energyBar;
 
     [SerializeField]
-    int maxBudget;
+    int maxBudget = 90000;
 
     int currentBudget;
     float maxEnergyScore = 100;

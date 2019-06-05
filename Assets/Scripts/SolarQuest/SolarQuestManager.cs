@@ -27,8 +27,7 @@ public class SolarQuestManager : MonoBehaviour
     [SerializeField]
     GameObject budget;
 
-    [SerializeField]
-    Animator solarGameHelpTextAnimator;
+
 
     #region HintPanel
     [SerializeField] GameObject hint1;
@@ -94,24 +93,10 @@ public class SolarQuestManager : MonoBehaviour
             energyBar.SetActive(true);
             budget.SetActive(true);
             SolarGame.SetActive(true);
-
-            solarGameHelpTextAnimator.SetBool("instructionsOnScreen", true);
         }
     }
 
-    public void SolarQuestInstructionsRead()
-    {
-        solarGameHelpTextAnimator.SetBool("instructionsRead", true);
-        solarGameHelpTextAnimator.SetBool("instructionsOnScreen", false);
 
-    }
-
-    public void SolarQuestDone()
-    {
-        solarGameHelpTextAnimator.SetBool("instructionsRead", false);
-        solarGameHelpTextAnimator.SetBool("solarQuestDone", true);
-
-    }
 
     public void SkipDebug()
     {
@@ -132,6 +117,7 @@ public class SolarQuestManager : MonoBehaviour
     {
         quizButtons.SetActive(true);
         SetStatusHintPanel(false);
+
     }
 
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -20,20 +21,15 @@ public class TutorialManager : MonoBehaviour
 
     private bool sliderTutorialDone = false;
 
-    [SerializeField]
-    GameObject character;
-
-    [SerializeField]
-    Animator sliderTutorialAnimator;
-
-    [SerializeField]
-    Tutorial tutorialHolder;
-
-    [SerializeField]
-    GameObject continueButton;
+    [SerializeField] GameObject character;
+    [SerializeField] Animator sliderTutorialAnimator;
+    [SerializeField] Animator solarGameHelpTextAnimator;
+    [SerializeField] Tutorial tutorialHolder;
+    [SerializeField] GameObject continueButton;
 
     private bool displayingSentence = false;
     private bool quizPlaying = false;
+    private bool questEnd = false;
 
     public bool QuizPlaying
     {
@@ -100,21 +96,6 @@ public class TutorialManager : MonoBehaviour
         displayingSentence = false;
     }
 
-
-    private void ProcessNextTutorial()
-    {
-        if(!sliderTutorialDone)
-        {
-            GetComponent<Animator>().SetBool("IsOnScreen", false);
-            sliderTutorialAnimator.SetBool("displayInstruction", true);
-            onSliderTutorialReached();
-        }
-        else
-        {
-            EndTutorial();
-        }
-    }
-
     // Triggered when player has finished reading instruction for slider tutorial
     public void SliderTutorialInstructionRead()
     {
@@ -128,6 +109,42 @@ public class TutorialManager : MonoBehaviour
         sliderTutorialDone = true;
         sliderTutorialAnimator.SetBool("finishSliderTutorial", true);
         LoadQuiz();
+    }
+
+    public void EndQuest()
+    {
+        GetComponent<Animator>().SetBool("IsOnScreen", true);
+
+        titleText.text = tutorialHolder.tutorialName;
+        Tutorial.energyScore = BudgetSystem.Instance.EnergyScore;
+
+        sentences.Clear();
+
+        foreach (string sentence in tutorialHolder.endingSentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        DisplayNextSentence();
+        character.SetActive(true);
+    }
+
+    private void ProcessNextTutorial()
+    {
+        if(!sliderTutorialDone)
+        {
+            GetComponent<Animator>().SetBool("IsOnScreen", false);
+            sliderTutorialAnimator.SetBool("displayInstruction", true);
+            onSliderTutorialReached();
+        }
+        else if(!questEnd)
+        {
+            EndTutorial();
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     // Load quiz checking student's understanding on direction of the sun 
@@ -152,10 +169,27 @@ public class TutorialManager : MonoBehaviour
         onQuizStart();
     }
 
+    public void SolarQuestInstructionsRead()
+    {
+        solarGameHelpTextAnimator.SetBool("instructionsRead", true);
+        solarGameHelpTextAnimator.SetBool("instructionsOnScreen", false);
+
+    }
+
+    public void SolarQuestDone()
+    {
+        solarGameHelpTextAnimator.SetBool("instructionsRead", false);
+        solarGameHelpTextAnimator.SetBool("solarQuestDone", true);
+        questEnd = true;
+        EndQuest();
+    }
+
+
     // Close tutorial pane
     private void EndTutorial()
     {
         GetComponent<Animator>().SetBool("IsOnScreen", false);
+        solarGameHelpTextAnimator.SetBool("instructionsOnScreen", true);
         onTutorialEnd();
     }
 

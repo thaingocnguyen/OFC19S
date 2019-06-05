@@ -2706,7 +2706,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
 --- !u!81 &107487512
 AudioListener:
@@ -2857,7 +2857,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 53.018, y: -90.00001, z: 0}
 --- !u!1001 &114182691
 PrefabInstance:
@@ -17553,6 +17553,7 @@ MonoBehaviour:
   infoText: {fileID: 7304408786177091475}
   character: {fileID: 1707064770}
   sliderTutorialAnimator: {fileID: 684305257}
+  solarGameHelpTextAnimator: {fileID: 1307651069}
   tutorialHolder: {fileID: 1010611247}
   continueButton: {fileID: 7304408785650560064}
 --- !u!95 &729386643
@@ -18624,7 +18625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1704837161}
+      - m_Target: {fileID: 729386642}
         m_MethodName: SolarQuestDone
         m_Mode: 1
         m_Arguments:
@@ -19674,7 +19675,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1704837161}
+      - m_Target: {fileID: 729386642}
         m_MethodName: SolarQuestInstructionsRead
         m_Mode: 1
         m_Arguments:
@@ -20237,7 +20238,7 @@ Transform:
   - {fileID: 1438593446}
   - {fileID: 168507686}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &837684000
 PrefabInstance:
@@ -37160,7 +37161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1612442657
 PrefabInstance:
@@ -39309,7 +39310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1704837163
 MonoBehaviour:
@@ -39333,6 +39334,7 @@ MonoBehaviour:
   hint3btn: {fileID: 2116474686}
   hintX: {fileID: 531498881}
   giveHint: {fileID: 764581878}
+  continueButton: {fileID: 7304408785650560064}
   waitTime: 3
 --- !u!1 &1707064770 stripped
 GameObject:
@@ -46620,21 +46622,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1444538685606842919, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538685606842919, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444538685606842919, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.21
-      objectReference: {fileID: 0}
     - target: {fileID: 3576053591915309574, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: row
@@ -48719,6 +48706,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7304408786162218384}
     m_Modifications:
+    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
+        type: 3}
+      propertyPath: sentences.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
+        type: 3}
+      propertyPath: quizSentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
+        type: 3}
+      propertyPath: sentences.Array.data[3]
+      value: 'Vancouver is North of the equator. The most direct sunlight is at the
+        equator. With this information, can you determine the direction from which
+        Vancouver receives the most sunlight? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
+        type: 3}
+      propertyPath: sentences.Array.data[4]
+      value: Let's try out a quick activity to answer this question!
+      objectReference: {fileID: 0}
+    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
+        type: 3}
+      propertyPath: quizSentences.Array.data[0]
+      value: Applying what you've learnt, which direction should solar panels face
+        in order to receive the most sunlight?
+      objectReference: {fileID: 0}
     - target: {fileID: 7431657669514061736, guid: 3335f542c77cf4683883078ba7087247,
         type: 3}
       propertyPath: m_Name
@@ -48828,34 +48843,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
-        type: 3}
-      propertyPath: sentences.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
-        type: 3}
-      propertyPath: quizSentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
-        type: 3}
-      propertyPath: sentences.Array.data[3]
-      value: 'Vancouver is North of the equator. The most direct sunlight is at the
-        equator. With this information, can you determine the direction from which
-        Vancouver receives the most sunlight? '
-      objectReference: {fileID: 0}
-    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
-        type: 3}
-      propertyPath: sentences.Array.data[4]
-      value: Let's try out a quick activity to answer this question!
-      objectReference: {fileID: 0}
-    - target: {fileID: 179286716431873042, guid: 3335f542c77cf4683883078ba7087247,
-        type: 3}
-      propertyPath: quizSentences.Array.data[0]
-      value: Applying what you've learnt, which direction should solar panels face
-        in order to receive the most sunlight?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3335f542c77cf4683883078ba7087247, type: 3}
