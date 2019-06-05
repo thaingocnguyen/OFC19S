@@ -110,6 +110,7 @@ public class SolarQuestManager : MonoBehaviour
     {
         solarGameHelpTextAnimator.SetBool("instructionsRead", false);
         solarGameHelpTextAnimator.SetBool("solarQuestDone", true);
+
     }
 
     public void SkipDebug()

@@ -19,7 +19,6 @@ public class TutorialManager : MonoBehaviour
     private Queue<string> sentences;
 
     private bool sliderTutorialDone = false;
-    private bool quizDone = false;
 
     [SerializeField]
     GameObject character;
@@ -34,7 +33,13 @@ public class TutorialManager : MonoBehaviour
     GameObject continueButton;
 
     private bool displayingSentence = false;
-  
+    private bool quizPlaying = false;
+
+    public bool QuizPlaying
+    {
+        get { return quizPlaying; }
+        set { quizPlaying = value; }
+    }
 
     // Use this for initialization
     void Awake()
@@ -84,7 +89,14 @@ public class TutorialManager : MonoBehaviour
             infoText.text += letter;
             yield return null;
         }
-        continueButton.SetActive(true);
+        if (quizPlaying)
+        {
+            continueButton.SetActive(false);
+        }
+        else
+        {
+            continueButton.SetActive(true);
+        }        
         displayingSentence = false;
     }
 
@@ -121,20 +133,22 @@ public class TutorialManager : MonoBehaviour
     // Load quiz checking student's understanding on direction of the sun 
     private void LoadQuiz()
     {
+        // Display tutorial pane on the screen
+        quizPlaying = true;
         GetComponent<Animator>().SetBool("IsOnScreen", true);
         titleText.text = tutorialHolder.tutorialName;
 
         sentences.Clear();
 
+        // Load in tutorial sentences
         foreach (string sentence in tutorialHolder.quizSentences)
         {
             sentences.Enqueue(sentence);
         }
 
+        // Display the sentence
         DisplayNextSentence();
         character.SetActive(true);
-        continueButton.SetActive(false);
-        quizDone = true;
         onQuizStart();
     }
 

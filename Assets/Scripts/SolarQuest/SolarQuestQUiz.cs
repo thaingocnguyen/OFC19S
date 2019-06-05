@@ -17,6 +17,8 @@ public class SolarQuestQuiz : MonoBehaviour
     public GameObject hintX;
     public GameObject giveHint;
 
+    public GameObject continueButton;
+
 
     public float waitTime = 3f;
 
@@ -55,8 +57,11 @@ public class SolarQuestQuiz : MonoBehaviour
         mainText.text = "Therefore, the most direct sunlight comes from the South!";
         yield return new WaitForSeconds(time);
         hint3.SetActive(false);
-
         mainText.text = "Now, let's start placing solar panels!";
+
+        // Reenable continue button again
+        continueButton.SetActive(true);
+        GameObject.Find("TutorialManager").GetComponent<TutorialManager>().QuizPlaying = false;
         yield return new WaitForSeconds(time);
     }
 
