@@ -36,6 +36,7 @@ TagManager:
   - ClockButton
   - 3000
   - puzzle4
+  - House
   layers:
   - Default
   - TransparentFX
