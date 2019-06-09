@@ -7,7 +7,6 @@ public class BudgetSystem : MonoBehaviour
 {
     public Text budgetText;
     public Text subtractBudgetText;
-    public Text ending;
 
     [SerializeField]
     GameObject energyBar;
@@ -41,12 +40,12 @@ public class BudgetSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentBudget == 0)
-        {
-            budgetText.text = "Budget: $0";
-            currentBudget = -1;
-            StartCoroutine(NoMoney());
-        }
+        //if (currentBudget == 0)
+        //{
+        //    budgetText.text = "Budget: $0";
+        //    currentBudget = -1;
+        //    StartCoroutine(NoMoney());
+        //}
     }
 
     public float EnergyScore
@@ -144,46 +143,46 @@ public class BudgetSystem : MonoBehaviour
     }
 
 
-    public IEnumerator NoMoney()
-    {
-        budgetText.text = "";
-        ending.text = "You have ran out of money";
-        yield return new WaitForSeconds(5f);
-        ending.text = "Your energy score is " + currentEnergyScore;
-        yield return new WaitForSeconds(1f);
-    }
+    //public IEnumerator NoMoney()
+    //{
+    //    budgetText.text = "";
+    //    ending.text = "You have ran out of money";
+    //    yield return new WaitForSeconds(5f);
+    //    ending.text = "Your energy score is " + currentEnergyScore;
+    //    yield return new WaitForSeconds(1f);
+    //}
 
-    public void RestartGame()
-    {
-        Application.Quit();
-    }
+    //public void RestartGame()
+    //{
+    //    Application.Quit();
+    //}
 
-    public void DonePls()
-    {
-        StartCoroutine(ContinueGame());
-    }
+    //public void DonePls()
+    //{
+    //    StartCoroutine(ContinueGame());
+    //}
 
-    public IEnumerator ContinueGame()
-    {
-        ending.text = "Connecting the solar panels to the grid will give you electrical credit.";
-        yield return new WaitForSeconds(5f);
-        ending.text = "Would you like to connect your solar panels to the grid?";
-        yield return new WaitForSeconds(3f);
-    }
+    //public IEnumerator ContinueGame()
+    //{
+    //    ending.text = "Connecting the solar panels to the grid will give you electrical credit.";
+    //    yield return new WaitForSeconds(5f);
+    //    ending.text = "Would you like to connect your solar panels to the grid?";
+    //    yield return new WaitForSeconds(3f);
+    //}
 
-    public IEnumerator NoThanks()
-    {
-        ending.text = "Aww.";
-        yield return new WaitForSeconds(2f);
-        Application.Quit();
-    }
+    //public IEnumerator NoThanks()
+    //{
+    //    ending.text = "Aww.";
+    //    yield return new WaitForSeconds(2f);
+    //    Application.Quit();
+    //}
 
-    public IEnumerator SureWhyNot()
-    {
-        ending.text = "Awesome!";
-        yield return new WaitForSeconds(2f);
-        Application.Quit();
-    }
+    //public IEnumerator SureWhyNot()
+    //{
+    //    ending.text = "Awesome!";
+    //    yield return new WaitForSeconds(2f);
+    //    Application.Quit();
+    //}
 
 
 }

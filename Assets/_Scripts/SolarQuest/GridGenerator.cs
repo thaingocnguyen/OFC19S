@@ -69,7 +69,7 @@ public class GridGenerator : MonoBehaviour {
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
 
-        float smallestDistance = 8f;
+        float smallestDistance = 2f;
         result = new Vector3(0, 0, 0);
 
         for (int count = 0; count < posArray.Length - 1; count++)

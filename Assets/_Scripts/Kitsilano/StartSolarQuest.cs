@@ -26,7 +26,7 @@ public class StartSolarQuest : MonoBehaviour
     }
 
     void OnMouseDown() {
-    	SceneManager.LoadScene("SolarQuest_House");
+    	SceneManager.LoadScene(1);
     }
 
     void OnMouseEnter()
