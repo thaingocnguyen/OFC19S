@@ -15,8 +15,13 @@ public class BlockSceneManager : MonoBehaviour
     void Start()
     {
         // SET UP OF CAMERAS
-        foreach (Camera c in houseCameras) { c.gameObject.SetActive(false); }
+        foreach (Camera c in houseCameras)
+        {
+            c.enabled = false;
+            c.gameObject.SetActive(false);
+        }
         mainCamera.enabled = true;
+        mainCamera.gameObject.SetActive(true);
 
         // SET UP OF SCENE 
         backButton.SetActive(false);
@@ -43,24 +48,33 @@ public class BlockSceneManager : MonoBehaviour
         {
             if (i == cameraIndex)
             {
+                houseCameras[i].enabled = true;
                 houseCameras[i].gameObject.SetActive(true);
             }
             else
             {
+                houseCameras[i].enabled = false;
                 houseCameras[i].gameObject.SetActive(false);
             }
         }
 
+        mainCamera.enabled = false;
         mainCamera.gameObject.SetActive(false);
+        
         backButton.SetActive(true);
     }
 
     public void ShowMap()
     {
         GetComponent<HouseSelector>().MapView = true;
+        mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
         backButton.SetActive(false);
-        foreach (Camera c in houseCameras) { c.gameObject.SetActive(false); }
+        foreach (Camera c in houseCameras)
+        {
+            c.gameObject.SetActive(false);
+            c.enabled = false;
+        }
     }
 
 }
