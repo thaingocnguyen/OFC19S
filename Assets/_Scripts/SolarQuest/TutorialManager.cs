@@ -121,7 +121,7 @@ public class TutorialManager : MonoBehaviour
 
         string[] endingSentences = {
         "Congratulations! Your energy score is: " + BudgetSystem.Instance.EnergyScore,
-        "In BC, you can choose to connect your solar panels to the electricity grid. If your solar panel produces more power than your household consumes, the surplus is fed into the grid for others to use. In BC, you can obtain BC Grid Credits by doing so. You can use BC Grdi Credits to reduce the price you pay for electricity  on the days where there is not as much sunlight. Sounds like a win-win situation!",
+        "In BC, you can choose to connect your solar panels to the electricity grid. If your solar panel produces more power than your household consumes, the surplus is fed into the grid for others to use. In BC, you can obtain BC Grid Credits by doing so. You can use BC Grid Credits to reduce the price you pay for electricity  on the days where there is not as much sunlight. Sounds like a win-win situation!",
         "Now, let's try retrofitting an entire block with solar panels! Remember what you've learnt about roof direction and be mindful of the budget vs. energy tradeoffs."
         };
 
