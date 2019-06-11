@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BlockSceneManager : MonoBehaviour
 {
@@ -10,6 +10,11 @@ public class BlockSceneManager : MonoBehaviour
 
     // UI ELEMENTS
     [SerializeField] GameObject backButton;
+    [SerializeField] GameObject doneButton;
+
+    // END QUEST
+    [SerializeField] GameObject endQuestPanel;
+    [SerializeField] Text endQuestText;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +65,8 @@ public class BlockSceneManager : MonoBehaviour
 
         mainCamera.enabled = false;
         mainCamera.gameObject.SetActive(false);
-        
+
+        doneButton.SetActive(false);
         backButton.SetActive(true);
     }
 
@@ -70,11 +76,25 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
         backButton.SetActive(false);
+        doneButton.SetActive(true);
         foreach (Camera c in houseCameras)
         {
             c.gameObject.SetActive(false);
             c.enabled = false;
         }
+    }
+
+    public void EndQuest()
+    {
+        doneButton.SetActive(false);
+        endQuestPanel.SetActive(true);
+        endQuestPanel.GetComponent<Animator>().SetBool("IsOnScreen", true);
+        endQuestText.text = "Congratulations! Your energy score is " + BudgetSystem.Instance.EnergyScore;
+    }
+
+    public void ShowMainKitsilanoScene()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
