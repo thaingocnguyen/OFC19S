@@ -1,44 +1,116 @@
 fileFormatVersion: 2
 guid: 7fe212a048bce2945ae4a534d263d34e
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Baseball_1
-    100002: //RootNode
-    100004: Playgroun6
-    100006: Playgroun7
-    100008: Playground
-    100010: Room001_gr
-    100012: Sand
-    100014: Sand_pivot
-    400000: Baseball_1
-    400002: //RootNode
-    400004: Playgroun6
-    400006: Playgroun7
-    400008: Playground
-    400010: Room001_gr
-    400012: Sand
-    400014: Sand_pivot
-    2100000: grass004
-    2100002: Sand
-    2100004: Grass
-    2100006: grass003
-    2100008: grass002
-    2300000: Playgroun6
-    2300002: Playgroun7
-    2300004: Playground
-    2300006: Room001_gr
-    2300008: Sand_pivot
-    3300000: Playgroun6
-    3300002: Playgroun7
-    3300004: Playground
-    3300006: Room001_gr
-    3300008: Sand_pivot
-    4300000: Room001_gr
-    4300002: Sand_pivot
-    4300004: Playground
-    4300006: Playgroun6
-    4300008: Playgroun7
+  serializedVersion: 27
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Baseball_1
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: Playgroun6
+  - first:
+      1: 100006
+    second: Playgroun7
+  - first:
+      1: 100008
+    second: Playground
+  - first:
+      1: 100010
+    second: Room001_gr
+  - first:
+      1: 100012
+    second: Sand
+  - first:
+      1: 100014
+    second: Sand_pivot
+  - first:
+      4: 400000
+    second: Baseball_1
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: Playgroun6
+  - first:
+      4: 400006
+    second: Playgroun7
+  - first:
+      4: 400008
+    second: Playground
+  - first:
+      4: 400010
+    second: Room001_gr
+  - first:
+      4: 400012
+    second: Sand
+  - first:
+      4: 400014
+    second: Sand_pivot
+  - first:
+      21: 2100000
+    second: grass004
+  - first:
+      21: 2100002
+    second: Sand
+  - first:
+      21: 2100004
+    second: Grass
+  - first:
+      21: 2100006
+    second: grass003
+  - first:
+      21: 2100008
+    second: grass002
+  - first:
+      23: 2300000
+    second: Playgroun6
+  - first:
+      23: 2300002
+    second: Playgroun7
+  - first:
+      23: 2300004
+    second: Playground
+  - first:
+      23: 2300006
+    second: Room001_gr
+  - first:
+      23: 2300008
+    second: Sand_pivot
+  - first:
+      33: 3300000
+    second: Playgroun6
+  - first:
+      33: 3300002
+    second: Playgroun7
+  - first:
+      33: 3300004
+    second: Playground
+  - first:
+      33: 3300006
+    second: Room001_gr
+  - first:
+      33: 3300008
+    second: Sand_pivot
+  - first:
+      43: 4300000
+    second: Room001_gr
+  - first:
+      43: 4300002
+    second: Sand_pivot
+  - first:
+      43: 4300004
+    second: Playground
+  - first:
+      43: 4300006
+    second: Playgroun6
+  - first:
+      43: 4300008
+    second: Playgroun7
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -74,25 +146,27 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -101,10 +175,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -114,6 +188,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
@@ -121,6 +196,7 @@ ModelImporter:
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
