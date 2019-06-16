@@ -7,12 +7,12 @@ public class PanZoom : MonoBehaviour
     Vector3 touchStart;
     [SerializeField] float zoomOutMin = 7;
     [SerializeField] float zoomOutMax = 29;
-    [SerializeField] float zoomSpeed = 0.0f;
+    [SerializeField] float zoomSpeed = 1f;
 
     [SerializeField] float leftEdge = -34f;
     [SerializeField] float rightEdge = 62f;
 
-    [SerializeField] float maxY = 85f;
+    [SerializeField] float maxY = 49f;
     [SerializeField] float minY = 45f;
 
     [SerializeField] float maxZ = 10f;

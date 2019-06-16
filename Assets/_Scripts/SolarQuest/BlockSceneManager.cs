@@ -89,7 +89,7 @@ public class BlockSceneManager : MonoBehaviour
         doneButton.SetActive(false);
         endQuestPanel.SetActive(true);
         endQuestPanel.GetComponent<Animator>().SetBool("IsOnScreen", true);
-        endQuestText.text = "Congratulations! Your energy score is " + BudgetSystem.Instance.EnergyScore;
+        endQuestText.text = "Congratulations! Your energy score is " + SolarScoring.Instance.energyScore;
     }
 
     public void ShowMainKitsilanoScene()

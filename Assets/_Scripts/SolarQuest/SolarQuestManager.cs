@@ -70,7 +70,7 @@ public class SolarQuestManager : MonoBehaviour
         // Set up for delegates
         tutorialManager.GetComponent<TutorialManager>().onSliderTutorialReached += Handle_OnSliderTutorialReached;
         tutorialManager.GetComponent<TutorialManager>().onTutorialEnd += Handle_OnTutorialEnd;
-        tutorialManager.GetComponent<TutorialManager>().onQuizStart += Handle_OnQuizStart; ;
+        tutorialManager.GetComponent<TutorialManager>().onQuizStart += Handle_OnQuizStart; 
     }
 
 

@@ -3,49 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GridGenerator : MonoBehaviour {
-    [SerializeField]
-    GameObject gridCubePrefab;
-    [SerializeField]
-    int row;
-    [SerializeField]
-    int col;
+
+    [SerializeField] GameObject gridCubePrefab;
+    [SerializeField] int row;
+    [SerializeField] int col;
+
     Vector3 pos;
     Vector3 newPos;
-    Vector3[] posArray;
+    Vector3[,] posArray;
+    bool[,] occupied;
     float space = 1.5f;
-    int c;
-    int r;
-    int i = 0;
-    int size = 1;
-    Vector3 result;
+
+    private float size;
+    private float gridScore;
 
     void Awake()
     {
-        size = col * row;
-        posArray = new Vector3[size];        
+        posArray = new Vector3[row, col];
+        occupied = new bool[row + 2, col + 2];
+        size = row * col;
+        gridScore = 0f;
     }
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         MakePuzzle();
-        pos = transform.position;       
+        pos = transform.position;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public float GridScore
+    {
+        get { return gridScore; }
+    }
 
     void MakePuzzle()
     {
         pos = gameObject.transform.position;
-        for(r = 0; r < row; r++)
+        for (int r = 0; r < row; r++)
         {
-            for(c = 0; c < col; c++)
+            for (int c = 0; c < col; c++)
             {
-
-     
                 GameObject gridCube = Instantiate(gridCubePrefab, pos, transform.rotation);
                 gridCube.transform.parent = transform;
                 gridCube.transform.localPosition = new Vector3(0, 0, 0);
@@ -55,34 +53,112 @@ public class GridGenerator : MonoBehaviour {
                 newPos = new Vector3(pos.x + space * c, pos.y + space * r, pos.z);
                 gridCube.transform.localPosition = newPos;
 
-                posArray[i] = gridCube.transform.position;
-                i++;
-
+                posArray[r, c] = gridCube.transform.position;
+                occupied[r + 1, c + 1] = false;
             }
-                      
         }
-       
-        
     }
 
-    
-    public Vector3 GetNearestPointOnGrid(Vector3 position)
+    public int[] GetGridPos(Vector3 position)
     {
-
         float smallestDistance = 2f;
-        result = new Vector3(0, 0, 0);
+        int[] result = new int[2];
+        result[0] = -1;
+        result[1] = -1;
 
-        for (int count = 0; count < posArray.Length - 1; count++)
+        for (int r = 0; r < row; r++)
         {
-            float distance = Vector3.Distance(position, posArray[count]);
-            if(distance < smallestDistance)
+            for (int c = 0; c < col; c++)
             {
-                result = posArray[count];
-                smallestDistance = distance;
+                float distance = Vector3.Distance(position, posArray[r, c]);
+                if (distance < smallestDistance)
+                {
+                    result[0] = r;
+                    result[1] = c;
+                    smallestDistance = distance;
+                }
             }
-            
         }
 
         return result;
     }
+
+    public Vector3 GetNearestPointOnGrid(int row, int col)
+    {
+        if (row >= 0)
+        {
+            return posArray[row, col];
+        }
+        else
+        {
+            return new Vector3(0, 0, 0);
+        }
+    }
+
+    public void UpdateOccupiedPositions(int r, int c, string panelCost)
+    {
+        if (r >= 0)
+        {
+            r++;
+            c++;
+            // Sets the occupied grid array to know which squares has a solar panel on it
+            if (panelCost == "12000")
+            {
+                occupied[r - 1, c - 1] = true;
+                occupied[r - 1, c] = true;
+                occupied[r - 1, c + 1] = true;
+                occupied[r, c - 1] = true;
+                occupied[r, c] = true;
+                occupied[r, c + 1] = true;
+                occupied[r + 1, c - 1] = true;
+                occupied[r + 1, c] = true;
+                occupied[r + 1, c + 1] = true;
+            }
+            else if (panelCost == "3000")
+            {
+                occupied[r, c] = true;
+            }
+        }
+    }
+
+    public void ClearPanelOccupancy(int r, int c, string panelCost)
+    {
+        r++;
+        c++;
+        if (panelCost == "12000")
+        {
+            occupied[r - 1, c - 1] = false;
+            occupied[r - 1, c] = false;
+            occupied[r - 1, c + 1] = false;
+            occupied[r, c - 1] = false;
+            occupied[r, c] = false;
+            occupied[r, c + 1] = false;
+            occupied[r + 1, c - 1] = false;
+            occupied[r + 1, c] = false;
+            occupied[r + 1, c + 1] = false;
+        }
+        else if (panelCost == "3000")
+        {
+            occupied[r, c] = false;
+        }
+    }
+
+    public void UpdateGridScore()
+    {
+        int count = 0;
+        for (int r = 1; r < row + 1; r++)
+        {
+            for (int c = 1; c < col + 1; c++)
+            {
+                if (occupied[r,c])
+                {
+                    count++;
+                }
+            }
+        }
+        gridScore = count / size;
+    }
+
+
+
 }

@@ -17,6 +17,8 @@ public class DragAndBudget : MonoBehaviour
     
     bool budgetMoreThanZero;
 
+    SolarPanel currentPanel;
+
 
 
     //public energyScoring engScore;
@@ -50,60 +52,55 @@ public class DragAndBudget : MonoBehaviour
 
     void OnMouseUp()
     {
-        budgetMoreThanZero = BudgetSystem.Instance.ifBudgetNotZero(gameObject.tag);
+        string panelCost = gameObject.tag;
+        budgetMoreThanZero = BudgetSystem.Instance.ifBudgetNotZero(panelCost);
+        GridGenerator grid = GridGeneratorScript.GetComponent<GridGenerator>();
+
+        // Only do anything if there's enough budget
         if (budgetMoreThanZero)
         {
             //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
-            Vector3 closest = GridGeneratorScript.GetComponent<GridGenerator>().GetNearestPointOnGrid(transform.position);
+            int[] gridPos = grid.GetGridPos(transform.position);
+
+            currentPanel = panel.GetComponent<SolarPanel>();
 
             // Return panel to the pile if the location placed is not near grid 
-            if (closest == new Vector3(0, 0, 0))
+            if (gridPos[0] < 0)
             {
                 // Only if panel has been placed will the budget be incremented
-                if (panel.GetComponent<SolarPanel>().PanelPlaced)
+                if (currentPanel.PanelPlaced)
                 {
-                    StartCoroutine(BudgetSystem.Instance.IncrementBudget(gameObject.tag));
-                    if (gameObject.tag == "12000")
-                    {
-                        if (BudgetSystem.Instance.EnergyScore > 3)
-                        {
-                            BudgetSystem.Instance.decrementEnergyScore(4);
-                        }
-                    }
-                    else if (gameObject.tag == "3000")
-                    {
-                        if (BudgetSystem.Instance.EnergyScore > 1)
-                        {
-                            BudgetSystem.Instance.decrementEnergyScore(2);
-                        }
-                    }
+                    StartCoroutine(BudgetSystem.Instance.IncrementBudget(panelCost));
+                    grid.ClearPanelOccupancy(currentPanel.gridRow, currentPanel.gridCol, panelCost);
+                    grid.UpdateGridScore();
+                    SolarScoring.Instance.UpdateScore();
                 }
+
                 Destroy(gameObject);
             }
             // Place panel on grid
-            else 
+            else
             {
-                transform.position = closest;
+
+                transform.position = grid.GetNearestPointOnGrid(gridPos[0], gridPos[1]);
+
                 if (!panel.GetComponent<SolarPanel>().PanelPlaced)
                 {
-                    StartCoroutine(BudgetSystem.Instance.DecrementBudget(gameObject.tag));
+                    grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+                    StartCoroutine(BudgetSystem.Instance.DecrementBudget(panelCost));
                     panel.GetComponent<SolarPanel>().PanelPlaced = true;
-
-                    if (gameObject.tag == "12000")
-                    {
-                        if (!panel.GetComponent<SolarPanel>().isShaded)
-                        {
-                            BudgetSystem.Instance.incrementEnergyScore(4);
-                        }
-                    }
-                    else if (gameObject.tag == "3000")
-                    {
-                        if (!panel.GetComponent<SolarPanel>().isShaded)
-                        {
-                            BudgetSystem.Instance.incrementEnergyScore(4);
-                        }
-                    }
                 }
+                else
+                {
+                    grid.ClearPanelOccupancy(currentPanel.gridRow, currentPanel.gridCol, panelCost);
+                    grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+                }
+
+                currentPanel.gridRow = gridPos[0];
+                currentPanel.gridCol = gridPos[1];
+
+                grid.UpdateGridScore();
+                SolarScoring.Instance.UpdateScore();
             }
         }
         // If there is not enough budget, do not allow the user to place more solar panels 
