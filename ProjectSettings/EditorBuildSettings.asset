@@ -8,18 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Scenes/map_scenes/MainKitsilano.unity
     guid: 61192affdd190834f886f6874830cd5f
-  - enabled: 0
-    path: Assets/__Scenes/TutorialDemo/TutorialDemo.unity
-    guid: 6b0a0e5d954e691479bb47934fa51d7d
-  - enabled: 0
-    path: Assets/__Scenes/SolarQuest/SolarQuest_House.unity
-    guid: 2d8e11e1dd38d408da3d1c558cd39742
   - enabled: 1
     path: Assets/__Scenes/SolarQuest/SolarQuest_House.unity
     guid: bbeb09de5e03749fda9dd4ad709d76bc
-  - enabled: 0
-    path: Assets/__Scenes/SolarQuest/SolarQuest_Block.unity
-    guid: b92e4dc19cebac7478c02508830200e2
   - enabled: 1
     path: Assets/__Scenes/SolarQuest/SolarQuest_Block.unity
     guid: a1d9c8daf02c14bf583b2e83d0b3be73

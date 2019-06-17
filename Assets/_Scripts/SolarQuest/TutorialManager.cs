@@ -17,6 +17,8 @@ public class TutorialManager : MonoBehaviour
     public Text titleText;
     public Text infoText;
 
+    public LevelLoader levelLoader;
+
     private Queue<string> sentences;
 
     private bool sliderTutorialDone = false;
@@ -26,6 +28,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] Animator solarGameHelpTextAnimator;
     [SerializeField] Tutorial tutorialHolder;
     [SerializeField] GameObject continueButton;
+
 
     private bool displayingSentence = false;
     private bool quizPlaying = false;
@@ -41,6 +44,11 @@ public class TutorialManager : MonoBehaviour
     void Awake()
     {
         sentences = new Queue<string>();
+    }
+
+    private void Start()
+    {
+        levelLoader = GetComponent<LevelLoader>();
     }
 
     public void StartTutorial(Tutorial tutorial)
@@ -148,7 +156,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(2);
+            levelLoader.LoadLevel(2);
         }
     }
 

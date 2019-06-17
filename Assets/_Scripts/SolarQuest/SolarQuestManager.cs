@@ -27,6 +27,9 @@ public class SolarQuestManager : MonoBehaviour
     [SerializeField]
     GameObject budget;
 
+    [SerializeField] Light mainLight;
+    [SerializeField] Light sliderLight;
+
 
 
     #region HintPanel
@@ -70,7 +73,10 @@ public class SolarQuestManager : MonoBehaviour
         // Set up for delegates
         tutorialManager.GetComponent<TutorialManager>().onSliderTutorialReached += Handle_OnSliderTutorialReached;
         tutorialManager.GetComponent<TutorialManager>().onTutorialEnd += Handle_OnTutorialEnd;
-        tutorialManager.GetComponent<TutorialManager>().onQuizStart += Handle_OnQuizStart; 
+        tutorialManager.GetComponent<TutorialManager>().onQuizStart += Handle_OnQuizStart;
+
+        mainLight.enabled = true;
+        sliderLight.enabled = false; 
     }
 
 
@@ -93,6 +99,9 @@ public class SolarQuestManager : MonoBehaviour
             energyBar.SetActive(true);
             budget.SetActive(true);
             SolarGame.SetActive(true);
+
+            mainLight.enabled = true;
+            sliderLight.enabled = false;
         }
     }
 
@@ -110,6 +119,9 @@ public class SolarQuestManager : MonoBehaviour
 
         tutorialUI.SetActive(true);
         character.SetActive(false);
+
+        mainLight.enabled = false;
+        sliderLight.enabled = true;
     }
 
 
