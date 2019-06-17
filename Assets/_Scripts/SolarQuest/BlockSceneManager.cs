@@ -89,34 +89,7 @@ public class BlockSceneManager : MonoBehaviour
         doneButton.SetActive(false);
         endQuestPanel.SetActive(true);
         endQuestPanel.GetComponent<Animator>().SetBool("IsOnScreen", true);
-        endQuestText.text = GetEndOutcome();
-    }
-
-    private string GetEndOutcome()
-    {
-        string outcome = "";
-        if (SolarScoring.Instance.energyScore <= 0.2)
-        {
-            outcome = "Oops! You must play again. You only achieved 20% of the total (solar/urban forestry) potential.";
-        }
-        else if (SolarScoring.Instance.energyScore <= 0.4)
-        {
-            outcome = "Could do better! You achieved 40% off the total xyz potential";
-        }
-        else if (SolarScoring.Instance.energyScore <= 0.6)
-        {
-            outcome = "You’re almost there! You achieved 60% of the xyz potential.";
-        }
-        else if (SolarScoring.Instance.energyScore <= 0.8)
-        {
-            outcome = "You did great! You achieved 80% of the xyz potential.";
-        }
-        else
-        {
-            outcome = "Wow! You’re a Champion! You were able to achieve 100% of the xyz potential.";
-        }
-
-        return outcome;
+        endQuestText.text = "Congratulations! Your energy score is " + SolarScoring.Instance.energyScore;
     }
 
     public void ShowMainKitsilanoScene()
