@@ -4,18 +4,30 @@ using UnityEngine.UI;
 
 public class SkyboxRotator : MonoBehaviour
 {
-	public float x = 0f;
-	public float y = 273.65f;
-    public float z = 0f;
-
 	public Slider sunSlider;
 
+    private float xInit = 19f;
+    private float yInit = -24f;
+    private float zInit = 2f;
+
+    private float xFinal = -1.227f;
+    private float yFinal = -157.377f;
+    private float zFinal = -170.264f;
+
+    float x, y, z;
+
+    // 40 to 160
     private void Start()
     {
         sunSlider.onValueChanged.AddListener(delegate { OnSliderChange(); });
+        transform.Rotate(xInit, yInit, zInit);
     }
 
-	public void OnSliderChange() {
-        this.transform.localEulerAngles = new Vector3(x, y, sunSlider.value);
+    public void OnSliderChange() {
+
+        x = (xInit - xFinal) * sunSlider.normalizedValue;
+        y = (yInit - yFinal) * sunSlider.normalizedValue;
+        z = (zInit - zFinal) * sunSlider.normalizedValue;
+        transform.localEulerAngles = new Vector3(xInit - x, yInit - y, zInit - z);
     }
 }
