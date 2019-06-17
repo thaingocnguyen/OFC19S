@@ -6,7 +6,7 @@ public class SkyboxRotator : MonoBehaviour
 {
 	public float x = 0f;
 	public float y = 273.65f;
-	public float z = 0f;
+    public float z = 0f;
 
 	public Slider sunSlider;
 
