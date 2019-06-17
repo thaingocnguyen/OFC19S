@@ -10,27 +10,12 @@ public class SkyboxRotator : MonoBehaviour
 
 	public Slider sunSlider;
 
-	void Update() {
-		Rotate ();
-	}
-	void OnEnable()
+    private void Start()
     {
-		//InvokeRepeating("Rotate", 0f, 0.015f);
-	}
-    void Rotate()
-    {
-        this.transform.localEulerAngles = new Vector3(x, y, z);
+        sunSlider.onValueChanged.AddListener(delegate { OnSliderChange(); });
     }
-    void OnDisable()
-    {
-		//CancelInvoke();
-	}
 
-	public void OnSliderChange(float val) {
-		val = sunSlider.value;
-		z = val;
-		//speed = val;
-		//time = val;
-		//Debug.Log ("CHANGE VAL: " + val);
-	}
+	public void OnSliderChange() {
+        this.transform.localEulerAngles = new Vector3(x, y, sunSlider.value);
+    }
 }
