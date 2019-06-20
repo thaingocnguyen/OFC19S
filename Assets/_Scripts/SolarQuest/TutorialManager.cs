@@ -17,7 +17,7 @@ public class TutorialManager : MonoBehaviour
     public Text titleText;
     public Text infoText;
 
-    public LevelLoader levelLoader;
+    public GameObject levelLoader;
 
     private Queue<string> sentences;
 
@@ -48,7 +48,6 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        levelLoader = GetComponent<LevelLoader>();
     }
 
     public void StartTutorial(Tutorial tutorial)
@@ -156,7 +155,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            levelLoader.LoadLevel(2);
+            levelLoader.GetComponent<LevelLoader>().LoadLevel(2);
         }
     }
 
