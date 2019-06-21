@@ -22,6 +22,11 @@ public class SolarQuestTutorialManager : MonoBehaviour
     [SerializeField] GameObject sliderUI;
     [SerializeField] GameObject sliderPopup;
     [SerializeField] GameObject compassPopup;
+    [SerializeField] GameObject sliderDoneButton;
+
+    // QUIZ
+    [SerializeField] GameObject quizPanel;
+    [SerializeField] GameObject backButton;
 
 
     [SerializeField]
@@ -59,6 +64,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
         Start,
         Introduction,
         SliderTutorial,
+        Quiz,
         Tutorial,
         Quest
     }
@@ -96,7 +102,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
     private void Start()
     {
-        // Start out using tutorial camera 
+        // Start out using tutorial camera
         startCam.enabled = true;
         questCam.enabled = false;
         southCam.enabled = false;
@@ -105,13 +111,21 @@ public class SolarQuestTutorialManager : MonoBehaviour
         mainLight.enabled = true;
         sliderLight.enabled = false;
 
-        // UI elements set up
+        // INTRODUCTION
         infoBox.SetActive(false);
+
+        // SLIDER TUTORIAL
+        sliderUI.SetActive(false);
         sliderPopup.SetActive(false);
         compassPopup.SetActive(false);
+        sliderDoneButton.SetActive(false);
+
+        // QUIZ
+        quizPanel.SetActive(false);
+        backButton.SetActive(false);
 
         // Set start state
-        SetState(GameState.SliderTutorial);
+        SetState(GameState.Quiz);
     }
 
     private void Update()
@@ -121,6 +135,16 @@ public class SolarQuestTutorialManager : MonoBehaviour
     public void ChangeStateToIntroduction()
     {
         SetState(GameState.Introduction);
+    }
+
+    public void ChangeStateToSliderTutorial()
+    {
+        SetState(GameState.SliderTutorial);
+    }
+
+    public void ChangeStateToQuiz()
+    {
+        SetState(GameState.Quiz);
     }
 
     private void SetState(GameState newState)
@@ -138,6 +162,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
             case GameState.SliderTutorial:
                 SliderTutorial();
                 break;
+            case GameState.Quiz:
+                QuizState();
+                break;
             default:
                 break;
         }
@@ -152,6 +179,12 @@ public class SolarQuestTutorialManager : MonoBehaviour
                 break;
             case GameState.Introduction:
                 ExitIntroductionState();
+                break;
+            case GameState.SliderTutorial:
+                ExitSliderTutorialState();
+                break;
+            case GameState.Quiz:
+                ExitQuizState();
                 break;
             default:
                 break;
@@ -279,6 +312,32 @@ public class SolarQuestTutorialManager : MonoBehaviour
     public void CloseCompassPopUp()
     {
         compassPopup.SetActive(false);
+        sliderDoneButton.SetActive(true);
+    }
+
+    private void ExitSliderTutorialState()
+    {
+        sliderUI.SetActive(false);
+        sliderDoneButton.SetActive(false);
+
+        mainLight.enabled = true;
+        sliderLight.enabled = false;
+    }
+
+    private void QuizState()
+    {
+        startCam.enabled = false;
+        questCam.enabled = false;
+        southCam.enabled = true;
+
+        quizPanel.SetActive(true);
+        backButton.SetActive(true);
+    }
+
+    private void ExitQuizState()
+    {
+        quizPanel.SetActive(false);
+        backButton.SetActive(false);
     }
 
 }

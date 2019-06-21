@@ -8,6 +8,8 @@ public class InfoBox : MonoBehaviour
     [SerializeField] TextMeshProUGUI infoText;
     [SerializeField] InfoContainer infoContainer;
 
+    [SerializeField] GameObject solarQuestTutorialManager;
+
     private Queue<string> sentences;
 
 
@@ -32,6 +34,7 @@ public class InfoBox : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
+            solarQuestTutorialManager.GetComponent<SolarQuestTutorialManager>().ChangeStateToSliderTutorial();
             return;
         }
 
