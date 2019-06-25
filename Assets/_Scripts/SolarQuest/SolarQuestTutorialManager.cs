@@ -31,22 +31,11 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
     // SOLAR GAME
     [SerializeField] GameObject solarGame;
+	[SerializeField] GameObject solarGameDoneButton;
     [SerializeField] GameObject budget;
     [SerializeField] GameObject energyBar;
     [SerializeField] GameObject introBox;
     [SerializeField] GameObject solarPanelsPopup;
-
-
-    [SerializeField]
-    GameObject tutorialManager;
-
-
-    [SerializeField]
-    GameObject character;
-    [SerializeField]
-    GameObject quizButtons;
-
-
 
     // Lights
     [SerializeField] Light mainLight;
@@ -54,26 +43,13 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
 
 
-    #region HintPanel
-    [SerializeField] GameObject hint1;
-    [SerializeField] GameObject hint2;
-    [SerializeField] GameObject hint3;
-    [SerializeField] GameObject hint1Button;
-    [SerializeField] GameObject hint2Button;
-    [SerializeField] GameObject hint3Button;
-    [SerializeField] GameObject closeHintButton;
-    [SerializeField] GameObject giveHintButton;
-    #endregion
-
     enum GameState
     {
         Start,
         Introduction,
         SliderTutorial,
         Quiz,
-        SolarGame,
-        Tutorial,
-        Quest
+        SolarGame
     }
 
     private GameState currentState;
@@ -108,13 +84,10 @@ public class SolarQuestTutorialManager : MonoBehaviour
         energyBar.SetActive(false);
         introBox.SetActive(false);
         solarPanelsPopup.SetActive(false);
+		solarGameDoneButton.SetActive(false);
 
         // Set start state
         SetState(GameState.SolarGame);
-    }
-
-    private void Update()
-    {
     }
 
     public void ChangeStateToIntroduction()
@@ -187,73 +160,6 @@ public class SolarQuestTutorialManager : MonoBehaviour
             default:
                 break;
         }
-    }
-
-
-    void Handle_OnTutorialEnd()
-    {
-        if (currentState == GameState.Tutorial)
-        {
-            currentState = GameState.Quest;
-
-            // Switch cameras
-            startCam.enabled = false;
-            southCam.enabled = false;
-            questCam.enabled = true;
-
-            // Remove character from screen
-            character.SetActive(false);
-            sliderUI.SetActive(false);
-
-            // Set solar game ui items for be active
-            energyBar.SetActive(true);
-            budget.SetActive(true);
-            solarGame.SetActive(true);
-            
-
-            mainLight.enabled = true;
-            sliderLight.enabled = false;
-        }
-    }
-
-
-
-    public void SkipDebug()
-    {
-        Handle_OnTutorialEnd();
-    }
-
-    void Handle_OnSliderTutorialReached()
-    {
-        startCam.enabled = false;
-        southCam.enabled = true;
-
-        sliderUI.SetActive(true);
-        character.SetActive(false);
-
-        mainLight.enabled = false;
-        sliderLight.enabled = true;
-    }
-
-
-    void Handle_OnQuizStart()
-    {
-        quizButtons.SetActive(true);
-        SetStatusHintPanel(false);
-
-    }
-
-
-    private void SetStatusHintPanel(bool status)
-    {
-        hint1.SetActive(status);
-        hint2.SetActive(status);
-        hint3.SetActive(status);
-        hint1Button.SetActive(status);
-        hint2Button.SetActive(status);
-        hint3Button.SetActive(status);
-        closeHintButton.SetActive(status);
-        giveHintButton.SetActive(status);
     }
 
     // State at the start with only start button
@@ -350,6 +256,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
         budget.SetActive(true);
         introBox.SetActive(true);
         solarGame.SetActive(true);
+		solarGameDoneButton.SetActive(true);
     }
 
     public void CloseIntroBox()
@@ -365,6 +272,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
     private void ExitSolarGameState()
     {
-        throw new NotImplementedException();
+		energyBar.SetActive(false);
+		budget.SetActive(false);
+		solarGameDoneButton.SetActive(false);
     }
 }
