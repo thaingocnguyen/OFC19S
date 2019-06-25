@@ -32,7 +32,6 @@ public class BudgetSystem : MonoBehaviour
 
     public IEnumerator DecrementBudget(string tag)
     {
-
         if (tag == "12000")
         {
             currentBudget = currentBudget - 12000;
@@ -41,7 +40,6 @@ public class BudgetSystem : MonoBehaviour
         }
         else if (tag == "3000")
         {
-
             currentBudget = currentBudget - 3000;
             budgetText.text = "Budget: $" + currentBudget;
             subtractBudgetText.text = " -$3000";
@@ -49,7 +47,6 @@ public class BudgetSystem : MonoBehaviour
 
         else
         {
-
             budgetText.text = "Budget: $" + currentBudget;
         }
 
@@ -61,14 +58,12 @@ public class BudgetSystem : MonoBehaviour
     {
         if (tag == "12000")
         {
-
             currentBudget = currentBudget + 12000;
             budgetText.text = "Budget: $" + currentBudget;
             subtractBudgetText.text = " +$12000";
         }
         else if (tag == "3000")
         {
-
             currentBudget = currentBudget + 3000;
             budgetText.text = "Budget: $" + currentBudget;
             subtractBudgetText.text = " +$3000";
@@ -76,7 +71,6 @@ public class BudgetSystem : MonoBehaviour
 
         else
         {
-
             budgetText.text = "Budget: $" + currentBudget;
         }
 
