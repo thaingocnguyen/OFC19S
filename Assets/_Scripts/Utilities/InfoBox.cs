@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class InfoBox : MonoBehaviour
+public abstract class InfoBox : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI infoText;
-    [SerializeField] InfoContainer infoContainer;
+    [SerializeField] protected InfoContainer infoContainer;
 
-    [SerializeField] GameObject solarQuestTutorialManager;
+    
 
-    private Queue<string> sentences;
+    protected Queue<string> sentences;
 
 
     private void Awake()
@@ -18,7 +18,7 @@ public class InfoBox : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void LoadText()
+    public virtual void LoadText()
     {
         sentences.Clear();
 
@@ -34,7 +34,7 @@ public class InfoBox : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
-            solarQuestTutorialManager.GetComponent<SolarQuestTutorialManager>().ChangeStateToSliderTutorial();
+            HandleNoSentencesLeft();
             return;
         }
 
@@ -52,4 +52,6 @@ public class InfoBox : MonoBehaviour
             yield return null;
         }
     }
+
+   public abstract void HandleNoSentencesLeft();
 }

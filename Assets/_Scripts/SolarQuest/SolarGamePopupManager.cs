@@ -57,6 +57,12 @@ public class SolarGamePopupManager : MonoBehaviour
         energyReminderPopup.SetActive(false);
     }
 
+    public void CloseAllPopups()
+	{
+		encouragementMessage.SetActive(false);
+		budgetReminderPopup.SetActive(false);
+		energyReminderPopup.SetActive(false);
+    }
 
 
 }

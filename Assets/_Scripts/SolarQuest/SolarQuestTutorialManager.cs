@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SolarQuestTutorialManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
     [SerializeField] Camera startCam;
     [SerializeField] Camera questCam;
     [SerializeField] Camera southCam;
-    #endregion
+	#endregion
+
+	public float score;
 
     // START
     [SerializeField] GameObject startButton;
@@ -37,8 +40,13 @@ public class SolarQuestTutorialManager : MonoBehaviour
     [SerializeField] GameObject introBox;
     [SerializeField] GameObject solarPanelsPopup;
 
-    // Lights
-    [SerializeField] Light mainLight;
+	// END
+	[SerializeField] GameObject endTextBox;
+	[SerializeField] TextMeshProUGUI endText;
+	[SerializeField] GameObject choiceButtons;
+
+	// Lights
+	[SerializeField] Light mainLight;
     [SerializeField] Light sliderLight;
 
 
@@ -49,7 +57,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
         Introduction,
         SliderTutorial,
         Quiz,
-        SolarGame
+        SolarGame,
+        End
     }
 
     private GameState currentState;
@@ -86,8 +95,12 @@ public class SolarQuestTutorialManager : MonoBehaviour
         solarPanelsPopup.SetActive(false);
 		solarGameDoneButton.SetActive(false);
 
+		// END
+		endTextBox.SetActive(false);
+		choiceButtons.SetActive(false);
+
         // Set start state
-        SetState(GameState.SolarGame);
+        SetState(GameState.End);
     }
 
     public void ChangeStateToIntroduction()
@@ -109,6 +122,11 @@ public class SolarQuestTutorialManager : MonoBehaviour
     {
         SetState(GameState.SolarGame);
     }
+
+    public void ChangeStateToEnd()
+	{
+        SetState(GameState.End);
+	}
 
 
 
@@ -133,6 +151,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
             case GameState.SolarGame:
                 SolarGameState();
                 break;
+			case GameState.End:
+				EndState();
+				break;
             default:
                 break;
         }
@@ -157,6 +178,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
             case GameState.SolarGame:
                 ExitSolarGameState();
                 break;
+			case GameState.End:
+				ExitEndState();
+				break;
             default:
                 break;
         }
@@ -272,8 +296,45 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
     private void ExitSolarGameState()
     {
+        if (SolarScoring.Instance)
+		{
+			score = SolarScoring.Instance.energyScore;
+		}
+		introBox.SetActive(false);
 		energyBar.SetActive(false);
 		budget.SetActive(false);
+		solarGame.SetActive(false);
 		solarGameDoneButton.SetActive(false);
-    }
+		solarPanelsPopup.SetActive(false);
+        if (SolarGamePopupManager.Instance)
+		{
+			SolarGamePopupManager.Instance.CloseAllPopups();
+		}
+	}
+
+    private void EndState()
+	{
+		startCam.enabled = false;
+		questCam.enabled = true;
+		southCam.enabled = false;
+
+		endTextBox.SetActive(true);
+
+		choiceButtons.SetActive(true);
+		endText.text = "Congratulations! Your score was " + (score * 100) + "%. Would you like to try again or continue?";
+	}
+
+    private void ExitEndState()
+	{
+		choiceButtons.SetActive(false);
+		endTextBox.SetActive(false);
+	}
+
+    public void LoadEndText()
+	{
+		choiceButtons.SetActive(false);
+		endTextBox.GetComponent<InfoBox>().LoadText();
+	}
+
+
 }
