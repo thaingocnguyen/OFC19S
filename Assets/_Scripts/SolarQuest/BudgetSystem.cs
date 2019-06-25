@@ -9,7 +9,6 @@ public class BudgetSystem : MonoBehaviour
     public Text subtractBudgetText;
 
     [SerializeField] int maxBudget = 90000;
-
     int currentBudget;
 
     #region Singleton
@@ -33,9 +32,9 @@ public class BudgetSystem : MonoBehaviour
 
     public IEnumerator DecrementBudget(string tag)
     {
+
         if (tag == "12000")
         {
-
             currentBudget = currentBudget - 12000;
             budgetText.text = "Budget: $" + currentBudget;
             subtractBudgetText.text = " -$12000";

@@ -46,10 +46,6 @@ public class TutorialManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    private void Start()
-    {
-    }
-
     public void StartTutorial(Tutorial tutorial)
     {
         // Display tutorial panel

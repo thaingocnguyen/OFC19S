@@ -19,19 +19,10 @@ public class DragAndBudget : MonoBehaviour
 
     SolarPanel currentPanel;
 
-
-
-    //public energyScoring engScore;
-
-    void Awake()
-    {
-        
-    }
-    // Use this for initialization
     void Start()
     {
         initialPosition = gameObject.transform.position;
-        initialRotation = gameObject.transform.rotation;
+        initialRotation = gameObject.transform.rotation;   
     }
 
 
@@ -81,11 +72,15 @@ public class DragAndBudget : MonoBehaviour
             // Place panel on grid
             else
             {
-
                 transform.position = grid.GetNearestPointOnGrid(gridPos[0], gridPos[1]);
 
                 if (!panel.GetComponent<SolarPanel>().PanelPlaced)
                 {
+                    if (SolarGamePopupManager.Instance != null)
+                    {
+                        SolarGamePopupManager.Instance.FirstPanelPlaced();
+                    }
+   
                     grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
                     StartCoroutine(BudgetSystem.Instance.DecrementBudget(panelCost));
                     panel.GetComponent<SolarPanel>().PanelPlaced = true;

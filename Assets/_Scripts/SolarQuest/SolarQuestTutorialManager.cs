@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SolarQuestTutorialManager : MonoBehaviour
 {
-    public bool debugMode;
 
     #region Cameras
     [SerializeField] Camera startCam;
@@ -27,22 +27,28 @@ public class SolarQuestTutorialManager : MonoBehaviour
     // QUIZ
     [SerializeField] GameObject quizPanel;
     [SerializeField] GameObject backButton;
+    [SerializeField] GameObject quizDoneButton;
+
+    // SOLAR GAME
+    [SerializeField] GameObject solarGame;
+    [SerializeField] GameObject budget;
+    [SerializeField] GameObject energyBar;
+    [SerializeField] GameObject introBox;
+    [SerializeField] GameObject solarPanelsPopup;
 
 
     [SerializeField]
     GameObject tutorialManager;
-    [SerializeField]
-    GameObject SolarGame;
+
 
     [SerializeField]
     GameObject character;
     [SerializeField]
     GameObject quizButtons;
-    [SerializeField]
-    GameObject energyBar;
-    [SerializeField]
-    GameObject budget;
 
+
+
+    // Lights
     [SerializeField] Light mainLight;
     [SerializeField] Light sliderLight;
 
@@ -65,40 +71,12 @@ public class SolarQuestTutorialManager : MonoBehaviour
         Introduction,
         SliderTutorial,
         Quiz,
+        SolarGame,
         Tutorial,
         Quest
     }
 
-    private GameState currentState = GameState.Start;
-
-
-    //private void Awake()
-    //{
-    //    // Start out using tutorial camera 
-    //    startCam.enabled = true;
-    //    questCam.enabled = false;
-    //    southCam.enabled = false;
-
-    //    character.SetActive(false);
-
-    //    // Set all final quest ui items to be inactive
-    //    SolarGame.SetActive(false);
-    //    budget.SetActive(false);
-    //    energyBar.SetActive(false);
-
-    //    // Set all quiz ui items to be inactive
-    //    tutorialUI.SetActive(false);
-    //    quizButtons.SetActive(false);
-    //    SetStatusHintPanel(false);
-
-    //    // Set up for delegates
-    //    tutorialManager.GetComponent<TutorialManager>().onSliderTutorialReached += Handle_OnSliderTutorialReached;
-    //    tutorialManager.GetComponent<TutorialManager>().onTutorialEnd += Handle_OnTutorialEnd;
-    //    tutorialManager.GetComponent<TutorialManager>().onQuizStart += Handle_OnQuizStart;
-
-    //    mainLight.enabled = true;
-    //    sliderLight.enabled = false; 
-    //}
+    private GameState currentState;
 
     private void Start()
     {
@@ -124,8 +102,15 @@ public class SolarQuestTutorialManager : MonoBehaviour
         quizPanel.SetActive(false);
         backButton.SetActive(false);
 
+        // SOLAR GAME
+        solarGame.SetActive(false);
+        budget.SetActive(false);
+        energyBar.SetActive(false);
+        introBox.SetActive(false);
+        solarPanelsPopup.SetActive(false);
+
         // Set start state
-        SetState(GameState.Quiz);
+        SetState(GameState.SolarGame);
     }
 
     private void Update()
@@ -147,6 +132,13 @@ public class SolarQuestTutorialManager : MonoBehaviour
         SetState(GameState.Quiz);
     }
 
+    public void ChangeStateToSolarGame()
+    {
+        SetState(GameState.SolarGame);
+    }
+
+
+
     private void SetState(GameState newState)
     {
         ExitCurrentState();
@@ -164,6 +156,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
                 break;
             case GameState.Quiz:
                 QuizState();
+                break;
+            case GameState.SolarGame:
+                SolarGameState();
                 break;
             default:
                 break;
@@ -185,6 +180,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
                 break;
             case GameState.Quiz:
                 ExitQuizState();
+                break;
+            case GameState.SolarGame:
+                ExitSolarGameState();
                 break;
             default:
                 break;
@@ -210,7 +208,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
             // Set solar game ui items for be active
             energyBar.SetActive(true);
             budget.SetActive(true);
-            SolarGame.SetActive(true);
+            solarGame.SetActive(true);
+            
 
             mainLight.enabled = true;
             sliderLight.enabled = false;
@@ -338,6 +337,34 @@ public class SolarQuestTutorialManager : MonoBehaviour
     {
         quizPanel.SetActive(false);
         backButton.SetActive(false);
+
     }
 
+    private void SolarGameState()
+    {
+        startCam.enabled = false;
+        questCam.enabled = true;
+        southCam.enabled = false;
+
+        energyBar.SetActive(true);
+        budget.SetActive(true);
+        introBox.SetActive(true);
+        solarGame.SetActive(true);
+    }
+
+    public void CloseIntroBox()
+    {
+        introBox.SetActive(false);
+        solarPanelsPopup.SetActive(true);
+    }
+
+    public void CloseSolarPanelsPopup()
+    {
+        solarPanelsPopup.SetActive(false);
+    }
+
+    private void ExitSolarGameState()
+    {
+        throw new NotImplementedException();
+    }
 }
