@@ -29,7 +29,6 @@ public class DragAndBudget : MonoBehaviour
     void OnMouseDown()
     {
         // Instantiate a new solar panel when it is clicked on 
-        //SolarPooler.Instance.SpawnFromPool(gameObject.tag, panel.transform.position, panel.transform.rotation);
         Instantiate(panel, initialPosition, initialRotation);
     }
 

@@ -10617,11 +10617,7 @@ MonoBehaviour:
   - 'In BC, you can choose to connect your solar panels to the electricity grid.
     If your solar panel produces more power than your household consumes, the surplus
     is fed into the grid for others to use. '
-  - In BC, you can obtain BC Grid Credits by doing so. You can use BC Grid Credits
-    to reduce the price you pay for electricity  on the days where there is not as
-    much sunlight. Sounds like a win-win situation!
-  - Now, let's try retrofitting an entire block with solar panels! Remember what
-    you've learnt about roof direction and be mindful of the budget vs. energy tradeoffs.
+  - 
 --- !u!1001 &395799864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49711,47 +49707,6 @@ PrefabInstance:
         type: 3}
       propertyPath: dragDistance
       value: 11.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2136849495067777774, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 2136849495067777774, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059501466497452644, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 5059501466497452644, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 613616743522506284, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
-    - target: {fileID: 8685356390662151115, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d,
-        type: 3}
-    - target: {fileID: 8685356390662151115, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8685356390662151115, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-        type: 3}
-      propertyPath: m_Text
-      value: $12000/unit
       objectReference: {fileID: 0}
     - target: {fileID: 8415649961011215879, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
