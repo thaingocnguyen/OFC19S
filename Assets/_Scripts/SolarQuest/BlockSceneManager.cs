@@ -35,11 +35,6 @@ public class BlockSceneManager : MonoBehaviour
         infoPanel.ShowInfoPanel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void UseCamera(int cameraIndex)
     {
