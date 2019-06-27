@@ -14,6 +14,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 	#endregion
 
 	public float score;
+    [SerializeField] GameObject character;
 
     // START
     [SerializeField] GameObject startButton;
@@ -65,6 +66,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
     private void Start()
     {
+        character.SetActive(false);
+
         // Start out using tutorial camera
         startCam.enabled = true;
         questCam.enabled = false;
@@ -100,7 +103,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 		choiceButtons.SetActive(false);
 
         // Set start state
-        SetState(GameState.SolarGame);
+        SetState(GameState.Start);
     }
 
     public void ChangeStateToIntroduction()
@@ -209,12 +212,15 @@ public class SolarQuestTutorialManager : MonoBehaviour
         questCam.enabled = false;
         southCam.enabled = false;
 
+        character.SetActive(true);
+
         infoBox.SetActive(true);
         infoBox.GetComponent<InfoBox>().LoadText();
     }
 
     private void ExitIntroductionState()
     {
+        character.SetActive(false);
         infoBox.SetActive(false);
     }
 
@@ -261,6 +267,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
         quizPanel.SetActive(true);
         backButton.SetActive(true);
+
+        character.SetActive(true);
     }
 
     private void ExitQuizState()
@@ -268,6 +276,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
         quizPanel.SetActive(false);
         backButton.SetActive(false);
 
+        character.SetActive(false);
     }
 
     private void SolarGameState()
@@ -318,6 +327,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 		questCam.enabled = true;
 		southCam.enabled = false;
 
+        character.SetActive(true);
 		endTextBox.SetActive(true);
 
 		choiceButtons.SetActive(true);
@@ -328,6 +338,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 	{
 		choiceButtons.SetActive(false);
 		endTextBox.SetActive(false);
+        character.SetActive(false);
 	}
 
     public void LoadEndText()

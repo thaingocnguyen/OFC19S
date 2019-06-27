@@ -6,6 +6,7 @@ public class HouseSelector : MonoBehaviour
 {
 
     private int selectedHouse;
+    private GameObject house;
     private bool mapView = true;
 
     [SerializeField] Animator selectBoxAnimator;
@@ -43,6 +44,7 @@ public class HouseSelector : MonoBehaviour
             case "House1":
                 Camera.main.transform.position = new Vector3(-34f, Camera.main.transform.position.y, Camera.main.transform.position.z);
                 selectedHouse = 0;
+                
                 break;
             case "House2":
                 Camera.main.transform.position = new Vector3(-30f, Camera.main.transform.position.y, Camera.main.transform.position.z);

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class BlockSceneManager : MonoBehaviour
 {
+    // TODO: Layer mask to fix solar quest error 
     [SerializeField] InfoPanel infoPanel;
     [SerializeField] Camera mainCamera;
     [SerializeField] Camera[] houseCameras;
