@@ -68,7 +68,7 @@ public class BlockSceneManager : MonoBehaviour
 
     public void ShowMap()
     {
-        GetComponent<HouseSelector>().MapView = true;
+        GetComponent<HouseSelector>().SwitchToMapView();
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
         backButton.SetActive(false);

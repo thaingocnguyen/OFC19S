@@ -5,8 +5,8 @@ using UnityEngine;
 public class HouseSelector : MonoBehaviour
 {
 
-    private int selectedHouse;
-    private GameObject house;
+    private int houseIndex;
+    private GameObject selectedHouse;
     private bool mapView = true;
 
     [SerializeField] Animator selectBoxAnimator;
@@ -37,34 +37,40 @@ public class HouseSelector : MonoBehaviour
         set { mapView = value; }
     }
 
+    public void SwitchToMapView()
+    {
+        mapView = true;
+        selectedHouse.GetComponent<Collider>().enabled = true;
+    }
+
     void CameraCenter(GameObject house)
     {
+        selectedHouse = house;
         switch (house.name)
         {
             case "House1":
                 Camera.main.transform.position = new Vector3(-34f, Camera.main.transform.position.y, Camera.main.transform.position.z);
-                selectedHouse = 0;
-                
+                houseIndex = 0;
                 break;
             case "House2":
                 Camera.main.transform.position = new Vector3(-30f, Camera.main.transform.position.y, Camera.main.transform.position.z);
-                selectedHouse = 1;
+                houseIndex = 1;
                 break;
             case "House3":
                 Camera.main.transform.position = new Vector3(1f, Camera.main.transform.position.y, Camera.main.transform.position.z);
-                selectedHouse = 2;
+                houseIndex = 2;
                 break;
             case "House4":
                 Camera.main.transform.position = new Vector3(27f, Camera.main.transform.position.y, Camera.main.transform.position.z);
-                selectedHouse = 3;
+                houseIndex = 3;
                 break;
             case "House5":
                 Camera.main.transform.position = new Vector3(58f, Camera.main.transform.position.y, Camera.main.transform.position.z);
-                selectedHouse = 4;
+                houseIndex = 4;
                 break;
             case "House6":
                 Camera.main.transform.position = new Vector3(62f, Camera.main.transform.position.y, Camera.main.transform.position.z);
-                selectedHouse = 5;
+                houseIndex = 5;
                 break;
             default:
                 break;
@@ -74,7 +80,8 @@ public class HouseSelector : MonoBehaviour
     public void SelectHouse()
     {
         selectBoxAnimator.SetBool("IsOnScreen", false);
-        GetComponent<BlockSceneManager>().UseCamera(selectedHouse);
+        GetComponent<BlockSceneManager>().UseCamera(houseIndex);
+        selectedHouse.GetComponent<Collider>().enabled = false;
     }
 
 }
