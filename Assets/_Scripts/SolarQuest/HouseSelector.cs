@@ -9,6 +9,9 @@ public class HouseSelector : MonoBehaviour
     private GameObject selectedHouse;
     private bool mapView = true;
 
+    public delegate void HouseDelegate();
+    public HouseDelegate oHouseSelected;
+
     [SerializeField] Animator selectBoxAnimator;
 
     // Update is called once per frame
@@ -82,6 +85,7 @@ public class HouseSelector : MonoBehaviour
 		selectBoxAnimator.SetBool("IsOnScreen", false);
 		GetComponent<BlockSceneManager>().UseCamera(houseIndex);
 		selectedHouse.GetComponent<Collider>().enabled = false;
+        oHouseSelected();
 	}
 
 	public void CloseSelectHousePrompt()

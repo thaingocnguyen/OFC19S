@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System;
 
 public class BlockSceneManager : MonoBehaviour
 {
@@ -9,9 +11,12 @@ public class BlockSceneManager : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<HouseSelector>().oHouseSelected += DecrementHousesLeft;
         Instance = this;
     }
     #endregion Singleton
+
+    
 
     [SerializeField] Camera mainCamera;
     [SerializeField] Camera[] houseCameras;
@@ -31,6 +36,10 @@ public class BlockSceneManager : MonoBehaviour
     [SerializeField] GameObject budget;
     [SerializeField] GameObject compass;
 
+    // HOUSES 
+    private int housesLeft = 3;
+    [SerializeField] GameObject housesLeftUI;
+    [SerializeField] TextMeshProUGUI housesLeftText;
 
     public enum GameState
     {
@@ -40,6 +49,7 @@ public class BlockSceneManager : MonoBehaviour
     }
 
     private GameState currentState = GameState.SelectHouse;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +72,7 @@ public class BlockSceneManager : MonoBehaviour
 
         // UI
         backButton.SetActive(false);
+        housesLeftUI.SetActive(false);
 
         // SOLAR GAME
         energyBar.SetActive(false);
@@ -79,15 +90,22 @@ public class BlockSceneManager : MonoBehaviour
                 introduction.SetActive(true);
                 break;
             case GameState.SelectHouse:
-                energyBar.SetActive(true);
-                budget.SetActive(true);
-                compass.SetActive(true);
-                instructions.SetActive(true);
-                instructionIcon.SetActive(true);
+                SelectHouseState();
                 break;
             default:
                 break;
         }
+    }
+
+    private void SelectHouseState()
+    {
+        energyBar.SetActive(true);
+        budget.SetActive(true);
+        compass.SetActive(true);
+        instructions.SetActive(true);
+        instructionIcon.SetActive(true);
+        housesLeftUI.SetActive(true);
+        housesLeftText.text = "Houses Left: " + housesLeft;
     }
 
     public void SetState(GameState state)
@@ -181,4 +199,19 @@ public class BlockSceneManager : MonoBehaviour
         instructions.SetActive(false);
     }
 
+    private void DecrementHousesLeft()
+    {
+        housesLeft--;
+        housesLeftText.text = "Houses Left: " + housesLeft;
+
+        if (housesLeft == 0)
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
+        throw new NotImplementedException();
+    }
 }
