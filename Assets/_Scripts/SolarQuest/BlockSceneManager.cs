@@ -4,12 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class BlockSceneManager : MonoBehaviour
 {
-    // TODO: Layer mask to fix solar quest error 
-    [SerializeField] InfoPanel infoPanel;
     [SerializeField] Camera mainCamera;
     [SerializeField] Camera[] houseCameras;
 
     // UI ELEMENTS
+    [SerializeField] GameObject instructions;
+    [SerializeField] GameObject instructionIcon;
     [SerializeField] GameObject backButton;
     [SerializeField] GameObject doneButton;
 
@@ -29,10 +29,10 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
 
-        // SET UP OF SCENE 
+        instructions.SetActive(false);
+        instructionIcon.SetActive(false);
         backButton.SetActive(false);
-
-        infoPanel.ShowInfoPanel();
+        doneButton.SetActive(false);
     }
 
 
@@ -118,6 +118,17 @@ public class BlockSceneManager : MonoBehaviour
     public void ShowMainKitsilanoScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ShowInstructions()
+    {
+        instructions.SetActive(true);
+    }
+
+    public void HideInstructions()
+    {
+        instructions.SetActive(false);
+        instructionIcon.SetActive(true);
     }
 
 }

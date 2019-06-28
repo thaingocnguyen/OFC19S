@@ -5,7 +5,7 @@ using TMPro;
 
 public abstract class InfoBox : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI infoText;
+    [SerializeField] protected TextMeshProUGUI infoText;
     [SerializeField] protected InfoContainer infoContainer;
 
     
@@ -30,7 +30,7 @@ public abstract class InfoBox : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    public virtual void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
