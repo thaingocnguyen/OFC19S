@@ -8079,7 +8079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &159549745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11026,8 +11026,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 386326439}
-  - {fileID: 1078809352}
   - {fileID: 474684289}
+  - {fileID: 1078809352}
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22391,6 +22391,12 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5921829966658433432, guid: a3cc8738925a54e19beb2a17634a6799,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c2fe67152835074e822987ff557f1be,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3cc8738925a54e19beb2a17634a6799, type: 3}
 --- !u!1001 &447830440
@@ -23822,7 +23828,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224430440}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -26716,6 +26722,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 463558, guid: 55f7869f7cac62e428bd6a28d1f8a03c,
     type: 3}
   m_PrefabInstance: {fileID: 879610872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &536504775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4308048185591001568, guid: 03c0ab3c65b714667a50f1268e317a19,
+    type: 3}
+  m_PrefabInstance: {fileID: 977779316}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &538085237
 PrefabInstance:
@@ -30981,6 +30993,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579244642241871728, guid: 1c6df9c52b04f484c91f1f027bc5cb6b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 914949630}
+    - target: {fileID: 7579244642241871728, guid: 1c6df9c52b04f484c91f1f027bc5cb6b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSelectHousePrompt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c6df9c52b04f484c91f1f027bc5cb6b, type: 3}
@@ -44403,12 +44425,13 @@ MonoBehaviour:
   - {fileID: 1940194890}
   - {fileID: 1269785852}
   - {fileID: 221869332}
+  backButton: {fileID: 5019994648633207671}
+  introduction: {fileID: 1964437965}
   instructions: {fileID: 364104499}
   instructionIcon: {fileID: 474684288}
-  backButton: {fileID: 5019994648633207671}
-  doneButton: {fileID: 0}
-  endQuestPanel: {fileID: 0}
-  endQuestText: {fileID: 0}
+  energyBar: {fileID: 1406958102}
+  budget: {fileID: 536504775}
+  compass: {fileID: 1978608108}
 --- !u!114 &914949630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99492,7 +99515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1964437966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100224,6 +100247,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 470672, guid: d3251d8de3a7041449e8350ce2a40713,
     type: 3}
   m_PrefabInstance: {fileID: 1373460559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978608108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5921829966658433434, guid: a3cc8738925a54e19beb2a17634a6799,
+    type: 3}
+  m_PrefabInstance: {fileID: 447419456}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1978822550
 PrefabInstance:

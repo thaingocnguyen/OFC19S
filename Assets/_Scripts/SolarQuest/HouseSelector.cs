@@ -77,11 +77,16 @@ public class HouseSelector : MonoBehaviour
         }
     }
 
-    public void SelectHouse()
-    {
-        selectBoxAnimator.SetBool("IsOnScreen", false);
-        GetComponent<BlockSceneManager>().UseCamera(houseIndex);
-        selectedHouse.GetComponent<Collider>().enabled = false;
-    }
+	public void SelectHouse()
+	{
+		selectBoxAnimator.SetBool("IsOnScreen", false);
+		GetComponent<BlockSceneManager>().UseCamera(houseIndex);
+		selectedHouse.GetComponent<Collider>().enabled = false;
+	}
+
+	public void CloseSelectHousePrompt()
+	{
+		selectBoxAnimator.SetBool("IsOnScreen", false);
+	}
 
 }

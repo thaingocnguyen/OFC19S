@@ -52,7 +52,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
 
 
-    enum GameState
+    public enum GameState
     {
         Start,
         Introduction,

@@ -4,18 +4,42 @@ using UnityEngine.SceneManagement;
 
 public class BlockSceneManager : MonoBehaviour
 {
+    #region Singleton
+    public static BlockSceneManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+    #endregion Singleton
+
     [SerializeField] Camera mainCamera;
     [SerializeField] Camera[] houseCameras;
 
     // UI ELEMENTS
+    [SerializeField] GameObject backButton;
+
+    // INTRODUCTION
+    [SerializeField] GameObject introduction;
+
+    // INSTRUCTIONS
     [SerializeField] GameObject instructions;
     [SerializeField] GameObject instructionIcon;
-    [SerializeField] GameObject backButton;
-    [SerializeField] GameObject doneButton;
 
-    // END QUEST
-    [SerializeField] GameObject endQuestPanel;
-    [SerializeField] Text endQuestText;
+    // SOLAR GAME
+    [SerializeField] GameObject energyBar;
+    [SerializeField] GameObject budget;
+    [SerializeField] GameObject compass;
+
+
+    public enum GameState
+    {
+        Introduction,
+        SelectHouse,
+        End
+    }
+
+    private GameState currentState = GameState.SelectHouse;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +53,48 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
 
+        // INTRODUCTION
+        introduction.SetActive(false);
+
+        // INSTRUCTIONS
         instructions.SetActive(false);
         instructionIcon.SetActive(false);
+
+        // UI
         backButton.SetActive(false);
-        doneButton.SetActive(false);
+
+        // SOLAR GAME
+        energyBar.SetActive(false);
+        budget.SetActive(false);
+        compass.SetActive(false);
+
+        StateSetup();
     }
 
+    private void StateSetup()
+    {
+        switch(currentState)
+        {
+            case GameState.Introduction:
+                introduction.SetActive(true);
+                break;
+            case GameState.SelectHouse:
+                energyBar.SetActive(true);
+                budget.SetActive(true);
+                compass.SetActive(true);
+                instructions.SetActive(true);
+                instructionIcon.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void SetState(GameState state)
+    {
+        currentState = state;
+        StateSetup();
+    }
 
     public void UseCamera(int cameraIndex)
     {
@@ -62,7 +122,6 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = false;
         mainCamera.gameObject.SetActive(false);
 
-        doneButton.SetActive(false);
         backButton.SetActive(true);
     }
 
@@ -72,20 +131,12 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
         backButton.SetActive(false);
-        doneButton.SetActive(true);
+
         foreach (Camera c in houseCameras)
         {
             c.gameObject.SetActive(false);
             c.enabled = false;
         }
-    }
-
-    public void EndQuest()
-    {
-        doneButton.SetActive(false);
-        endQuestPanel.SetActive(true);
-        endQuestPanel.GetComponent<Animator>().SetBool("IsOnScreen", true);
-        endQuestText.text = GetEndOutcome();
     }
 
     private string GetEndOutcome()
@@ -128,7 +179,6 @@ public class BlockSceneManager : MonoBehaviour
     public void HideInstructions()
     {
         instructions.SetActive(false);
-        instructionIcon.SetActive(true);
     }
 
 }

@@ -15,7 +15,7 @@ public class BlockSceneIntroBox : InfoBox, IPointerDownHandler
         gameObject.SetActive(false);
         character.SetActive(false);
         background.SetActive(false);
-        instructions.SetActive(true);
+        BlockSceneManager.Instance.SetState(BlockSceneManager.GameState.SelectHouse);
     }
 
     private void Start()
