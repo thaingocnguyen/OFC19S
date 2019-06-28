@@ -83,9 +83,17 @@ public class HouseSelector : MonoBehaviour
 	public void SelectHouse()
 	{
 		selectBoxAnimator.SetBool("IsOnScreen", false);
+        SolarHouse solarHouse = selectedHouse.GetComponent<SolarHouse>();
 		GetComponent<BlockSceneManager>().UseCamera(houseIndex);
+
+        // If house hasn't been selected before
+        if (!solarHouse.Selected)
+        {
+            oHouseSelected();
+        }
+
+        solarHouse.ActivateSolarGame();
 		selectedHouse.GetComponent<Collider>().enabled = false;
-        oHouseSelected();
 	}
 
 	public void CloseSelectHousePrompt()
