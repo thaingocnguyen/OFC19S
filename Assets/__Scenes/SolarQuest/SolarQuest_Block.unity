@@ -8910,7 +8910,7 @@ Transform:
   m_Children:
   - {fileID: 539486432}
   - {fileID: 116798062}
-  - {fileID: 2065733621}
+  - {fileID: 1444538685712210958}
   - {fileID: 2123415105}
   m_Father: {fileID: 1064956208}
   m_RootOrder: 3
@@ -11290,7 +11290,6 @@ RectTransform:
   m_Children:
   - {fileID: 386326439}
   - {fileID: 474684289}
-  - {fileID: 1078809352}
   - {fileID: 2085287609}
   m_Father: {fileID: 0}
   m_RootOrder: 23
@@ -22549,7 +22548,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 224430440}
+    m_TransformParent: {fileID: 1385670691}
     m_Modifications:
     - target: {fileID: 5921829966658433435, guid: a3cc8738925a54e19beb2a17634a6799,
         type: 3}
@@ -22589,7 +22588,7 @@ PrefabInstance:
     - target: {fileID: 5921829966658433435, guid: a3cc8738925a54e19beb2a17634a6799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5921829966658433435, guid: a3cc8738925a54e19beb2a17634a6799,
         type: 3}
@@ -29475,12 +29474,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584913132}
   m_Mesh: {fileID: 4300000, guid: 29e216242a124bc4eaa05a0e19e6fba2, type: 3}
---- !u!1 &585029868 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1834298965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &586062915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45173,13 +45166,13 @@ MonoBehaviour:
   - {fileID: 1940194890}
   - {fileID: 1269785852}
   - {fileID: 221869332}
-  backButton: {fileID: 5019994648633207671}
   introduction: {fileID: 1964437965}
   instructions: {fileID: 364104499}
   instructionIcon: {fileID: 474684288}
   energyBar: {fileID: 1406958102}
   budget: {fileID: 536504775}
   compass: {fileID: 1978608108}
+  doneButton: {fileID: 5019994648633207671}
   housesLeftUI: {fileID: 2085287608}
   housesLeftText: {fileID: 2105463306}
 --- !u!114 &914949630
@@ -48316,7 +48309,7 @@ PrefabInstance:
     - target: {fileID: 4308048185591001569, guid: 03c0ab3c65b714667a50f1268e317a19,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4308048185591001569, guid: 03c0ab3c65b714667a50f1268e317a19,
         type: 3}
@@ -49115,12 +49108,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 484982, guid: f685981362bca71419bef0771ce7983b,
     type: 3}
   m_PrefabInstance: {fileID: 867351824}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &992308024 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1444538685606842938, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1834298965}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &992805424 stripped
 Transform:
@@ -61229,6 +61216,7 @@ MonoBehaviour:
   southSolar: {fileID: 0}
   westSolar: {fileID: 0}
   backButton: {fileID: 0}
+  doneButton: {fileID: 0}
   compass: {fileID: 0}
 --- !u!1001 &1197789808
 PrefabInstance:
@@ -63103,6 +63091,7 @@ MonoBehaviour:
   southSolar: {fileID: 0}
   westSolar: {fileID: 0}
   backButton: {fileID: 0}
+  doneButton: {fileID: 0}
   compass: {fileID: 0}
 --- !u!1001 &1238631433
 PrefabInstance:
@@ -71312,7 +71301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1385670688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71384,6 +71373,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1078809352}
   - {fileID: 5019994648633207670}
   - {fileID: 2013500069}
   - {fileID: 977779317}
@@ -72206,7 +72196,7 @@ MonoBehaviour:
   energyScore: 0
   energyBar: {fileID: 2013500070}
   gridObjects:
-  - {fileID: 992308024}
+  - {fileID: 1444538684177316975}
   - {fileID: 1809786234}
   - {fileID: 1242064397}
   - {fileID: 861416706}
@@ -84614,6 +84604,7 @@ MonoBehaviour:
   southSolar: {fileID: 0}
   westSolar: {fileID: 0}
   backButton: {fileID: 0}
+  doneButton: {fileID: 0}
   compass: {fileID: 0}
 --- !u!1001 &1634579177
 PrefabInstance:
@@ -94918,10 +94909,20 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1444538685557021625, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_TagString
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 8337573371978745766, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337573371978745766, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8830063895590330378, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
         type: 3}
@@ -96498,9 +96499,10 @@ MonoBehaviour:
   westCam: {fileID: 191019039}
   northSolar: {fileID: 933255775}
   eastSolar: {fileID: 1673709612}
-  southSolar: {fileID: 585029868}
+  southSolar: {fileID: 1444538685712210957}
   westSolar: {fileID: 1892385966}
   backButton: {fileID: 1690735653}
+  doneButton: {fileID: 5019994648633207671}
   compass: {fileID: 1978608108}
 --- !u!1001 &1873237458
 PrefabInstance:
@@ -104017,7 +104019,7 @@ PrefabInstance:
     - target: {fileID: 7158193507616878795, guid: 8666a94b36e6d4d3aa3677b6a0e78844,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7158193507616878795, guid: 8666a94b36e6d4d3aa3677b6a0e78844,
         type: 3}
@@ -106059,6 +106061,7 @@ MonoBehaviour:
   southSolar: {fileID: 0}
   westSolar: {fileID: 0}
   backButton: {fileID: 0}
+  doneButton: {fileID: 0}
   compass: {fileID: 0}
 --- !u!4 &2048191915 stripped
 Transform:
@@ -106892,12 +106895,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3942e14f0737888498c60733f4473913, type: 3}
---- !u!4 &2065733621 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1834298965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2065930362
 GameObject:
   m_ObjectHideFlags: 0
@@ -108202,7 +108199,7 @@ RectTransform:
   m_Children:
   - {fileID: 2105463305}
   m_Father: {fileID: 224430440}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -110237,6 +110234,7 @@ MonoBehaviour:
   southSolar: {fileID: 0}
   westSolar: {fileID: 0}
   backButton: {fileID: 0}
+  doneButton: {fileID: 0}
   compass: {fileID: 0}
 --- !u!1001 &2120326410
 PrefabInstance:
@@ -111689,6 +111687,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146546116}
   m_CullTransparentMesh: 0
+--- !u!1 &1444538684177316975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1444538685606842938, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1834298965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1444538685712210957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1444538684056187480, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1834298965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1444538685712210958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1444538684056187483, guid: ea0d64bbaf8762c41a384d3f7fc4c54e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1834298965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4628494848867070643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111896,12 +111912,12 @@ RectTransform:
   m_Children:
   - {fileID: 5019994648878402524}
   m_Father: {fileID: 1385670691}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -167, y: 95}
-  m_SizeDelta: {x: 250, y: 100}
+  m_AnchoredPosition: {x: -150, y: 90}
+  m_SizeDelta: {x: 240, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5019994648633207671
 GameObject:
@@ -111917,7 +111933,7 @@ GameObject:
   - component: {fileID: 5019994648633207669}
   - component: {fileID: 5019994648633207674}
   m_Layer: 5
-  m_Name: BackButton
+  m_Name: DoneButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111991,7 +112007,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Go Back
+  m_Text: Done
 --- !u!224 &5019994648878402524
 RectTransform:
   m_ObjectHideFlags: 0

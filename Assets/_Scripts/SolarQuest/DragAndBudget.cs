@@ -63,8 +63,8 @@ public class DragAndBudget : MonoBehaviour
                 grid.UpdateGridScore();
                 SolarScoring.Instance.UpdateScore();
             }
-           
-            transform.position = initialPosition;
+
+            StartCoroutine("DestroyPanel");
         }
         // Place panel on grid
         else if (budgetMoreThanZero)
@@ -98,5 +98,11 @@ public class DragAndBudget : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+    }
+
+    IEnumerator DestroyPanel()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }

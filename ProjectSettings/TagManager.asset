@@ -37,6 +37,8 @@ TagManager:
   - 3000
   - puzzle4
   - House
+  - SmallPanel
+  - BigPanel
   layers:
   - Default
   - TransparentFX

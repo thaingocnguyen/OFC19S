@@ -17,6 +17,7 @@ public class SolarHouse : MonoBehaviour
     [SerializeField] GameObject westSolar;
 
     [SerializeField] GameObject backButton;
+    [SerializeField] GameObject doneButton;
 
     [SerializeField] GameObject compass;
 
@@ -39,6 +40,7 @@ public class SolarHouse : MonoBehaviour
         westSolar.SetActive(false);
 
         backButton.SetActive(false);
+        doneButton.SetActive(false);
 
         arrowCanvas.SetActive(false);
         selected = false;
@@ -49,6 +51,7 @@ public class SolarHouse : MonoBehaviour
         selected = true;
         arrowCanvas.SetActive(true);
         compass.SetActive(true);
+        doneButton.SetActive(true);
         backButton.SetActive(false);
 
         northCam.SetActive(false);
@@ -65,18 +68,14 @@ public class SolarHouse : MonoBehaviour
 
     public void SwitchCameraToSouth()
     {
-        arrowCanvas.SetActive(false);
-        backButton.SetActive(true);
-        compass.SetActive(false);
+        SwitchCameraSetup();
 
         southSolar.SetActive(true);
     }
 
     public void SwitchCameraToNorth()
     {
-        arrowCanvas.SetActive(false);
-        backButton.SetActive(true);
-        compass.SetActive(false);
+        SwitchCameraSetup();
 
         northSolar.SetActive(true);
 
@@ -89,9 +88,7 @@ public class SolarHouse : MonoBehaviour
 
     public void SwitchCameraToEast()
     {
-        arrowCanvas.SetActive(false);
-        backButton.SetActive(true);
-        compass.SetActive(false);
+        SwitchCameraSetup();
 
         eastSolar.SetActive(true);
 
@@ -103,9 +100,7 @@ public class SolarHouse : MonoBehaviour
 
     public void SwitchCameraToWest()
     {
-        arrowCanvas.SetActive(false);
-        backButton.SetActive(true);
-        compass.SetActive(false);
+        SwitchCameraSetup();
 
         westSolar.SetActive(true);
 
@@ -113,5 +108,18 @@ public class SolarHouse : MonoBehaviour
         eastCam.SetActive(false);
         westCam.SetActive(true);
         southCam.SetActive(false);
+    }
+
+    private void SwitchCameraSetup()
+    {
+        arrowCanvas.SetActive(false);
+        backButton.SetActive(true);
+        compass.SetActive(false);
+        doneButton.SetActive(false);
+    }
+
+    public void HideArrowCanvas()
+    {
+        arrowCanvas.SetActive(false);
     }
 }

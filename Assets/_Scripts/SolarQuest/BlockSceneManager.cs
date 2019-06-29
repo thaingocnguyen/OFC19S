@@ -21,9 +21,6 @@ public class BlockSceneManager : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] Camera[] houseCameras;
 
-    // UI ELEMENTS
-    [SerializeField] GameObject backButton;
-
     // INTRODUCTION
     [SerializeField] GameObject introduction;
 
@@ -35,6 +32,7 @@ public class BlockSceneManager : MonoBehaviour
     [SerializeField] GameObject energyBar;
     [SerializeField] GameObject budget;
     [SerializeField] GameObject compass;
+    [SerializeField] GameObject doneButton;
 
     // HOUSES 
     private int housesLeft = 3;
@@ -139,7 +137,6 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = false;
         mainCamera.gameObject.SetActive(false);
 
-        backButton.SetActive(true);
         instructionIcon.SetActive(false);
 
         GetComponent<HouseSelector>().MapView = false;
@@ -150,8 +147,8 @@ public class BlockSceneManager : MonoBehaviour
         GetComponent<HouseSelector>().SwitchToMapView();
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
-        backButton.SetActive(false);
         instructionIcon.SetActive(true);
+        doneButton.SetActive(false);
 
         foreach (Camera c in houseCameras)
         {
