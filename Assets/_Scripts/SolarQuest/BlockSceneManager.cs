@@ -63,23 +63,23 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
 
-        // INTRODUCTION
-        introduction.SetActive(false);
+        //// INTRODUCTION
+        //introduction.SetActive(false);
 
-        // INSTRUCTIONS
-        instructions.SetActive(false);
-        instructionIcon.SetActive(false);
+        //// INSTRUCTIONS
+        //instructions.SetActive(false);
+        //instructionIcon.SetActive(false);
 
-        // UI
-        backButton.SetActive(false);
-        housesLeftUI.SetActive(false);
+        //// UI
+        //backButton.SetActive(false);
+        //housesLeftUI.SetActive(false);
 
-        // SOLAR GAME
-        energyBar.SetActive(false);
-        budget.SetActive(false);
-        compass.SetActive(false);
+        //// SOLAR GAME
+        //energyBar.SetActive(false);
+        //budget.SetActive(false);
+        //compass.SetActive(false);
 
-        StateSetup();
+        //StateSetup();
     }
 
     private void StateSetup()
@@ -122,7 +122,6 @@ public class BlockSceneManager : MonoBehaviour
             return;
         }
 
-        GetComponent<HouseSelector>().MapView = false;
         for (int i = 0; i < houseCameras.Length; i++)
         {
             if (i == cameraIndex)
@@ -141,6 +140,9 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.gameObject.SetActive(false);
 
         backButton.SetActive(true);
+        instructionIcon.SetActive(false);
+
+        GetComponent<HouseSelector>().MapView = false;
     }
 
     public void ShowMap()
@@ -149,6 +151,7 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
         backButton.SetActive(false);
+        instructionIcon.SetActive(true);
 
         foreach (Camera c in houseCameras)
         {

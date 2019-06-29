@@ -4,7 +4,21 @@ using UnityEngine;
 
 public class SolarHouse : MonoBehaviour
 {
-    [SerializeField] GameObject solarGame;
+    [SerializeField] GameObject arrowCanvas;
+
+    [SerializeField] GameObject northCam;
+    [SerializeField] GameObject eastCam;
+    [SerializeField] GameObject southCam;
+    [SerializeField] GameObject westCam;
+
+    [SerializeField] GameObject northSolar;
+    [SerializeField] GameObject eastSolar;
+    [SerializeField] GameObject southSolar;
+    [SerializeField] GameObject westSolar;
+
+    [SerializeField] GameObject backButton;
+
+    [SerializeField] GameObject compass;
 
     private bool selected;
 
@@ -15,18 +29,89 @@ public class SolarHouse : MonoBehaviour
 
     private void Start()
     {
-        solarGame.SetActive(false);
+        northCam.SetActive(false);
+        eastCam.SetActive(false);
+        westCam.SetActive(false);
+
+        northSolar.SetActive(false);
+        eastSolar.SetActive(false);
+        southSolar.SetActive(false);
+        westSolar.SetActive(false);
+
+        backButton.SetActive(false);
+
+        arrowCanvas.SetActive(false);
         selected = false;
     }
 
-    public void ActivateSolarGame()
+    public void SelectRoofScreen()
     {
         selected = true;
-        solarGame.SetActive(true);
+        arrowCanvas.SetActive(true);
+        compass.SetActive(true);
+        backButton.SetActive(false);
+
+        northCam.SetActive(false);
+        eastCam.SetActive(false);
+        westCam.SetActive(false);
+        southCam.SetActive(true);
+
+        northSolar.SetActive(false);
+        eastSolar.SetActive(false);
+        southSolar.SetActive(false);
+        westSolar.SetActive(false);
     }
 
-    public void DeactivateSolarGame()
+
+    public void SwitchCameraToSouth()
     {
-        solarGame.SetActive(false);
+        arrowCanvas.SetActive(false);
+        backButton.SetActive(true);
+        compass.SetActive(false);
+
+        southSolar.SetActive(true);
+    }
+
+    public void SwitchCameraToNorth()
+    {
+        arrowCanvas.SetActive(false);
+        backButton.SetActive(true);
+        compass.SetActive(false);
+
+        northSolar.SetActive(true);
+
+
+        northCam.SetActive(true);
+        eastCam.SetActive(false);
+        westCam.SetActive(false);
+        southCam.SetActive(false);
+    }
+
+    public void SwitchCameraToEast()
+    {
+        arrowCanvas.SetActive(false);
+        backButton.SetActive(true);
+        compass.SetActive(false);
+
+        eastSolar.SetActive(true);
+
+        northCam.SetActive(false);
+        eastCam.SetActive(true);
+        westCam.SetActive(false);
+        southCam.SetActive(false);
+    }
+
+    public void SwitchCameraToWest()
+    {
+        arrowCanvas.SetActive(false);
+        backButton.SetActive(true);
+        compass.SetActive(false);
+
+        westSolar.SetActive(true);
+
+        northCam.SetActive(false);
+        eastCam.SetActive(false);
+        westCam.SetActive(true);
+        southCam.SetActive(false);
     }
 }
