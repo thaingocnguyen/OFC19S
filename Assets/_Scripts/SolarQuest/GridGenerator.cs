@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridGenerator : MonoBehaviour {
+public abstract class GridGenerator : MonoBehaviour {
 
     [SerializeField] GameObject gridCubePrefab;
-    [SerializeField] int row;
-    [SerializeField] int col;
+    [SerializeField] protected int row = 5;
+    [SerializeField] protected int col = 5;
+    [SerializeField] protected GameObject solarGame;
 
     Vector3 pos;
     Vector3 newPos;
     Vector3[,] posArray;
-    bool[,] occupied;
+    protected bool[,] occupied;
     float space = 1.5f;
 
-    private float size;
-    private float gridScore;
+    protected float size;
+    protected float gridScore;
+
 
     void Awake()
     {
@@ -143,22 +145,7 @@ public class GridGenerator : MonoBehaviour {
         }
     }
 
-    public void UpdateGridScore()
-    {
-        int count = 0;
-        for (int r = 1; r < row + 1; r++)
-        {
-            for (int c = 1; c < col + 1; c++)
-            {
-                if (occupied[r,c])
-                {
-                    count++;
-                }
-            }
-        }
-        gridScore = count / size;
-    }
-
+    public abstract void UpdateGridScore();
 
 
 }

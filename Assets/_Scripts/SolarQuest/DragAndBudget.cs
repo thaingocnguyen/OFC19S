@@ -17,7 +17,8 @@ public class DragAndBudget : MonoBehaviour
     
     bool budgetMoreThanZero;
 
-    SolarPanel currentPanel;
+    SolarPanel solarPanel;
+    GameObject currentPanel;
 
     void Start()
     {
@@ -28,81 +29,86 @@ public class DragAndBudget : MonoBehaviour
 
     void OnMouseDown()
     {
-        // Instantiate a new solar panel when it is clicked on 
-        Instantiate(panel, initialPosition, initialRotation);
+        // Instantiate a new solar panel when it is clicked on
+        if (!GetComponent<SolarPanel>().PanelPlaced)
+        {
+            currentPanel = Instantiate(panel, initialPosition, initialRotation);
+        }
+        else
+        {
+            currentPanel = gameObject;
+        }
     }
 
     void OnMouseDrag()
     {
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dragDistance);
-        objPos = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = objPos;
+        if (currentPanel)
+        {
+            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dragDistance);
+            objPos = Camera.main.ScreenToWorldPoint(mousePosition);
+            currentPanel.transform.position = objPos;
+        } 
     }
 
 
 
     void OnMouseUp()
     {
-        string panelCost = gameObject.tag;
-        budgetMoreThanZero = BudgetSystem.Instance.ifBudgetNotZero(panelCost);
-        GridGenerator grid = GridGeneratorScript.GetComponent<GridGenerator>();
-
-        //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
-        int[] gridPos = grid.GetGridPos(transform.position);
-
-        currentPanel = panel.GetComponent<SolarPanel>();
-
-        // Return panel to the pile if the location placed is not near grid 
-        if (gridPos[0] < 0)
+        if (currentPanel)
         {
-            // Only if panel has been placed will the budget be incremented
-            if (currentPanel.PanelPlaced)
-            {
-				StartCoroutine(BudgetSystem.Instance.IncrementBudget(panelCost));
-				grid.ClearPanelOccupancy(currentPanel.gridRow, currentPanel.gridCol, panelCost);
-                grid.UpdateGridScore();
-                SolarScoring.Instance.UpdateScore();
-            }
+            string panelCost = currentPanel.tag;
+            budgetMoreThanZero = BudgetSystem.Instance.ifBudgetNotZero(panelCost);
+            GridGenerator grid = GridGeneratorScript.GetComponent<GridGenerator>();
 
-            StartCoroutine("DestroyPanel");
-        }
-        // Place panel on grid
-        else if (budgetMoreThanZero)
-        {
-            transform.position = grid.GetNearestPointOnGrid(gridPos[0], gridPos[1]);
+            //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
+            int[] gridPos = grid.GetGridPos(currentPanel.transform.position);
 
-            if (!panel.GetComponent<SolarPanel>().PanelPlaced)
+            solarPanel = currentPanel.GetComponent<SolarPanel>();
+
+            // Return panel to the pile if the location placed is not near grid 
+            if (gridPos[0] < 0)
             {
-                if (SolarGamePopupManager.Instance != null)
+                // Only if panel has been placed will the budget be incremented
+                if (solarPanel.PanelPlaced)
                 {
-                    SolarGamePopupManager.Instance.FirstPanelPlaced();
+                    StartCoroutine(BudgetSystem.Instance.IncrementBudget(panelCost));
+                    grid.ClearPanelOccupancy(solarPanel.gridRow, solarPanel.gridCol, panelCost);
+                    grid.UpdateGridScore();
                 }
-   
-                grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
-                StartCoroutine(BudgetSystem.Instance.DecrementBudget(panelCost));
-                panel.GetComponent<SolarPanel>().PanelPlaced = true;
+
+                Destroy(currentPanel);
+            }
+            // Place panel on grid
+            else if (budgetMoreThanZero)
+            {
+                currentPanel.transform.position = grid.GetNearestPointOnGrid(gridPos[0], gridPos[1]);
+
+                if (!currentPanel.GetComponent<SolarPanel>().PanelPlaced)
+                {
+                    if (SolarGamePopupManager.Instance != null)
+                    {
+                        SolarGamePopupManager.Instance.FirstPanelPlaced();
+                    }
+
+                    grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+                    StartCoroutine(BudgetSystem.Instance.DecrementBudget(panelCost));
+                    currentPanel.GetComponent<SolarPanel>().PanelPlaced = true;
+                }
+                else
+                {
+                    grid.ClearPanelOccupancy(solarPanel.gridRow, solarPanel.gridCol, panelCost);
+                    grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+                }
+
+                solarPanel.gridRow = gridPos[0];
+                solarPanel.gridCol = gridPos[1];
+
+                grid.UpdateGridScore();
             }
             else
             {
-                grid.ClearPanelOccupancy(currentPanel.gridRow, currentPanel.gridCol, panelCost);
-                grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+                Destroy(currentPanel);
             }
-
-            currentPanel.gridRow = gridPos[0];
-            currentPanel.gridCol = gridPos[1];
-
-            grid.UpdateGridScore();
-            SolarScoring.Instance.UpdateScore();
         }
-        else
-		{
-			Destroy(gameObject);
-		}
-    }
-
-    IEnumerator DestroyPanel()
-    {
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
     }
 }

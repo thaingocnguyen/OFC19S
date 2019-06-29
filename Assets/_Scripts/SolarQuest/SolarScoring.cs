@@ -6,9 +6,6 @@ public class SolarScoring : MonoBehaviour
 {
     public float energyScore;
     public GameObject energyBar;
-    public GameObject[] gridObjects;
-
-    private GridGenerator[] grids;
 
 
     #region Singleton
@@ -21,28 +18,12 @@ public class SolarScoring : MonoBehaviour
     }
     #endregion Singleton
 
-    void Start()
+
+    public void UpdateEnergyBar(float score)
     {
-        grids = new GridGenerator[gridObjects.Length];
-        for (int i = 0; i < grids.Length; i++)
-        {
-            grids[i] = gridObjects[i].GetComponent<GridGenerator>();
-        }
-        UpdateScore();
-    }
+        energyScore = score;
 
-    public void UpdateScore()
-    {
-        float score = 0f;
-        for (int i = 0; i < grids.Length; i++)
-        {
-            score += grids[i].GridScore;
-        }
-
-        float calculatedScore = score / grids.Length;
-        energyScore = calculatedScore;
-
-        energyBar.transform.localScale = new Vector3(1, calculatedScore, 1);
+        energyBar.transform.localScale = new Vector3(1, energyScore, 1);
     }
 
 
