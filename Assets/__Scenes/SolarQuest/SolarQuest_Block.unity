@@ -18138,6 +18138,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340766033}
   m_Mesh: {fileID: 4300000, guid: f3f97c9746397c34eac625c2f6212064, type: 3}
+--- !u!1 &341149266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2305623128417136206, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 757831149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &343251198
 GameObject:
   m_ObjectHideFlags: 0
@@ -37867,10 +37873,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2305623128417136206, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2305623128417136211, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59
+      value: 0.572
       objectReference: {fileID: 0}
     - target: {fileID: 2305623128417136211, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
         type: 3}
@@ -37880,13 +37891,28 @@ PrefabInstance:
     - target: {fileID: 2305623128417136211, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.518
       objectReference: {fileID: 0}
     - target: {fileID: 861085017752787589, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
         type: 3}
       propertyPath: solarGame
       value: 
       objectReference: {fileID: 1648734425}
+    - target: {fileID: 861085017752787589, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
+        type: 3}
+      propertyPath: col
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648482911059963843, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
+        type: 3}
+      propertyPath: dragDistance
+      value: 13.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227755778276426043, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a,
+        type: 3}
+      propertyPath: dragDistance
+      value: 13.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5399ad095ae7d4fd282fb0e3d5de6f8a, type: 3}
 --- !u!4 &759527893 stripped
@@ -56573,11 +56599,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1877860021024005944, guid: 98ee89c58b27d41c6b4f3d32678a39ed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.102
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877860021024005944, guid: 98ee89c58b27d41c6b4f3d32678a39ed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.762
+      objectReference: {fileID: 0}
     - target: {fileID: 7513368516600360633, guid: 98ee89c58b27d41c6b4f3d32678a39ed,
         type: 3}
       propertyPath: solarGame
       value: 
       objectReference: {fileID: 1648734425}
+    - target: {fileID: 7513368516600360633, guid: 98ee89c58b27d41c6b4f3d32678a39ed,
+        type: 3}
+      propertyPath: col
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076392460731719336, guid: 98ee89c58b27d41c6b4f3d32678a39ed,
+        type: 3}
+      propertyPath: dragDistance
+      value: 14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025017343019380816, guid: 98ee89c58b27d41c6b4f3d32678a39ed,
+        type: 3}
+      propertyPath: dragDistance
+      value: 14.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98ee89c58b27d41c6b4f3d32678a39ed, type: 3}
 --- !u!1 &1101124238
@@ -63649,7 +63700,7 @@ PrefabInstance:
     - target: {fileID: 4628494848840996338, guid: ac9959dc2dbb24cf9b7f48f170af9079,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4628494848840996342, guid: ac9959dc2dbb24cf9b7f48f170af9079,
         type: 3}
@@ -86840,8 +86891,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObjects:
+  - {fileID: 341149266}
   - {fileID: 1544264128}
-  - {fileID: 0}
 --- !u!1001 &1651403946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91627,7 +91678,7 @@ PrefabInstance:
     - target: {fileID: 4628494848840996338, guid: ac9959dc2dbb24cf9b7f48f170af9079,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4628494848840996342, guid: ac9959dc2dbb24cf9b7f48f170af9079,
         type: 3}

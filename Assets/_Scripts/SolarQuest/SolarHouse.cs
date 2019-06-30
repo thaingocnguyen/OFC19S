@@ -31,13 +31,14 @@ public class SolarHouse : MonoBehaviour
     private void Start()
     {
         northCam.SetActive(false);
-        eastCam.SetActive(false);
-        westCam.SetActive(false);
+        if (eastCam) { eastCam.SetActive(false); }
+        if (westCam) { westCam.SetActive(false); }
 
         northSolar.SetActive(false);
-        eastSolar.SetActive(false);
         southSolar.SetActive(false);
-        westSolar.SetActive(false);
+
+        if (eastSolar) { eastSolar.SetActive(false); }
+        if (westSolar) { westSolar.SetActive(false); }
 
         backButton.SetActive(false);
         doneButton.SetActive(false);
@@ -55,14 +56,16 @@ public class SolarHouse : MonoBehaviour
         backButton.SetActive(false);
 
         northCam.SetActive(false);
-        eastCam.SetActive(false);
-        westCam.SetActive(false);
         southCam.SetActive(true);
 
+        if (eastCam) { eastCam.SetActive(false); }
+        if (westCam) { westCam.SetActive(false); }
+
         northSolar.SetActive(false);
-        eastSolar.SetActive(false);
         southSolar.SetActive(false);
-        westSolar.SetActive(false);
+
+        if (eastSolar) { eastSolar.SetActive(false); }
+        if (westSolar) { westSolar.SetActive(false); }
     }
 
 
@@ -81,9 +84,11 @@ public class SolarHouse : MonoBehaviour
 
 
         northCam.SetActive(true);
-        eastCam.SetActive(false);
-        westCam.SetActive(false);
         southCam.SetActive(false);
+
+        if (eastCam) { eastCam.SetActive(false); }
+        if (westCam) { westCam.SetActive(false); }
+        
     }
 
     public void SwitchCameraToEast()
@@ -94,8 +99,9 @@ public class SolarHouse : MonoBehaviour
 
         northCam.SetActive(false);
         eastCam.SetActive(true);
-        westCam.SetActive(false);
         southCam.SetActive(false);
+
+        if (westCam) { westCam.SetActive(false); }
     }
 
     public void SwitchCameraToWest()
@@ -105,9 +111,10 @@ public class SolarHouse : MonoBehaviour
         westSolar.SetActive(true);
 
         northCam.SetActive(false);
-        eastCam.SetActive(false);
         westCam.SetActive(true);
         southCam.SetActive(false);
+
+        if (eastCam) { eastCam.SetActive(false); }
     }
 
     private void SwitchCameraSetup()
