@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3527872426898035762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4951256170231703807}
+  - component: {fileID: 6945328920614228359}
+  m_Layer: 0
+  m_Name: Grids
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4951256170231703807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527872426898035762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6656170467178725509}
+  m_Father: {fileID: 6656170467641991417}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6945328920614228359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527872426898035762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a663db278a5af4267a002567443679ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grids:
+  - {fileID: 6656170467178725528}
 --- !u!1 &3664188287858012840
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +723,7 @@ Transform:
   m_LocalPosition: {x: 0.7700018, y: 0.7300005, z: -4.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6656170467641991417}
+  m_Father: {fileID: 4951256170231703807}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 68, y: -90.00001, z: 0}
 --- !u!33 &6656170467178725510
@@ -844,6 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragDistance: 13
+  gridManagerScript: {fileID: 3527872426898035762}
   GridGeneratorScript: {fileID: 6656170467178725528}
   panel: {fileID: 6656170467229567259}
 --- !u!1 &6656170467408589137
@@ -1245,7 +1292,7 @@ Transform:
   m_LocalPosition: {x: -0.44, y: -9.04, z: 11.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6656170467178725509}
+  - {fileID: 4951256170231703807}
   - {fileID: 6009556843918053995}
   - {fileID: 4666004370482530838}
   m_Father: {fileID: 0}
@@ -1482,6 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragDistance: 13
+  gridManagerScript: {fileID: 3527872426898035762}
   GridGeneratorScript: {fileID: 6656170467178725528}
   panel: {fileID: 6656170467862098255}
 --- !u!1 &6656170467876863556

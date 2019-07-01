@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &437801304632359964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2037024623639898826}
+  - component: {fileID: 6633335844925013406}
+  m_Layer: 0
+  m_Name: Grids
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2037024623639898826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437801304632359964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1877860021024005944}
+  m_Father: {fileID: 1877860019489636164}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6633335844925013406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437801304632359964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a663db278a5af4267a002567443679ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grids:
+  - {fileID: 1877860021024005925}
 --- !u!1 &1877860019489636167
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,7 +73,7 @@ Transform:
   m_LocalPosition: {x: -3.3928642, y: -10.192903, z: 7.307993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1877860021024005944}
+  - {fileID: 2037024623639898826}
   - {fileID: 1528466741815512534}
   - {fileID: 473144298651604395}
   m_Father: {fileID: 0}
@@ -264,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragDistance: 14.4
+  gridManagerScript: {fileID: 437801304632359964}
   GridGeneratorScript: {fileID: 1877860021024005925}
   panel: {fileID: 1877860019546156786}
 --- !u!1 &1877860019558036943
@@ -1783,6 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragDistance: 14.4
+  gridManagerScript: {fileID: 437801304632359964}
   GridGeneratorScript: {fileID: 1877860021024005925}
   panel: {fileID: 1877860020973164198}
 --- !u!1 &1877860021024005925
@@ -1812,10 +1860,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877860021024005925}
   m_LocalRotation: {x: 0.2705981, y: -0.6532815, z: 0.2705981, w: 0.6532815}
-  m_LocalPosition: {x: 1.37, y: -1.03, z: -9.21}
+  m_LocalPosition: {x: 1.37, y: -1.0299997, z: -9.210002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1877860019489636164}
+  m_Father: {fileID: 2037024623639898826}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1877860021024005947

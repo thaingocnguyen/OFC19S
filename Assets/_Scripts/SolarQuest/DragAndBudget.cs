@@ -11,6 +11,9 @@ public class DragAndBudget : MonoBehaviour
     public float dragDistance = 10.8f; //distance to drag mouse
     float zPosSolar;
     private Vector3 objPos;
+
+    [SerializeField] GameObject gridManagerScript;
+    private GridManager gridManager;
     public GameObject GridGeneratorScript;
 
     public GameObject panel;
@@ -23,7 +26,8 @@ public class DragAndBudget : MonoBehaviour
     void Start()
     {
         initialPosition = gameObject.transform.position;
-        initialRotation = gameObject.transform.rotation;   
+        initialRotation = gameObject.transform.rotation;
+        gridManager = gridManagerScript.GetComponent<GridManager>();
     }
 
 
@@ -58,7 +62,8 @@ public class DragAndBudget : MonoBehaviour
         {
             string panelCost = currentPanel.tag;
             budgetMoreThanZero = BudgetSystem.Instance.ifBudgetNotZero(panelCost);
-            GridGenerator grid = GridGeneratorScript.GetComponent<GridGenerator>();
+            GameObject nearestGrid = gridManager.GetNearestGrid(currentPanel.transform.position);
+            GridGenerator grid = nearestGrid.GetComponent<GridGenerator>();
 
             //Find the closest Vector3 of the grid, if it returns (0,0,0) -> nothing is close
             int[] gridPos = grid.GetGridPos(currentPanel.transform.position);

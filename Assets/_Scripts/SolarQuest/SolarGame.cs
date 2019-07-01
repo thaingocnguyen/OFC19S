@@ -7,31 +7,40 @@ public class SolarGame : MonoBehaviour
 
 	public GameObject[] gridObjects;
 
-	private GridGenerator[] grids;
+	private GridManager[] gridManagers;
+    private List<GridGenerator> grids;
 
 	private float bestScore = 100f;
 
 
 	void Start()
 	{
-		grids = new GridGenerator[gridObjects.Length];
-		for (int i = 0; i < grids.Length; i++)
+		gridManagers = new GridManager[gridObjects.Length];
+
+		for (int i = 0; i < gridManagers.Length; i++)
 		{
-			grids[i] = gridObjects[i].GetComponent<GridGenerator>();
+			gridManagers[i] = gridObjects[i].GetComponent<GridManager>();
 		}
-		UpdateScore();
+
+        grids = new List<GridGenerator>();
+        foreach (GridManager gm in gridManagers)
+        {
+            foreach (GridGenerator gg in gm.gridGenerators)
+            {
+                grids.Add(gg);
+            }
+        }
+        UpdateScore();
 	}
 
 	public void UpdateScore()
 	{
 		float score = 0f;
-		for (int i = 0; i < grids.Length; i++)
-		{
-            if (grids[i])
-			{
-				score += grids[i].GridScore;
-			}
-		}
+
+        foreach (GridGenerator g in grids)
+        {
+            score += g.GridScore;
+        }
 
 		float calculatedScore = score / bestScore;
 
