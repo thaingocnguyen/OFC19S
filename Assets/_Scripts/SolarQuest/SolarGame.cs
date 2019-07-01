@@ -37,4 +37,5 @@ public class SolarGame : MonoBehaviour
 
 		SolarScoring.Instance.UpdateEnergyBar(calculatedScore);
 	}
+
 }
