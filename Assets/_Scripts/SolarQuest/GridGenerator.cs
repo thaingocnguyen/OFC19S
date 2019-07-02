@@ -12,7 +12,7 @@ public abstract class GridGenerator : MonoBehaviour {
     Vector3 pos;
     Vector3 newPos;
     Vector3[,] posArray;
-    protected bool[,] occupied;
+    protected int[,] occupied;
     float space = 1.5f;
 
     protected float size;
@@ -22,7 +22,7 @@ public abstract class GridGenerator : MonoBehaviour {
     void Awake()
     {
         posArray = new Vector3[row, col];
-        occupied = new bool[row + 2, col + 2];
+        occupied = new int[row + 2, col + 2];
         size = row * col;
         gridScore = 0f;
     }
@@ -56,7 +56,7 @@ public abstract class GridGenerator : MonoBehaviour {
                 gridCube.transform.localPosition = newPos;
 
                 posArray[r, c] = gridCube.transform.position;
-                occupied[r + 1, c + 1] = false;
+                occupied[r + 1, c + 1] = 0;
             }
         }
     }
@@ -106,19 +106,19 @@ public abstract class GridGenerator : MonoBehaviour {
             // Sets the occupied grid array to know which squares has a solar panel on it
             if (panelCost == "12000")
             {
-                occupied[r - 1, c - 1] = true;
-                occupied[r - 1, c] = true;
-                occupied[r - 1, c + 1] = true;
-                occupied[r, c - 1] = true;
-                occupied[r, c] = true;
-                occupied[r, c + 1] = true;
-                occupied[r + 1, c - 1] = true;
-                occupied[r + 1, c] = true;
-                occupied[r + 1, c + 1] = true;
+                occupied[r - 1, c - 1]++;
+                occupied[r - 1, c]++;
+                occupied[r - 1, c + 1]++;
+                occupied[r, c - 1]++;
+                occupied[r, c]++;
+                occupied[r, c + 1]++;
+                occupied[r + 1, c - 1]++;
+                occupied[r + 1, c]++;
+                occupied[r + 1, c + 1]++;
             }
             else if (panelCost == "3000")
             {
-                occupied[r, c] = true;
+                occupied[r, c]++;
             }
         }
     }
@@ -129,19 +129,19 @@ public abstract class GridGenerator : MonoBehaviour {
         c++;
         if (panelCost == "12000")
         {
-            occupied[r - 1, c - 1] = false;
-            occupied[r - 1, c] = false;
-            occupied[r - 1, c + 1] = false;
-            occupied[r, c - 1] = false;
-            occupied[r, c] = false;
-            occupied[r, c + 1] = false;
-            occupied[r + 1, c - 1] = false;
-            occupied[r + 1, c] = false;
-            occupied[r + 1, c + 1] = false;
+            occupied[r - 1, c - 1]--;
+            occupied[r - 1, c]--;
+            occupied[r - 1, c + 1]--;
+            occupied[r, c - 1]--;
+            occupied[r, c]--;
+            occupied[r, c + 1]--;
+            occupied[r + 1, c - 1]--;
+            occupied[r + 1, c]--;
+            occupied[r + 1, c + 1]--;
         }
         else if (panelCost == "3000")
         {
-            occupied[r, c] = false;
+            occupied[r, c]--;
         }
     }
 

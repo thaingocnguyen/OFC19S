@@ -12,6 +12,8 @@ public class SolarGame : MonoBehaviour
 
 	private float bestScore = 100f;
 
+    private float testScore;
+
 
 	void Start()
 	{
@@ -41,6 +43,8 @@ public class SolarGame : MonoBehaviour
         {
             score += g.GridScore;
         }
+
+        testScore = score;
 
 		float calculatedScore = score / bestScore;
 

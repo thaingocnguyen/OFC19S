@@ -14,7 +14,6 @@ public class DragAndBudget : MonoBehaviour
 
     [SerializeField] GameObject gridManagerScript;
     private GridManager gridManager;
-    public GameObject GridGeneratorScript;
 
     public GameObject panel;
     
@@ -77,8 +76,11 @@ public class DragAndBudget : MonoBehaviour
                 if (solarPanel.PanelPlaced)
                 {
                     StartCoroutine(BudgetSystem.Instance.IncrementBudget(panelCost));
-                    grid.ClearPanelOccupancy(solarPanel.gridRow, solarPanel.gridCol, panelCost);
-                    grid.UpdateGridScore();
+
+                    solarPanel.Grid.ClearPanelOccupancy(solarPanel.gridRow, solarPanel.gridCol, panelCost);
+                    solarPanel.Grid.UpdateGridScore();
+
+                    solarPanel.Grid = grid;
                 }
 
                 Destroy(currentPanel);
@@ -88,6 +90,7 @@ public class DragAndBudget : MonoBehaviour
             {
                 currentPanel.transform.position = grid.GetNearestPointOnGrid(gridPos[0], gridPos[1]);
 
+                // If panel hasn't been placed before (newly placed)
                 if (!currentPanel.GetComponent<SolarPanel>().PanelPlaced)
                 {
                     if (SolarGamePopupManager.Instance != null)
@@ -96,18 +99,32 @@ public class DragAndBudget : MonoBehaviour
                     }
 
                     grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+
                     StartCoroutine(BudgetSystem.Instance.DecrementBudget(panelCost));
                     currentPanel.GetComponent<SolarPanel>().PanelPlaced = true;
                 }
+                // Panel is only moved to a different palce
                 else
                 {
-                    grid.ClearPanelOccupancy(solarPanel.gridRow, solarPanel.gridCol, panelCost);
-                    grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+                    // If panel is moved to a different grid 
+                    if (solarPanel.Grid && solarPanel.Grid != grid)
+                    {
+                        // Clear occupancy of previous grid and update score
+                        solarPanel.Grid.ClearPanelOccupancy(solarPanel.gridRow, solarPanel.gridCol, panelCost);
+                        solarPanel.Grid.UpdateGridScore();
+                        grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+                    }
+                    else
+                    {
+                        grid.ClearPanelOccupancy(solarPanel.gridRow, solarPanel.gridCol, panelCost);
+                        grid.UpdateOccupiedPositions(gridPos[0], gridPos[1], panelCost);
+                    }  
                 }
 
                 solarPanel.gridRow = gridPos[0];
                 solarPanel.gridCol = gridPos[1];
 
+                solarPanel.Grid = grid;
                 grid.UpdateGridScore();
             }
             else

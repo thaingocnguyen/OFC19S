@@ -7,7 +7,7 @@
         {
             for (int c = 1; c < col + 1; c++)
             {
-                if (occupied[r, c])
+                if (occupied[r, c] > 0)
                 {
                     count++;
                 }

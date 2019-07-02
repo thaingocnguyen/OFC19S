@@ -6,12 +6,12 @@ public class SolarPanel : MonoBehaviour
 {
     // Whether panel has been placed on the grid or is still in pile 
     bool isPanelPlaced;
-    // Whether this house is shaded by a shadow or not 
-    // Temporary solution for house8 where we want the energy not to be incremented as the roof is shaded
-    public bool isShaded;
+
 
     public int gridRow = -1;
     public int gridCol = -1;
+
+    private GridGenerator grid;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,4 +23,12 @@ public class SolarPanel : MonoBehaviour
         get { return isPanelPlaced; }
         set { isPanelPlaced = value; }
     }
+
+    public GridGenerator Grid
+    {
+        get { return grid; }
+        set { grid = value; }
+    }
+
+
 }
