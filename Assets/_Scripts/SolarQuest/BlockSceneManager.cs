@@ -36,9 +36,14 @@ public class BlockSceneManager : MonoBehaviour
     [SerializeField] GameObject arrowInstructions;
 
     // HOUSES 
-    private int housesLeft = 3;
+    public int housesLeft = 3;
     [SerializeField] GameObject housesLeftUI;
     [SerializeField] TextMeshProUGUI housesLeftText;
+
+    // ENDING
+    [SerializeField] GameObject endButton;
+    [SerializeField] GameObject endCanvas;
+    [SerializeField] TextMeshProUGUI endingText;
 
     public enum GameState
     {
@@ -79,6 +84,10 @@ public class BlockSceneManager : MonoBehaviour
         compass.SetActive(false);
         arrowInstructions.SetActive(false);
 
+        // END
+        endButton.SetActive(false);
+        endCanvas.SetActive(false);
+
         StateSetup();
     }
 
@@ -91,6 +100,9 @@ public class BlockSceneManager : MonoBehaviour
                 break;
             case GameState.SelectHouse:
                 SelectHouseState();
+                break;
+            case GameState.End:
+                EndState();
                 break;
             default:
                 break;
@@ -142,6 +154,7 @@ public class BlockSceneManager : MonoBehaviour
 
         instructionIcon.SetActive(false);
         arrowInstructions.SetActive(true);
+        endButton.SetActive(false);
 
         GetComponent<HouseSelector>().MapView = false;
     }
@@ -159,6 +172,11 @@ public class BlockSceneManager : MonoBehaviour
             c.gameObject.SetActive(false);
             c.enabled = false;
         }
+
+        if (housesLeft <= 0)
+        {
+            endButton.SetActive(true);
+        }
     }
 
     public void CloseArrowInstructions()
@@ -166,37 +184,33 @@ public class BlockSceneManager : MonoBehaviour
         arrowInstructions.SetActive(false);
     }
 
-    //private string GetEndOutcome()
-    //{
-    //    string outcome = "";
-    //    if (SolarScoring.Instance.energyScore <= 0.2)
-    //    {
-    //        outcome = "Oops! You must play again. You only achieved 20% of the total (solar/urban forestry) potential.";
-    //    }
-    //    else if (SolarScoring.Instance.energyScore <= 0.4)
-    //    {
-    //        outcome = "Could do better! You achieved 40% off the total xyz potential";
-    //    }
-    //    else if (SolarScoring.Instance.energyScore <= 0.6)
-    //    {
-    //        outcome = "You’re almost there! You achieved 60% of the xyz potential.";
-    //    }
-    //    else if (SolarScoring.Instance.energyScore <= 0.8)
-    //    {
-    //        outcome = "You did great! You achieved 80% of the xyz potential.";
-    //    }
-    //    else
-    //    {
-    //        outcome = "Wow! You’re a Champion! You were able to achieve 100% of the xyz potential.";
-    //    }
-
-    //    return outcome;
-    //}
-
-    public void ShowMainKitsilanoScene()
+    private string GetEndOutcome()
     {
-        SceneManager.LoadScene(0);
+        string outcome = "";
+        if (SolarScoring.Instance.energyScore <= 0.2)
+        {
+            outcome = "Oops! You must play again. You only achieved 20% of the total solar potential.";
+        }
+        else if (SolarScoring.Instance.energyScore <= 0.4)
+        {
+            outcome = "Could do better! You achieved 40% off the total solarr potential";
+        }
+        else if (SolarScoring.Instance.energyScore <= 0.6)
+        {
+            outcome = "You’re almost there! You achieved 60% of the total solar potential.";
+        }
+        else if (SolarScoring.Instance.energyScore <= 0.8)
+        {
+            outcome = "You did great! You achieved 80% of the total solar potential.";
+        }
+        else
+        {
+            outcome = "Wow! You’re a Champion! You were able to achieve 100% of the solar potential.";
+        }
+
+        return outcome;
     }
+
 
     public void ShowInstructions()
     {
@@ -211,16 +225,36 @@ public class BlockSceneManager : MonoBehaviour
     private void DecrementHousesLeft()
     {
         housesLeft--;
+        Mathf.Clamp(housesLeft, 0, 3);
         housesLeftText.text = "Houses Left: " + housesLeft;
-
-        if (housesLeft < 0)
-        {
-            EndGame();
-        }
     }
 
-    private void EndGame()
+    public void EndGame()
     {
-        throw new NotImplementedException();
+        SetState(BlockSceneManager.GameState.End);
+    }
+
+    private void EndState()
+    {
+        housesLeftUI.SetActive(false);
+        instructionIcon.SetActive(false);
+        endButton.SetActive(false);
+        endCanvas.SetActive(true);
+        endingText.text = GetEndOutcome();
+    }
+
+    public void TryAgain()
+    {
+        // Load current scene again
+        SceneManager.LoadScene(2);
+    }
+
+    public void Continue()
+    {
+        if (SolarScoring.Instance.energyScore > 0.2)
+        {
+            // Load Kitsilano scene
+            SceneManager.LoadScene(0);
+        }
     }
 }

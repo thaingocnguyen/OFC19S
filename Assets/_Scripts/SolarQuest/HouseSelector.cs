@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,12 @@ public class HouseSelector : MonoBehaviour
     public HouseDelegate oHouseSelected;
 
     [SerializeField] Animator selectBoxAnimator;
+    [SerializeField] GameObject noHousesLeft;
 
+    private void Start()
+    {
+        noHousesLeft.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -89,23 +95,41 @@ public class HouseSelector : MonoBehaviour
         SolarHouse solarHouse = selectedHouse.GetComponent<SolarHouse>();
 
         // Switch cameras
-		GetComponent<BlockSceneManager>().UseCamera(houseIndex);
-
-        // If house hasn't been selected before
-        if (!solarHouse.Selected)
+        if (GetComponent<BlockSceneManager>().housesLeft > 0 || solarHouse.Selected)
         {
-            // Decrement number of houses that can be selected 
-            oHouseSelected();
+            GetComponent<BlockSceneManager>().UseCamera(houseIndex);
+
+            // If house hasn't been selected before
+            if (!solarHouse.Selected)
+            {
+                // Decrement number of houses that can be selected 
+                oHouseSelected();
+            }
+
+            // Disable collider so panels can be moved
+            selectedHouse.GetComponent<Collider>().enabled = false;
+
+            // Switch to select screen
+            solarHouse.SelectRoofScreen();
         }
-
-        // Disable collider so panels can be moved
-		selectedHouse.GetComponent<Collider>().enabled = false;
-
-        // Switch to select screen
-        solarHouse.SelectRoofScreen();
+        else
+        {
+            NoHousesLeft();
+        }
+		
     }
 
-	public void CloseSelectHousePrompt()
+    private void NoHousesLeft()
+    {
+        noHousesLeft.SetActive(true);
+    }
+
+    public void HideWarningMessage()
+    {
+        noHousesLeft.SetActive(false);
+    }
+
+    public void CloseSelectHousePrompt()
 	{
 		selectBoxAnimator.SetBool("IsOnScreen", false);
 	}
