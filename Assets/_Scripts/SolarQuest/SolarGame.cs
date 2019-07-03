@@ -12,30 +12,21 @@ public class SolarGame : MonoBehaviour
 
     public float houseScore;
 
+    private bool initialSetUp;
+
 
 	void Start()
 	{
-		gridManagers = new GridManager[gridObjects.Length];
-
-		for (int i = 0; i < gridManagers.Length; i++)
-		{
-			gridManagers[i] = gridObjects[i].GetComponent<GridManager>();
-		}
-
-        grids = new List<GridGenerator>();
-        foreach (GridManager gm in gridManagers)
-        {
-            foreach (GridGenerator gg in gm.gridGenerators)
-            {
-                grids.Add(gg);
-            }
-        }
-        UpdateScore();
 	}
 
 	public void UpdateScore()
 	{
-		float score = 0f;
+        if (!initialSetUp)
+        {
+            InitialSetUp();
+        }
+
+        float score = 0f;
 
         foreach (GridGenerator g in grids)
         {
@@ -47,4 +38,23 @@ public class SolarGame : MonoBehaviour
 		SolarScoring.Instance.UpdateEnergyBar();
 	}
 
+    private void InitialSetUp()
+    {
+        gridManagers = new GridManager[gridObjects.Length];
+
+        for (int i = 0; i < gridManagers.Length; i++)
+        {
+            gridManagers[i] = gridObjects[i].GetComponent<GridManager>();
+        }
+
+        grids = new List<GridGenerator>();
+        foreach (GridManager gm in gridManagers)
+        {
+            foreach (GridGenerator gg in gm.gridGenerators)
+            {
+                grids.Add(gg);
+            }
+        }
+        initialSetUp = true;
+    }
 }

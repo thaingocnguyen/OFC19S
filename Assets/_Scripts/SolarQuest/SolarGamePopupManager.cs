@@ -42,7 +42,7 @@ public class SolarGamePopupManager : MonoBehaviour
         encouragementMessage.SetActive(true);
         yield return new WaitForSeconds(3f);
         encouragementMessage.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         budgetReminderPopup.SetActive(true);
     }
 

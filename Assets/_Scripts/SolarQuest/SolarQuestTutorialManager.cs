@@ -331,7 +331,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 		endTextBox.SetActive(true);
 
 		choiceButtons.SetActive(true);
-		endText.text = "Congratulations! Your score was " + (score * 100) + "%. Would you like to try again or continue?";
+		endText.text = "Congratulations! You managed to achieve " + (score * 100) + "% of the total energy potential. Would you like to try again or continue?";
 	}
 
     private void ExitEndState()

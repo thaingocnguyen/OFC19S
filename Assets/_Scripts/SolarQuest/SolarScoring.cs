@@ -26,6 +26,10 @@ public class SolarScoring : MonoBehaviour
     #endregion Singleton
 
 
+    private void Start()
+    {
+        energyBar.transform.localScale = new Vector3(1, 0, 1);
+    }
 
     public void UpdateEnergyBar()
     {
