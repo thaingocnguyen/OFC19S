@@ -33,6 +33,7 @@ public class BlockSceneManager : MonoBehaviour
     [SerializeField] GameObject budget;
     [SerializeField] GameObject compass;
     [SerializeField] GameObject doneButton;
+    [SerializeField] GameObject arrowInstructions;
 
     // HOUSES 
     private int housesLeft = 3;
@@ -46,7 +47,7 @@ public class BlockSceneManager : MonoBehaviour
         End
     }
 
-    private GameState currentState = GameState.SelectHouse;
+    private GameState currentState = GameState.Introduction;
 
 
     // Start is called before the first frame update
@@ -61,23 +62,24 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.enabled = true;
         mainCamera.gameObject.SetActive(true);
 
-        //// INTRODUCTION
-        //introduction.SetActive(false);
+        // INTRODUCTION
+        introduction.SetActive(false);
 
-        //// INSTRUCTIONS
-        //instructions.SetActive(false);
-        //instructionIcon.SetActive(false);
+        // INSTRUCTIONS
+        instructions.SetActive(false);
+        instructionIcon.SetActive(false);
 
-        //// UI
-        //backButton.SetActive(false);
-        //housesLeftUI.SetActive(false);
+        // UI
+        doneButton.SetActive(false);
+        housesLeftUI.SetActive(false);
 
-        //// SOLAR GAME
-        //energyBar.SetActive(false);
-        //budget.SetActive(false);
-        //compass.SetActive(false);
+        // SOLAR GAME
+        energyBar.SetActive(false);
+        budget.SetActive(false);
+        compass.SetActive(false);
+        arrowInstructions.SetActive(false);
 
-        //StateSetup();
+        StateSetup();
     }
 
     private void StateSetup()
@@ -97,6 +99,7 @@ public class BlockSceneManager : MonoBehaviour
 
     private void SelectHouseState()
     {
+        GetComponent<HouseSelector>().MapView = true;
         energyBar.SetActive(true);
         budget.SetActive(true);
         compass.SetActive(true);
@@ -138,6 +141,7 @@ public class BlockSceneManager : MonoBehaviour
         mainCamera.gameObject.SetActive(false);
 
         instructionIcon.SetActive(false);
+        arrowInstructions.SetActive(true);
 
         GetComponent<HouseSelector>().MapView = false;
     }
@@ -155,6 +159,11 @@ public class BlockSceneManager : MonoBehaviour
             c.gameObject.SetActive(false);
             c.enabled = false;
         }
+    }
+
+    public void CloseArrowInstructions()
+    {
+        arrowInstructions.SetActive(false);
     }
 
     //private string GetEndOutcome()

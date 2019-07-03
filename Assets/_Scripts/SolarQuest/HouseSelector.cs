@@ -7,7 +7,7 @@ public class HouseSelector : MonoBehaviour
 
     private int houseIndex;
     private GameObject selectedHouse;
-    private bool mapView = true;
+    private bool mapView = false;
 
     public delegate void HouseDelegate();
     public HouseDelegate oHouseSelected;

@@ -21,6 +21,7 @@ public class SolarHouse : MonoBehaviour
 
     [SerializeField] GameObject compass;
 
+
     private bool selected;
 
     public bool Selected
@@ -129,4 +130,6 @@ public class SolarHouse : MonoBehaviour
     {
         arrowCanvas.SetActive(false);
     }
+
+
 }
