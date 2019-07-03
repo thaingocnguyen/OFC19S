@@ -7,6 +7,13 @@ public class SolarScoring : MonoBehaviour
     public float energyScore;
     public GameObject energyBar;
 
+    [SerializeField] List<GameObject> solarGamesObjects;
+    [SerializeField] float bestScore;
+
+    private List<SolarGame> solarGames;
+    private bool firstTimeSetUp = false;
+    
+
 
     #region Singleton
     public static SolarScoring Instance;
@@ -19,9 +26,27 @@ public class SolarScoring : MonoBehaviour
     #endregion Singleton
 
 
-    public void UpdateEnergyBar(float score)
+
+    public void UpdateEnergyBar()
     {
-        energyScore = score;
+        if (!firstTimeSetUp)
+        {
+            solarGames = new List<SolarGame>();
+            foreach (GameObject g in solarGamesObjects)
+            {
+                solarGames.Add(g.GetComponent<SolarGame>());
+            }
+            firstTimeSetUp = true;
+        }
+
+        float score = 0;
+
+        foreach(SolarGame sg in solarGames)
+        {
+            score += sg.houseScore;
+        }
+
+        energyScore = score / bestScore;
 
         energyBar.transform.localScale = new Vector3(1, energyScore, 1);
     }

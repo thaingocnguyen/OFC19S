@@ -204,7 +204,7 @@ public class BlockSceneManager : MonoBehaviour
         housesLeft--;
         housesLeftText.text = "Houses Left: " + housesLeft;
 
-        if (housesLeft == 0)
+        if (housesLeft < 0)
         {
             EndGame();
         }

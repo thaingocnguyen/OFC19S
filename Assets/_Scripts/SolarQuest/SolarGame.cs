@@ -10,9 +10,7 @@ public class SolarGame : MonoBehaviour
 	private GridManager[] gridManagers;
     private List<GridGenerator> grids;
 
-	private float bestScore = 100f;
-
-    private float testScore;
+    public float houseScore;
 
 
 	void Start()
@@ -44,11 +42,9 @@ public class SolarGame : MonoBehaviour
             score += g.GridScore;
         }
 
-        testScore = score;
+		houseScore = score;
 
-		float calculatedScore = score / bestScore;
-
-		SolarScoring.Instance.UpdateEnergyBar(calculatedScore);
+		SolarScoring.Instance.UpdateEnergyBar();
 	}
 
 }
