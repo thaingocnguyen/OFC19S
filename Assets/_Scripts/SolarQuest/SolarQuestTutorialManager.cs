@@ -50,6 +50,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
 	[SerializeField] Light mainLight;
     [SerializeField] Light sliderLight;
 
+    
+
 
 
     public enum GameState
@@ -103,7 +105,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 		choiceButtons.SetActive(false);
 
         // Set start state
-        SetState(GameState.Start);
+        SetState(GameState.SolarGame);
     }
 
     public void ChangeStateToIntroduction()

@@ -69,8 +69,8 @@ public class DragAndBudget : MonoBehaviour
 
             solarPanel = currentPanel.GetComponent<SolarPanel>();
 
-            // Return panel to the pile if the location placed is not near grid 
-            if (gridPos[0] < 0)
+            // Return panel to the pile if the location placed is not near grid
+            if (gridPos[0] < 0 || !budgetMoreThanZero)
             {
                 // Only if panel has been placed will the budget be incremented
                 if (solarPanel.PanelPlaced)
@@ -126,10 +126,6 @@ public class DragAndBudget : MonoBehaviour
 
                 solarPanel.Grid = grid;
                 grid.UpdateGridScore();
-            }
-            else
-            {
-                Destroy(currentPanel);
             }
         }
     }
