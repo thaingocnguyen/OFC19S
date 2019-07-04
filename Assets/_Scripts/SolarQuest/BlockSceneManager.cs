@@ -44,6 +44,7 @@ public class BlockSceneManager : MonoBehaviour
     [SerializeField] GameObject endButton;
     [SerializeField] GameObject endCanvas;
     [SerializeField] TextMeshProUGUI endingText;
+    [SerializeField] GameObject levelLoader;
 
     public enum GameState
     {
@@ -255,7 +256,7 @@ public class BlockSceneManager : MonoBehaviour
         if (SolarScoring.Instance.energyScore > 0.2)
         {
             // Load Kitsilano scene
-            SceneManager.LoadScene(0);
+            levelLoader.GetComponent<LevelLoader>().LoadLevel(0);
         }
     }
 }
