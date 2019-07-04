@@ -39,6 +39,11 @@ public abstract class GridGenerator : MonoBehaviour {
         get { return gridScore; }
     }
 
+    public float GridSize
+    {
+        get { return size; }
+    }
+
     void MakePuzzle()
     {
         pos = gameObject.transform.position;
