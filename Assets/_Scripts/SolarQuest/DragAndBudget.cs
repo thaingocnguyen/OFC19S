@@ -75,12 +75,16 @@ public class DragAndBudget : MonoBehaviour
                 // Only if panel has been placed will the budget be incremented
                 if (solarPanel.PanelPlaced)
                 {
-                    StartCoroutine(BudgetSystem.Instance.IncrementBudget(panelCost));
+                    BudgetSystem.Instance.IncrementBudget(panelCost);
 
                     solarPanel.Grid.ClearPanelOccupancy(solarPanel.gridRow, solarPanel.gridCol, panelCost);
                     solarPanel.Grid.UpdateGridScore();
 
                     solarPanel.Grid = grid;
+                }
+                else if (!budgetMoreThanZero)
+                {
+                    BudgetSystem.Instance.OutOfBudget();
                 }
 
                 Destroy(currentPanel);

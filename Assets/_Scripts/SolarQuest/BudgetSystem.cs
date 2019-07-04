@@ -9,6 +9,9 @@ public class BudgetSystem : MonoBehaviour
     public Text subtractBudgetText;
 
     [SerializeField] int maxBudget = 90000;
+    [SerializeField] GameObject outOfBudget;
+
+
     int currentBudget;
 
     #region Singleton
@@ -28,6 +31,9 @@ public class BudgetSystem : MonoBehaviour
         budgetText.text = "Budget: $" + maxBudget;
         currentBudget = maxBudget;
         subtractBudgetText.text = "";
+
+        // Out of budget popup hidden on start 
+        outOfBudget.SetActive(false);
     }
 
     public IEnumerator DecrementBudget(string tag)
@@ -54,19 +60,19 @@ public class BudgetSystem : MonoBehaviour
         subtractBudgetText.text = "";
     }
 
-    public IEnumerator IncrementBudget(string tag)
+    public void IncrementBudget(string tag)
     {
         if (tag == "12000")
         {
             currentBudget = currentBudget + 12000;
             budgetText.text = "Budget: $" + currentBudget;
-            subtractBudgetText.text = " +$12000";
+            //subtractBudgetText.text = " +$12000";
         }
         else if (tag == "3000")
         {
             currentBudget = currentBudget + 3000;
             budgetText.text = "Budget: $" + currentBudget;
-            subtractBudgetText.text = " +$3000";
+            //subtractBudgetText.text = " +$3000";
         }
 
         else
@@ -74,25 +80,52 @@ public class BudgetSystem : MonoBehaviour
             budgetText.text = "Budget: $" + currentBudget;
         }
 
-        yield return new WaitForSeconds(0.7f);
-        subtractBudgetText.text = "";
+        //yield return new WaitForSeconds(0.7f);
+        //subtractBudgetText.text = "";
     }
 
+    // Returns false if there is not enough budget for a given price 
     public bool ifBudgetNotZero(string tag)
     {
         if (tag == "12000")
         {
             if ((currentBudget - 12000) < 0)
-            { return false; }
-            else { return true; }
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         else if (tag == "3000")
         {
             if ((currentBudget - 3000) < 0)
-            { return false; }
-            else { return true; }
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        else { return false; }
+        else
+        {
+            return false;
+        }
+
     }
+
+    public void OutOfBudget()
+    {
+        outOfBudget.SetActive(true);
+    }
+
+    public void HideOutOfBudget()
+    {
+        outOfBudget.SetActive(false);
+    }
+
+   
 }
