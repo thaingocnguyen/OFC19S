@@ -28,7 +28,7 @@ public class BudgetSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        budgetText.text = "Budget: $" + maxBudget;
+        budgetText.text = "$" + maxBudget;
         currentBudget = maxBudget;
         subtractBudgetText.text = "";
 
@@ -41,13 +41,13 @@ public class BudgetSystem : MonoBehaviour
         if (tag == "12000")
         {
             currentBudget = currentBudget - 12000;
-            budgetText.text = "Budget: $" + currentBudget;
+            budgetText.text = "$" + currentBudget;
             subtractBudgetText.text = " -$12000";
         }
         else if (tag == "3000")
         {
             currentBudget = currentBudget - 3000;
-            budgetText.text = "Budget: $" + currentBudget;
+            budgetText.text = "$" + currentBudget;
             subtractBudgetText.text = " -$3000";
         }
 
@@ -65,19 +65,19 @@ public class BudgetSystem : MonoBehaviour
         if (tag == "12000")
         {
             currentBudget = currentBudget + 12000;
-            budgetText.text = "Budget: $" + currentBudget;
+            budgetText.text = "$" + currentBudget;
             //subtractBudgetText.text = " +$12000";
         }
         else if (tag == "3000")
         {
             currentBudget = currentBudget + 3000;
-            budgetText.text = "Budget: $" + currentBudget;
+            budgetText.text = "$" + currentBudget;
             //subtractBudgetText.text = " +$3000";
         }
 
         else
         {
-            budgetText.text = "Budget: $" + currentBudget;
+            budgetText.text = "$" + currentBudget;
         }
 
         //yield return new WaitForSeconds(0.7f);

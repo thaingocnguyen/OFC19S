@@ -51190,6 +51190,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 133189677}
     m_Modifications:
+    - target: {fileID: 8087785423787072408, guid: 03c0ab3c65b714667a50f1268e317a19,
+        type: 3}
+      propertyPath: m_Text
+      value: 'House Budget:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321246078167984813, guid: 03c0ab3c65b714667a50f1268e317a19,
+        type: 3}
+      propertyPath: m_Name
+      value: BudgetNameText
+      objectReference: {fileID: 0}
     - target: {fileID: 4308048185591001568, guid: 03c0ab3c65b714667a50f1268e317a19,
         type: 3}
       propertyPath: m_Name
@@ -51318,22 +51328,32 @@ PrefabInstance:
     - target: {fileID: 4308048184721723214, guid: 03c0ab3c65b714667a50f1268e317a19,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 310
+      value: 617
       objectReference: {fileID: 0}
     - target: {fileID: 4308048184721723214, guid: 03c0ab3c65b714667a50f1268e317a19,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -51
+      value: -49.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308048184721723214, guid: 03c0ab3c65b714667a50f1268e317a19,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 63.1
       objectReference: {fileID: 0}
     - target: {fileID: 4308048184994032689, guid: 03c0ab3c65b714667a50f1268e317a19,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 390
+      value: 507
       objectReference: {fileID: 0}
     - target: {fileID: 4308048184994032689, guid: 03c0ab3c65b714667a50f1268e317a19,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308048184721723215, guid: 03c0ab3c65b714667a50f1268e317a19,
+        type: 3}
+      propertyPath: m_Text
+      value: $
       objectReference: {fileID: 0}
     - target: {fileID: 7609281388552963496, guid: 03c0ab3c65b714667a50f1268e317a19,
         type: 3}
