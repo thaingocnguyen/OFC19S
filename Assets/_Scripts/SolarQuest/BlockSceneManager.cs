@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using System;
+using System.Collections;
 
 public class BlockSceneManager : MonoBehaviour
 {
@@ -34,6 +34,9 @@ public class BlockSceneManager : MonoBehaviour
     [SerializeField] GameObject compass;
     [SerializeField] GameObject doneButton;
     [SerializeField] GameObject arrowInstructions;
+
+    [SerializeField] GameObject firstHouse;
+    private bool firstHousePopUpShown = false;
 
     // HOUSES 
     public int housesLeft = 3;
@@ -84,6 +87,7 @@ public class BlockSceneManager : MonoBehaviour
         budget.SetActive(false);
         compass.SetActive(false);
         arrowInstructions.SetActive(false);
+        firstHouse.SetActive(false);
 
         // END
         endButton.SetActive(false);
@@ -162,6 +166,12 @@ public class BlockSceneManager : MonoBehaviour
 
     public void ShowMap()
     {
+        // Encouragement for finishing one house
+        if (housesLeft == 2 && !firstHousePopUpShown)
+        {
+            StartCoroutine("FirstHousePopUp");
+            firstHousePopUpShown = true;
+        }
         arrowInstructions.SetActive(false);
         GetComponent<HouseSelector>().SwitchToMapView();
         mainCamera.enabled = true;
@@ -258,5 +268,12 @@ public class BlockSceneManager : MonoBehaviour
             // Load Kitsilano scene
             levelLoader.GetComponent<LevelLoader>().LoadLevel(0);
         }
+    }
+
+    IEnumerator FirstHousePopUp()
+    {
+        firstHouse.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        firstHouse.SetActive(false);
     }
 }
