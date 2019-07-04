@@ -16,7 +16,7 @@ public class PanZoom : MonoBehaviour
     [SerializeField] float minY = 45f;
 
     [SerializeField] float maxZ = 10f;
-    [SerializeField] float minZ = -2f; 
+    [SerializeField] float minZ = 2.5f; 
 
 
 

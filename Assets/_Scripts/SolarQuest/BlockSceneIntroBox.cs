@@ -9,6 +9,7 @@ public class BlockSceneIntroBox : InfoBox, IPointerDownHandler
     [SerializeField] GameObject character;
     [SerializeField] GameObject instructions;
 
+
     
     public override void HandleNoSentencesLeft()
     {
@@ -20,7 +21,10 @@ public class BlockSceneIntroBox : InfoBox, IPointerDownHandler
 
     private void Start()
     {
-        LoadText();
+        
+        sentences.Enqueue("Your neighbourhood has received a grant to fit <b>three</b>(3) houses with solar panels.");
+        sentences.Enqueue("Your job is to select the best <b><u>three</u></b> houses to place solar panels on. Choose wisely, as you will only be able to do this once.");
+        DisplayNextSentence();
         character.SetActive(true);
     }
 

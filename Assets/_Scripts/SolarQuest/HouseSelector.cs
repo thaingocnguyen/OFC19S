@@ -16,6 +16,7 @@ public class HouseSelector : MonoBehaviour
     [SerializeField] Animator selectBoxAnimator;
     [SerializeField] GameObject noHousesLeft;
 
+
     private void Start()
     {
         noHousesLeft.SetActive(false);
@@ -133,5 +134,6 @@ public class HouseSelector : MonoBehaviour
 	{
 		selectBoxAnimator.SetBool("IsOnScreen", false);
 	}
+
 
 }
