@@ -105,7 +105,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 		choiceButtons.SetActive(false);
 
         // Set start state
-        SetState(GameState.SolarGame);
+        SetState(GameState.Start);
     }
 
     public void ChangeStateToIntroduction()
