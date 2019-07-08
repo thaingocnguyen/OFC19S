@@ -11,9 +11,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
     [SerializeField] Camera startCam;
     [SerializeField] Camera questCam;
     [SerializeField] Camera southCam;
-	#endregion
+    #endregion
 
-	public float score;
+    public float score;
     [SerializeField] GameObject character;
 
     // START
@@ -23,34 +23,36 @@ public class SolarQuestTutorialManager : MonoBehaviour
     [SerializeField] GameObject infoBox;
 
     // SLIDER
+    [SerializeField] GameObject introPopup;
     [SerializeField] GameObject sliderUI;
     [SerializeField] GameObject sliderPopup;
     [SerializeField] GameObject compassPopup;
     [SerializeField] GameObject sliderDoneButton;
 
     // QUIZ
+    [SerializeField] GameObject quizInfo;
     [SerializeField] GameObject quizPanel;
     [SerializeField] GameObject backButton;
     [SerializeField] GameObject quizDoneButton;
 
     // SOLAR GAME
     [SerializeField] GameObject solarGame;
-	[SerializeField] GameObject solarGameDoneButton;
+    [SerializeField] GameObject solarGameDoneButton;
     [SerializeField] GameObject budget;
     [SerializeField] GameObject energyBar;
     [SerializeField] GameObject introBox;
     [SerializeField] GameObject solarPanelsPopup;
 
-	// END
-	[SerializeField] GameObject endTextBox;
-	[SerializeField] TextMeshProUGUI endText;
-	[SerializeField] GameObject choiceButtons;
+    // END
+    [SerializeField] GameObject endTextBox;
+    [SerializeField] TextMeshProUGUI endText;
+    [SerializeField] GameObject choiceButtons;
 
-	// Lights
-	[SerializeField] Light mainLight;
+    // Lights
+    [SerializeField] Light mainLight;
     [SerializeField] Light sliderLight;
 
-    
+
 
 
 
@@ -83,6 +85,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
         infoBox.SetActive(false);
 
         // SLIDER TUTORIAL
+        introPopup.SetActive(false);
         sliderUI.SetActive(false);
         sliderPopup.SetActive(false);
         compassPopup.SetActive(false);
@@ -98,14 +101,14 @@ public class SolarQuestTutorialManager : MonoBehaviour
         energyBar.SetActive(false);
         introBox.SetActive(false);
         solarPanelsPopup.SetActive(false);
-		solarGameDoneButton.SetActive(false);
+        solarGameDoneButton.SetActive(false);
 
-		// END
-		endTextBox.SetActive(false);
-		choiceButtons.SetActive(false);
+        // END
+        endTextBox.SetActive(false);
+        choiceButtons.SetActive(false);
 
         // Set start state
-        SetState(GameState.Start);
+        SetState(GameState.Quiz);
     }
 
     public void ChangeStateToIntroduction()
@@ -129,9 +132,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
     }
 
     public void ChangeStateToEnd()
-	{
+    {
         SetState(GameState.End);
-	}
+    }
 
 
 
@@ -139,7 +142,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
     {
         ExitCurrentState();
         currentState = newState;
-        switch(currentState)
+        switch (currentState)
         {
             case GameState.Start:
                 StartState();
@@ -156,9 +159,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
             case GameState.SolarGame:
                 SolarGameState();
                 break;
-			case GameState.End:
-				EndState();
-				break;
+            case GameState.End:
+                EndState();
+                break;
             default:
                 break;
         }
@@ -166,7 +169,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
     private void ExitCurrentState()
     {
-        switch(currentState)
+        switch (currentState)
         {
             case GameState.Start:
                 ExitStartState();
@@ -183,9 +186,9 @@ public class SolarQuestTutorialManager : MonoBehaviour
             case GameState.SolarGame:
                 ExitSolarGameState();
                 break;
-			case GameState.End:
-				ExitEndState();
-				break;
+            case GameState.End:
+                ExitEndState();
+                break;
             default:
                 break;
         }
@@ -237,7 +240,16 @@ public class SolarQuestTutorialManager : MonoBehaviour
         mainLight.enabled = false;
         sliderLight.enabled = true;
 
+        StartCoroutine("SliderPopup");
+    }
+
+    IEnumerator SliderPopup()
+    {
+        introPopup.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        introPopup.SetActive(false);
         sliderPopup.SetActive(true);
+
     }
 
     public void CloseSliderPopUp()
@@ -267,10 +279,17 @@ public class SolarQuestTutorialManager : MonoBehaviour
         questCam.enabled = false;
         southCam.enabled = true;
 
-        quizPanel.SetActive(true);
+
+        quizInfo.SetActive(true);
         backButton.SetActive(true);
 
         character.SetActive(true);
+    }
+
+    public void LoadQuizChoices()
+    {
+        quizInfo.SetActive(false);
+        quizPanel.SetActive(true);
     }
 
     private void ExitQuizState()
