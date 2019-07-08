@@ -42,6 +42,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
     [SerializeField] GameObject energyBar;
     [SerializeField] GameObject introBox;
     [SerializeField] GameObject solarPanelsPopup;
+    [SerializeField] GameObject budgetPopup;
+    [SerializeField] GameObject energyPopup;
 
     // END
     [SerializeField] GameObject endTextBox;
@@ -92,6 +94,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
         sliderDoneButton.SetActive(false);
 
         // QUIZ
+        quizInfo.SetActive(false);
         quizPanel.SetActive(false);
         backButton.SetActive(false);
 
@@ -101,6 +104,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
         energyBar.SetActive(false);
         introBox.SetActive(false);
         solarPanelsPopup.SetActive(false);
+        budgetPopup.SetActive(false);
+        energyPopup.SetActive(false);
         solarGameDoneButton.SetActive(false);
 
         // END
@@ -108,7 +113,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
         choiceButtons.SetActive(false);
 
         // Set start state
-        SetState(GameState.Quiz);
+        SetState(GameState.Start);
     }
 
     public void ChangeStateToIntroduction()
@@ -294,6 +299,7 @@ public class SolarQuestTutorialManager : MonoBehaviour
 
     private void ExitQuizState()
     {
+        quizInfo.SetActive(false);
         quizPanel.SetActive(false);
         backButton.SetActive(false);
 
@@ -322,6 +328,18 @@ public class SolarQuestTutorialManager : MonoBehaviour
     public void CloseSolarPanelsPopup()
     {
         solarPanelsPopup.SetActive(false);
+        budgetPopup.SetActive(true);
+    }
+
+    public void CloseBudgetPopup()
+    {
+        budgetPopup.SetActive(false);
+        energyPopup.SetActive(true);
+    }
+
+    public void CloseEnergyPopup()
+    {
+        energyPopup.SetActive(false);
     }
 
     private void ExitSolarGameState()
@@ -336,6 +354,8 @@ public class SolarQuestTutorialManager : MonoBehaviour
 		solarGame.SetActive(false);
 		solarGameDoneButton.SetActive(false);
 		solarPanelsPopup.SetActive(false);
+        budgetPopup.SetActive(false);
+        energyPopup.SetActive(false);
         if (SolarGamePopupManager.Instance)
 		{
 			SolarGamePopupManager.Instance.CloseAllPopups();
