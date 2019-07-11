@@ -68,10 +68,14 @@ namespace LevelEditor
             {
                 placeModeOn = false;
                 placeButton.GetComponent<ButtonToggle>().On = false;
+
+                // If there is a tree placed
                 if (cloneObj != null)
                 {
-                    Debug.Log("Saved tree");
+                    // Add to scene object list
                     manager.inSceneGameObjects.Add(cloneObj);
+                    // Update the score
+                    manager.UpdateCanopyScore();
                     curNode.placedObj = objProperties;
                     cloneObj = null;
                 }

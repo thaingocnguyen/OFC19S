@@ -12,6 +12,13 @@ namespace LevelEditor
         public List<GameObject> inSceneWalls = new List<GameObject>();
         public List<GameObject> inSceneStackObjects = new List<GameObject>();
 
+        public GameObject canopyBar;
+
+        // SCORING
+        private float canopyScore;
+        [SerializeField] float maxScore;
+
+        #region Singleton
         private static LevelManager instance = null;
         public static LevelManager GetInstance()
         {
@@ -22,14 +29,18 @@ namespace LevelEditor
         {
             instance = this;
         }
+        #endregion
 
         private void Start()
         {
             gridBase = GridBase.GetInstance();
 
+            // Canopy bar starts at 0
+            canopyBar.transform.localScale = new Vector3(1, 0, 1);
             //InitLevelObjects();
         }
 
+        // Used to load objects if there is save function
         void InitLevelObjects()
         {
             if (inSceneGameObjects.Count > 0)
@@ -41,6 +52,14 @@ namespace LevelEditor
                 }
             }
         }
+
+        public void UpdateCanopyScore()
+        {
+            canopyScore = inSceneGameObjects.Count * 5;
+            canopyBar.transform.localScale = new Vector3(1, canopyScore / maxScore, 1);
+        }
+
+
     }
 }
 
