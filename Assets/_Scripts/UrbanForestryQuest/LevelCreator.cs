@@ -11,6 +11,7 @@ namespace LevelEditor
         InterfaceManager ui;
 
         bool placeModeOn;
+        bool deleteModeOn;
         bool objMoving;
         GameObject currentObject;
         Node curNode;
@@ -24,48 +25,20 @@ namespace LevelEditor
         Vector3 worldPosition;
         bool deleteObj;
 
-        // paint tile variables
-        bool hasMaterial;
-        bool paintTile;
-        public Material matToPlace;
-        Node previousNode;
-        Material prevMaterial;
-        Quaternion targetRot;
-        Quaternion prevRotation;
-
-        // Place stack objs variables 
-        bool placeStackObj;
-        GameObject stackObjToPlace;
-        GameObject stackCloneObj;
-        Level_Object stackObjProperties;
-        bool deleteStackObj;
-
-        // Wall creator variables
-        bool createWall;
-        public GameObject wallPrefab;
-        Node startNode_Wall;
-        Node endNodeWall;
-        public Material[] wallPlacementMat;
-        bool deleteWall;
+        [SerializeField] GameObject placeButton;
+        [SerializeField] GameObject deleteButton;
 
         private void Start()
         {
             gridBase = GridBase.GetInstance();
             manager = LevelManager.GetInstance();
             ui = InterfaceManager.GetInstance();
-
-            //PaintAll();
         }
 
         private void Update()
         {
             PlaceObject();
-            DeleteObjs();
-            //PaintTile();
-            //PlaceStackedObj();
-            //CreateWall();
-            //DeleteStackedObjs();
-            //DeleteWallsActual();
+            DeleteObjects();
         }
 
         void UpdateMousePosition()
@@ -81,20 +54,46 @@ namespace LevelEditor
 
         public void PlaceModeToggle()
         {
+            if (deleteModeOn)
+            {
+                DeleteModeToggle();
+            }
             if (!placeModeOn)
             {
                 placeModeOn = true;
-                PassGameObjectToPlace("tree_small");
+                placeButton.GetComponent<ButtonToggle>().On = true;
+                objToPlace = ResourceManager.GetInstance().GetObjBase("tree_small").objPrefab;
             }
             else
             {
                 placeModeOn = false;
+                placeButton.GetComponent<ButtonToggle>().On = false;
                 if (cloneObj != null)
                 {
                     Debug.Log("Saved tree");
                     manager.inSceneGameObjects.Add(cloneObj);
+                    curNode.placedObj = objProperties;
                     cloneObj = null;
                 }
+                curNode = null;
+            }
+        }
+
+        public void DeleteModeToggle()
+        {
+            if (placeModeOn)
+            {
+                PlaceModeToggle();
+            }
+            if (!deleteModeOn)
+            {
+                deleteModeOn = true;
+                deleteButton.GetComponent<ButtonToggle>().On = true;
+            }
+            else
+            {
+                deleteModeOn = false;
+                deleteButton.GetComponent<ButtonToggle>().On = false;
             }
         }
 
@@ -183,10 +182,8 @@ namespace LevelEditor
                     }
                     else
                     {
-                        
                         objProperties.gridPosX = curNode.nodePosX;
                         objProperties.gridPosZ = curNode.nodePosZ;
-                        
                     }
                 }
 
@@ -194,33 +191,35 @@ namespace LevelEditor
         }
 
 
-        public void PassGameObjectToPlace(string objId)
+        //public void PassGameObjectToPlace(string objId)
+        //{
+        //    if (cloneObj != null)
+        //    {
+        //        Destroy(cloneObj);
+        //    }
+
+        //    CloseAll();
+        //    hasObj = true;
+        //    cloneObj = null;
+        //    objToPlace = ResourceManager.GetInstance().GetObjBase(objId).objPrefab;
+        //}
+
+
+
+        void DeleteObjects()
         {
-            if (cloneObj != null)
-            {
-                Destroy(cloneObj);
-            }
-
-            CloseAll();
-            hasObj = true;
-            cloneObj = null;
-            objToPlace = ResourceManager.GetInstance().GetObjBase(objId).objPrefab;
-        }
-
-
-
-        void DeleteObjs()
-        {
-            if (deleteObj)
+            if (deleteModeOn)
             {
                 UpdateMousePosition();
-
-                Node curNode = gridBase.NodeFromWorldPosition(mousePosition);
+                curNode = gridBase.NodeFromWorldPosition(mousePosition);
 
                 if (Input.GetMouseButton(0) && !ui.mouseOverUIElement)
                 {
+                    //Debug.Log("X: " + curNode.nodePosX);
+                    //Debug.Log("Z: " + curNode.nodePosZ);
                     if (curNode.placedObj != null)
                     {
+                        Debug.Log("Has tree");
                         if (manager.inSceneGameObjects.Contains(curNode.placedObj.gameObject))
                         {
                             manager.inSceneGameObjects.Remove(curNode.placedObj.gameObject);
@@ -233,23 +232,12 @@ namespace LevelEditor
             }
         }
 
-        void DeleteObj()
-        {
-            CloseAll();
-            deleteObj = true;
-        }
         #endregion
 
         void CloseAll()
         {
             hasObj = false;
             deleteObj = false;
-            paintTile = false;
-            placeStackObj = false;
-            createWall = false;
-            hasMaterial = false;
-            deleteStackObj = false;
-            deleteWall = false;
         }
     }
 }
