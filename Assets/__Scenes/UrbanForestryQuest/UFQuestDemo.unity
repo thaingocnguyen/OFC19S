@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_Sun: {fileID: 506665615}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571334, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -58,7 +58,7 @@ LightmapSettings:
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
-    m_AO: 0
+    m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
@@ -72,7 +72,7 @@ LightmapSettings:
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
-    m_BakeBackend: 1
+    m_BakeBackend: 0
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 512
@@ -96,7 +96,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 7ef2a4ccee2bd4a70a4249a31feb18b9,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -194,6 +195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -263,6 +268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: House01
       objectReference: {fileID: 0}
+    - target: {fileID: 137528, guid: 57c03d910740e314a9e4d8fd2b368b7f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 429628, guid: 57c03d910740e314a9e4d8fd2b368b7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -326,6 +335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -385,10 +398,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (14)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -433,6 +442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (14)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &105282426 stripped
@@ -448,10 +461,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -496,6 +505,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!1001 &171137659
@@ -505,10 +518,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (27)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43
@@ -553,6 +562,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (27)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &171137660 stripped
@@ -571,6 +584,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -631,10 +648,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (19)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35
@@ -679,6 +692,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (19)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &217257765 stripped
@@ -694,10 +711,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27
@@ -741,6 +754,10 @@ PrefabInstance:
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
@@ -897,10 +914,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (23)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 51
@@ -945,6 +958,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (23)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &286954898 stripped
@@ -960,10 +977,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 144426, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
-      propertyPath: m_Name
-      value: Road_Walkway_Double (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 406582, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31
@@ -1007,6 +1020,10 @@ PrefabInstance:
     - target: {fileID: 406582, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 144426, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
+      propertyPath: m_Name
+      value: Road_Walkway_Double (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
@@ -1149,10 +1166,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (13)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11
@@ -1197,6 +1210,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (13)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &417265819 stripped
@@ -1219,7 +1236,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &429904973
 Transform:
@@ -1341,10 +1358,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (32)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 63
@@ -1389,6 +1402,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (32)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &530091848 stripped
@@ -1407,6 +1424,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1471,6 +1492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17
@@ -1530,10 +1555,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (16)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23
@@ -1578,6 +1599,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (16)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &568909643 stripped
@@ -1586,87 +1611,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 568909642}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &570911678
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 570911679}
-  - component: {fileID: 570911681}
-  - component: {fileID: 570911680}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &570911679
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570911678}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 812909732}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &570911680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570911678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Place Tree
-
-'
---- !u!222 &570911681
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570911678}
-  m_CullTransparentMesh: 0
 --- !u!1001 &622667058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1674,10 +1618,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (25)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 59
@@ -1722,6 +1662,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (25)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &622667059 stripped
@@ -1744,7 +1688,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &634635195
 Transform:
@@ -1772,10 +1716,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (22)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47
@@ -1820,6 +1760,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (22)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &664259701 stripped
@@ -1828,6 +1772,149 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 664259700}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &666708972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 666708973}
+  - component: {fileID: 666708976}
+  - component: {fileID: 666708975}
+  - component: {fileID: 666708974}
+  m_Layer: 5
+  m_Name: PlaceTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &666708973
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666708972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1219603529}
+  m_Father: {fileID: 1338085144}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 35}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &666708974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666708972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 666708975}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1672452303}
+        m_MethodName: PlaceModeToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: tree_small
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &666708975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666708972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &666708976
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666708972}
+  m_CullTransparentMesh: 0
 --- !u!1001 &667995095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1835,10 +1922,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (12)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -1883,6 +1966,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (12)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &667995096 stripped
@@ -1898,10 +1985,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (31)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 59
@@ -1946,6 +2029,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (31)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &737735736 stripped
@@ -1961,10 +2048,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39
@@ -2009,6 +2092,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (8)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!1001 &761178418
@@ -2021,6 +2108,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2081,10 +2172,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (20)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39
@@ -2129,6 +2216,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (20)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &770313570 stripped
@@ -2137,138 +2228,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 770313569}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &812909731
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 812909732}
-  - component: {fileID: 812909735}
-  - component: {fileID: 812909734}
-  - component: {fileID: 812909733}
-  m_Layer: 5
-  m_Name: Place Tree
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &812909732
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812909731}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 570911679}
-  m_Father: {fileID: 1338085144}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &812909733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812909731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 812909734}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1672452303}
-        m_MethodName: PassGameObjectToPlace
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: tree_small
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &812909734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812909731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!222 &812909735
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812909731}
-  m_CullTransparentMesh: 0
 --- !u!1001 &845299439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2279,6 +2238,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2339,10 +2302,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (28)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47
@@ -2387,6 +2346,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (28)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &859267837 stripped
@@ -2405,6 +2368,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2471,10 +2438,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -2519,6 +2482,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!1001 &948552509
@@ -2531,6 +2498,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2723,6 +2694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -2782,10 +2757,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (21)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43
@@ -2830,6 +2801,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (21)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1019498376 stripped
@@ -2848,6 +2823,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2908,10 +2887,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (29)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 51
@@ -2956,6 +2931,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (29)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1054393454 stripped
@@ -2978,7 +2957,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1063844211
 Transform:
@@ -3003,10 +2982,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (10)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -3051,6 +3026,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (10)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1063937297 stripped
@@ -3066,10 +3045,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (18)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31
@@ -3114,6 +3089,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (18)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1067888765 stripped
@@ -3129,10 +3108,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -3177,6 +3152,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!1001 &1133234439
@@ -3189,6 +3168,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3253,6 +3236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -3316,6 +3303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -3368,6 +3359,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1175969107}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1219603528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219603529}
+  - component: {fileID: 1219603531}
+  - component: {fileID: 1219603530}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1219603529
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219603528}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 666708973}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1219603530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219603528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Place Tree
+--- !u!222 &1219603531
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219603528}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1221491671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3378,6 +3448,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3438,10 +3512,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 144426, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
-      propertyPath: m_Name
-      value: Road_Walkway_Double
-      objectReference: {fileID: 0}
     - target: {fileID: 406582, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11
@@ -3485,6 +3555,10 @@ PrefabInstance:
     - target: {fileID: 406582, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 144426, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
+      propertyPath: m_Name
+      value: Road_Walkway_Double
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74e7bbf843b522740a5fe798aa73c21a, type: 3}
@@ -3532,6 +3606,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3592,10 +3670,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (17)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27
@@ -3640,6 +3714,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (17)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1265878246 stripped
@@ -3658,6 +3736,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9d7dfacc4e96c5145a8617b0da8aeff1, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_End
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9d7dfacc4e96c5145a8617b0da8aeff1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9d7dfacc4e96c5145a8617b0da8aeff1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3929,10 +4011,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (15)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19
@@ -3977,6 +4055,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (15)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1328399560 stripped
@@ -3995,6 +4077,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4057,6 +4143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1338085144}
+  - component: {fileID: 1338085145}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -4075,7 +4162,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 812909732}
+  - {fileID: 666708973}
   m_Father: {fileID: 1279238449}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4084,6 +4171,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 54}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1338085145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338085143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1672452305}
+          m_MethodName: MouseEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, Unity.ugui,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1672452305}
+          m_MethodName: MouseExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, Unity.ugui,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1361659563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4091,10 +4225,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -4139,6 +4269,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1388978376 stripped
@@ -4161,7 +4295,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1393152274
 Transform:
@@ -4273,7 +4407,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 283641523}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4311,10 +4445,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -4359,6 +4489,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!1001 &1462658575
@@ -4371,6 +4505,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4434,6 +4572,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4560,10 +4702,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (26)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 63
@@ -4608,6 +4746,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (26)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1547517806 stripped
@@ -4635,10 +4777,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35
@@ -4683,6 +4821,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (7)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!1001 &1575672335
@@ -4695,6 +4837,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4758,6 +4904,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4851,8 +5001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodePrefab: {fileID: 1965435002055470531, guid: d763231402acd4b6689402f734ea90a8,
     type: 3}
-  sizeX: 20
-  sizeZ: 20
+  sizeX: 100
+  sizeZ: 100
   offset: 2
 --- !u!114 &1672452303
 MonoBehaviour:
@@ -4987,6 +5137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17
@@ -5046,10 +5200,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (24)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55
@@ -5094,6 +5244,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (24)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1745783779 stripped
@@ -5112,6 +5266,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5234,10 +5392,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -5281,6 +5435,10 @@ PrefabInstance:
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
@@ -5395,10 +5553,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (11)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -5443,6 +5597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (11)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1859061069 stripped
@@ -5458,10 +5616,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974362964}
     m_Modifications:
-    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
-      propertyPath: m_Name
-      value: Road_4x (30)
-      objectReference: {fileID: 0}
     - target: {fileID: 447794, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 55
@@ -5506,6 +5660,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118574, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
+      propertyPath: m_Name
+      value: Road_4x (30)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41eb4c2bbac799409a630e42be876e1, type: 3}
 --- !u!4 &1868222558 stripped
@@ -5524,6 +5682,10 @@ PrefabInstance:
     - target: {fileID: 111108, guid: f9bc8f63eabfc4046a5fcd2a899a69d7, type: 3}
       propertyPath: m_Name
       value: House03
+      objectReference: {fileID: 0}
+    - target: {fileID: 111108, guid: f9bc8f63eabfc4046a5fcd2a899a69d7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 498192, guid: f9bc8f63eabfc4046a5fcd2a899a69d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5587,6 +5749,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5656,6 +5822,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5783,6 +5953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -5845,6 +6019,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_Name
       value: Fence_Frontyard_Tile_Left_2x (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 57dfafb8f0d4d2748a45ee87edc8aa74, type: 3}
       propertyPath: m_LocalPosition.x
