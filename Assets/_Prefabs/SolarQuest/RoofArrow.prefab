@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4421974196060591249}
   - component: {fileID: 4421974196060591250}
   m_Layer: 5
-  m_Name: North
+  m_Name: RoofArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,16 +26,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4421974196060591340}
-  m_LocalRotation: {x: -0.014498814, y: 0.06707589, z: -0.41639596, w: 0.9065898}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1.695, y: 7.6870003, z: -49.225002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -369, y: 86}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4421974196060591248
@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0e42a47a6edf94341b34d926b9ea0edb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7ee130bbb67b44b1958cff1e00bf183, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

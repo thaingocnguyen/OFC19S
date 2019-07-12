@@ -2283,7 +2283,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1528466741815512534}
   - component: {fileID: 1009782659737812464}
-  - component: {fileID: 1009782659737812465}
   m_Layer: 0
   m_Name: SmallPanel
   m_TagString: Untagged
@@ -2320,19 +2319,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.5408983, y: 1.7283936, z: 3.9767103}
   m_Center: {x: -5.3285255, y: 5.914197, z: -5.482196}
---- !u!114 &1009782659737812465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2766947398061798280}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a85a359b0b1493a88175a0130f1e5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1877860020973164198}
 --- !u!1 &3108197597131927767
 GameObject:
   m_ObjectHideFlags: 0
