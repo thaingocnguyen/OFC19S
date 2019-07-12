@@ -253,7 +253,7 @@ namespace SolarQuest
         IEnumerator SliderPopup()
         {
             introPopup.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             introPopup.SetActive(false);
             sliderPopup.SetActive(true);
 
