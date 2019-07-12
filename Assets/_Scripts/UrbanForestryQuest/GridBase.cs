@@ -38,9 +38,10 @@ public class GridBase : MonoBehaviour
                 // World position to place visualisation for node
                 float posX = x * offset;
                 float posZ = z * offset;
+         
 
                 // Instantitate node prefab
-                GameObject go = Instantiate(nodePrefab, new Vector3(posX, 0, posZ), Quaternion.identity) as GameObject;
+                GameObject go = Instantiate(nodePrefab, new Vector3(posX, 1, posZ), Quaternion.identity) as GameObject;
                 go.transform.parent = transform.GetChild(1).transform;
 
 

@@ -2,22 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfoPanel : MonoBehaviour
+
+namespace SolarQuest
 {
-
-    Animator animator;
-    private void Awake()
+    public class InfoPanel : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
 
-    public void ShowInfoPanel()
-    {
-        animator.SetBool("IsOnScreen", true);
-    }
+        Animator animator;
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+        }
 
-    public void HideInfoPanel()
-    {
-        animator.SetBool("IsOnScreen", false);
+        public void ShowInfoPanel()
+        {
+            animator.SetBool("IsOnScreen", true);
+        }
+
+        public void HideInfoPanel()
+        {
+            animator.SetBool("IsOnScreen", false);
+        }
     }
 }
+

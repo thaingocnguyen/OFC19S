@@ -9,6 +9,7 @@ namespace LevelEditor
         LevelManager manager;
         GridBase gridBase;
         InterfaceManager ui;
+        UISpace uiSpace;
 
         bool placeModeOn;
         bool deleteModeOn;
@@ -33,6 +34,7 @@ namespace LevelEditor
             gridBase = GridBase.GetInstance();
             manager = LevelManager.GetInstance();
             ui = InterfaceManager.GetInstance();
+            uiSpace = UISpace.GetInstance();
         }
 
         private void Update()
@@ -63,6 +65,38 @@ namespace LevelEditor
                 placeModeOn = true;
                 placeButton.GetComponent<ButtonToggle>().On = true;
                 objToPlace = ResourceManager.GetInstance().GetObjBase("tree_small").objPrefab;
+            }
+            else
+            {
+                placeModeOn = false;
+                placeButton.GetComponent<ButtonToggle>().On = false;
+
+                // If there is a tree placed
+                if (cloneObj != null)
+                {
+                    // Add to scene object list
+                    manager.inSceneGameObjects.Add(cloneObj);
+                    // Update the score
+                    manager.UpdateCanopyScore();
+                    curNode.placedObj = objProperties;
+                    cloneObj = null;
+                }
+                curNode = null;
+            }
+        }
+
+        // FOR BUILDING PURPOSES ONLY
+        public void PlaceModeBarrier()
+        {
+            if (deleteModeOn)
+            {
+                DeleteModeToggle();
+            }
+            if (!placeModeOn)
+            {
+                placeModeOn = true;
+                placeButton.GetComponent<ButtonToggle>().On = true;
+                objToPlace = ResourceManager.GetInstance().GetObjBase("occupied").objPrefab;
             }
             else
             {
@@ -154,7 +188,7 @@ namespace LevelEditor
             if (placeModeOn)
             {
                 // When mouse is held down
-                if (Input.GetMouseButton(0) && !ui.mouseOverUIElement)
+                if (Input.GetMouseButton(0) && !uiSpace.IsPointerOverGameObject())
                 {
                     // Get node on grid from mouse position
                     UpdateMousePosition();
@@ -174,7 +208,7 @@ namespace LevelEditor
                     }
                 }
                 // When mouse is released and there is a clone object 
-                if (Input.GetMouseButtonUp(0) && cloneObj != null && !ui.mouseOverUIElement)
+                if (Input.GetMouseButtonUp(0) && cloneObj != null && !uiSpace.IsPointerOverGameObject())
                 {
                     // If current node have a placed object remove clone object, do not allow object to be placed
                     if (curNode.placedObj != null)
@@ -217,7 +251,7 @@ namespace LevelEditor
                 UpdateMousePosition();
                 curNode = gridBase.NodeFromWorldPosition(mousePosition);
 
-                if (Input.GetMouseButton(0) && !ui.mouseOverUIElement)
+                if (Input.GetMouseButtonDown(0) && !ui.mouseOverUIElement)
                 {
                     //Debug.Log("X: " + curNode.nodePosX);
                     //Debug.Log("Z: " + curNode.nodePosZ);

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/__Scenes/map_scenes/MainKitsilano.unity
+    path: Assets/__Scenes/Map/MainKitsilano.unity
     guid: 61192affdd190834f886f6874830cd5f
   - enabled: 1
     path: Assets/__Scenes/SolarQuest/SolarQuest_House.unity

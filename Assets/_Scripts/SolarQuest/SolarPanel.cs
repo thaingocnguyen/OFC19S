@@ -2,33 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolarPanel : MonoBehaviour
+namespace SolarQuest
 {
-    // Whether panel has been placed on the grid or is still in pile 
-    bool isPanelPlaced;
-
-
-    public int gridRow = -1;
-    public int gridCol = -1;
-
-    private GridGenerator grid;
-    // Start is called before the first frame update
-    void Start()
+    public class SolarPanel : MonoBehaviour
     {
-        isPanelPlaced = false;
+        // Whether panel has been placed on the grid or is still in pile 
+        bool isPanelPlaced;
+
+
+        public int gridRow = -1;
+        public int gridCol = -1;
+
+        private GridGenerator grid;
+        // Start is called before the first frame update
+        void Start()
+        {
+            isPanelPlaced = false;
+        }
+
+        public bool PanelPlaced
+        {
+            get { return isPanelPlaced; }
+            set { isPanelPlaced = value; }
+        }
+
+        public GridGenerator Grid
+        {
+            get { return grid; }
+            set { grid = value; }
+        }
+
+
     }
-
-    public bool PanelPlaced
-    {
-        get { return isPanelPlaced; }
-        set { isPanelPlaced = value; }
-    }
-
-    public GridGenerator Grid
-    {
-        get { return grid; }
-        set { grid = value; }
-    }
-
-
 }
+

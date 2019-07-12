@@ -2,59 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolarGame : MonoBehaviour
+
+namespace SolarQuest
 {
-
-	public GameObject[] gridObjects;
-
-	private GridManager[] gridManagers;
-    private List<GridGenerator> grids;
-
-    public float houseScore;
-
-    private bool initialSetUp;
-
-
-	void Start()
-	{
-	}
-
-	public void UpdateScore()
-	{
-        if (!initialSetUp)
-        {
-            InitialSetUp();
-        }
-
-        float score = 0f;
-
-        foreach (GridGenerator g in grids)
-        {
-            score += g.GridScore;
-        }
-
-		houseScore = score;
-
-		SolarScoring.Instance.UpdateEnergyBar();
-	}
-
-    private void InitialSetUp()
+    public class SolarGame : MonoBehaviour
     {
-        gridManagers = new GridManager[gridObjects.Length];
 
-        for (int i = 0; i < gridManagers.Length; i++)
+        public GameObject[] gridObjects;
+
+        private GridManager[] gridManagers;
+        private List<GridGenerator> grids;
+
+        public float houseScore;
+
+        private bool initialSetUp;
+
+
+        void Start()
         {
-            gridManagers[i] = gridObjects[i].GetComponent<GridManager>();
         }
 
-        grids = new List<GridGenerator>();
-        foreach (GridManager gm in gridManagers)
+        public void UpdateScore()
         {
-            foreach (GridGenerator gg in gm.gridGenerators)
+            if (!initialSetUp)
             {
-                grids.Add(gg);
+                InitialSetUp();
             }
+
+            float score = 0f;
+
+            foreach (GridGenerator g in grids)
+            {
+                score += g.GridScore;
+            }
+
+            houseScore = score;
+
+            SolarScoring.Instance.UpdateEnergyBar();
         }
-        initialSetUp = true;
+
+        private void InitialSetUp()
+        {
+            gridManagers = new GridManager[gridObjects.Length];
+
+            for (int i = 0; i < gridManagers.Length; i++)
+            {
+                gridManagers[i] = gridObjects[i].GetComponent<GridManager>();
+            }
+
+            grids = new List<GridGenerator>();
+            foreach (GridManager gm in gridManagers)
+            {
+                foreach (GridGenerator gg in gm.gridGenerators)
+                {
+                    grids.Add(gg);
+                }
+            }
+            initialSetUp = true;
+        }
     }
 }
+

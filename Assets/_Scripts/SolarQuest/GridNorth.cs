@@ -1,7 +1,11 @@
-﻿public class GridNorth : GridGenerator
+﻿namespace SolarQuest
 {
-    public override void UpdateGridScore()
+    public class GridNorth : GridGenerator
     {
-        gridScore = 0f;
+        public override void UpdateGridScore()
+        {
+            gridScore = 0f;
+        }
     }
+
 }

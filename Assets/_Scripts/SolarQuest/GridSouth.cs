@@ -1,20 +1,24 @@
-﻿public class GridSouth : GridGenerator
+﻿namespace SolarQuest
 {
-
-    public override void UpdateGridScore()
+    public class GridSouth : GridGenerator
     {
-        int count = 0;
-        for (int r = 1; r < row + 1; r++)
+
+        public override void UpdateGridScore()
         {
-            for (int c = 1; c < col + 1; c++)
+            int count = 0;
+            for (int r = 1; r < row + 1; r++)
             {
-                if (occupied[r, c] > 0)
+                for (int c = 1; c < col + 1; c++)
                 {
-                    count++;
+                    if (occupied[r, c] > 0)
+                    {
+                        count++;
+                    }
                 }
             }
+            gridScore = count;
+            solarGame.GetComponent<SolarGame>().UpdateScore();
         }
-        gridScore = count;
-        solarGame.GetComponent<SolarGame>().UpdateScore();
     }
 }
+

@@ -18,6 +18,10 @@ namespace LevelEditor
         private float canopyScore;
         [SerializeField] float maxScore;
 
+        // FUTURE VISUALIZATION
+        [SerializeField] GameObject tree_large;
+        private List<GameObject> futureTrees = new List<GameObject>();
+
         #region Singleton
         private static LevelManager instance = null;
         public static LevelManager GetInstance()
@@ -55,8 +59,21 @@ namespace LevelEditor
 
         public void UpdateCanopyScore()
         {
-            canopyScore = inSceneGameObjects.Count * 5;
+            canopyScore = Mathf.Clamp(inSceneGameObjects.Count * 5, 0f, maxScore);
             canopyBar.transform.localScale = new Vector3(1, canopyScore / maxScore, 1);
+        }
+
+        public void VisualizeFuture()
+        {
+            if (inSceneGameObjects.Count > 0)
+            {
+                for (int i = 0; i < inSceneGameObjects.Count; i++)
+                {
+                    GameObject newTree = Instantiate(tree_large, inSceneGameObjects[i].transform.position, Quaternion.identity);
+                    inSceneGameObjects[i].SetActive(false);
+                    futureTrees.Add(newTree);
+                }
+            }
         }
 
 

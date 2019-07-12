@@ -2,67 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolarGamePopupManager : MonoBehaviour
+namespace SolarQuest
 {
-
-    #region Singleton
-    public static SolarGamePopupManager Instance;
-
-    private void Awake()
+    public class SolarGamePopupManager : MonoBehaviour
     {
-        Instance = this;
-    }
-    #endregion Singleton
 
-    private bool firstPanelPlaced;
+        #region Singleton
+        public static SolarGamePopupManager Instance;
 
-    [SerializeField] GameObject encouragementMessage;
-    [SerializeField] GameObject budgetReminderPopup;
-    [SerializeField] GameObject energyReminderPopup;
-   
-
-    private void Start()
-    {
-        firstPanelPlaced = false;
-        encouragementMessage.SetActive(false);
-        budgetReminderPopup.SetActive(false);
-    }
-
-    public void FirstPanelPlaced()
-    {
-        if (!firstPanelPlaced)
+        private void Awake()
         {
-            StartCoroutine("PanelPlacedSequence");
+            Instance = this;
         }
-        firstPanelPlaced = true;
+        #endregion Singleton
+
+        private bool firstPanelPlaced;
+
+        [SerializeField] GameObject encouragementMessage;
+        [SerializeField] GameObject budgetReminderPopup;
+        [SerializeField] GameObject energyReminderPopup;
+
+
+        private void Start()
+        {
+            firstPanelPlaced = false;
+            encouragementMessage.SetActive(false);
+            budgetReminderPopup.SetActive(false);
+        }
+
+        public void FirstPanelPlaced()
+        {
+            if (!firstPanelPlaced)
+            {
+                StartCoroutine("PanelPlacedSequence");
+            }
+            firstPanelPlaced = true;
+        }
+
+        IEnumerator PanelPlacedSequence()
+        {
+            encouragementMessage.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            encouragementMessage.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            budgetReminderPopup.SetActive(true);
+        }
+
+        public void CloseBudgetReminderPopUp()
+        {
+            budgetReminderPopup.SetActive(false);
+            energyReminderPopup.SetActive(true);
+        }
+
+        public void CloseEnergyReminderPopUp()
+        {
+            energyReminderPopup.SetActive(false);
+        }
+
+        public void CloseAllPopups()
+        {
+            encouragementMessage.SetActive(false);
+            budgetReminderPopup.SetActive(false);
+            energyReminderPopup.SetActive(false);
+        }
     }
-
-    IEnumerator PanelPlacedSequence()
-    {
-        encouragementMessage.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        encouragementMessage.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-        budgetReminderPopup.SetActive(true);
-    }
-
-    public void CloseBudgetReminderPopUp()
-    {
-        budgetReminderPopup.SetActive(false);
-        energyReminderPopup.SetActive(true);
-    }
-
-    public void CloseEnergyReminderPopUp()
-    {
-        energyReminderPopup.SetActive(false);
-    }
-
-    public void CloseAllPopups()
-	{
-		encouragementMessage.SetActive(false);
-		budgetReminderPopup.SetActive(false);
-		energyReminderPopup.SetActive(false);
-    }
-
-
 }
+

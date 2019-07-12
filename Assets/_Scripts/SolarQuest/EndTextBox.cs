@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndTextBox : InfoBox
+namespace SolarQuest
 {
-    [SerializeField] GameObject endContinueArrrow;
-    [SerializeField] GameObject levelLoader;
-
-    public override void LoadText()
+    public class EndTextBox : InfoBox
     {
-        endContinueArrrow.SetActive(true);
-        base.LoadText();
-    }
+        [SerializeField] GameObject endContinueArrrow;
+        [SerializeField] GameObject levelLoader;
 
-    public override void HandleNoSentencesLeft()
-    {
-        endContinueArrrow.SetActive(false);
-        levelLoader.GetComponent<LevelLoader>().LoadLevel(2);
+        public override void LoadText()
+        {
+            endContinueArrrow.SetActive(true);
+            base.LoadText();
+        }
+
+        public override void HandleNoSentencesLeft()
+        {
+            endContinueArrrow.SetActive(false);
+            levelLoader.GetComponent<LevelLoader>().LoadLevel(2);
+        }
     }
 }
+
