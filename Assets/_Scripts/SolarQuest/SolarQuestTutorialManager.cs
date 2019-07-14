@@ -115,7 +115,7 @@ namespace SolarQuest
             choiceButtons.SetActive(false);
 
             // Set start state
-            SetState(GameState.Start);
+            SetState(GameState.SolarGame);
         }
 
         public void ChangeStateToIntroduction()
