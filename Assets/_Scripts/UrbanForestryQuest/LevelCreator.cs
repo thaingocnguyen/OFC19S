@@ -26,6 +26,15 @@ namespace LevelEditor
         Vector3 worldPosition;
         bool deleteObj;
 
+        // Tile painting
+        bool hasMaterial;
+        bool paintTile;
+        public Material matToPlace;
+        Node previousNode;
+        Material prevMaterial;
+        Quaternion targetRot;
+        Quaternion prevRotation;
+
         [SerializeField] GameObject placeButton;
         [SerializeField] GameObject deleteButton;
 
@@ -116,6 +125,7 @@ namespace LevelEditor
                 curNode = null;
             }
         }
+
 
         public void DeleteModeToggle()
         {
@@ -270,6 +280,62 @@ namespace LevelEditor
             }
         }
 
+        #endregion
+
+        #region Tile Painting
+        void PaintTile()
+        {
+            if (hasMaterial)
+            {
+                UpdateMousePosition();
+
+                curNode = gridBase.NodeFromWorldPosition(mousePosition);
+
+                if (previousNode == null)
+                {
+                    previousNode = curNode;
+                    prevMaterial = previousNode.tileRenderer.material;
+                    prevRotation = previousNode.vis.transform.rotation;
+                }
+                else
+                {
+                    if (previousNode != curNode)
+                    {
+                        if (paintTile)
+                        {
+                            int matId = ResourceManager.GetInstance().GetMaterialId(matToPlace);
+                            curNode.vis.GetComponent<NodeObject>().textureId = matId;
+                            paintTile = false;
+                        }
+                        else
+                        {
+                            previousNode.tileRenderer.material = prevMaterial;
+                            previousNode.vis.transform.rotation = prevRotation;
+                        }
+
+                        previousNode = curNode;
+                        prevMaterial = curNode.tileRenderer.material;
+                        prevRotation = curNode.vis.transform.rotation;
+                    }
+                }
+
+                curNode.tileRenderer.material = matToPlace;
+                curNode.vis.transform.localRotation = targetRot;
+
+                if (Input.GetMouseButton(0))
+                {
+                    paintTile = true;
+                }
+            }
+        }
+
+        public void PassMaterialToPaint(int matId)
+        {
+            deleteObj = false;
+            hasObj = false;
+            matToPlace = ResourceManager.GetInstance().GetMaterial(matId);
+            hasMaterial = true;
+        }
         #endregion
 
         void CloseAll()

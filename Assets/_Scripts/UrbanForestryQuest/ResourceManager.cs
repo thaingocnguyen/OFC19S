@@ -73,6 +73,22 @@ namespace LevelEditor
 
             return retVal;
         }
+
+        public int GetMaterialId(Material mat)
+        {
+            int id = -1;
+
+            for (int i = 0; i < LevelMaterials.Count; i++)
+            {
+                if (mat.Equals(LevelMaterials[i]))
+                {
+                    id = i;
+                    break;
+                }
+            }
+
+            return id;
+        }
     }
 
     // Used to instantiate new prefab

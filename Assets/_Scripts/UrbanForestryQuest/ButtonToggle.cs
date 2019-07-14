@@ -32,7 +32,8 @@ namespace LevelEditor
             if(toggleOn)
             {
                 ColorBlock cb = button.colors;
-                cb.normalColor = Color.green; 
+                cb.normalColor = Color.green;
+                cb.highlightedColor = Color.green;
                 cb.selectedColor = Color.green;
                 button.colors = cb;
             }
@@ -40,6 +41,7 @@ namespace LevelEditor
             {
                 ColorBlock cb = button.colors;
                 cb.normalColor = Color.white;
+                cb.highlightedColor = Color.white;
                 cb.selectedColor = Color.white;
                 button.colors = cb;
             }

@@ -36,6 +36,7 @@ namespace LevelEditor
             transform.localRotation = Quaternion.Euler(eulerAngles);
         }
 
+        // Function to create object that is to be saved
         public SaveableLevelObject GetSaveableObject()
         {
             SaveableLevelObject savedObj = new SaveableLevelObject();

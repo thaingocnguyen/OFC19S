@@ -15,4 +15,6 @@ public class Node
     public LevelEditor.Level_Object placedObj;
 
     public MeshRenderer tileRenderer;
+
+    public List<LevelEditor.Level_Object> stackedObjs = new List<LevelEditor.Level_Object>();
 }

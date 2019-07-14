@@ -8,6 +8,7 @@ public class NodeObject : MonoBehaviour
     public int posZ;
     public int textureId;
 
+    // Function called when loading object
     public void UpdatedNodeObject(Node curNode, NodeObjectSaveable saveable)
     {
         posX = saveable.posX;
@@ -23,6 +24,8 @@ public class NodeObject : MonoBehaviour
         curNode.tileRenderer.material = getMaterial;
     }
 
+
+    // Get object to be saved
     public NodeObjectSaveable GetSaveable()
     {
         NodeObjectSaveable saveable = new NodeObjectSaveable();
