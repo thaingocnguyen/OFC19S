@@ -69,6 +69,7 @@ namespace LevelEditor
             canopyBar.transform.localScale = new Vector3(1, canopyScore / maxScore, 1);
         }
 
+        // Last step before the quest finishes
         public void VisualizeFuture()
         {
             if (inSceneGameObjects.Count > 0)

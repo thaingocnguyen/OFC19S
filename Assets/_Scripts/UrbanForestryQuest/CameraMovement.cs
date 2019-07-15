@@ -121,7 +121,7 @@ namespace LevelEditor
             {
                 SecondPosition = Input.mousePosition;
                 delta = SecondPosition - FirstPosition;
-                targetOffset = lastOffset + transform.right * delta.x * 0.003f + transform.up * delta.y * 0.003f;
+                targetOffset = lastOffset + transform.right * delta.x * panSpeed + transform.up * delta.y * panSpeed;
 
             }
 
