@@ -30,11 +30,10 @@ namespace LevelEditor
         bool hasMaterial;
         bool paintTile;
         public Material matToPlace;
+        Material origMaterial;
         int multiplier;
-        Node previousNode;
-        Material prevMaterial;
+        
         Quaternion targetRot;
-        Quaternion prevRotation;
 
         [SerializeField] GameObject placeButton;
         [SerializeField] GameObject deleteButton;
@@ -113,57 +112,11 @@ namespace LevelEditor
             {
                 deleteModeOn = false;
                 deleteButton.GetComponent<ButtonToggle>().On = false;
+                manager.UpdateCanopyScore();
             }
         }
 
         #region Place Objects
-        //void PlaceObject()
-        //{
-        //    if (hasObj)
-        //    {
-        //        UpdateMousePosition();
-
-        //        Node curNode = gridBase.NodeFromWorldPosition(mousePosition);
-
-        //        worldPosition = curNode.vis.transform.position;
-
-        //        if (cloneObj == null)
-        //        {
-        //            cloneObj = Instantiate(objToPlace, worldPosition, Quaternion.identity) as GameObject;
-        //            objProperties = cloneObj.GetComponent<Level_Object>();
-        //        }
-        //        else
-        //        {
-        //            cloneObj.transform.position = worldPosition;
-
-        //            // Placing object
-        //            if (Input.GetMouseButton(0) && !ui.mouseOverUIElement)
-        //            {
-        //                // If current node have a placed object
-        //                if (curNode.placedObj != null)
-        //                {
-        //                    manager.inSceneGameObjects.Remove(curNode.placedObj.gameObject);
-        //                    Destroy(curNode.placedObj.gameObject);
-        //                    curNode.placedObj = null;
-        //                }
-
-        //                GameObject actualObjPlaced = Instantiate(objToPlace, worldPosition, cloneObj.transform.rotation) as GameObject;
-        //                Level_Object placedObjProperties = actualObjPlaced.GetComponent<Level_Object>();
-
-        //                placedObjProperties.gridPosX = curNode.nodePosX;
-        //                placedObjProperties.gridPosZ = curNode.nodePosZ;
-        //                curNode.placedObj = placedObjProperties;
-        //                manager.inSceneGameObjects.Add(actualObjPlaced);
-        //            }
-
-        //            if (Input.GetMouseButtonUp(1))
-        //            {
-        //                objProperties.ChangeRotation();
-        //            }
-        //        }
-        //    }
-        //}
-
         void PlaceObject()
         {
             if (placeModeOn)
@@ -208,21 +161,6 @@ namespace LevelEditor
 
             }
         }
-
-
-        //public void PassGameObjectToPlace(string objId)
-        //{
-        //    if (cloneObj != null)
-        //    {
-        //        Destroy(cloneObj);
-        //    }
-
-        //    CloseAll();
-        //    hasObj = true;
-        //    cloneObj = null;
-        //    objToPlace = ResourceManager.GetInstance().GetObjBase(objId).objPrefab;
-        //}
-
 
 
         void DeleteObjects()
@@ -276,16 +214,23 @@ namespace LevelEditor
 
                 Node newNode = gridBase.NodeFromWorldPosition(mousePosition);
 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !uiSpace.IsPointerOverGameObject())
                 {
-                    Debug.Log("Painted");
                     newNode.tileRenderer.material = matToPlace;
                     newNode.vis.transform.localRotation = targetRot;
                     int matId = ResourceManager.GetInstance().GetMaterialId(matToPlace);
                     NodeObject nodeObj = newNode.vis.GetComponent<NodeObject>();
                     nodeObj.textureId = matId;
                     nodeObj.multiplier = multiplier;
-                    paintTile = false;
+                }
+                else if (Input.GetMouseButtonDown(1) && !uiSpace.IsPointerOverGameObject())
+                {
+                    origMaterial = ResourceManager.GetInstance().GetMaterial(0);
+                    newNode.tileRenderer.material = origMaterial;
+                    newNode.vis.transform.localRotation = targetRot;
+                    NodeObject nodeObj = newNode.vis.GetComponent<NodeObject>();
+                    nodeObj.textureId = 0;
+                    nodeObj.multiplier = 1;
                 }
             }
         }

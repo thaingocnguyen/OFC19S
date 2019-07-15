@@ -14,6 +14,11 @@ public class Level_SaveLoad : MonoBehaviour
 
     public static string saveFolderName = "LevelObjects";
 
+    private void Start()
+    {
+        LoadLevel("testLevel1");
+    }
+
     public void SaveLevelButton()
     {
         SaveLevel("testLevel1");
@@ -23,6 +28,7 @@ public class Level_SaveLoad : MonoBehaviour
     {
         LoadLevel("testLevel1");
     }
+
 
     // Function to get the save location name from level name
     static string SaveLocation(string LevelName)

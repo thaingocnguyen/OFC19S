@@ -122,8 +122,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 3, z: 0.1}
-  m_Center: {x: 0, y: 1.39, z: 0}
+  m_Size: {x: 1.3927228, y: 5.817835, z: 0.9811654}
+  m_Center: {x: 0.042414904, y: 2.7989173, z: 0.09144062}
 --- !u!1 &4543714327751971881
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +331,4 @@ MonoBehaviour:
   modelVisualization: {fileID: 4543714327751969721}
   worldPositionOffset: {x: 0, y: 0, z: 0}
   worldRotation: {x: 0, y: 0, z: 0}
-  isStackableObj: 0
-  isWallObject: 0
   rotateDegrees: 90
