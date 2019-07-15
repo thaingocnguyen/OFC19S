@@ -12,9 +12,6 @@ namespace LevelEditor
         public Vector3 worldPositionOffset;
         public Vector3 worldRotation;
 
-        public bool isStackableObj = false;
-        public bool isWallObject = false;
-
         public float rotateDegrees = 90f;
 
         // Placing level object on grid
@@ -50,9 +47,6 @@ namespace LevelEditor
             savedObj.rotY = worldRotation.y;
             savedObj.rotZ = worldRotation.z;
 
-            savedObj.isWallObject = isWallObject;
-            savedObj.isStackable = isStackableObj;
-
             return savedObj;
         }
 
@@ -68,9 +62,6 @@ namespace LevelEditor
         public float rotX;
         public float rotY;
         public float rotZ;
-
-        public bool isWallObject = false;
-        public bool isStackable = false;
     }
 }
 

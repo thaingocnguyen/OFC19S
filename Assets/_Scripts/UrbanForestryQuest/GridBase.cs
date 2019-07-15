@@ -12,7 +12,7 @@ public class GridBase : MonoBehaviour
 
     public Node[,] grid;
 
-    // Singleton
+    #region Singleton
     private static GridBase instance = null;
     public static GridBase GetInstance()
     {
@@ -25,7 +25,9 @@ public class GridBase : MonoBehaviour
         CreateGrid();
         CreateMouseCollision();
     }
+    #endregion
 
+    // Generate the placement grid 
     void CreateGrid()
     {
         // Create a new grid, 2d array of nodes 
@@ -39,27 +41,28 @@ public class GridBase : MonoBehaviour
                 float posX = x * offset;
                 float posZ = z * offset;
          
-
                 // Instantitate node prefab
-                GameObject go = Instantiate(nodePrefab, new Vector3(posX, 1, posZ), Quaternion.identity) as GameObject;
+                GameObject go = Instantiate(nodePrefab, new Vector3(posX, 0, posZ), Quaternion.identity) as GameObject;
                 go.transform.parent = transform.GetChild(1).transform;
 
-
-                //// For serialization purposes
-                //NodeObject nodeObj = go.GetComponent<NodeObject>();
-                //nodeObj.posX = x;
-                //nodeObj.posZ = z;
+                // For serialization purposes
+                NodeObject nodeObj = go.GetComponent<NodeObject>();
+                nodeObj.posX = x;
+                nodeObj.posZ = z;
+                nodeObj.multiplier = 1;
 
                 Node node = new Node();
                 node.vis = go;
                 node.tileRenderer = node.vis.GetComponentInChildren<MeshRenderer>();
                 node.nodePosX = x;
                 node.nodePosZ = z;
+                node.multiplier = 1;
                 grid[x, z] = node;
             }
         }
     }
 
+    // Create collider for mouse to click on 
     void CreateMouseCollision()
     {
         GameObject go = new GameObject();
@@ -70,6 +73,7 @@ public class GridBase : MonoBehaviour
         go.transform.position = new Vector3((sizeX * offset) / 2 - 1, 0, (sizeZ * offset) / 2 - 1);
     }
 
+    // Get grid index from world position 
     public Node NodeFromWorldPosition(Vector3 worldPosition)
     {
         float worldX = worldPosition.x;

@@ -8,13 +8,15 @@ public class Node
     public int nodePosX;
     public int nodePosZ;
 
-    // Visualiser
+    // Square used to visualize the grid
     public GameObject vis;
 
     // Object placed in node
     public LevelEditor.Level_Object placedObj;
 
+    // Renderer for grid tile texture
     public MeshRenderer tileRenderer;
 
-    public List<LevelEditor.Level_Object> stackedObjs = new List<LevelEditor.Level_Object>();
+    // Multiplier of grid square for scoring purposes
+    public int multiplier; 
 }

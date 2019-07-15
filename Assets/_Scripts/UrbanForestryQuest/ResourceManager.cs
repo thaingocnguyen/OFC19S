@@ -42,22 +42,6 @@ namespace LevelEditor
             return retVal;
         }
 
-        //public LevelStackedObjsBase GetStackObjsBase(string stack_id)
-        //{
-        //    LevelStackedObjsBase retVal = null;
-
-        //    for (int i = 0; i < LevelGameObjects_Stacking.Count; i++)
-        //    {
-        //        if (stack_id.Equals(LevelGameObjects_Stacking[i].stack_id))
-        //        {
-        //            retVal = LevelGameObjects_Stacking[i];
-        //            break;
-        //        }
-        //    }
-
-        //    return retVal;
-        //}
-
         public Material GetMaterial(int matId)
         {
             Material retVal = null;
@@ -99,11 +83,5 @@ namespace LevelEditor
         public GameObject objPrefab;
     }
 
-    //[System.Serializable]
-    //public class LevelStackedObjsBase
-    //{
-    //    public string stack_id;
-    //    public GameObject objPrefab;
-    //}
 }
 

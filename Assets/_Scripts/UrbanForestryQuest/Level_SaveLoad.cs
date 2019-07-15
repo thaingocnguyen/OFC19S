@@ -10,8 +10,7 @@ using UnityEngine;
 public class Level_SaveLoad : MonoBehaviour
 {
     private List<SaveableLevelObject> saveLevelObjects_List = new List<SaveableLevelObject>();
-    private List<SaveableLevelObject> saveStackableLevelObjects_List = new List<SaveableLevelObject>();
-    private List<NodeObjectSaveable> saveNodeObjectsList = new List<NodeObjectSaveable>();
+    private List<NodeObjectSaveable> saveNodeObjects_List = new List<NodeObjectSaveable>();
 
     public static string saveFolderName = "LevelObjects";
 
@@ -50,16 +49,21 @@ public class Level_SaveLoad : MonoBehaviour
         }
 
         NodeObject[] nodeObjects = FindObjectsOfType<NodeObject>();
-        saveNodeObjectsList.Clear();
+        saveNodeObjects_List.Clear();
 
         foreach (NodeObject nodeObject in nodeObjects)
         {
-            saveNodeObjectsList.Add(nodeObject.GetSaveable());
+            saveNodeObjects_List.Add(nodeObject.GetSaveable());
+            //NodeObjectSaveable nos = nodeObject.GetSaveable();
+            //if (nos.textureId != 0)
+            //{
+            //    Debug.Log("[" + nos.posX + ", " + nos.posZ + "]");
+            //}
         }
 
         LevelSaveable levelSave = new LevelSaveable();
         levelSave.saveLevelObjects_List = saveLevelObjects_List;
-        levelSave.saveNodeObjectsList = saveNodeObjectsList;
+        levelSave.saveNodeObjects_List = saveNodeObjects_List;
 
         string saveLocation = SaveLocation(saveName);
 
@@ -122,13 +126,16 @@ public class Level_SaveLoad : MonoBehaviour
         #endregion
 
         #region Paint Tiles
-        for (int i = 0; i < levelSaveable.saveNodeObjectsList.Count; i++)
+        for (int i = 0; i < levelSaveable.saveNodeObjects_List.Count; i++)
         {
-            //levelSaveable.saveNodeObjectsList[i];
+            //levelSaveable.saveNodeObjects_List[i];
             Node node =
-                GridBase.GetInstance().grid[levelSaveable.saveNodeObjectsList[i].posX,
-                levelSaveable.saveNodeObjectsList[i].posZ];
-            node.vis.GetComponent<NodeObject>().UpdatedNodeObject(node, levelSaveable.saveNodeObjectsList[i]);
+                GridBase.GetInstance().grid
+                [levelSaveable.saveNodeObjects_List[i].posX,
+                levelSaveable.saveNodeObjects_List[i].posZ];
+
+            node.multiplier = levelSaveable.saveNodeObjects_List[i].multiplier;
+            node.vis.GetComponent<NodeObject>().UpdatedNodeObject(node, levelSaveable.saveNodeObjects_List[i]);
         }
         #endregion
     }
@@ -137,7 +144,6 @@ public class Level_SaveLoad : MonoBehaviour
     public class LevelSaveable
     {
         public List<SaveableLevelObject> saveLevelObjects_List;
-        public List<SaveableLevelObject> saveStackableObjects_List;
-        public List<NodeObjectSaveable> saveNodeObjectsList;
+        public List<NodeObjectSaveable> saveNodeObjects_List;
     }
 }

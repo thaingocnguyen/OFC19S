@@ -41,7 +41,7 @@ namespace LevelEditor
 
             // Canopy bar starts at 0
             canopyBar.transform.localScale = new Vector3(1, 0, 1);
-            //InitLevelObjects();
+            InitLevelObjects();
         }
 
         // Used to load objects if there is save function
@@ -59,7 +59,13 @@ namespace LevelEditor
 
         public void UpdateCanopyScore()
         {
-            canopyScore = Mathf.Clamp(inSceneGameObjects.Count * 5, 0f, maxScore);
+            canopyScore = 0;
+            for (int i = 0; i < inSceneGameObjects.Count; i++)
+            {
+                Level_Object lvlObj = inSceneGameObjects[i].GetComponent<Level_Object>();
+                canopyScore += gridBase.grid[lvlObj.gridPosX, lvlObj.gridPosZ].multiplier;
+            }
+            canopyScore = Mathf.Clamp(canopyScore * 5, 0f, maxScore);
             canopyBar.transform.localScale = new Vector3(1, canopyScore / maxScore, 1);
         }
 

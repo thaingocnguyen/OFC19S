@@ -30,6 +30,7 @@ namespace LevelEditor
         bool hasMaterial;
         bool paintTile;
         public Material matToPlace;
+        int multiplier;
         Node previousNode;
         Material prevMaterial;
         Quaternion targetRot;
@@ -50,6 +51,7 @@ namespace LevelEditor
         {
             PlaceObject();
             DeleteObjects();
+            PaintTile();
         }
 
         void UpdateMousePosition()
@@ -63,6 +65,7 @@ namespace LevelEditor
             }
         }
 
+        // Toggle the ability to place trees on/off
         public void PlaceModeToggle()
         {
             if (deleteModeOn)
@@ -94,39 +97,7 @@ namespace LevelEditor
             }
         }
 
-        // FOR BUILDING PURPOSES ONLY
-        public void PlaceModeBarrier()
-        {
-            if (deleteModeOn)
-            {
-                DeleteModeToggle();
-            }
-            if (!placeModeOn)
-            {
-                placeModeOn = true;
-                placeButton.GetComponent<ButtonToggle>().On = true;
-                objToPlace = ResourceManager.GetInstance().GetObjBase("occupied").objPrefab;
-            }
-            else
-            {
-                placeModeOn = false;
-                placeButton.GetComponent<ButtonToggle>().On = false;
-
-                // If there is a tree placed
-                if (cloneObj != null)
-                {
-                    // Add to scene object list
-                    manager.inSceneGameObjects.Add(cloneObj);
-                    // Update the score
-                    manager.UpdateCanopyScore();
-                    curNode.placedObj = objProperties;
-                    cloneObj = null;
-                }
-                curNode = null;
-            }
-        }
-
-
+        // Toggle the ability to delete trees on/off
         public void DeleteModeToggle()
         {
             if (placeModeOn)
@@ -283,48 +254,38 @@ namespace LevelEditor
         #endregion
 
         #region Tile Painting
+        bool paintOn = false;
+        public void TogglePaintTile()
+        {
+            if (!paintOn)
+            {
+                paintOn = true;
+                matToPlace = ResourceManager.GetInstance().GetMaterial(1);
+                multiplier = MultiplierFromMatId(1);
+            }
+            else
+            {
+                paintOn = false;
+            }
+        }
         void PaintTile()
         {
-            if (hasMaterial)
+            if (paintOn)
             {
                 UpdateMousePosition();
 
-                curNode = gridBase.NodeFromWorldPosition(mousePosition);
+                Node newNode = gridBase.NodeFromWorldPosition(mousePosition);
 
-                if (previousNode == null)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    previousNode = curNode;
-                    prevMaterial = previousNode.tileRenderer.material;
-                    prevRotation = previousNode.vis.transform.rotation;
-                }
-                else
-                {
-                    if (previousNode != curNode)
-                    {
-                        if (paintTile)
-                        {
-                            int matId = ResourceManager.GetInstance().GetMaterialId(matToPlace);
-                            curNode.vis.GetComponent<NodeObject>().textureId = matId;
-                            paintTile = false;
-                        }
-                        else
-                        {
-                            previousNode.tileRenderer.material = prevMaterial;
-                            previousNode.vis.transform.rotation = prevRotation;
-                        }
-
-                        previousNode = curNode;
-                        prevMaterial = curNode.tileRenderer.material;
-                        prevRotation = curNode.vis.transform.rotation;
-                    }
-                }
-
-                curNode.tileRenderer.material = matToPlace;
-                curNode.vis.transform.localRotation = targetRot;
-
-                if (Input.GetMouseButton(0))
-                {
-                    paintTile = true;
+                    Debug.Log("Painted");
+                    newNode.tileRenderer.material = matToPlace;
+                    newNode.vis.transform.localRotation = targetRot;
+                    int matId = ResourceManager.GetInstance().GetMaterialId(matToPlace);
+                    NodeObject nodeObj = newNode.vis.GetComponent<NodeObject>();
+                    nodeObj.textureId = matId;
+                    nodeObj.multiplier = multiplier;
+                    paintTile = false;
                 }
             }
         }
@@ -333,8 +294,28 @@ namespace LevelEditor
         {
             deleteObj = false;
             hasObj = false;
+
             matToPlace = ResourceManager.GetInstance().GetMaterial(matId);
+            multiplier = MultiplierFromMatId(matId);
             hasMaterial = true;
+        }
+
+        private int MultiplierFromMatId(int matId)
+        {
+            int multi;
+            switch (matId)
+            {
+                case 0:
+                    multi = 1;
+                    break;
+                case 1:
+                    multi = 0;
+                    break;
+                default:
+                    multi = 1;
+                    break;
+            }
+            return multi;
         }
         #endregion
 
