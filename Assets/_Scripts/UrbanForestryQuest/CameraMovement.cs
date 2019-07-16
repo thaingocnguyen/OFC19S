@@ -7,16 +7,14 @@ namespace LevelEditor
 {
     public class CameraMovement : MonoBehaviour
     {
-        public Transform target;
-        public Vector3 targetOffset;
-        public float distance = 5.0f;
-        public float maxDistance = 20;
-        public float minDistance = .6f;
-        public float xSpeed = 5.0f;
-        public float ySpeed = 5.0f;
-        public int yMinLimit = -80;
-        public int yMaxLimit = 80;
+        // Target
+        Transform target;
+        Vector3 targetOffset;
+        [SerializeField] float targetDistance = 5f;
+
+
         public float zoomRate = 10.0f;
+
         public float panSpeed = 0.3f;
         public float zoomDampening = 5.0f;
 
@@ -24,132 +22,85 @@ namespace LevelEditor
         private float yDeg = 0.0f;
         private float currentDistance;
         private float desiredDistance;
-        private Quaternion currentRotation;
-        private Quaternion desiredRotation;
         private Quaternion rotation;
         private Vector3 position;
 
-        private Vector3 FirstPosition;
-        private Vector3 SecondPosition;
+        private Vector3 firstPos;
+        private Vector3 secondPos;
         private Vector3 delta;
         private Vector3 lastOffset;
-        private Vector3 lastOffsettemp;
-        //private Vector3 CameraPosition;
-        //private Vector3 Targetposition;
-        //private Vector3 MoveDistance;
 
+
+        [SerializeField] float leftEdge = 17f;
+        [SerializeField] float rightEdge = 70f;
+        [SerializeField] float yAxis = 10f;
+        [SerializeField] float zAxis = -11f;
+
+        private Vector3 origCameraPos;
+        private Quaternion origCameraRot;
 
         void Start() { Init(); }
         void OnEnable() { Init(); }
 
         public void Init()
         {
-            //If there is no target, create a temporary target at 'distance' from the cameras current viewpoint
-            if (!target)
-            {
-                GameObject go = new GameObject("Cam Target");
-                go.transform.position = transform.position + (transform.forward * distance);
-                target = go.transform;
-            }
+            // Create a temporary target at 'distance' from the cameras current viewpoint
+            GameObject go = new GameObject("Cam Target");
+            go.transform.position = transform.position + (transform.forward * targetDistance);
+            target = go.transform;
 
-            distance = Vector3.Distance(transform.position, target.position);
-            currentDistance = distance;
-            desiredDistance = distance;
+            targetDistance = Vector3.Distance(transform.position, target.position);
+            currentDistance = targetDistance;
+            desiredDistance = targetDistance;
 
-            //be sure to grab the current rotations as starting points.
+            //Set current rotations as starting points.
             position = transform.position;
             rotation = transform.rotation;
-            currentRotation = transform.rotation;
-            desiredRotation = transform.rotation;
+
+            origCameraPos = transform.position;
+            origCameraRot = transform.rotation;
 
             xDeg = Vector3.Angle(Vector3.right, transform.right);
             yDeg = Vector3.Angle(Vector3.up, transform.up);
         }
 
-        /*
-          * Camera logic on LateUpdate to only update after all character movement logic has been handled.
-          */
-        void LateUpdate()
+
+        void FixedUpdate()
         {
-            // If Control and Alt and Middle button? ZOOM!
-            if (Input.touchCount == 2)
+            if (Input.GetMouseButtonDown(0))
             {
-                Touch touchZero = Input.GetTouch(0);
-
-                Touch touchOne = Input.GetTouch(1);
-
-
-
-                Vector2 touchZeroPreviousPosition = touchZero.position - touchZero.deltaPosition;
-
-                Vector2 touchOnePreviousPosition = touchOne.position - touchOne.deltaPosition;
-
-
-
-                float prevTouchDeltaMag = (touchZeroPreviousPosition - touchOnePreviousPosition).magnitude;
-
-                float TouchDeltaMag = (touchZero.position - touchOne.position).magnitude;
-
-
-
-                float deltaMagDiff = prevTouchDeltaMag - TouchDeltaMag;
-
-                desiredDistance += deltaMagDiff * Time.deltaTime * zoomRate * 0.0025f * Mathf.Abs(desiredDistance);
-            }
-            // If middle mouse and left alt are selected? ORBIT
-            if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                Vector2 touchposition = Input.GetTouch(0).deltaPosition;
-                xDeg += touchposition.x * xSpeed * 0.002f;
-                yDeg -= touchposition.y * ySpeed * 0.002f;
-                yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
-
-            }
-            desiredRotation = Quaternion.Euler(yDeg, xDeg, 0);
-            currentRotation = transform.rotation;
-            rotation = Quaternion.Lerp(currentRotation, desiredRotation, Time.deltaTime * zoomDampening);
-            transform.rotation = rotation;
-
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                FirstPosition = Input.mousePosition;
+                firstPos = Input.mousePosition;
                 lastOffset = targetOffset;
             }
 
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(0))
             {
-                SecondPosition = Input.mousePosition;
-                delta = SecondPosition - FirstPosition;
+                secondPos = Input.mousePosition;
+                delta = secondPos - firstPos;
                 targetOffset = lastOffset + transform.right * delta.x * panSpeed + transform.up * delta.y * panSpeed;
-
             }
 
-            ////////Orbit Position
-
-            // affect the desired Zoom distance if we roll the scrollwheel
-            desiredDistance = Mathf.Clamp(desiredDistance, minDistance, maxDistance);
             currentDistance = Mathf.Lerp(currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
 
             position = target.position - (rotation * Vector3.forward * currentDistance);
-
             position = position - targetOffset;
 
-            transform.position = position;
-
-
-
+            transform.position = new Vector3(
+                Mathf.Clamp(position.x, leftEdge, rightEdge),
+                Mathf.Clamp(position.y, yAxis, yAxis),
+                Mathf.Clamp(position.z, zAxis, zAxis));
 
         }
-        private static float ClampAngle(float angle, float min, float max)
+
+        public void ResetCameraPosition()
         {
-            if (angle < -360)
-                angle += 360;
-            if (angle > 360)
-                angle -= 360;
-            return Mathf.Clamp(angle, min, max);
+            transform.position = origCameraPos;
+            transform.rotation = origCameraRot;
         }
+
+
     }
 
 
 }
+
