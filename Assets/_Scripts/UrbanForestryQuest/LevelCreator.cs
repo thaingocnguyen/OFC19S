@@ -185,11 +185,8 @@ namespace LevelEditor
 
                 if (Input.GetMouseButtonDown(0) && !ui.mouseOverUIElement)
                 {
-                    //Debug.Log("X: " + curNode.nodePosX);
-                    //Debug.Log("Z: " + curNode.nodePosZ);
                     if (curNode.placedObj != null)
                     {
-                        Debug.Log("Has tree");
                         if (manager.inSceneGameObjects.Contains(curNode.placedObj.gameObject))
                         {
                             manager.inSceneGameObjects.Remove(curNode.placedObj.gameObject);
