@@ -12,11 +12,16 @@ namespace LevelEditor
         Vector3 targetOffset;
         [SerializeField] float targetDistance = 5f;
 
+        // Camera movement adjustment
+        [SerializeField] float zoomRate = 10.0f;
+        [SerializeField] float panSpeed = 0.3f;
+        [SerializeField] float zoomDampening = 5.0f;
 
-        public float zoomRate = 10.0f;
-
-        public float panSpeed = 0.3f;
-        public float zoomDampening = 5.0f;
+        // Boundary of camera
+        [SerializeField] float leftEdge = 17f;
+        [SerializeField] float rightEdge = 70f;
+        [SerializeField] float yAxis = 10f;
+        [SerializeField] float zAxis = -11f;
 
         private float xDeg = 0.0f;
         private float yDeg = 0.0f;
@@ -29,12 +34,6 @@ namespace LevelEditor
         private Vector3 secondPos;
         private Vector3 delta;
         private Vector3 lastOffset;
-
-
-        [SerializeField] float leftEdge = 17f;
-        [SerializeField] float rightEdge = 70f;
-        [SerializeField] float yAxis = 10f;
-        [SerializeField] float zAxis = -11f;
 
         private Vector3 origCameraPos;
         private Quaternion origCameraRot;
@@ -97,7 +96,6 @@ namespace LevelEditor
             transform.position = origCameraPos;
             transform.rotation = origCameraRot;
         }
-
 
     }
 
