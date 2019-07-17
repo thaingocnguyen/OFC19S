@@ -7,6 +7,8 @@ namespace LevelEditor
 {
     public class ButtonToggle : MonoBehaviour
     {
+        [SerializeField] Sprite normalImg;
+        [SerializeField] Sprite pressedImg;
         private Button button;
         private bool toggleOn;
         // Start is called before the first frame update
@@ -31,19 +33,21 @@ namespace LevelEditor
         {
             if(toggleOn)
             {
-                ColorBlock cb = button.colors;
-                cb.normalColor = Color.green;
-                cb.highlightedColor = Color.green;
-                cb.selectedColor = Color.green;
-                button.colors = cb;
+                button.image.sprite = pressedImg;
+                //ColorBlock cb = button.colors;
+                //cb.normalColor = Color.green;
+                //cb.highlightedColor = Color.green;
+                //cb.selectedColor = Color.green;
+                //button.colors = cb;
             }
             else
             {
-                ColorBlock cb = button.colors;
-                cb.normalColor = Color.white;
-                cb.highlightedColor = Color.white;
-                cb.selectedColor = Color.white;
-                button.colors = cb;
+                button.image.sprite = normalImg;
+                //ColorBlock cb = button.colors;
+                //cb.normalColor = Color.white;
+                //cb.highlightedColor = Color.white;
+                //cb.selectedColor = Color.white;
+                //button.colors = cb;
             }
         }
     }
