@@ -38,12 +38,17 @@ namespace LevelEditor
         [SerializeField] GameObject placeButton;
         [SerializeField] GameObject deleteButton;
 
+        [SerializeField] GameObject cameraControllerObj;
+        CameraController cameraController;
+
         private void Start()
         {
             gridBase = GridBase.GetInstance();
             manager = LevelManager.GetInstance();
             ui = InterfaceManager.GetInstance();
             uiSpace = UISpace.GetInstance();
+
+            cameraController = cameraControllerObj.GetComponent<CameraController>();
         }
 
         private void Update()
@@ -76,6 +81,8 @@ namespace LevelEditor
                 placeModeOn = true;
                 placeButton.GetComponent<ButtonToggle>().On = true;
                 objToPlace = ResourceManager.GetInstance().GetObjBase("tree_small").objPrefab;
+
+                cameraController.MovementEnabled = false;
             }
             else
             {
@@ -93,6 +100,8 @@ namespace LevelEditor
                     cloneObj = null;
                 }
                 curNode = null;
+
+                cameraController.MovementEnabled = true;
             }
         }
 
@@ -107,12 +116,16 @@ namespace LevelEditor
             {
                 deleteModeOn = true;
                 deleteButton.GetComponent<ButtonToggle>().On = true;
+
+                cameraController.MovementEnabled = false;
             }
             else
             {
                 deleteModeOn = false;
                 deleteButton.GetComponent<ButtonToggle>().On = false;
                 manager.UpdateCanopyScore();
+
+                cameraController.MovementEnabled = true;
             }
         }
 

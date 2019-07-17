@@ -6,7 +6,6 @@ namespace LevelEditor
 {
     public class CameraController : MonoBehaviour
     {
-
         public List<GameObject> cameras = new List<GameObject>();
 
         private GameObject frontCam;
@@ -19,9 +18,18 @@ namespace LevelEditor
         {
             frontCam = cameras[0];
             backCam = cameras[1];
+
+            frontCam.SetActive(true);
+            backCam.SetActive(false);
+
             frontButton.SetActive(false);
             backButton.SetActive(true);
+
+            MovementEnabled = true;
         }
+
+        public bool MovementEnabled { get; set; }
+
         public void SwitchCameraToFront()
         {
             frontCam.SetActive(true);

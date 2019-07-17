@@ -7,6 +7,8 @@ namespace LevelEditor
 {
     public class CameraMovement : MonoBehaviour
     {
+        CameraController controller;
+
         // Target
         Transform target;
         Vector3 targetOffset;
@@ -52,7 +54,7 @@ namespace LevelEditor
             currentDistance = targetDistance;
             desiredDistance = targetDistance;
 
-            //Set current rotations as starting points.
+            // Set current rotations as starting points.
             position = transform.position;
             rotation = transform.rotation;
 
@@ -61,34 +63,40 @@ namespace LevelEditor
 
             xDeg = Vector3.Angle(Vector3.right, transform.right);
             yDeg = Vector3.Angle(Vector3.up, transform.up);
+
+            controller = GetComponentInParent<CameraController>();
+            
         }
+
 
 
         void FixedUpdate()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (controller.MovementEnabled)
             {
-                firstPos = Input.mousePosition;
-                lastOffset = targetOffset;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    firstPos = Input.mousePosition;
+                    lastOffset = targetOffset;
+                }
+
+                if (Input.GetMouseButton(0))
+                {
+                    secondPos = Input.mousePosition;
+                    delta = secondPos - firstPos;
+                    targetOffset = lastOffset + transform.right * delta.x * panSpeed + transform.up * delta.y * panSpeed;
+                }
+
+                currentDistance = Mathf.Lerp(currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
+
+                position = target.position - (rotation * Vector3.forward * currentDistance);
+                position = position - targetOffset;
+
+                transform.position = new Vector3(
+                    Mathf.Clamp(position.x, leftEdge, rightEdge),
+                    Mathf.Clamp(position.y, yAxis, yAxis),
+                    Mathf.Clamp(position.z, zAxis, zAxis));
             }
-
-            if (Input.GetMouseButton(0))
-            {
-                secondPos = Input.mousePosition;
-                delta = secondPos - firstPos;
-                targetOffset = lastOffset + transform.right * delta.x * panSpeed + transform.up * delta.y * panSpeed;
-            }
-
-            currentDistance = Mathf.Lerp(currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
-
-            position = target.position - (rotation * Vector3.forward * currentDistance);
-            position = position - targetOffset;
-
-            transform.position = new Vector3(
-                Mathf.Clamp(position.x, leftEdge, rightEdge),
-                Mathf.Clamp(position.y, yAxis, yAxis),
-                Mathf.Clamp(position.z, zAxis, zAxis));
-
         }
 
         public void ResetCameraPosition()
