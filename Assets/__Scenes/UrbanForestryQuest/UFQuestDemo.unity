@@ -3432,6 +3432,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Garage_Large
       objectReference: {fileID: 0}
+    - target: {fileID: 5886875548213596170, guid: 64f595ba4d19449fdaaac50d60798c86,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6646616499829454242, guid: 64f595ba4d19449fdaaac50d60798c86,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3597,6 +3602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Garage_Large (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886875548213596170, guid: 64f595ba4d19449fdaaac50d60798c86,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6646616499829454242, guid: 64f595ba4d19449fdaaac50d60798c86,
         type: 3}
@@ -8668,7 +8678,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1016964867
 Transform:
@@ -10222,7 +10232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1261244141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12757,6 +12767,8 @@ MonoBehaviour:
   maxBudget: 1000
   currentBudgetText: {fileID: 739616604}
   treePrice: 100
+  decrementText: {fileID: 1412991108}
+  incrementText: {fileID: 1368486366}
 --- !u!1001 &1547517805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18925,5 +18937,5 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1

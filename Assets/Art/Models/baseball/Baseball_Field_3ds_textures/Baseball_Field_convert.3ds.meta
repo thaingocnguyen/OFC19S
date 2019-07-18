@@ -111,7 +111,32 @@ ModelImporter:
   - first:
       43: 4300008
     second: Playgroun7
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass
+    second: {fileID: 2100000, guid: 38e95485d9585462597d6aba6c0e8ded, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sand
+    second: {fileID: 2100000, guid: 0f45b929bd82f4b938e83a51276fd964, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass002
+    second: {fileID: 2100000, guid: af37470a4a3154b74b45091a4d60b05a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass003
+    second: {fileID: 2100000, guid: 37cbd3618f9f741d68dc87787ecf5af4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass004
+    second: {fileID: 2100000, guid: ec44bf7a62787437a82b303dd0046e4a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
