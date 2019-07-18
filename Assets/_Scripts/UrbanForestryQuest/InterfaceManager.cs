@@ -2,29 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InterfaceManager : MonoBehaviour
+namespace UrbanForestryQuest
 {
-    public bool mouseOverUIElement;
-
-    private static InterfaceManager instance = null;
-
-    private void Awake()
+    public class InterfaceManager : MonoBehaviour
     {
-        instance = this;
+        public bool mouseOverUIElement;
+
+        private static InterfaceManager instance = null;
+
+        private void Awake()
+        {
+            instance = this;
+        }
+
+        public static InterfaceManager GetInstance()
+        {
+            return instance;
+        }
+
+        public void MouseEnter()
+        {
+            mouseOverUIElement = true;
+        }
+
+        public void MouseExit()
+        {
+            mouseOverUIElement = false;
+        }
     }
 
-    public static InterfaceManager GetInstance()
-    {
-        return instance;
-    }
-
-    public void MouseEnter()
-    {
-        mouseOverUIElement = true;
-    }
-
-    public void MouseExit()
-    {
-        mouseOverUIElement = false;
-    }
 }

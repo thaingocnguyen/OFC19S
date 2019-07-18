@@ -3,29 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UISpace : MonoBehaviour
+namespace UrbanForestryQuest
 {
-    private static UISpace instance = null;
-
-    private void Awake()
+    public class UISpace : MonoBehaviour
     {
-        instance = this;
-    }
+        private static UISpace instance = null;
 
-    public static UISpace GetInstance()
-    {
-        return instance;
-    }
-
-    public bool IsPointerOverGameObject()
-    {
-        if (EventSystem.current.IsPointerOverGameObject() || (Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
+        private void Awake()
         {
-            return true;
+            instance = this;
         }
-        else
+
+        public static UISpace GetInstance()
         {
-            return false;
+            return instance;
+        }
+
+        public bool IsPointerOverGameObject()
+        {
+            if (EventSystem.current.IsPointerOverGameObject() || (Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
+

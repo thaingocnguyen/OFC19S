@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LevelEditor
+namespace UrbanForestryQuest
 {
     public class LevelManager : MonoBehaviour
     {
         GridBase gridBase;
 
         public List<GameObject> inSceneGameObjects = new List<GameObject>();
-        public List<GameObject> inSceneWalls = new List<GameObject>();
-        public List<GameObject> inSceneStackObjects = new List<GameObject>();
 
         public GameObject canopyBar;
 

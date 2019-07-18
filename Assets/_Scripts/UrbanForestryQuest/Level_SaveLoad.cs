@@ -3,153 +3,156 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using LevelEditor;
 using System;
 using UnityEngine;
 
-public class Level_SaveLoad : MonoBehaviour
+namespace UrbanForestryQuest
 {
-    private List<SaveableLevelObject> saveLevelObjects_List = new List<SaveableLevelObject>();
-    private List<NodeObjectSaveable> saveNodeObjects_List = new List<NodeObjectSaveable>();
-
-    public static string saveFolderName = "LevelObjects";
-
-    private void Start()
+    public class Level_SaveLoad : MonoBehaviour
     {
-        LoadLevel("testLevel1");
-    }
+        private List<SaveableLevelObject> saveLevelObjects_List = new List<SaveableLevelObject>();
+        private List<NodeObjectSaveable> saveNodeObjects_List = new List<NodeObjectSaveable>();
 
-    public void SaveLevelButton()
-    {
-        SaveLevel("testLevel1");
-    }
+        public static string saveFolderName = "LevelObjects";
 
-    public void LoadLevelButton()
-    {
-        LoadLevel("testLevel1");
-    }
-
-
-    // Function to get the save location name from level name
-    static string SaveLocation(string LevelName)
-    {
-        string saveLocation = Application.persistentDataPath + "/" + saveFolderName + "/";
-
-        if (!Directory.Exists(saveLocation))
+        private void Start()
         {
-            Directory.CreateDirectory(saveLocation);
+            LoadLevel("testLevel1");
         }
 
-        return saveLocation + LevelName;
-    }
-
-    void SaveLevel(string saveName)
-    {
-        Level_Object[] levelObjects = FindObjectsOfType<Level_Object>();
-
-        saveLevelObjects_List.Clear();
-
-        foreach (Level_Object lvlObj in levelObjects)
+        public void SaveLevelButton()
         {
-            saveLevelObjects_List.Add(lvlObj.GetSaveableObject());
+            SaveLevel("testLevel1");
         }
 
-        NodeObject[] nodeObjects = FindObjectsOfType<NodeObject>();
-        saveNodeObjects_List.Clear();
-
-        foreach (NodeObject nodeObject in nodeObjects)
+        public void LoadLevelButton()
         {
-            saveNodeObjects_List.Add(nodeObject.GetSaveable());
-            //NodeObjectSaveable nos = nodeObject.GetSaveable();
-            //if (nos.textureId != 0)
-            //{
-            //    Debug.Log("[" + nos.posX + ", " + nos.posZ + "]");
-            //}
+            LoadLevel("testLevel1");
         }
 
-        LevelSaveable levelSave = new LevelSaveable();
-        levelSave.saveLevelObjects_List = saveLevelObjects_List;
-        levelSave.saveNodeObjects_List = saveNodeObjects_List;
 
-        string saveLocation = SaveLocation(saveName);
-
-        IFormatter formatter = new BinaryFormatter();
-        Stream stream = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None);
-        formatter.Serialize(stream, levelSave);
-        stream.Close();
-
-        Debug.Log(saveLocation);
-    }
-
-    bool LoadLevel(string saveName)
-    {
-        bool retVal = true;
-
-        string saveFile = SaveLocation(saveName);
-
-        if (!File.Exists(saveFile))
+        // Function to get the save location name from level name
+        static string SaveLocation(string LevelName)
         {
-            retVal = false;
+            string saveLocation = Application.persistentDataPath + "/" + saveFolderName + "/";
+
+            if (!Directory.Exists(saveLocation))
+            {
+                Directory.CreateDirectory(saveLocation);
+            }
+
+            return saveLocation + LevelName;
         }
-        else
+
+        void SaveLevel(string saveName)
         {
+            Level_Object[] levelObjects = FindObjectsOfType<Level_Object>();
+
+            saveLevelObjects_List.Clear();
+
+            foreach (Level_Object lvlObj in levelObjects)
+            {
+                saveLevelObjects_List.Add(lvlObj.GetSaveableObject());
+            }
+
+            NodeObject[] nodeObjects = FindObjectsOfType<NodeObject>();
+            saveNodeObjects_List.Clear();
+
+            foreach (NodeObject nodeObject in nodeObjects)
+            {
+                saveNodeObjects_List.Add(nodeObject.GetSaveable());
+                //NodeObjectSaveable nos = nodeObject.GetSaveable();
+                //if (nos.textureId != 0)
+                //{
+                //    Debug.Log("[" + nos.posX + ", " + nos.posZ + "]");
+                //}
+            }
+
+            LevelSaveable levelSave = new LevelSaveable();
+            levelSave.saveLevelObjects_List = saveLevelObjects_List;
+            levelSave.saveNodeObjects_List = saveNodeObjects_List;
+
+            string saveLocation = SaveLocation(saveName);
+
             IFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(saveFile, FileMode.Open);
-
-            LevelSaveable save = (LevelSaveable)formatter.Deserialize(stream);
-
+            Stream stream = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, levelSave);
             stream.Close();
-            LoadLevelActual(save);
+
+            Debug.Log(saveLocation);
         }
 
-        return retVal;
-    }
-
-    void LoadLevelActual(LevelSaveable levelSaveable)
-    {
-        #region Create Level Objects
-        for (int i = 0; i < levelSaveable.saveLevelObjects_List.Count; i++)
+        bool LoadLevel(string saveName)
         {
-            SaveableLevelObject s_obj = levelSaveable.saveLevelObjects_List[i];
+            bool retVal = true;
 
-            Node nodeToPlace = GridBase.GetInstance().grid[s_obj.posX, s_obj.posZ];
+            string saveFile = SaveLocation(saveName);
 
-            GameObject go = Instantiate(
-                ResourceManager.GetInstance().GetObjBase(s_obj.obj_Id).objPrefab,
-                nodeToPlace.vis.transform.position,
-                Quaternion.Euler(
-                    s_obj.rotX,
-                    s_obj.rotY,
-                    s_obj.rotZ
-                    ))
-                as GameObject;
+            if (!File.Exists(saveFile))
+            {
+                retVal = false;
+            }
+            else
+            {
+                IFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(saveFile, FileMode.Open);
 
-            nodeToPlace.placedObj = go.GetComponent<Level_Object>();
-            nodeToPlace.placedObj.gridPosX = nodeToPlace.nodePosX;
-            nodeToPlace.placedObj.gridPosZ = nodeToPlace.nodePosZ;
-            nodeToPlace.placedObj.worldRotation = nodeToPlace.placedObj.transform.localEulerAngles;
+                LevelSaveable save = (LevelSaveable)formatter.Deserialize(stream);
+
+                stream.Close();
+                LoadLevelActual(save);
+            }
+
+            return retVal;
         }
-        #endregion
 
-        #region Paint Tiles
-        for (int i = 0; i < levelSaveable.saveNodeObjects_List.Count; i++)
+        void LoadLevelActual(LevelSaveable levelSaveable)
         {
-            //levelSaveable.saveNodeObjects_List[i];
-            Node node =
-                GridBase.GetInstance().grid
-                [levelSaveable.saveNodeObjects_List[i].posX,
-                levelSaveable.saveNodeObjects_List[i].posZ];
+            #region Create Level Objects
+            for (int i = 0; i < levelSaveable.saveLevelObjects_List.Count; i++)
+            {
+                SaveableLevelObject s_obj = levelSaveable.saveLevelObjects_List[i];
 
-            node.multiplier = levelSaveable.saveNodeObjects_List[i].multiplier;
-            node.vis.GetComponent<NodeObject>().UpdatedNodeObject(node, levelSaveable.saveNodeObjects_List[i]);
+                Node nodeToPlace = GridBase.GetInstance().grid[s_obj.posX, s_obj.posZ];
+
+                GameObject go = Instantiate(
+                    ResourceManager.GetInstance().GetObjBase(s_obj.obj_Id).objPrefab,
+                    nodeToPlace.vis.transform.position,
+                    Quaternion.Euler(
+                        s_obj.rotX,
+                        s_obj.rotY,
+                        s_obj.rotZ
+                        ))
+                    as GameObject;
+
+                nodeToPlace.placedObj = go.GetComponent<Level_Object>();
+                nodeToPlace.placedObj.gridPosX = nodeToPlace.nodePosX;
+                nodeToPlace.placedObj.gridPosZ = nodeToPlace.nodePosZ;
+                nodeToPlace.placedObj.worldRotation = nodeToPlace.placedObj.transform.localEulerAngles;
+            }
+            #endregion
+
+            #region Paint Tiles
+            for (int i = 0; i < levelSaveable.saveNodeObjects_List.Count; i++)
+            {
+                //levelSaveable.saveNodeObjects_List[i];
+                Node node =
+                    GridBase.GetInstance().grid
+                    [levelSaveable.saveNodeObjects_List[i].posX,
+                    levelSaveable.saveNodeObjects_List[i].posZ];
+
+                node.multiplier = levelSaveable.saveNodeObjects_List[i].multiplier;
+                node.vis.GetComponent<NodeObject>().UpdatedNodeObject(node, levelSaveable.saveNodeObjects_List[i]);
+            }
+            #endregion
         }
-        #endregion
+
+        [Serializable]
+        public class LevelSaveable
+        {
+            public List<SaveableLevelObject> saveLevelObjects_List;
+            public List<NodeObjectSaveable> saveNodeObjects_List;
+        }
     }
 
-    [Serializable]
-    public class LevelSaveable
-    {
-        public List<SaveableLevelObject> saveLevelObjects_List;
-        public List<NodeObjectSaveable> saveNodeObjects_List;
-    }
 }

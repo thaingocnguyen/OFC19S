@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LevelEditor
+namespace UrbanForestryQuest
 {
     public class LevelCreator : MonoBehaviour
     {
-        LevelManager manager;
+        LevelManager levelManager;
         GridBase gridBase;
         InterfaceManager ui;
         UISpace uiSpace;
+        BudgetManager budgetManger;
 
         bool placeModeOn;
         bool deleteModeOn;
@@ -44,7 +45,8 @@ namespace LevelEditor
         private void Start()
         {
             gridBase = GridBase.GetInstance();
-            manager = LevelManager.GetInstance();
+            levelManager = LevelManager.GetInstance();
+            budgetManger = BudgetManager.GetInstance();
             ui = InterfaceManager.GetInstance();
             uiSpace = UISpace.GetInstance();
 
@@ -93,9 +95,10 @@ namespace LevelEditor
                 if (cloneObj != null)
                 {
                     // Add to scene object list
-                    manager.inSceneGameObjects.Add(cloneObj);
+                    levelManager.inSceneGameObjects.Add(cloneObj);
+                    budgetManger.DecrementBudget();
                     // Update the score
-                    manager.UpdateCanopyScore();
+                    levelManager.UpdateCanopyScore();
                     curNode.placedObj = objProperties;
                     cloneObj = null;
                 }
@@ -123,7 +126,7 @@ namespace LevelEditor
             {
                 deleteModeOn = false;
                 deleteButton.GetComponent<ButtonToggle>().On = false;
-                manager.UpdateCanopyScore();
+                levelManager.UpdateCanopyScore();
 
                 cameraController.MovementEnabled = true;
             }
@@ -187,9 +190,10 @@ namespace LevelEditor
                 {
                     if (curNode.placedObj != null)
                     {
-                        if (manager.inSceneGameObjects.Contains(curNode.placedObj.gameObject))
+                        if (levelManager.inSceneGameObjects.Contains(curNode.placedObj.gameObject))
                         {
-                            manager.inSceneGameObjects.Remove(curNode.placedObj.gameObject);
+                            levelManager.inSceneGameObjects.Remove(curNode.placedObj.gameObject);
+                            budgetManger.IncrementBudget();
                             Destroy(curNode.placedObj.gameObject);
                         }
 

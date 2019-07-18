@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace LevelEditor
+namespace UrbanForestryQuest
 {
     public class CameraMovement : MonoBehaviour
     {
