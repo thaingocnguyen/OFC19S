@@ -87,13 +87,13 @@ namespace UrbanForestryQuest
             int x = Mathf.RoundToInt(worldX);
             int z = Mathf.RoundToInt(worldZ);
 
-            if (x > sizeX)
+            if (x >= sizeX)
             {
-                x = sizeX;
+                x = sizeX - 1;
             }
-            if (z > sizeZ)
+            if (z >= sizeZ)
             {
-                z = sizeZ;
+                z = sizeZ - 1;
             }
             if (x < 0)
             {
