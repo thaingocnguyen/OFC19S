@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace KitsilanoScene
 {
@@ -14,7 +15,16 @@ namespace KitsilanoScene
         [SerializeField] GameObject loaderScript;
         LevelLoader levelLoader;
 
+        [SerializeField] TextMeshProUGUI solarHighScoreText;
+        [SerializeField] TextMeshProUGUI ufHighScoreText;
+
         int selectedQuest;
+
+        public int solarQuesTutorialPlayed = 0;
+
+        // HIGH SCORES
+        public int solarQuestHighScore = 0;
+        public int ufQuestHighScore = 0;
 
         // Start is called before the first frame update
         void Start()
@@ -27,6 +37,37 @@ namespace KitsilanoScene
             background.SetActive(false);
             solarQuest.SetActive(false);
             ufQuest.SetActive(false);
+
+        }
+
+        private void LoadData()
+        {
+            if (PlayerPrefs.HasKey("solarQuestTutorialPlayed"))
+            {
+                solarQuesTutorialPlayed = PlayerPrefs.GetInt("solarQuestTutorialPlayed");
+            }
+            else
+            {
+                solarQuesTutorialPlayed = 0;
+            }
+
+            if (PlayerPrefs.HasKey("solarQuestHighScore"))
+            {
+                solarQuestHighScore = PlayerPrefs.GetInt("solarQuestHighScore");
+            }
+            else
+            {
+                solarQuestHighScore = 0;
+            }
+
+            if (PlayerPrefs.HasKey("ufQuestHighScore"))
+            {
+                ufQuestHighScore = PlayerPrefs.GetInt("ufQuestHighScore");
+            }
+            else
+            {
+                ufQuestHighScore = 0;
+            }
         }
 
         // Update is called once per frame
@@ -37,15 +78,18 @@ namespace KitsilanoScene
 
         public void ShowInfoPanel(int questNumber)
         {
+            LoadData();
             selectedQuest = questNumber;
             background.SetActive(true);
             switch (questNumber)
             {
                 case 0:
                     solarQuest.SetActive(true);
+                    solarHighScoreText.text = solarQuestHighScore.ToString() + "%";
                     break;
                 case 1:
                     ufQuest.SetActive(true);
+                    ufHighScoreText.text = ufQuestHighScore.ToString() + "%";
                     break;
                 default:
                     Debug.Log("Invalid quest number!");
@@ -75,7 +119,15 @@ namespace KitsilanoScene
             switch (selectedQuest)
             {
                 case 0:
-                    levelLoader.LoadLevel(1);
+                    if (solarQuesTutorialPlayed == 0)
+                    {
+                        levelLoader.LoadLevel(1);
+                    }
+                    else
+                    {
+                        levelLoader.LoadLevel(2);
+                    }
+                    
                     break;
                 case 1:
                     levelLoader.LoadLevel(3);

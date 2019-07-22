@@ -222,6 +222,8 @@ namespace SolarQuest
                 outcome = "Wow! You’re a Champion! You were able to achieve 100% of the solar potential for the street.";
             }
 
+            PlayerPrefs.SetInt("solarQuestHighScore", Mathf.RoundToInt(SolarScoring.Instance.energyScore * 100));
+
             return outcome;
         }
 
