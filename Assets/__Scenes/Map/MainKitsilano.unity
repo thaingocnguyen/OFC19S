@@ -530,6 +530,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 39151641}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &39996092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9111630236033729614, guid: 6707e7077a1164dc2a876111aaf818f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1485419256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &43287231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1637,7 +1643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &103537575
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2006,18 +2012,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af933135be6b4bfeac5a08bc31744ce, type: 3}
---- !u!114 &121525422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5891388827716191407, guid: 8af933135be6b4bfeac5a08bc31744ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 121525421}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11501bc88a2fa4fb18c501f2eee73ffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &128549942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2463,13 +2457,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 121525422}
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 543863299}
+        m_MethodName: ShowInfoPanel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7450,6 +7444,7 @@ GameObject:
   - component: {fileID: 543863297}
   - component: {fileID: 543863296}
   - component: {fileID: 543863295}
+  - component: {fileID: 543863299}
   m_Layer: 5
   m_Name: InfoCanvas
   m_TagString: Untagged
@@ -7537,6 +7532,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &543863299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543863294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d03e1382fb748dbbc7179884f3c622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 103537574}
+  solarQuest: {fileID: 1681239913}
+  ufQuest: {fileID: 39996092}
+  loaderScript: {fileID: 1969353416}
 --- !u!1001 &546802301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8089,13 +8100,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 121525422}
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 543863299}
+        m_MethodName: ShowInfoPanel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19127,7 +19138,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1398815722}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 543863299}
+        m_MethodName: StartQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1398815722
@@ -20391,7 +20413,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1462397448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 543863299}
+        m_MethodName: HideInfoPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1462397448
@@ -24970,6 +25003,12 @@ Transform:
   m_Father: {fileID: 1146726419}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1681239913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9111630236033729614, guid: 6707e7077a1164dc2a876111aaf818f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 9111630237573737255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1681239914 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9111630236033729613, guid: 6707e7077a1164dc2a876111aaf818f4,
@@ -29508,6 +29547,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1966041047}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1969353416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5248456419248406755, guid: 8af933135be6b4bfeac5a08bc31744ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 121525421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1973746872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32142,7 +32187,7 @@ PrefabInstance:
     - target: {fileID: 9111630236033729614, guid: 6707e7077a1164dc2a876111aaf818f4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9111630236033729613, guid: 6707e7077a1164dc2a876111aaf818f4,
         type: 3}
