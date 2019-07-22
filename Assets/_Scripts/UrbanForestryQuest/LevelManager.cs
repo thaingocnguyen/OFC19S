@@ -89,6 +89,9 @@ namespace UrbanForestryQuest
             placeTreeButton.SetActive(false);
             deleteTreeButton.SetActive(false);
             proceedButton.SetActive(true);
+
+            // Sets the high score for the quest
+            PlayerPrefs.SetInt("ufHighScore", Mathf.RoundToInt(canopyScore));
         }
 
 
