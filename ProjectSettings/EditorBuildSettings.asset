@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Scenes/SolarQuest/SolarQuest_Block.unity
     guid: a1d9c8daf02c14bf583b2e83d0b3be73
+  - enabled: 1
+    path: Assets/__Scenes/UrbanForestryQuest/UFQuestDemo.unity
+    guid: 63066f05c3b07491e9d61a870dd51038
   m_configObjects: {}
