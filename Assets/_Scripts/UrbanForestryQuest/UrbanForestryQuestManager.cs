@@ -2,108 +2,117 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UrbanForestryQuestManager : MonoBehaviour
+namespace UrbanForestryQuest
 {
-    [SerializeField] GameObject introCanvas;
-    [SerializeField] GameObject uiCanvas;
-
-    private GameState currentState;
-
-    public GameState CurrentState
+    public class UrbanForestryQuestManager : MonoBehaviour
     {
-        get { return currentState; }
-        set
+        [SerializeField] GameObject introCanvas;
+        [SerializeField] GameObject uiCanvas;
+        [SerializeField] GameObject tutorialCanvas;
+
+        private GameState currentState;
+
+        public GameState CurrentState
         {
-            ClearOldState(currentState);
-            currentState = value;
-            SetState(currentState);
+            get { return currentState; }
+            set
+            {
+                ClearOldState(currentState);
+                currentState = value;
+                SetState(currentState);
+            }
         }
-    }
 
-    #region Singleton
-    private static UrbanForestryQuestManager instance = null;
-    public static UrbanForestryQuestManager GetInstance()
-    {
-        return instance;
-    }
-
-    private void Awake()
-    {
-        instance = this;
-    }
-    #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        QuestInitialSetUp();
-
-        CurrentState = GameState.Introduction;
-    }
-
-    private void QuestInitialSetUp()
-    {
-        introCanvas.SetActive(false);
-        uiCanvas.SetActive(false);
-    }
-
-    public enum GameState
-    {
-        Introduction,
-        Tutorial
-    }
-
-    private void SetState(GameState newState)
-    {
-        switch(newState)
+        #region Singleton
+        private static UrbanForestryQuestManager instance = null;
+        public static UrbanForestryQuestManager GetInstance()
         {
-            case GameState.Introduction:
-                HandleIntroductionState_On();
-                break;
-            case GameState.Tutorial:
-                HandleTutorialState_On();
-                break;
-            default:
-                break;
+            return instance;
         }
-    }
 
-    private void ClearOldState(GameState oldState)
-    {
-        switch(oldState)
+        private void Awake()
         {
-            case GameState.Introduction:
-                HandleIntroductionState_Off();
-                break;
-            default:
-                break;
+            instance = this;
         }
+        #endregion
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            QuestInitialSetUp();
+
+            CurrentState = GameState.Introduction;
+        }
+
+        private void QuestInitialSetUp()
+        {
+            introCanvas.SetActive(false);
+            uiCanvas.SetActive(false);
+            tutorialCanvas.SetActive(false);
+        }
+
+        public enum GameState
+        {
+            Introduction,
+            Tutorial
+        }
+
+        private void SetState(GameState newState)
+        {
+            switch (newState)
+            {
+                case GameState.Introduction:
+                    HandleIntroductionState_On();
+                    break;
+                case GameState.Tutorial:
+                    HandleTutorialState_On();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ClearOldState(GameState oldState)
+        {
+            switch (oldState)
+            {
+                case GameState.Introduction:
+                    HandleIntroductionState_Off();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        #region IntroductionState
+        private void HandleIntroductionState_On()
+        {
+            introCanvas.SetActive(true);
+        }
+
+        private void HandleIntroductionState_Off()
+        {
+            introCanvas.SetActive(false);
+        }
+        #endregion
+
+        #region TutorialState
+
+
+        private void HandleTutorialState_On()
+        {
+            uiCanvas.SetActive(true);
+            tutorialCanvas.SetActive(true);
+            tutorialCanvas.GetComponent<TutorialPopup>().ShowBudgetPopup();
+        }
+
+        private void HandleTutorialState_Off()
+        {
+
+        }
+
+        #endregion
+
     }
-
-    #region IntroductionState
-    private void HandleIntroductionState_On()
-    {
-        introCanvas.SetActive(true);
-    }
-
-    private void HandleIntroductionState_Off()
-    {
-        introCanvas.SetActive(false);
-    }
-    #endregion
-
-    #region TutorialState
-    private void HandleTutorialState_On()
-    {
-        uiCanvas.SetActive(true);
-    }
-
-    private void HandleTutorialState_Off()
-    {
-
-    }
-    #endregion
-
-
-
 }
+
