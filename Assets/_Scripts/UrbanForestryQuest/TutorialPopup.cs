@@ -15,6 +15,7 @@ namespace UrbanForestryQuest
         [SerializeField] GameObject doneButton;
 
         // POPUPS
+        [SerializeField] GameObject controlPopup;
         [SerializeField] GameObject budgetPopup;
         [SerializeField] GameObject canopyCoverPopup;
         [SerializeField] GameObject plantTreePopup;
@@ -37,6 +38,7 @@ namespace UrbanForestryQuest
             switchCameraButton.SetActive(false);
             doneButton.SetActive(false);
 
+            controlPopup.SetActive(false);
             budgetPopup.SetActive(false);
             canopyCoverPopup.SetActive(false);
             plantTreePopup.SetActive(false);
@@ -58,8 +60,15 @@ namespace UrbanForestryQuest
             }
         }
 
+        public void ShowControlPopup()
+        {
+            controlPopup.SetActive(true);
+        }
+
         public void ShowBudgetPopup()
         {
+            switchCameraPopup.SetActive(false);
+
             budgetText.SetActive(true);
             budgetPopup.SetActive(true);
         }
@@ -111,7 +120,7 @@ namespace UrbanForestryQuest
 
         public void ShowSwitchCameraPopup()
         {
-            deleteTreePopup.SetActive(false);
+            controlPopup.SetActive(false);
 
             switchCameraButton.SetActive(true);
             switchCameraPopup.SetActive(true);
@@ -119,7 +128,7 @@ namespace UrbanForestryQuest
 
         public void ShowDonePopup()
         {
-            switchCameraPopup.SetActive(false);
+            deleteTreePopup.SetActive(false);
 
             donePopup.SetActive(true);
             doneButton.SetActive(true);

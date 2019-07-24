@@ -103,7 +103,7 @@ namespace UrbanForestryQuest
         {
             uiCanvas.SetActive(true);
             tutorialCanvas.SetActive(true);
-            tutorialCanvas.GetComponent<TutorialPopup>().ShowBudgetPopup();
+            tutorialCanvas.GetComponent<TutorialPopup>().ShowControlPopup();
         }
 
         private void HandleTutorialState_Off()
