@@ -188,6 +188,11 @@ namespace UrbanForestryQuest
             return endText;
         }
 
+        public void CloseScoreBox()
+        {
+            scoreBox.SetActive(false);
+        }
+
         public void ProceedToEndText()
         {
             proceedButton.SetActive(false);
