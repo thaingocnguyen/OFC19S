@@ -15,14 +15,14 @@ namespace UrbanForestryQuest
         // SCORING
         private float canopyScore;
         [SerializeField] float maxScore;
+        public float CanopyScore
+        {
+            get { return canopyScore; }
+        }
 
         // FUTURE VISUALIZATION
         [SerializeField] GameObject tree_large;
         private List<GameObject> futureTrees = new List<GameObject>();
-        [SerializeField] GameObject doneButton;
-        [SerializeField] GameObject placeTreeButton;
-        [SerializeField] GameObject deleteTreeButton;
-        [SerializeField] GameObject proceedButton;
 
         #region Singleton
         private static LevelManager instance = null;
@@ -40,7 +40,6 @@ namespace UrbanForestryQuest
         private void Start()
         {
             gridBase = GridBase.GetInstance();
-            proceedButton.SetActive(false);
 
             // Canopy bar starts at 0
             canopyBar.transform.localScale = new Vector3(1, 0, 1);
@@ -84,11 +83,6 @@ namespace UrbanForestryQuest
                     futureTrees.Add(newTree);
                 }
             }
-
-            doneButton.SetActive(false);
-            placeTreeButton.SetActive(false);
-            deleteTreeButton.SetActive(false);
-            proceedButton.SetActive(true);
 
             // Sets the high score for the quest
             PlayerPrefs.SetInt("ufHighScore", Mathf.RoundToInt(canopyScore));

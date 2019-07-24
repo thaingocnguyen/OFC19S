@@ -6,11 +6,11 @@ using TMPro;
 
 namespace UrbanForestryQuest
 {
-    public class InfoBox : MonoBehaviour
+    public abstract class InfoBox : MonoBehaviour
     {
 
         [SerializeField] List<string> infoText;
-        [SerializeField] TextMeshProUGUI displayedText;
+        [SerializeField] protected TextMeshProUGUI displayedText;
         private Queue<string> sentences;
 
 
@@ -40,13 +40,14 @@ namespace UrbanForestryQuest
         {
             if (sentences.Count == 0)
             {
-                UrbanForestryQuestManager.GetInstance().CurrentState = UrbanForestryQuestManager.GameState.Tutorial;
-                
+				HandleNoSentencesLeft();
                 return;
             }
 
             displayedText.text = sentences.Dequeue();
         }
+
+		public abstract void HandleNoSentencesLeft();
     }
 
 }

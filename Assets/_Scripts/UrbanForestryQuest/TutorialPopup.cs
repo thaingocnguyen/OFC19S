@@ -38,7 +38,7 @@ namespace UrbanForestryQuest
             switchCameraButton.SetActive(false);
             doneButton.SetActive(false);
 
-            controlPopup.SetActive(false);
+            controlPopup.SetActive(true);
             budgetPopup.SetActive(false);
             canopyCoverPopup.SetActive(false);
             plantTreePopup.SetActive(false);
