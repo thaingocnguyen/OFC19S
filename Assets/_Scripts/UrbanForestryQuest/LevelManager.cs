@@ -14,6 +14,7 @@ namespace UrbanForestryQuest
 
         // SCORING
         private float canopyScore;
+        [SerializeField] float startScore;
         [SerializeField] float maxScore;
         public float CanopyScore
         {
@@ -42,7 +43,7 @@ namespace UrbanForestryQuest
             gridBase = GridBase.GetInstance();
 
             // Canopy bar starts at 0
-            canopyBar.transform.localScale = new Vector3(1, 0, 1);
+            canopyBar.transform.localScale = new Vector3(1, startScore / maxScore, 1);
             InitLevelObjects();
         }
 
@@ -61,13 +62,13 @@ namespace UrbanForestryQuest
 
         public void UpdateCanopyScore()
         {
-            canopyScore = 0;
+            canopyScore = startScore;
             for (int i = 0; i < inSceneGameObjects.Count; i++)
             {
                 Level_Object lvlObj = inSceneGameObjects[i].GetComponent<Level_Object>();
                 canopyScore += gridBase.grid[lvlObj.gridPosX, lvlObj.gridPosZ].multiplier;
             }
-            canopyScore = Mathf.Clamp(canopyScore * 5, 0f, maxScore);
+            canopyScore = Mathf.Clamp(canopyScore, 0f, maxScore);
             canopyBar.transform.localScale = new Vector3(1, canopyScore / maxScore, 1);
         }
 
