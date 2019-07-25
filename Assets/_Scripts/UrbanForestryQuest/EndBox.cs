@@ -9,6 +9,10 @@ namespace UrbanForestryQuest
         [SerializeField] GameObject buttons;
         [SerializeField] GameObject continueText;
 
+        private void Start()
+        {
+            LoadText();
+        }
         public override void HandleNoSentencesLeft()
         {
             continueText.SetActive(false);

@@ -9,9 +9,13 @@ namespace UrbanForestryQuest
     public abstract class InfoBox : MonoBehaviour
     {
 
-        [SerializeField] List<string> infoText;
         [SerializeField] protected TextMeshProUGUI displayedText;
-        private Queue<string> sentences;
+        protected Queue<string> sentences;
+
+        [SerializeField] float typeSpeed;
+
+        bool displayingSentence;
+        [SerializeField] bool debugMode;
 
 
         private void Awake()
@@ -19,16 +23,11 @@ namespace UrbanForestryQuest
             sentences = new Queue<string>();
         }
 
-        private void Start()
-        {
-            LoadText();
-        }
-
-        private void LoadText()
+        protected void LoadText()
         {
             sentences.Clear();
 
-            foreach (string sentence in infoText)
+            foreach (string sentence in sentences)
             {
                 sentences.Enqueue(sentence);
             }
@@ -38,16 +37,34 @@ namespace UrbanForestryQuest
 
         public void DisplayNextSentence()
         {
-            if (sentences.Count == 0)
+            if (!displayingSentence || debugMode)
             {
-				HandleNoSentencesLeft();
-                return;
-            }
+                if (sentences.Count == 0)
+                {
+                    HandleNoSentencesLeft();
+                    return;
+                }
 
-            displayedText.text = sentences.Dequeue();
+                string sentence = sentences.Dequeue();
+                StopAllCoroutines();
+                StartCoroutine(TypeSentence(sentence));
+                //displayedText.text = sentences.Dequeue();
+            }
         }
 
-		public abstract void HandleNoSentencesLeft();
+        IEnumerator TypeSentence(string sentence)
+        {
+            displayingSentence = true;
+            displayedText.text = "";
+            foreach (char letter in sentence)
+            {
+                displayedText.text += letter;
+                yield return new WaitForSeconds(typeSpeed);
+            }
+            displayingSentence = false;
+        }
+
+        public abstract void HandleNoSentencesLeft();
     }
 
 }
