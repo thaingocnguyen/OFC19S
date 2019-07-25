@@ -72,6 +72,17 @@ namespace UrbanForestryQuest
             canopyBar.transform.localScale = new Vector3(1, canopyScore / maxScore, 1);
         }
 
+        private void CalculateTreeScore(int posX, int posZ)
+        {
+            int sizeX = gridBase.sizeX;
+            int sizeZ = gridBase.sizeZ;
+
+            if(posX > 0)
+            {
+
+            }
+        }
+
         // Last step before the quest finishes
         public void VisualizeFuture()
         {

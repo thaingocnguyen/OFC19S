@@ -19,16 +19,13 @@ namespace UrbanForestryQuest
         Node curNode;
 
         // Place obj variables
-        bool hasObj;
         GameObject objToPlace;
         GameObject cloneObj;
         Level_Object objProperties;
         Vector3 mousePosition;
         Vector3 worldPosition;
-        bool deleteObj;
 
         // Tile painting
-        bool hasMaterial;
         bool paintTile;
         public Material matToPlace;
         Material origMaterial;
@@ -68,6 +65,19 @@ namespace UrbanForestryQuest
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 mousePosition = hit.point;
+            }
+        }
+
+        public void CloseAllModes()
+        {
+            if (deleteModeOn)
+            {
+                DeleteModeToggle();
+            }
+
+            if (placeModeOn)
+            {
+                PlaceModeToggle();
             }
         }
 
@@ -251,12 +261,8 @@ namespace UrbanForestryQuest
 
         public void PassMaterialToPaint(int matId)
         {
-            deleteObj = false;
-            hasObj = false;
-
             matToPlace = ResourceManager.GetInstance().GetMaterial(matId);
             multiplier = MultiplierFromMatId(matId);
-            hasMaterial = true;
         }
 
         private int MultiplierFromMatId(int matId)
@@ -278,11 +284,6 @@ namespace UrbanForestryQuest
         }
         #endregion
 
-        void CloseAll()
-        {
-            hasObj = false;
-            deleteObj = false;
-        }
     }
 }
 

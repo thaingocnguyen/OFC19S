@@ -16,6 +16,8 @@ namespace UrbanForestryQuest
         [SerializeField] GameObject endCharacter;
         [SerializeField] GameObject endTextbox;
 
+        [SerializeField] GameObject levelCreatorScript;
+
         private GameState currentState;
 
         public GameState CurrentState
@@ -146,6 +148,7 @@ namespace UrbanForestryQuest
             }
             else
             {
+                levelCreatorScript.GetComponent<LevelCreator>().CloseAllModes();
                 CurrentState = GameState.End;
             }
         }
