@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 50428303}
   - component: {fileID: 50428302}
   m_Layer: 5
-  m_Name: Text
+  m_Name: OopsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15208,6 +15208,7 @@ MonoBehaviour:
   levelCreatorScript: {fileID: 1672452301}
   proceedButton: {fileID: 1603639336}
   scoreBox: {fileID: 1120159868}
+  oopsText: {fileID: 50428302}
 --- !u!4 &1205942085
 Transform:
   m_ObjectHideFlags: 0
@@ -17138,7 +17139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayedText: {fileID: 704110190}
   typeSpeed: 0.05
-  debugMode: 0
+  debugMode: 1
 --- !u!1001 &1337604222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20235,7 +20236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138bfd303226f48d4b36eb8c79c76a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBudget: 1000
+  maxBudget: 1800
   currentBudgetText: {fileID: 739616604}
   treePrice: 100
   decrementText: {fileID: 1412991108}
@@ -22227,6 +22228,8 @@ MonoBehaviour:
   canopyBar: {fileID: 2279150470397256716}
   startScore: 4
   maxScore: 18
+  totalArea: 720
+  areaPerTree: 16
   tree_large: {fileID: 5500741302986707340, guid: d516de8c90e4d4d9c963879dd9ec12be,
     type: 3}
 --- !u!114 &1672452305

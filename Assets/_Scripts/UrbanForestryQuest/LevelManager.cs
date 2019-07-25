@@ -16,9 +16,12 @@ namespace UrbanForestryQuest
         private float canopyScore;
         [SerializeField] float startScore;
         [SerializeField] float maxScore;
+
+        [SerializeField] float totalArea = 720;
+        [SerializeField] float areaPerTree = 16;
         public float CanopyScore
         {
-            get { return canopyScore; }
+            get { return ((canopyScore * areaPerTree) / 720) * 100; }
         }
 
         // FUTURE VISUALIZATION
@@ -43,6 +46,7 @@ namespace UrbanForestryQuest
             gridBase = GridBase.GetInstance();
 
             // Canopy bar starts at 0
+            canopyScore = startScore;
             canopyBar.transform.localScale = new Vector3(1, startScore / maxScore, 1);
             InitLevelObjects();
         }
@@ -72,16 +76,6 @@ namespace UrbanForestryQuest
             canopyBar.transform.localScale = new Vector3(1, canopyScore / maxScore, 1);
         }
 
-        private void CalculateTreeScore(int posX, int posZ)
-        {
-            int sizeX = gridBase.sizeX;
-            int sizeZ = gridBase.sizeZ;
-
-            if(posX > 0)
-            {
-
-            }
-        }
 
         // Last step before the quest finishes
         public void VisualizeFuture()

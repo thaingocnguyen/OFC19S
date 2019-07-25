@@ -31,23 +31,7 @@ namespace UrbanForestryQuest
         // Start is called before the first frame update
         void Start()
         {
-            plantTreeButton.SetActive(false);
-            deleteTreeButton.SetActive(false);
-            budgetText.SetActive(false);
-            canopyCoverBar.SetActive(false);
-            switchCameraButton.SetActive(false);
-            doneButton.SetActive(false);
 
-            controlPopup.SetActive(true);
-            budgetPopup.SetActive(false);
-            canopyCoverPopup.SetActive(false);
-            plantTreePopup.SetActive(false);
-            firstTreePlantedPopup.SetActive(false);
-            budgetReminderPopup.SetActive(false);
-            canopyCoverReminderPopup.SetActive(false);
-            deleteTreePopup.SetActive(false);
-            switchCameraPopup.SetActive(false);
-            donePopup.SetActive(false);
         }
 
         // Update is called once per frame
@@ -58,6 +42,29 @@ namespace UrbanForestryQuest
                 StartCoroutine(FirstTreePlantedPopup());
                 firstTreePlanted = true;
             }
+        }
+
+        public void InitializeTutorial()
+        {
+            plantTreeButton.SetActive(false);
+            deleteTreeButton.SetActive(false);
+            budgetText.SetActive(false);
+            canopyCoverBar.SetActive(false);
+            switchCameraButton.SetActive(false);
+            doneButton.SetActive(false);
+
+            controlPopup.SetActive(false);
+            budgetPopup.SetActive(false);
+            canopyCoverPopup.SetActive(false);
+            plantTreePopup.SetActive(false);
+            firstTreePlantedPopup.SetActive(false);
+            budgetReminderPopup.SetActive(false);
+            canopyCoverReminderPopup.SetActive(false);
+            deleteTreePopup.SetActive(false);
+            switchCameraPopup.SetActive(false);
+            donePopup.SetActive(false);
+
+            ShowControlPopup();
         }
 
         public void ShowControlPopup()
@@ -137,6 +144,13 @@ namespace UrbanForestryQuest
         public void CloseDonePopup()
         {
             donePopup.SetActive(false);
+
+            plantTreeButton.SetActive(false);
+            deleteTreeButton.SetActive(false);
+            budgetText.SetActive(false);
+            canopyCoverBar.SetActive(false);
+            switchCameraButton.SetActive(false);
+            doneButton.SetActive(false);
         }
     }
 }

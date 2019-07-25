@@ -49,7 +49,7 @@ namespace UrbanForestryQuest
         {
             QuestInitialSetUp();
 
-            CurrentState = GameState.Introduction;
+            CurrentState = GameState.PlantTrees;
         }
 
         private void QuestInitialSetUp()
@@ -68,6 +68,7 @@ namespace UrbanForestryQuest
         {
             Introduction,
             Tutorial,
+            PlantTrees,
             End
         }
 
@@ -81,6 +82,9 @@ namespace UrbanForestryQuest
                     break;
                 case GameState.Tutorial:
                     HandleTutorialState_On();
+                    break;
+                case GameState.PlantTrees:
+                    HandlePlantTreesState_On();
                     break;
                 case GameState.End:
                     HandleEndState_On();
@@ -99,6 +103,9 @@ namespace UrbanForestryQuest
                     break;
                 case GameState.Tutorial:
                     HandleTutorialState_Off();
+                    break;
+                case GameState.PlantTrees:
+                    HandlePlantTreesState_Off();
                     break;
                 case GameState.End:
                     HandleEndState_Off();
@@ -125,6 +132,8 @@ namespace UrbanForestryQuest
         {
             uiCanvas.SetActive(true);
             tutorialCanvas.SetActive(true);
+
+            tutorialCanvas.GetComponentInChildren<TutorialPopup>().InitializeTutorial();
         }
 
         private void HandleTutorialState_Off()
@@ -134,16 +143,32 @@ namespace UrbanForestryQuest
         }
         #endregion
 
+        #region PlantTrees
+        private void HandlePlantTreesState_On()
+        {
+            uiCanvas.SetActive(true);
+        }
+
+        private void HandlePlantTreesState_Off()
+        {
+            uiCanvas.SetActive(false);
+        }
+        #endregion
+
         #region EndState
-        
+
         [SerializeField] GameObject proceedButton;
         [SerializeField] GameObject scoreBox;
         TextMeshProUGUI scoreBoxText;
+        [SerializeField] TextMeshProUGUI oopsText;
 
         public void SwitchToEndState()
         {
-            if (Mathf.RoundToInt(LevelManager.GetInstance().CanopyScore) == 0)
+            int score = Mathf.RoundToInt(LevelManager.GetInstance().CanopyScore);
+            
+            if (score <= 15)
             {
+                oopsText.text = "<b>Oops! You must play again.</b> You only achieved " + score + "% canopy cover for your block, which is only " + (score - 9) + "% more than what you started.";
                 oops.SetActive(true);
             }
             else
@@ -178,14 +203,19 @@ namespace UrbanForestryQuest
 
         private string GetEndText(int score)
         {
-            string endText = "<b>Congratulations!</b> You achieved <i>" + score + "%</i> canopy coverage for the block. ";
-            if (score > 10 && score < 22)
+           
+            string endText = "";
+            if (score > 15 && score < 22)
             {
-                endText += "You're just shy <i>" + (22 - score) + "%</i> of the city target for canopy coverage.";
+                endText = "<b>You're almost there!</b> You achieved " + score + "% canopy cover for your block. You missed the City's target by " + (22 - score) + "%";
             }
-            else if (score >= 22)
+            if (score >= 22 && score < 40)
             {
-                endText += "You exceeded the city target for canopy coverage by <i>" + (score - 22) + "%.</i> Great job!";
+                endText = "<b>You did great!</b> You achieved " + score + "% canopy cover for your block. You surpassed the City's target by " + (score - 22) + "%";
+            }
+            else if (score >= 40)
+            {
+                endText = "<b>Wow! You’re a Champion!</b> You were able to not only exceed the City canopy target of 22% but are now the Greenest Block in Vancouver with 40% canopy cover!";
             }
 
             return endText;
