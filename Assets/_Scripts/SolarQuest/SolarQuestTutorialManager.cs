@@ -19,25 +19,27 @@ namespace SolarQuest
         [SerializeField] GameObject character;
 
         // START
-        [SerializeField] GameObject startButton;
+        [SerializeField] GameObject startCanvas;
 
         // INTRODUCTION
-        [SerializeField] GameObject infoBox;
+        [SerializeField] GameObject introCanvas;
 
-        // SLIDER
+		// SLIDER
+		[SerializeField] GameObject sliderTutorialCanvas;
         [SerializeField] GameObject introPopup;
         [SerializeField] GameObject sliderUI;
         [SerializeField] GameObject sliderPopup;
         [SerializeField] GameObject compassPopup;
         [SerializeField] GameObject sliderDoneButton;
 
-        // QUIZ
+		// QUIZ
+		[SerializeField] GameObject quizCanvas;
         [SerializeField] GameObject quizInfo;
         [SerializeField] GameObject quizPanel;
         [SerializeField] GameObject backButton;
-        [SerializeField] GameObject quizDoneButton;
 
-        // SOLAR GAME
+		// SOLAR GAME
+		[SerializeField] GameObject solarGameCanvas;
         [SerializeField] GameObject solarGame;
         [SerializeField] GameObject solarGameDoneButton;
         [SerializeField] GameObject budget;
@@ -47,7 +49,8 @@ namespace SolarQuest
         [SerializeField] GameObject budgetPopup;
         [SerializeField] GameObject energyPopup;
 
-        // END
+		// END
+		[SerializeField] GameObject endCanvas;
         [SerializeField] GameObject endTextBox;
         [SerializeField] TextMeshProUGUI endText;
         [SerializeField] GameObject choiceButtons;
@@ -86,7 +89,7 @@ namespace SolarQuest
             sliderLight.enabled = false;
 
             // INTRODUCTION
-            infoBox.SetActive(false);
+            introCanvas.SetActive(false);
 
             // SLIDER TUTORIAL
             introPopup.SetActive(false);
@@ -95,12 +98,14 @@ namespace SolarQuest
             compassPopup.SetActive(false);
             sliderDoneButton.SetActive(false);
 
-            // QUIZ
+			// QUIZ
+			quizCanvas.SetActive(false);
             quizInfo.SetActive(false);
             quizPanel.SetActive(false);
             backButton.SetActive(false);
 
-            // SOLAR GAME
+			// SOLAR GAME
+			solarGameCanvas.SetActive(false);
             solarGame.SetActive(false);
             budget.SetActive(false);
             energyBar.SetActive(false);
@@ -110,7 +115,8 @@ namespace SolarQuest
             energyPopup.SetActive(false);
             solarGameDoneButton.SetActive(false);
 
-            // END
+			// END
+			endCanvas.SetActive(false);
             endTextBox.SetActive(false);
             choiceButtons.SetActive(false);
 
@@ -201,23 +207,26 @@ namespace SolarQuest
             }
         }
 
-        // State at the start with only start button
-        private void StartState()
+		#region StartStae
+		// State at the start with only start button
+		private void StartState()
         {
             // Set up cameras
             startCam.enabled = true;
             questCam.enabled = false;
             southCam.enabled = false;
 
-            startButton.SetActive(true);
+            startCanvas.SetActive(true);
         }
 
         private void ExitStartState()
         {
-            startButton.SetActive(false);
+            startCanvas.SetActive(false);
         }
+		#endregion StartState
 
-        private void IntroductionState()
+		#region IntroductionState
+		private void IntroductionState()
         {
             // Set up cameras
             startCam.enabled = true;
@@ -226,22 +235,25 @@ namespace SolarQuest
 
             character.SetActive(true);
 
-            infoBox.SetActive(true);
-            infoBox.GetComponent<InfoBox>().LoadText();
+            introCanvas.SetActive(true);
+			introCanvas.GetComponentInChildren<SolarQuestIntroductionBox>().LoadText();
         }
 
         private void ExitIntroductionState()
         {
             character.SetActive(false);
-            infoBox.SetActive(false);
+            introCanvas.SetActive(false);
         }
+		#endregion IntroductionState
 
-        private void SliderTutorial()
+		#region SliderTutorialState
+		private void SliderTutorial()
         {
             startCam.enabled = false;
             questCam.enabled = false;
             southCam.enabled = true;
 
+			sliderTutorialCanvas.SetActive(true);
             sliderUI.SetActive(true);
 
             mainLight.enabled = false;
@@ -275,18 +287,21 @@ namespace SolarQuest
         {
             sliderUI.SetActive(false);
             sliderDoneButton.SetActive(false);
+			sliderTutorialCanvas.SetActive(false);
 
-            mainLight.enabled = true;
+			mainLight.enabled = true;
             sliderLight.enabled = false;
         }
+		#endregion SliderTutorialState
 
-        private void QuizState()
+		#region QuizState
+		private void QuizState()
         {
             startCam.enabled = false;
             questCam.enabled = false;
             southCam.enabled = true;
 
-
+			quizCanvas.SetActive(true);
             quizInfo.SetActive(true);
             backButton.SetActive(true);
 
@@ -304,16 +319,19 @@ namespace SolarQuest
             quizInfo.SetActive(false);
             quizPanel.SetActive(false);
             backButton.SetActive(false);
-
+			quizCanvas.SetActive(false);
             character.SetActive(false);
         }
+		#endregion QuizState
 
-        private void SolarGameState()
+		#region SolarGameState
+		private void SolarGameState()
         {
             startCam.enabled = false;
             questCam.enabled = true;
             southCam.enabled = false;
 
+			solarGameCanvas.SetActive(true);
             energyBar.SetActive(true);
             budget.SetActive(true);
             introBox.SetActive(true);
@@ -358,20 +376,27 @@ namespace SolarQuest
             solarPanelsPopup.SetActive(false);
             budgetPopup.SetActive(false);
             energyPopup.SetActive(false);
+			
             if (SolarGamePopupManager.Instance)
             {
                 SolarGamePopupManager.Instance.CloseAllPopups();
             }
-        }
 
-        private void EndState()
+			solarGameCanvas.SetActive(false);
+		}
+		#endregion SolarGameState
+
+		#region EndState
+		private void EndState()
         {
             startCam.enabled = false;
             questCam.enabled = true;
             southCam.enabled = false;
 
+			endCanvas.SetActive(true);
             character.SetActive(true);
             endTextBox.SetActive(true);
+            
 
             choiceButtons.SetActive(true);
             endText.text = "Congratulations! You managed to achieve " + (score * 100) + "% of the total energy potential. Would you like to try again or continue?";
@@ -382,14 +407,19 @@ namespace SolarQuest
             choiceButtons.SetActive(false);
             endTextBox.SetActive(false);
             character.SetActive(false);
+			endCanvas.SetActive(false);
         }
 
         public void LoadEndText()
         {
             choiceButtons.SetActive(false);
-            endTextBox.GetComponent<InfoBox>().LoadText();
+			EndTextBox endTextBoxScript = endTextBox.GetComponent<EndTextBox>();
+			endTextBoxScript.LoadText();
+			endTextBoxScript.tapToContinueText.SetActive(true);
         }
+		#endregion EndState
 
-    }
+	}
 
 }
+

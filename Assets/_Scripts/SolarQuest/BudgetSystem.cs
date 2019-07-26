@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace SolarQuest
 {
     public class BudgetSystem : MonoBehaviour
     {
-        public Text budgetText;
-        public Text subtractBudgetText;
+        public TextMeshProUGUI budgetText;
+        public TextMeshProUGUI subtractBudgetText;
 
         [SerializeField] int maxBudget = 90000;
         [SerializeField] GameObject outOfBudget;
-
+        
 
         int currentBudget;
 

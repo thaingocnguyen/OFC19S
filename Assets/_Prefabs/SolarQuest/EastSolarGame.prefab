@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grids:
   - {fileID: 6656170467178725528}
+  gridGenerators: []
 --- !u!1 &3664188287858012840
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3664188287858012840}
   m_LocalRotation: {x: -0.27059793, y: 0.6532815, z: -0.2705983, w: -0.6532815}
-  m_LocalPosition: {x: -3.9499998, y: 4.59, z: -7.37}
+  m_LocalPosition: {x: -3.9499998, y: 4.59, z: -7.05}
   m_LocalScale: {x: 0.20000054, y: 0.20000032, z: 0.05000018}
   m_Children: []
   m_Father: {fileID: 6009556843918053995}
@@ -95,7 +96,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
+  - {fileID: 2100000, guid: 0fe081b4a912143ee92d1303fa242143, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,7 +135,7 @@ TextMesh:
   m_FontSize: 30
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
+  m_Font: {fileID: 12800000, guid: 0fe081b4a912143ee92d1303fa242143, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -164,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4316275072794432772}
   m_LocalRotation: {x: -0.27059793, y: 0.65328145, z: -0.27059823, w: -0.6532815}
-  m_LocalPosition: {x: -1.17, y: 1.1792297, z: -2.42}
+  m_LocalPosition: {x: -1.17, y: 1.1792297, z: -1.94}
   m_LocalScale: {x: 0.20000015, y: 0.20000008, z: 0.05000008}
   m_Children: []
   m_Father: {fileID: 4666004370482530838}
@@ -187,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
+  - {fileID: 2100000, guid: 0fe081b4a912143ee92d1303fa242143, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -226,7 +227,7 @@ TextMesh:
   m_FontSize: 30
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 4e540d0054804461a854412445d61c0d, type: 3}
+  m_Font: {fileID: 12800000, guid: 0fe081b4a912143ee92d1303fa242143, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -874,7 +875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2158911bf2d274632a81db1d772b3989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShaded: 0
   gridRow: -1
   gridCol: -1
 --- !u!114 &4298081808317923605
@@ -891,7 +891,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragDistance: 13
   gridManagerScript: {fileID: 3527872426898035762}
-  GridGeneratorScript: {fileID: 6656170467178725528}
   panel: {fileID: 6656170467229567259}
 --- !u!1 &6656170467408589137
 GameObject:
@@ -1513,7 +1512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2158911bf2d274632a81db1d772b3989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShaded: 0
   gridRow: -1
   gridCol: -1
 --- !u!114 &1570948271840800749
@@ -1530,7 +1528,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragDistance: 13
   gridManagerScript: {fileID: 3527872426898035762}
-  GridGeneratorScript: {fileID: 6656170467178725528}
   panel: {fileID: 6656170467862098255}
 --- !u!1 &6656170467876863556
 GameObject:

@@ -3,65 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
-
-public abstract class InfoBox : MonoBehaviour
+namespace UrbanForestryQuest
 {
-
-    [SerializeField] protected TextMeshProUGUI displayedText;
-    protected Queue<string> sentences;
-
-    [SerializeField] float typeSpeed = 0.05f;
-
-    bool displayingSentence;
-    [SerializeField] bool debugMode;
-
-
-    private void Awake()
+    public abstract class InfoBox : MonoBehaviour
     {
-        sentences = new Queue<string>();
-    }
 
-    protected void LoadText()
-    {
-        sentences.Clear();
+        [SerializeField] protected TextMeshProUGUI displayedText;
+        protected Queue<string> sentences;
 
-        foreach (string sentence in sentences)
+        [SerializeField] float typeSpeed = 0.05f;
+
+        bool displayingSentence;
+        [SerializeField] bool debugMode;
+
+
+        private void Awake()
         {
-            sentences.Enqueue(sentence);
+            sentences = new Queue<string>();
         }
 
-        DisplayNextSentence();
-    }
-
-    public void DisplayNextSentence()
-    {
-        if (!displayingSentence || debugMode)
+        protected void LoadText()
         {
-            if (sentences.Count == 0)
+            sentences.Clear();
+
+            foreach (string sentence in sentences)
             {
-                HandleNoSentencesLeft();
-                return;
+                sentences.Enqueue(sentence);
             }
 
-            string sentence = sentences.Dequeue();
-            StopAllCoroutines();
-            StartCoroutine(TypeSentence(sentence));
+            DisplayNextSentence();
         }
-    }
 
-    IEnumerator TypeSentence(string sentence)
-    {
-        displayingSentence = true;
-        displayedText.text = "";
-        foreach (char letter in sentence)
+        public void DisplayNextSentence()
         {
-            displayedText.text += letter;
-            yield return new WaitForSeconds(typeSpeed);
+            if (!displayingSentence || debugMode)
+            {
+                if (sentences.Count == 0)
+                {
+                    HandleNoSentencesLeft();
+                    return;
+                }
+
+                string sentence = sentences.Dequeue();
+                StopAllCoroutines();
+                StartCoroutine(TypeSentence(sentence));
+            }
         }
-        displayingSentence = false;
+
+        IEnumerator TypeSentence(string sentence)
+        {
+            displayingSentence = true;
+            displayedText.text = "";
+            foreach (char letter in sentence)
+            {
+                displayedText.text += letter;
+                yield return new WaitForSeconds(typeSpeed);
+            }
+            displayingSentence = false;
+        }
+
+        public abstract void HandleNoSentencesLeft();
     }
 
-    public abstract void HandleNoSentencesLeft();
+
 }
 

@@ -109,7 +109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 4}
   m_SizeDelta: {x: 569.6, y: 161.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7132892147125911085
@@ -142,8 +142,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: You don't have enough budget!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 851e32f9f55a6450e8713a54566de315, type: 2}
-  m_sharedMaterial: {fileID: 3805978341016009612, guid: 851e32f9f55a6450e8713a54566de315,
+  m_fontAsset: {fileID: 11400000, guid: fc84f730fafa14011a75b8ddc2fc0f2f, type: 2}
+  m_sharedMaterial: {fileID: -7327953536574756562, guid: fc84f730fafa14011a75b8ddc2fc0f2f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -215,7 +215,7 @@ MonoBehaviour:
     spaceCount: 4
     wordCount: 5
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

@@ -32,7 +32,7 @@ namespace SolarQuest
         public void SelectedSouth()
         {
             compassButtons.SetActive(false);
-            quizText.text = "Great! You’ve got it! Panels should be placed on the south - facing roofs in Vancouver for maximum solar potential.";
+            quizText.text = "Great! You've got it! Panels should be placed on the south-facing roofs in Vancouver for maximum solar potential.";
             EndQuiz();
 
         }
@@ -46,7 +46,7 @@ namespace SolarQuest
             }
             else if (currentAttempts == 2)
             {
-                quizText.text = "You have 1 last chance.  Click ‘back’ to read the information again.";
+                quizText.text = "You have 1 last chance.  Click 'back' to read the information again.";
             }
 
         }
@@ -54,7 +54,7 @@ namespace SolarQuest
         private void NoAttemptsLeft()
         {
             compassButtons.SetActive(false);
-            quizText.text = "Panels should be placed on the south - facing roofs in Vancouver for maximum solar potential.";
+            quizText.text = "Panels should be placed on the south-facing roofs in Vancouver for maximum solar potential.";
             EndQuiz();
         }
 
