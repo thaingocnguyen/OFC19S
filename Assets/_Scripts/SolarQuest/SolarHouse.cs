@@ -122,6 +122,7 @@ namespace SolarQuest
 
         private void SwitchCameraSetup()
         {
+            BlockSceneManager.GetInstance().CloseArrowInstructions();
             arrowCanvas.SetActive(false);
             backButton.SetActive(true);
             compass.SetActive(false);

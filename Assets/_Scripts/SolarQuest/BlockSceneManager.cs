@@ -57,6 +57,8 @@ namespace SolarQuest
         [SerializeField] TextMeshProUGUI endingText;
         [SerializeField] GameObject levelLoader;
 
+        private float finalEnergyScore;
+
         public enum GameState
         {
             Introduction,
@@ -83,7 +85,8 @@ namespace SolarQuest
         {
             QuestInitialSetUp();
 
-            CurrentState = GameState.SelectHouse;
+            // !!EDIT THIS LINE TO CHANGE STARTING STATE FOR DEBUGGING PURPOSES!!
+            CurrentState = GameState.Introduction;
         }
 
         private void QuestInitialSetUp()
@@ -188,7 +191,14 @@ namespace SolarQuest
 
         private void HandleSelectHouseState_Off()
         {
+            instructionCanvas.SetActive(false);
+            mainCanvas.SetActive(false);
+            solarGameCanvas.SetActive(false);
 
+            // Set map view so that houses can be selected
+            GetComponent<HouseSelector>().MapView = false;
+
+            finalEnergyScore = SolarScoring.Instance.energyScore;
         }
 
         // Show and hide instruction screen
@@ -225,21 +235,18 @@ namespace SolarQuest
         #region EndState
         private void HandleEndState_On()
         {
-            housesLeftUI.SetActive(false);
-            instructionIcon.SetActive(false);
-            endButton.SetActive(false);
             endCanvas.SetActive(true);
             endingText.text = GetEndOutcome();
         }
 
         private void HandleEndState_Off()
         {
-
+            endCanvas.SetActive(false);
         }
 
         public void EndGame()
         {
-            SetState(BlockSceneManager.GameState.End);
+            CurrentState = GameState.End;
         }
 
         public void TryAgain()
@@ -250,7 +257,7 @@ namespace SolarQuest
 
         public void Continue()
         {
-            if (SolarScoring.Instance.energyScore > 0.2)
+            if (finalEnergyScore > 0.2)
             {
                 // Load Kitsilano scene
                 levelLoader.GetComponent<LevelLoader>().LoadLevel(0);
@@ -260,34 +267,35 @@ namespace SolarQuest
         private string GetEndOutcome()
         {
             string outcome = "";
-            if (SolarScoring.Instance.energyScore <= 0.2)
+            if (finalEnergyScore <= 0.2)
             {
-                outcome = "Oops! You must play again. You only achieved 20% of the total solar potential for the street.";
+                outcome = "<b>Oops! You must play again.</b> You only achieved 20% of the total solar potential for the street.";
             }
-            else if (SolarScoring.Instance.energyScore <= 0.4)
+            else if (finalEnergyScore <= 0.4)
             {
-                outcome = "Could do better! You achieved 40% of the total solar potential for the street.";
+                outcome = "<b>Could do better!</b> You achieved 40% of the total solar potential for the street.";
             }
-            else if (SolarScoring.Instance.energyScore <= 0.6)
+            else if (finalEnergyScore <= 0.6)
             {
-                outcome = "You’re almost there! You achieved 60% of the total solar potential for the street.";
+                outcome = "<b>You’re almost there!</b> You achieved 60% of the total solar potential for the street.";
             }
-            else if (SolarScoring.Instance.energyScore <= 0.8)
+            else if (finalEnergyScore <= 0.8)
             {
-                outcome = "You did great! You achieved 80% of the total solar potential for the street.";
+                outcome = "<b>You did great!</b> You achieved 80% of the total solar potential for the street.";
             }
             else
             {
-                outcome = "Wow! You’re a Champion! You were able to achieve 100% of the solar potential for the street.";
+                outcome = "<b>Wow! You’re a Champion!</b> You were able to achieve 100% of the solar potential for the street.";
             }
 
-            PlayerPrefs.SetInt("solarQuestHighScore", Mathf.RoundToInt(SolarScoring.Instance.energyScore * 100));
+            // SET THE HIGH SCORE
+            PlayerPrefs.SetInt("solarQuestHighScore", Mathf.RoundToInt(finalEnergyScore * 100));
 
             return outcome;
         }
         #endregion
 
-
+        // Going from block camera to house camera
         public void UseCamera(int cameraIndex)
         {
             if (cameraIndex >= houseCameras.Length)
@@ -320,6 +328,8 @@ namespace SolarQuest
             GetComponent<HouseSelector>().MapView = false;
         }
 
+
+        // Going back from house camera to block camera
         public void ShowMap()
         {
             // Encouragement for finishing one house
@@ -328,19 +338,23 @@ namespace SolarQuest
                 StartCoroutine("FirstHousePopUp");
                 firstHousePopUpShown = true;
             }
+
             arrowInstructions.SetActive(false);
             GetComponent<HouseSelector>().SwitchToMapView();
-            mainCamera.enabled = true;
-            mainCamera.gameObject.SetActive(true);
             instructionIcon.SetActive(true);
             doneButton.SetActive(false);
 
+            // Switch back to block camera
+            mainCamera.enabled = true;
+            mainCamera.gameObject.SetActive(true);
             foreach (Camera c in houseCameras)
             {
                 c.gameObject.SetActive(false);
                 c.enabled = false;
             }
 
+
+            // Enable end quest button
             if (housesLeft <= 0)
             {
                 endButton.SetActive(true);

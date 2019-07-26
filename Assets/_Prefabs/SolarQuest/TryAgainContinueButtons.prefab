@@ -299,7 +299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22, y: 0}
+  m_AnchoredPosition: {x: -15.6, y: 6}
   m_SizeDelta: {x: 246.3, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7910171061814091615
@@ -332,8 +332,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 851e32f9f55a6450e8713a54566de315, type: 2}
-  m_sharedMaterial: {fileID: 3805978341016009612, guid: 851e32f9f55a6450e8713a54566de315,
+  m_fontAsset: {fileID: 11400000, guid: fc84f730fafa14011a75b8ddc2fc0f2f, type: 2}
+  m_sharedMaterial: {fileID: -7327953536574756562, guid: fc84f730fafa14011a75b8ddc2fc0f2f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -359,8 +359,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -590,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22, y: 0}
+  m_AnchoredPosition: {x: 22, y: 6}
   m_SizeDelta: {x: 246.3, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7910171062650798490
@@ -623,8 +623,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Try Again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 851e32f9f55a6450e8713a54566de315, type: 2}
-  m_sharedMaterial: {fileID: 3805978341016009612, guid: 851e32f9f55a6450e8713a54566de315,
+  m_fontAsset: {fileID: 11400000, guid: fc84f730fafa14011a75b8ddc2fc0f2f, type: 2}
+  m_sharedMaterial: {fileID: -7327953536574756562, guid: fc84f730fafa14011a75b8ddc2fc0f2f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -650,8 +650,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -856,7 +856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7910171062833486962}
   m_Layer: 5
-  m_Name: Buttons
+  m_Name: TryAgainContinueButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
