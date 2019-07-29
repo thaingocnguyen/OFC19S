@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PanZoom : MonoBehaviour
 {
+    public bool movementEnabled = false;
     Vector3 touchStart;
     [SerializeField] float zoomOutMin = 7;
     [SerializeField] float zoomOutMax = 29;
@@ -26,32 +27,36 @@ public class PanZoom : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (movementEnabled)
         {
-            touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-        if(Input.touchCount == 2)
-        {
-            Touch touchZero = Input.GetTouch(0);
-            Touch touchOne = Input.GetTouch(1);
+            if (Input.GetMouseButtonDown(0))
+            {
+                touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+            if (Input.touchCount == 2)
+            {
+                Touch touchZero = Input.GetTouch(0);
+                Touch touchOne = Input.GetTouch(1);
 
-            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
-            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+                Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+                Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
 
-            float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
-            float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
-            float difference = currentMagnitude - prevMagnitude;
+                float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+                float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
+                float difference = currentMagnitude - prevMagnitude;
 
-            Zoom(difference * zoomSpeed);
+                Zoom(difference * zoomSpeed);
+            }
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Camera.main.transform.position = new Vector3(Mathf.Clamp(Camera.main.transform.position.x + direction.x, leftEdge, rightEdge),
+                                                            Mathf.Clamp(Camera.main.transform.position.y + direction.y, minY, maxY),
+                                                            Mathf.Clamp(Camera.main.transform.position.z + direction.z, minZ, maxZ));
+            }
+            Zoom(Input.GetAxis("Mouse ScrollWheel"));
         }
-        if(Input.GetMouseButton(0))
-        {
-            Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Camera.main.transform.position = new Vector3(Mathf.Clamp(Camera.main.transform.position.x + direction.x, leftEdge, rightEdge),
-                                                        Mathf.Clamp(Camera.main.transform.position.y + direction.y, minY, maxY),
-                                                        Mathf.Clamp(Camera.main.transform.position.z + direction.z, minZ, maxZ));
-        }
-        Zoom(Input.GetAxis("Mouse ScrollWheel"));
+
     }
 
     void Zoom(float increment)

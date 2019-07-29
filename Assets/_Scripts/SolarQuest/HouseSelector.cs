@@ -61,27 +61,27 @@ namespace SolarQuest
             selectedHouse = house;
             switch (house.name)
             {
-                case "House1":
+                case "House0":
                     //Camera.main.transform.position = new Vector3(-34f, Camera.main.transform.position.y, Camera.main.transform.position.z);
                     houseIndex = 0;
                     break;
-                case "House2":
+                case "House1":
                     //Camera.main.transform.position = new Vector3(-30f, Camera.main.transform.position.y, Camera.main.transform.position.z);
                     houseIndex = 1;
                     break;
-                case "House3":
+                case "House2":
                     //Camera.main.transform.position = new Vector3(1f, Camera.main.transform.position.y, Camera.main.transform.position.z);
                     houseIndex = 2;
                     break;
-                case "House4":
+                case "House3":
                     //Camera.main.transform.position = new Vector3(27f, Camera.main.transform.position.y, Camera.main.transform.position.z);
                     houseIndex = 3;
                     break;
-                case "House5":
+                case "House4":
                     //Camera.main.transform.position = new Vector3(58f, Camera.main.transform.position.y, Camera.main.transform.position.z);
                     houseIndex = 4;
                     break;
-                case "House6":
+                case "House5":
                     //Camera.main.transform.position = new Vector3(62f, Camera.main.transform.position.y, Camera.main.transform.position.z);
                     houseIndex = 5;
                     break;

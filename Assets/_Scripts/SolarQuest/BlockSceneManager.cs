@@ -99,6 +99,7 @@ namespace SolarQuest
             }
             mainCamera.enabled = true;
             mainCamera.gameObject.SetActive(true);
+            mainCamera.GetComponent<PanZoom>().movementEnabled = false;
 
             // INTRODUCTION
             introductionCanvas.SetActive(false);

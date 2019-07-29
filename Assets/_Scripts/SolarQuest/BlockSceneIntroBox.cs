@@ -7,7 +7,7 @@ namespace SolarQuest
 {
     public class BlockSceneIntroBox : SolarInfoBox
     {
-        [SerializeField] GameObject background;
+        [SerializeField] Camera blockCamera;
         [SerializeField] GameObject character;
 
         public override void LoadText()
@@ -22,8 +22,8 @@ namespace SolarQuest
         {
             gameObject.SetActive(false);
             character.SetActive(false);
-            background.SetActive(false);
             BlockSceneManager.GetInstance().CurrentState = BlockSceneManager.GameState.SelectHouse;
+            blockCamera.GetComponent<PanZoom>().movementEnabled = true;
         }
     }
 
