@@ -145,12 +145,12 @@ namespace UrbanForestryQuest
         {
             donePopup.SetActive(false);
 
-            plantTreeButton.SetActive(false);
-            deleteTreeButton.SetActive(false);
-            budgetText.SetActive(false);
-            canopyCoverBar.SetActive(false);
-            switchCameraButton.SetActive(false);
-            doneButton.SetActive(false);
+            //plantTreeButton.SetActive(false);
+            //deleteTreeButton.SetActive(false);
+            //budgetText.SetActive(false);
+            //canopyCoverBar.SetActive(false);
+            //switchCameraButton.SetActive(false);
+            //doneButton.SetActive(false);
         }
     }
 }

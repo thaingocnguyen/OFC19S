@@ -49,7 +49,7 @@ namespace UrbanForestryQuest
         {
             QuestInitialSetUp();
 
-            CurrentState = GameState.Introduction;
+            CurrentState = GameState.Tutorial;
         }
 
         private void QuestInitialSetUp()
