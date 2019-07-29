@@ -12,7 +12,7 @@ namespace SolarQuest
         #region Cameras
         [SerializeField] Camera startCam;
         [SerializeField] Camera questCam;
-        [SerializeField] Camera southCam;
+        [SerializeField] Camera sliderTutorialCam;
         #endregion
 
         public float score;
@@ -82,7 +82,7 @@ namespace SolarQuest
             // Start out using tutorial camera
             startCam.enabled = true;
             questCam.enabled = false;
-            southCam.enabled = false;
+            sliderTutorialCam.enabled = false;
 
             // Light set up
             mainLight.enabled = true;
@@ -121,7 +121,7 @@ namespace SolarQuest
             choiceButtons.SetActive(false);
 
             // Set start state
-            SetState(GameState.SliderTutorial);
+            SetState(GameState.Start);
         }
 
         public void ChangeStateToIntroduction()
@@ -214,7 +214,7 @@ namespace SolarQuest
             // Set up cameras
             startCam.enabled = true;
             questCam.enabled = false;
-            southCam.enabled = false;
+            sliderTutorialCam.enabled = false;
 
             startCanvas.SetActive(true);
         }
@@ -231,7 +231,7 @@ namespace SolarQuest
             // Set up cameras
             startCam.enabled = true;
             questCam.enabled = false;
-            southCam.enabled = false;
+            sliderTutorialCam.enabled = false;
 
             character.SetActive(true);
 
@@ -251,7 +251,7 @@ namespace SolarQuest
         {
             startCam.enabled = false;
             questCam.enabled = false;
-            southCam.enabled = true;
+            sliderTutorialCam.enabled = true;
 
 			sliderTutorialCanvas.SetActive(true);
             sliderUI.SetActive(true);
@@ -299,7 +299,7 @@ namespace SolarQuest
         {
             startCam.enabled = false;
             questCam.enabled = false;
-            southCam.enabled = true;
+            sliderTutorialCam.enabled = true;
 
 			quizCanvas.SetActive(true);
             quizInfo.SetActive(true);
@@ -329,7 +329,7 @@ namespace SolarQuest
         {
             startCam.enabled = false;
             questCam.enabled = true;
-            southCam.enabled = false;
+            sliderTutorialCam.enabled = false;
 
 			solarGameCanvas.SetActive(true);
             energyBar.SetActive(true);
@@ -391,7 +391,7 @@ namespace SolarQuest
         {
             startCam.enabled = false;
             questCam.enabled = true;
-            southCam.enabled = false;
+            sliderTutorialCam.enabled = false;
 
 			endCanvas.SetActive(true);
             character.SetActive(true);

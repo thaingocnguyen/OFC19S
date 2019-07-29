@@ -78,6 +78,7 @@ namespace KitsilanoScene
 
         public void ShowInfoPanel(int questNumber)
         {
+            Debug.Log("test");
             LoadData();
             selectedQuest = questNumber;
             background.SetActive(true);
