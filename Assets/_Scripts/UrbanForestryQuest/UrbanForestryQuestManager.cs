@@ -11,11 +11,13 @@ namespace UrbanForestryQuest
         [SerializeField] GameObject uiCanvas;
         [SerializeField] GameObject tutorialCanvas;
         [SerializeField] GameObject endCanvas;
+        [SerializeField] GameObject cameraCanvas;
 
-        [SerializeField] GameObject oops;
+        [SerializeField] GameObject oopsTextbox;
         [SerializeField] GameObject endCharacter;
         [SerializeField] GameObject endTextbox;
-
+        [SerializeField] GameObject switchCameraButtons;
+        
         [SerializeField] GameObject levelCreatorScript;
 
         private GameState currentState;
@@ -44,17 +46,17 @@ namespace UrbanForestryQuest
         }
         #endregion
 
-        // Start is called before the first frame update
+        // CHANGE CURRENT STATE HERE FOR TESTING PURPOSES
         void Start()
         {
             QuestInitialSetUp();
 
-            CurrentState = GameState.Introduction;
+            CurrentState = GameState.PlantTrees;
         }
 
         private void QuestInitialSetUp()
         {
-            oops.SetActive(false);
+            oopsTextbox.SetActive(false);
             endCharacter.SetActive(false);
             endTextbox.SetActive(false);
 
@@ -62,6 +64,9 @@ namespace UrbanForestryQuest
             uiCanvas.SetActive(false);
             tutorialCanvas.SetActive(false);
             endCanvas.SetActive(false);
+            cameraCanvas.SetActive(false);
+
+            switchCameraButtons.SetActive(false);
         }
 
         public enum GameState
@@ -132,6 +137,7 @@ namespace UrbanForestryQuest
         {
             uiCanvas.SetActive(true);
             tutorialCanvas.SetActive(true);
+            cameraCanvas.SetActive(true);
 
             tutorialCanvas.GetComponentInChildren<TutorialPopup>().InitializeTutorial();
         }
@@ -147,11 +153,17 @@ namespace UrbanForestryQuest
         private void HandlePlantTreesState_On()
         {
             uiCanvas.SetActive(true);
+            cameraCanvas.SetActive(true);
+
+            switchCameraButtons.SetActive(true);
         }
 
         private void HandlePlantTreesState_Off()
         {
             uiCanvas.SetActive(false);
+
+            switchCameraButtons.SetActive(false);
+            cameraCanvas.SetActive(true);
         }
         #endregion
 
@@ -169,7 +181,7 @@ namespace UrbanForestryQuest
             if (score <= 15)
             {
                 oopsText.text = "<b>Oops! You must play again.</b> You only achieved " + score + "% canopy cover for your block, which is only " + (score - 9) + "% more than what you started.";
-                oops.SetActive(true);
+                oopsTextbox.SetActive(true);
             }
             else
             {
@@ -180,14 +192,18 @@ namespace UrbanForestryQuest
 
         public void CloseOops()
         {
-            oops.SetActive(false);
+            oopsTextbox.SetActive(false);
         }
 
         private void HandleEndState_On()
         {
             endCanvas.SetActive(true);
+            cameraCanvas.SetActive(true);
+            switchCameraButtons.SetActive(true);
+
             scoreBox.SetActive(true);
             proceedButton.SetActive(true);
+            
 
             scoreBoxText = scoreBox.GetComponentInChildren<TextMeshProUGUI>();
             int canopyScore = Mathf.RoundToInt(LevelManager.GetInstance().CanopyScore);
@@ -228,6 +244,7 @@ namespace UrbanForestryQuest
 
         public void ProceedToEndText()
         {
+            switchCameraButtons.SetActive(false);
             proceedButton.SetActive(false);
             scoreBox.SetActive(false);
 
