@@ -20,6 +20,7 @@ namespace UrbanForestryQuest
 
         [SerializeField] float totalArea = 720;
         [SerializeField] float areaPerTree = 16;
+        [SerializeField] float mortalityRate = 0.14f;
 
         public float CanopyScore
         {
@@ -27,8 +28,13 @@ namespace UrbanForestryQuest
         }
 
         // FUTURE VISUALIZATION
+        #region Future Visualization
         [SerializeField] GameObject tree_large;
+        [SerializeField] GameObject tree_dead;
         private List<GameObject> futureTrees = new List<GameObject>();
+        [SerializeField] GameObject existingTrees;
+        [SerializeField] GameObject agedExistingTrees;
+        #endregion
 
         #region Singleton
         private static LevelManager instance = null;
@@ -84,9 +90,10 @@ namespace UrbanForestryQuest
         // Last step before the quest finishes
         public void VisualizeFuture()
         {
-            if (inSceneGameObjects.Count > 0)
+            int numberOfInSceneGameObjects = inSceneGameObjects.Count;
+            if (numberOfInSceneGameObjects > 0)
             {
-                for (int i = 0; i < inSceneGameObjects.Count; i++)
+                for (int i = 0; i < numberOfInSceneGameObjects; i++)
                 {
                     Level_Object lvlObj = internalSceneObjects[i];
 
@@ -102,6 +109,25 @@ namespace UrbanForestryQuest
                         inSceneGameObjects[i].SetActive(false);
                     }
                 }
+
+                // Replace dead trees with dead tree visualization
+                int numberOfFutureTrees = futureTrees.Count;
+                int numberOfDeadTrees = Mathf.RoundToInt(mortalityRate * numberOfFutureTrees);
+
+                while (numberOfDeadTrees > 0)
+                {
+                    int randomNumber = Mathf.RoundToInt(Random.Range(0, numberOfFutureTrees - 1));
+                    if (futureTrees[randomNumber].activeSelf)
+                    {
+                        Instantiate(tree_dead, futureTrees[randomNumber].transform.position, Quaternion.identity);
+                        futureTrees[randomNumber].SetActive(false);
+                        numberOfDeadTrees--;
+                    }
+                }
+                
+
+                existingTrees.SetActive(false);
+                agedExistingTrees.SetActive(true);
             }
 
             // Sets the high score for the quest
