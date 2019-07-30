@@ -9,6 +9,7 @@ namespace UrbanForestryQuest
         GridBase gridBase;
 
         public List<GameObject> inSceneGameObjects = new List<GameObject>();
+        private List<Level_Object> internalSceneObjects = new List<Level_Object>();
 
         public GameObject canopyBar;
 
@@ -19,6 +20,7 @@ namespace UrbanForestryQuest
 
         [SerializeField] float totalArea = 720;
         [SerializeField] float areaPerTree = 16;
+
         public float CanopyScore
         {
             get { return ((canopyScore * areaPerTree) / 720) * 100; }
@@ -66,10 +68,12 @@ namespace UrbanForestryQuest
 
         public void UpdateCanopyScore()
         {
+            internalSceneObjects.Clear();
             canopyScore = startScore;
             for (int i = 0; i < inSceneGameObjects.Count; i++)
             {
                 Level_Object lvlObj = inSceneGameObjects[i].GetComponent<Level_Object>();
+                internalSceneObjects.Add(lvlObj);
                 canopyScore += gridBase.grid[lvlObj.gridPosX, lvlObj.gridPosZ].multiplier;
             }
             canopyScore = Mathf.Clamp(canopyScore, 0f, maxScore);
@@ -84,9 +88,19 @@ namespace UrbanForestryQuest
             {
                 for (int i = 0; i < inSceneGameObjects.Count; i++)
                 {
-                    GameObject newTree = Instantiate(tree_large, inSceneGameObjects[i].transform.position, Quaternion.identity);
-                    inSceneGameObjects[i].SetActive(false);
-                    futureTrees.Add(newTree);
+                    Level_Object lvlObj = internalSceneObjects[i];
+
+                    // Only if a tree is placed in the right spot does it get added to list of future trees 
+                    if (gridBase.grid[lvlObj.gridPosX, lvlObj.gridPosZ].multiplier != 0)
+                    {
+                        GameObject newTree = Instantiate(tree_large, inSceneGameObjects[i].transform.position, Quaternion.identity);
+                        inSceneGameObjects[i].SetActive(false);
+                        futureTrees.Add(newTree);
+                    }
+                    else
+                    {
+                        inSceneGameObjects[i].SetActive(false);
+                    }
                 }
             }
 
