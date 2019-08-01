@@ -11,6 +11,7 @@ namespace KitsilanoScene
         public GameObject logo;
         public GameObject buttonCanvas;
         public GameObject infoCanvas;
+        public GameObject welcomeMessage;
 
         private bool startCutscenePlayed;
 
@@ -34,6 +35,7 @@ namespace KitsilanoScene
                 logo.SetActive(false);
                 buttonCanvas.SetActive(false);
                 infoCanvas.SetActive(false);
+                welcomeMessage.SetActive(false);
 
                 director.Play();
                 startCutscenePlayed = false;
@@ -51,8 +53,8 @@ namespace KitsilanoScene
             if (director == aDirector)
             {
                 logo.SetActive(true);
-                buttonCanvas.SetActive(true);
-                infoCanvas.SetActive(true);
+                
+                welcomeMessage.SetActive(true);
             }
         }
 
@@ -61,6 +63,12 @@ namespace KitsilanoScene
             director.stopped -= OnPlayableDirectorStopped;
         }
 
+        public void CloseWelcomeMessage()
+        {
+            welcomeMessage.SetActive(false);
+            buttonCanvas.SetActive(true);
+            infoCanvas.SetActive(true);
+        }
 
     }
 
