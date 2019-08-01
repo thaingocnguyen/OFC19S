@@ -65,11 +65,12 @@
     <Compile Include="Assets\_Scripts\Kitsilano\InfoPanel.cs" />
     <Compile Include="Assets\_Scripts\Kitsilano\KitsilanoManager.cs" />
     <Compile Include="Assets\_Scripts\Kitsilano\QuestInfo.cs" />
-    <Compile Include="Assets\_Scripts\Kitsilano\StartSolarQuest.cs" />
+    <Compile Include="Assets\_Scripts\SolarQuest\BlockSceneEndTextbox.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\BlockSceneIntroBox.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\BlockSceneManager.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\BudgetSystem.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\DragAndBudget.cs" />
+    <Compile Include="Assets\_Scripts\SolarQuest\EndCamera.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\EndTextBox.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\GridEastWest.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\GridGenerator.cs" />

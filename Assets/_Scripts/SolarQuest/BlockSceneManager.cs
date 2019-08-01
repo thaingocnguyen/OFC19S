@@ -52,10 +52,13 @@ namespace SolarQuest
         [SerializeField] TextMeshProUGUI housesLeftText;
 
         // ENDING
+        [SerializeField] GameObject endCamera;
         [SerializeField] GameObject endButton;
         [SerializeField] GameObject endCanvas;
         [SerializeField] TextMeshProUGUI endingText;
+        [SerializeField] GameObject endingTextbox;
         [SerializeField] GameObject levelLoader;
+        [SerializeField] GameObject proceedButton;
 
         private float finalEnergyScore;
 
@@ -100,6 +103,7 @@ namespace SolarQuest
             mainCamera.enabled = true;
             mainCamera.gameObject.SetActive(true);
             mainCamera.GetComponent<PanZoom>().movementEnabled = false;
+            endCamera.SetActive(false);
 
             // INTRODUCTION
             introductionCanvas.SetActive(false);
@@ -236,6 +240,14 @@ namespace SolarQuest
         #region EndState
         private void HandleEndState_On()
         {
+            mainCamera.gameObject.SetActive(false);
+            endCamera.SetActive(true);
+            endCamera.GetComponent<EndCamera>().ZoomOutCamera();
+        }
+
+        public void ProceedToEndText()
+        {
+            proceedButton.SetActive(false);
             endCanvas.SetActive(true);
             endingText.text = GetEndOutcome();
         }
@@ -261,8 +273,10 @@ namespace SolarQuest
             if (finalEnergyScore > 0.2)
             {
                 // Load Kitsilano scene
-                levelLoader.GetComponent<LevelLoader>().LoadLevel(0);
+                
             }
+           
+            endingTextbox.GetComponent<BlockSceneEndTextbox>().LoadText();
         }
 
         private string GetEndOutcome()

@@ -20,11 +20,6 @@ public class PanZoom : MonoBehaviour
     [SerializeField] float minZ = 2.5f; 
 
 
-
-    [SerializeField] float screenTiltMax = 54f;
-    [SerializeField] float screenTiltMin = 54f;
-
-
     void Update()
     {
         if (movementEnabled)
