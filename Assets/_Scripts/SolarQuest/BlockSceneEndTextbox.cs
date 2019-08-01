@@ -16,7 +16,6 @@ namespace SolarQuest
         }
         public override void HandleNoSentencesLeft()
         {
-            tapToContinueText.SetActive(false);
             levelLoader.GetComponent<LevelLoader>().LoadLevel(0);
         }
 
