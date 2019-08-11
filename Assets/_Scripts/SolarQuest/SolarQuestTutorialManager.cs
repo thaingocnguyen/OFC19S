@@ -399,7 +399,7 @@ namespace SolarQuest
             
 
             choiceButtons.SetActive(true);
-            endText.text = "Congratulations! You managed to achieve " + (score * 100) + "% of the total energy potential. Would you like to try again or continue?";
+            endText.text = "Congratulations! You managed to achieve " + (Mathf.RoundToInt(score) * 100) + "% of the total energy potential. Would you like to try again or continue?";
         }
 
         private void ExitEndState()

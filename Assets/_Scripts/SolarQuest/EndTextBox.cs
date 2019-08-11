@@ -15,9 +15,9 @@ namespace SolarQuest
         }
         public override void LoadText()
         {
-            sentences.Enqueue("In BC, you can choose to connect your solar panels to the electricity grid. Which means that if your solar panel produces more power than your household consumes, the surplus is fed back to the grid for others to use & obtain BC Grid Credits.");
+            sentences.Enqueue("In BC, you can choose to connect your solar panels to the electricity grid. Which means that if your solar panel produces more power than your household consumes, the surplus is fed back to the grid for others to use & you obtain BC Grid Credits.");
 
-            sentences.Enqueue("These credits can be used to reduce the price you pay for electricity on days where there isn't much sunlight. Doesn't that sound like a win-win situation!");
+            sentences.Enqueue("These credits can be used to reduce the price you pay for grid electricity on days where there isn't much sunlight. Doesn't that sound like a win-win situation!");
 
             sentences.Enqueue("So, seems like you're getting the hang of it! Let's now try retrofitting the whole street.");
 
