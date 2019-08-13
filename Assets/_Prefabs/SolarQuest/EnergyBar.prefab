@@ -32,10 +32,10 @@ RectTransform:
   m_Father: {fileID: 5773795066942134879}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: 10}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -22, y: -87}
+  m_SizeDelta: {x: 44, y: 174}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3415797149972391954
 CanvasRenderer:
@@ -764,6 +764,10 @@ MonoBehaviour:
   solarGamesObjects:
   - {fileID: 0}
   bestScore: 30
+  energyBarFillHeight: 174
+  incrementPrefab: {fileID: 5314312698167692395, guid: c0556d99ad31f40f88e450f78b9dc105,
+    type: 3}
+  energyBarBorder: {fileID: 5773795066942134878}
 --- !u!1 &5773795066942134878
 GameObject:
   m_ObjectHideFlags: 0
