@@ -30,6 +30,8 @@ namespace KitsilanoScene
         // Start is called before the first frame update
         void Start()
         {
+            startCutscenePlayed = GlobalControl.Instance.startCutscenePlayed;
+
             if (!startCutscenePlayed)
             {
                 logo.SetActive(false);
