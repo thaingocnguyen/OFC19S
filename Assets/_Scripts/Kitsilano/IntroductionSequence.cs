@@ -22,6 +22,7 @@ namespace KitsilanoScene
         private bool displayingSentence;
 
         public PlayableDirector cutscene;
+        private bool cutscenePlayed;
 
         private void Awake()
         {
@@ -44,9 +45,10 @@ namespace KitsilanoScene
             {
                 if (conversation.Count == 0)
                 {
-                    GlobalControl.Instance.startCutscenePlayed = true;
-                    StartCoroutine(FadeAway(characterDialogue));
-                    cutscene.Play();
+                    if(!cutscenePlayed)
+                    {
+                        PlayCutscene();
+                    }
                     return;
                 }
 
@@ -54,6 +56,15 @@ namespace KitsilanoScene
                 StopAllCoroutines();
                 StartCoroutine(TypeSentence(dialogue.character, dialogue.text));
             }
+        }
+
+        private void PlayCutscene()
+        {
+            cutscenePlayed = true;
+            GlobalControl.Instance.startCutscenePlayed = true;
+            
+            StartCoroutine(FadeAway(characterDialogue));
+            cutscene.Play();
         }
 
         IEnumerator TypeSentence(string character, string sentence)
@@ -92,6 +103,7 @@ namespace KitsilanoScene
                 yield return null;
             }
             canvasGroup.alpha = 0;
+            objectToFade.SetActive(false);
         }
     }
 }
