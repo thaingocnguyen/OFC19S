@@ -7,13 +7,15 @@ namespace KitsilanoScene
 {
     public class KitsilanoManager : MonoBehaviour
     {
-        public PlayableDirector director;
+
         public GameObject logo;
         public GameObject buttonCanvas;
         public GameObject infoCanvas;
         public GameObject welcomeMessage;
 
-        private bool startCutscenePlayed;
+		public GameObject introductionSequence;
+
+		public PlayableDirector cutscene;
 
         #region Singleton
         private static KitsilanoManager instance = null;
@@ -30,40 +32,15 @@ namespace KitsilanoScene
         // Start is called before the first frame update
         void Start()
         {
-            startCutscenePlayed = GlobalControl.Instance.startCutscenePlayed;
-
-            if (!startCutscenePlayed)
-            {
-                logo.SetActive(false);
-                buttonCanvas.SetActive(false);
-                infoCanvas.SetActive(false);
-                welcomeMessage.SetActive(false);
-
-                director.Play();
-                startCutscenePlayed = false;
-            }
-
+            if (!GlobalControl.Instance.startCutscenePlayed)
+			{
+				Debug.Log("Playing Introduction");
+				introductionSequence.GetComponent<IntroductionSequence>().StartIntroductionSequence();
+			}
+			
         }
 
-        private void OnEnable()
-        {
-            director.stopped += OnPlayableDirectorStopped;
-        }
 
-        void OnPlayableDirectorStopped(PlayableDirector aDirector)
-        {
-            if (director == aDirector)
-            {
-                logo.SetActive(true);
-                
-                welcomeMessage.SetActive(true);
-            }
-        }
-
-        void OnDisable()
-        {
-            director.stopped -= OnPlayableDirectorStopped;
-        }
 
         public void CloseWelcomeMessage()
         {
@@ -72,6 +49,24 @@ namespace KitsilanoScene
             infoCanvas.SetActive(true);
         }
 
-    }
+		private void OnEnable()
+		{
+			cutscene.stopped += OnCutsceneEnd;
+		}
+
+		void OnCutsceneEnd(PlayableDirector aDirector)
+		{
+			if (cutscene == aDirector)
+			{
+				Debug.Log("End of cutscene");
+			}
+		}
+
+		void OnDisable()
+		{
+			cutscene.stopped -= OnCutsceneEnd;
+		}
+
+	}
 
 }

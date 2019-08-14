@@ -19,7 +19,7 @@ public class GlobalControl : MonoBehaviour
         }
     }
 
-    public bool startCutscenePlayed = true;
+	public bool startCutscenePlayed = false;
 
     
 }
