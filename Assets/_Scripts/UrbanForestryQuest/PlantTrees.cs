@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UrbanForestryQuest
 {
-    public class LevelCreator : MonoBehaviour
+    public class PlantTrees : MonoBehaviour
     {
         LevelManager levelManager;
         GridBase gridBase;
@@ -13,7 +13,7 @@ namespace UrbanForestryQuest
         BudgetManager budgetManger;
 
         bool placeModeOn;
-        bool deleteModeOn;
+        public bool deleteModeOn;
         bool objMoving;
         GameObject currentObject;
         Node curNode;
@@ -39,6 +39,11 @@ namespace UrbanForestryQuest
         [SerializeField] GameObject cameraControllerObj;
         CameraController cameraController;
 
+        public GameObject smallTree;
+
+        GameObject currentTree;
+        Level_Object currentTreeProperties;
+
         private void Start()
         {
             gridBase = GridBase.GetInstance();
@@ -52,9 +57,9 @@ namespace UrbanForestryQuest
 
         private void Update()
         {
-            PlaceObject();
-            DeleteObjects();
-            PaintTile();
+            //PlaceObject();
+            //DeleteObjects();
+            //PaintTile();
         }
 
         void UpdateMousePosition()
@@ -143,6 +148,53 @@ namespace UrbanForestryQuest
         }
 
         #region Place Objects
+        public void BeginTreeDrag()
+        {
+            Debug.Log("Begin drag");
+            UpdateMousePosition();
+            curNode = gridBase.NodeFromWorldPosition(mousePosition);
+            worldPosition = curNode.vis.transform.position;
+
+            // If object hasn't been instantiated then instantiate it
+            if (currentTree == null)
+            {
+                currentTree = Instantiate(smallTree, worldPosition, Quaternion.identity) as GameObject;
+                currentTreeProperties = currentTree.GetComponent<Level_Object>();
+            }
+        }
+
+        public void DuringTreeDrag()
+        {
+            UpdateMousePosition();
+            curNode = gridBase.NodeFromWorldPosition(mousePosition);
+            worldPosition = curNode.vis.transform.position;
+            currentTree.transform.position = worldPosition;
+        }
+
+        public void EndTreeDrag()
+        {
+            Debug.Log("End drag");
+            if (curNode.placedObj != null)
+            {
+                Destroy(currentTree);
+                currentTree = null;
+                currentTreeProperties = null;
+            }
+            else
+            {
+                currentTreeProperties.gridPosX = curNode.nodePosX;
+                currentTreeProperties.gridPosZ = curNode.nodePosZ;
+                levelManager.inSceneGameObjects.Add(currentTree);
+
+                budgetManger.DecrementBudget();
+                levelManager.UpdateCanopyScore();
+
+                curNode.placedObj = currentTreeProperties;
+                currentTree = null;
+            }
+        }
+
+
         void PlaceObject()
         {
             if (placeModeOn)

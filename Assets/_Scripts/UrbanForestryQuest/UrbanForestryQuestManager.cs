@@ -18,7 +18,7 @@ namespace UrbanForestryQuest
         [SerializeField] GameObject endTextbox;
         [SerializeField] GameObject switchCameraButtons;
         
-        [SerializeField] GameObject levelCreatorScript;
+        [SerializeField] GameObject treePlantingScript;
 
 		public enum GameState
 		{
@@ -187,7 +187,7 @@ namespace UrbanForestryQuest
             }
             else
             {
-                levelCreatorScript.GetComponent<LevelCreator>().CloseAllModes();
+                treePlantingScript.GetComponent<PlantTrees>().CloseAllModes();
                 CurrentState = GameState.End;
             }
         }

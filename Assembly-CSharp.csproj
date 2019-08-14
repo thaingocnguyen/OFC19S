@@ -96,6 +96,7 @@
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\ButtonToggle.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\CameraController.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\CameraMovement.cs" />
+    <Compile Include="Assets\_Scripts\UrbanForestryQuest\DragTrees.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\EndBox.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\GridBase.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\InfoBox.cs" />
@@ -103,10 +104,10 @@
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\IntroBox.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\Level_Object.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\Level_SaveLoad.cs" />
-    <Compile Include="Assets\_Scripts\UrbanForestryQuest\LevelCreator.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\LevelManager.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\Node.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\NodeObject.cs" />
+    <Compile Include="Assets\_Scripts\UrbanForestryQuest\PlantTrees.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\ResourceManager.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\TutorialPopup.cs" />
     <Compile Include="Assets\_Scripts\UrbanForestryQuest\UISpace.cs" />
