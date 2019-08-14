@@ -20,7 +20,15 @@ namespace UrbanForestryQuest
         
         [SerializeField] GameObject levelCreatorScript;
 
-        private GameState currentState;
+		public enum GameState
+		{
+			Introduction,
+			Tutorial,
+			PlantTrees,
+			End
+		}
+
+		private GameState currentState;
 
         public GameState CurrentState
         {
@@ -51,7 +59,7 @@ namespace UrbanForestryQuest
         {
             QuestInitialSetUp();
 
-            CurrentState = GameState.Introduction;
+            CurrentState = GameState.PlantTrees;
         }
 
         private void QuestInitialSetUp()
@@ -69,13 +77,7 @@ namespace UrbanForestryQuest
             switchCameraButtons.SetActive(false);
         }
 
-        public enum GameState
-        {
-            Introduction,
-            Tutorial,
-            PlantTrees,
-            End
-        }
+
 
         private void SetState(GameState newState)
         {
