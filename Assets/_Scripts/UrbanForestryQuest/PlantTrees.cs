@@ -58,7 +58,7 @@ namespace UrbanForestryQuest
         private void Update()
         {
             //PlaceObject();
-            //DeleteObjects();
+            DeleteObjects();
             //PaintTile();
         }
 
@@ -198,50 +198,6 @@ namespace UrbanForestryQuest
         }
 
 
-        void PlaceObject()
-        {
-            if (placeModeOn)
-            {
-                // When mouse is held down
-                if (Input.GetMouseButton(0) && !uiSpace.IsPointerOverGameObject())
-                {
-                    // Get node on grid from mouse position
-                    UpdateMousePosition();
-                    curNode = gridBase.NodeFromWorldPosition(mousePosition);
-                    worldPosition = curNode.vis.transform.position;
-
-                    // If object hasn't been instantiated then instantiate it
-                    if (cloneObj == null)
-                    {
-                        cloneObj = Instantiate(objToPlace, worldPosition, Quaternion.identity) as GameObject;
-                        objProperties = cloneObj.GetComponent<Level_Object>();
-                    }
-                    // Else change position of object to mouse position
-                    else
-                    {
-                        cloneObj.transform.position = worldPosition;
-                    }
-                }
-                // When mouse is released and there is a clone object 
-                if (Input.GetMouseButtonUp(0) && cloneObj != null && !uiSpace.IsPointerOverGameObject())
-                {
-                    // If current node have a placed object remove clone object, do not allow object to be placed
-                    if (curNode.placedObj != null)
-                    {
-                        // Remove clone object
-                        Destroy(cloneObj);
-                        cloneObj = null;
-                        objProperties = null;
-                    }
-                    else
-                    {
-                        objProperties.gridPosX = curNode.nodePosX;
-                        objProperties.gridPosZ = curNode.nodePosZ;
-                    }
-                }
-
-            }
-        }
 
 
         void DeleteObjects()
