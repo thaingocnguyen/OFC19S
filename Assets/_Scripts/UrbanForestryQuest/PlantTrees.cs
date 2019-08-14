@@ -150,6 +150,7 @@ namespace UrbanForestryQuest
         #region Place Objects
         public void BeginTreeDrag()
         {
+            cameraController.MovementEnabled = false;
             Debug.Log("Begin drag");
             UpdateMousePosition();
             curNode = gridBase.NodeFromWorldPosition(mousePosition);
@@ -192,6 +193,8 @@ namespace UrbanForestryQuest
                 curNode.placedObj = currentTreeProperties;
                 currentTree = null;
             }
+
+            cameraController.MovementEnabled = true;
         }
 
 

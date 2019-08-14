@@ -11,7 +11,7 @@ namespace UrbanForestryQuest
         Vector3 worldPosition;
         Node curNode;
         Level_Object currentTreeProperties;
-        public GameObject treePlantingScriptObject;
+        public GameObject cameraControllerObj;
 
         GridBase gridBase;
 
@@ -23,6 +23,7 @@ namespace UrbanForestryQuest
 
         void OnMouseDown()
         {
+            CameraController.GetInstance().MovementEnabled = false;
             curNode = GridBase.GetInstance().NodeFromWorldPosition(mousePosition);
             currentTreeProperties = GetComponent<Level_Object>();
             initialNode = gridBase.grid[currentTreeProperties.gridPosX, currentTreeProperties.gridPosZ];
@@ -50,6 +51,8 @@ namespace UrbanForestryQuest
                 LevelManager.GetInstance().UpdateCanopyScore();
                 curNode.placedObj = currentTreeProperties;
             }
+
+            CameraController.GetInstance().MovementEnabled = false;
         }
 
         void UpdateMousePosition()

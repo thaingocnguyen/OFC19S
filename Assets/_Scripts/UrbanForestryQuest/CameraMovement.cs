@@ -40,7 +40,15 @@ namespace UrbanForestryQuest
         private Vector3 origCameraPos;
         private Quaternion origCameraRot;
 
-        void Start() { Init(); }
+        [SerializeField] float screenWidth;
+        [SerializeField] float screenBoundary = 20;
+        [SerializeField] float edgePanSpeed = 10;
+
+        void Start()
+        {
+            Init();
+            screenWidth = Screen.width;
+        }
         void OnEnable() { Init(); }
 
         public void Init()
@@ -97,6 +105,18 @@ namespace UrbanForestryQuest
                     Mathf.Clamp(position.y, yAxis, yAxis),
                     Mathf.Clamp(position.z, zAxis, zAxis));
             }
+            else if (Input.GetMouseButton(0))
+            {
+                if (Input.mousePosition.x > screenWidth - screenBoundary)
+                {
+                    transform.position = new Vector3(Mathf.Clamp(transform.position.x + edgePanSpeed * Time.deltaTime, leftEdge, rightEdge), transform.position.y, transform.position.z);
+                }
+                if (Input.mousePosition.x < 0 + screenBoundary)
+                {
+                    transform.position = new Vector3(Mathf.Clamp(transform.position.x - edgePanSpeed * Time.deltaTime, leftEdge, rightEdge), transform.position.y, transform.position.z);
+                }
+            }
+
         }
 
         public void ResetCameraPosition()

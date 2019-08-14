@@ -3100,7 +3100,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283641521}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5703a6627a76a4799a04424b597d1a9d, type: 3}
   m_Name: 
@@ -3113,6 +3113,9 @@ MonoBehaviour:
   rightEdge: 65.5
   yAxis: 10
   zAxis: -11
+  screenWidth: 0
+  screenBoundary: 20
+  edgePanSpeed: 10
 --- !u!1001 &284225701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16238,7 +16241,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261244140}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5703a6627a76a4799a04424b597d1a9d, type: 3}
   m_Name: 
@@ -16251,6 +16254,9 @@ MonoBehaviour:
   rightEdge: 57.6
   yAxis: 15.5
   zAxis: 38.5
+  screenWidth: 0
+  screenBoundary: 20
+  edgePanSpeed: -10
 --- !u!81 &1261244142
 AudioListener:
   m_ObjectHideFlags: 0

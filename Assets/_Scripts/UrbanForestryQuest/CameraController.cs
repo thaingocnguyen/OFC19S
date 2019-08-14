@@ -28,6 +28,19 @@ namespace UrbanForestryQuest
             MovementEnabled = true;
         }
 
+        #region Singleton
+        private static CameraController instance = null;
+        public static CameraController GetInstance()
+        {
+            return instance;
+        }
+
+        private void Awake()
+        {
+            instance = this;
+        }
+        #endregion
+
         public bool MovementEnabled { get; set; }
 
         public void SwitchCameraToFront()
