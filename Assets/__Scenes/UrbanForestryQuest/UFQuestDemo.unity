@@ -15515,7 +15515,7 @@ MonoBehaviour:
   endCharacter: {fileID: 16579930}
   endTextbox: {fileID: 1842413971}
   switchCameraButtons: {fileID: 1294273008}
-  treePlantingScript: {fileID: 0}
+  treePlantingScript: {fileID: 1672452301}
   proceedButton: {fileID: 1603639336}
   scoreBox: {fileID: 1120159868}
   oopsText: {fileID: 50428302}
