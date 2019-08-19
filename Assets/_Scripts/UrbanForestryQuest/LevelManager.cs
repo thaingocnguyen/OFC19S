@@ -22,9 +22,21 @@ namespace UrbanForestryQuest
         [SerializeField] float areaPerTree = 16;
         [SerializeField] float mortalityRate = 0.14f;
 
+        // Used as a parent to instantiate increments in 
+        [SerializeField] GameObject canopyBarBorder;
+        [SerializeField] float canopyBarFillHeight;
+        [SerializeField] GameObject incrementPrefab;
+        private float scoreDiff;
+        private float newScore;
+        private GameObject increment;
+
         public float CanopyScore
         {
-            get { return ((canopyScore * areaPerTree) / 720) * 100; }
+            get
+            {
+                canopyScore = newScore;
+                return ((canopyScore * areaPerTree) / 720) * 100;
+            }
         }
 
         // FUTURE VISUALIZATION
@@ -56,6 +68,9 @@ namespace UrbanForestryQuest
             // Canopy bar starts at 0
             canopyScore = startScore;
             canopyBar.transform.localScale = new Vector3(1, startScore / maxScore, 1);
+            increment = Instantiate(incrementPrefab, canopyBar.transform.position, Quaternion.identity) as GameObject;
+            increment.transform.SetParent(canopyBarBorder.transform);
+            increment.transform.localScale = new Vector3(1, 0, 1);
             InitLevelObjects();
         }
 
@@ -75,14 +90,27 @@ namespace UrbanForestryQuest
         public void UpdateCanopyScore()
         {
             internalSceneObjects.Clear();
-            canopyScore = startScore;
+            newScore = startScore;
             for (int i = 0; i < inSceneGameObjects.Count; i++)
             {
                 Level_Object lvlObj = inSceneGameObjects[i].GetComponent<Level_Object>();
                 internalSceneObjects.Add(lvlObj);
-                canopyScore += gridBase.grid[lvlObj.gridPosX, lvlObj.gridPosZ].multiplier;
+                newScore += gridBase.grid[lvlObj.gridPosX, lvlObj.gridPosZ].multiplier;
             }
-            canopyScore = Mathf.Clamp(canopyScore, 0f, maxScore);
+            newScore = Mathf.Clamp(newScore, 0f, maxScore);
+            scoreDiff = newScore - canopyScore;
+
+            increment.transform.position = canopyBar.transform.position + new Vector3(0, canopyBarFillHeight * (canopyScore / maxScore), 0);
+            if (scoreDiff >= 0)
+            {
+                increment.transform.localScale = new Vector3(1, scoreDiff / maxScore, 1);
+            }
+            else
+            {
+                increment.transform.localScale = new Vector3(1, 0, 1);
+            }
+
+            canopyScore = newScore;
             canopyBar.transform.localScale = new Vector3(1, canopyScore / maxScore, 1);
         }
 

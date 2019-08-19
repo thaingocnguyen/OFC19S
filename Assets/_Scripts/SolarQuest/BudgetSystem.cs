@@ -43,9 +43,9 @@ namespace SolarQuest
         {
             if (tag == "12000")
             {
-                currentBudget = currentBudget - 12000;
+                currentBudget = currentBudget - 13500;
                 budgetText.text = "$" + currentBudget;
-                subtractBudgetText.text = " -$12000";
+                subtractBudgetText.text = " -$13500";
             }
             else if (tag == "3000")
             {
@@ -67,7 +67,7 @@ namespace SolarQuest
         {
             if (tag == "12000")
             {
-                currentBudget = currentBudget + 12000;
+                currentBudget = currentBudget + 13500;
                 budgetText.text = "$" + currentBudget;
                 //subtractBudgetText.text = " +$12000";
             }
@@ -92,7 +92,7 @@ namespace SolarQuest
         {
             if (tag == "12000")
             {
-                if ((currentBudget - 12000) < 0)
+                if ((currentBudget - 13500) < 0)
                 {
                     return false;
                 }

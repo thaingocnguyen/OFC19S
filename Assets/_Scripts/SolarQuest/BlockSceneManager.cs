@@ -89,7 +89,7 @@ namespace SolarQuest
             QuestInitialSetUp();
 
             // !!EDIT THIS LINE TO CHANGE STARTING STATE FOR DEBUGGING PURPOSES!!
-            CurrentState = GameState.Introduction;
+            CurrentState = GameState.End;
         }
 
         private void QuestInitialSetUp()
@@ -238,6 +238,15 @@ namespace SolarQuest
         #endregion
 
         #region EndState
+
+        [SerializeField] GameObject energyVis;
+        [SerializeField] GameObject energyVis_lightbulb;
+        [SerializeField] GameObject energyVis_fridgetv;
+        [SerializeField] GameObject energyVis_heatpump;
+        [SerializeField] GameObject energyVis_car;
+        [SerializeField] GameObject energyVis_max;
+        [SerializeField] GameObject energyVis_zero;
+
         private void HandleEndState_On()
         {
             mainCamera.gameObject.SetActive(false);
@@ -250,6 +259,7 @@ namespace SolarQuest
             proceedButton.SetActive(false);
             endCanvas.SetActive(true);
             endingText.text = GetEndOutcome();
+            DisplayEnergyVisualization();
         }
 
         private void HandleEndState_Off()
@@ -273,9 +283,9 @@ namespace SolarQuest
             if (finalEnergyScore > 0.2)
             {
                 // Load Kitsilano scene
-                
+
             }
-           
+
             endingTextbox.GetComponent<BlockSceneEndTextbox>().LoadText();
         }
 
@@ -307,6 +317,35 @@ namespace SolarQuest
             PlayerPrefs.SetInt("solarQuestHighScore", Mathf.RoundToInt(finalEnergyScore * 100));
 
             return outcome;
+        }
+
+        private void DisplayEnergyVisualization()
+        {
+            energyVis.SetActive(true);
+            if (finalEnergyScore <= 0)
+            {
+                energyVis_zero.SetActive(true);
+            }
+            else if (finalEnergyScore < 0.03)
+            {
+                energyVis_lightbulb.SetActive(true);
+            }
+            else if (finalEnergyScore < 0.2)
+            {
+                energyVis_fridgetv.SetActive(true);
+            }
+            else if (finalEnergyScore < 0.75)
+            {
+                energyVis_heatpump.SetActive(true);
+            }
+            else if (finalEnergyScore < 1)
+            {
+                energyVis_car.SetActive(true);
+            }
+            else
+            {
+                energyVis_max.SetActive(true);
+            }
         }
         #endregion
 

@@ -8493,7 +8493,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 686913349}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -8932,7 +8932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &741299158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15151,7 +15151,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press this button to toggle plant tree mode on/off. Try planting a tree!
+  m_text: Press this button and drag to the ground to plant a tree. Give it a try!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fc84f730fafa14011a75b8ddc2fc0f2f, type: 2}
   m_sharedMaterial: {fileID: -7327953536574756562, guid: fc84f730fafa14011a75b8ddc2fc0f2f,
@@ -15223,8 +15223,8 @@ MonoBehaviour:
     textComponent: {fileID: 1180700609}
     characterCount: 72
     spriteCount: 0
-    spaceCount: 12
-    wordCount: 14
+    spaceCount: 15
+    wordCount: 16
     linkCount: 0
     lineCount: 4
     pageCount: 1
@@ -21896,6 +21896,10 @@ MonoBehaviour:
   totalArea: 720
   areaPerTree: 16
   mortalityRate: 0.28
+  canopyBarBorder: {fileID: 2004260396}
+  canopyBarFillHeight: 174
+  incrementPrefab: {fileID: 3043364290556008576, guid: 124ec14bd597b4d42866893dc7f6b8a1,
+    type: 3}
   tree_large: {fileID: 5500741302986707340, guid: d516de8c90e4d4d9c963879dd9ec12be,
     type: 3}
   tree_dead: {fileID: 4934289841427720193, guid: b632413ecf80540d3bdaf1996801b6a5,
@@ -25733,6 +25737,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 105567125}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2004260396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2800474032693475330, guid: d9a8d22db14884436896b17d4e62eef4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5060812742891368007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2017550824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27106,6 +27116,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456672196365257292, guid: d9a8d22db14884436896b17d4e62eef4,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456672196365257292, guid: d9a8d22db14884436896b17d4e62eef4,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456672196365257292, guid: d9a8d22db14884436896b17d4e62eef4,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456672196365257292, guid: d9a8d22db14884436896b17d4e62eef4,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456672196365257292, guid: d9a8d22db14884436896b17d4e62eef4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456672196365257292, guid: d9a8d22db14884436896b17d4e62eef4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456672196365257292, guid: d9a8d22db14884436896b17d4e62eef4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456672196365257292, guid: d9a8d22db14884436896b17d4e62eef4,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 174
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a8d22db14884436896b17d4e62eef4, type: 3}
@@ -28969,7 +29019,7 @@ PrefabInstance:
     - target: {fileID: 8335231136574565089, guid: cc8a451bdf7fe486c904714e5badd432,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8335231136574565117, guid: cc8a451bdf7fe486c904714e5badd432,
         type: 3}
@@ -29079,7 +29129,7 @@ PrefabInstance:
     - target: {fileID: 8335231138413000688, guid: cc8a451bdf7fe486c904714e5badd432,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8335231136574565091, guid: cc8a451bdf7fe486c904714e5badd432, type: 3}
