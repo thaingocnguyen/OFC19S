@@ -175,6 +175,8 @@ namespace UrbanForestryQuest
         [SerializeField] GameObject scoreBox;
         TextMeshProUGUI scoreBoxText;
         [SerializeField] TextMeshProUGUI oopsText;
+        [SerializeField] GameObject fadeAwayBackground;
+        [SerializeField] float fadeOutTime;
 
         public void SwitchToEndState()
         {
@@ -210,7 +212,8 @@ namespace UrbanForestryQuest
             scoreBoxText = scoreBox.GetComponentInChildren<TextMeshProUGUI>();
             int canopyScore = Mathf.RoundToInt(LevelManager.GetInstance().CanopyScore);
             scoreBoxText.text = GetEndText(canopyScore);
-            
+
+            StartCoroutine(FadeAway(fadeAwayBackground));
             LevelManager.GetInstance().VisualizeFuture();
         }
 
@@ -252,6 +255,19 @@ namespace UrbanForestryQuest
 
             endCharacter.SetActive(true);
             endTextbox.SetActive(true);
+        }
+
+        private IEnumerator FadeAway(GameObject objectToFade)
+        {
+            CanvasGroup canvasGroup = objectToFade.GetComponent<CanvasGroup>();
+
+            for (float t = 0.01f; t < fadeOutTime; t += Time.deltaTime)
+            {
+                canvasGroup.alpha = Mathf.Lerp(1, 0, Mathf.Min(1, t / fadeOutTime));
+                yield return null;
+            }
+            canvasGroup.alpha = 0;
+            objectToFade.SetActive(false);
         }
         #endregion
     }
