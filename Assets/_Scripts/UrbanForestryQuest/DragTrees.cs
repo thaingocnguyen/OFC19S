@@ -52,7 +52,7 @@ namespace UrbanForestryQuest
                 curNode.placedObj = currentTreeProperties;
             }
 
-            CameraController.GetInstance().MovementEnabled = false;
+            CameraController.GetInstance().MovementEnabled = true;
         }
 
         void UpdateMousePosition()

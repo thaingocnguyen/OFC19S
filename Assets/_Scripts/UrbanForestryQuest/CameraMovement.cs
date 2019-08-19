@@ -97,15 +97,18 @@ namespace UrbanForestryQuest
 
                 currentDistance = Mathf.Lerp(currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
 
+                
                 position = target.position - (rotation * Vector3.forward * currentDistance);
                 position = position - targetOffset;
+
 
                 transform.position = new Vector3(
                     Mathf.Clamp(position.x, leftEdge, rightEdge),
                     Mathf.Clamp(position.y, yAxis, yAxis),
                     Mathf.Clamp(position.z, zAxis, zAxis));
+                
             }
-            else if (Input.GetMouseButton(0))
+            else if (!controller.MovementEnabled && Input.GetMouseButton(0))
             {
                 if (Input.mousePosition.x > screenWidth - screenBoundary)
                 {
