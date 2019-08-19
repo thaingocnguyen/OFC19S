@@ -159,7 +159,7 @@ namespace UrbanForestryQuest
             }
 
             // Sets the high score for the quest
-            PlayerPrefs.SetInt("ufHighScore", Mathf.RoundToInt(canopyScore));
+            GlobalControl.Instance.ufQuestHighScore = Mathf.RoundToInt(canopyScore);
         }
 
 

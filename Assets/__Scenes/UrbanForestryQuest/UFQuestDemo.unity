@@ -3114,7 +3114,7 @@ MonoBehaviour:
   yAxis: 10
   zAxis: -11
   screenWidth: 0
-  screenBoundary: 20
+  screenBoundary: 50
   edgePanSpeed: 10
 --- !u!1001 &284225701
 PrefabInstance:
@@ -16258,7 +16258,7 @@ MonoBehaviour:
   yAxis: 15.5
   zAxis: 38.5
   screenWidth: 0
-  screenBoundary: 20
+  screenBoundary: 50
   edgePanSpeed: -10
 --- !u!81 &1261244142
 AudioListener:
@@ -18345,6 +18345,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCutscenePlayed: 0
+  solarQuestTutorialPlayed: 0
+  solarQuestHighScore: 0
+  ufQuestHighScore: 0
 --- !u!4 &1386583718
 Transform:
   m_ObjectHideFlags: 0
@@ -18865,12 +18868,12 @@ GameObject:
   - component: {fileID: 1431247597}
   - component: {fileID: 1431247596}
   m_Layer: 5
-  m_Name: UICanvas
+  m_Name: UICanvas(DontDeactivate)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1431247596
 MonoBehaviour:
   m_ObjectHideFlags: 0

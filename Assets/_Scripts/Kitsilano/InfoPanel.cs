@@ -20,7 +20,7 @@ namespace KitsilanoScene
 
         int selectedQuest;
 
-        public int solarQuesTutorialPlayed = 0;
+        public bool solarQuesTutorialPlayed;
 
         // HIGH SCORES
         public int solarQuestHighScore = 0;
@@ -42,32 +42,9 @@ namespace KitsilanoScene
 
         private void LoadData()
         {
-            if (PlayerPrefs.HasKey("solarQuestTutorialPlayed"))
-            {
-                solarQuesTutorialPlayed = PlayerPrefs.GetInt("solarQuestTutorialPlayed");
-            }
-            else
-            {
-                solarQuesTutorialPlayed = 0;
-            }
-
-            if (PlayerPrefs.HasKey("solarQuestHighScore"))
-            {
-                solarQuestHighScore = PlayerPrefs.GetInt("solarQuestHighScore");
-            }
-            else
-            {
-                solarQuestHighScore = 0;
-            }
-
-            if (PlayerPrefs.HasKey("ufQuestHighScore"))
-            {
-                ufQuestHighScore = PlayerPrefs.GetInt("ufQuestHighScore");
-            }
-            else
-            {
-                ufQuestHighScore = 0;
-            }
+            solarQuesTutorialPlayed = GlobalControl.Instance.solarQuestTutorialPlayed;
+            solarQuestHighScore = GlobalControl.Instance.solarQuestHighScore;
+            ufQuestHighScore = GlobalControl.Instance.ufQuestHighScore;
         }
 
         // Update is called once per frame
@@ -119,7 +96,7 @@ namespace KitsilanoScene
             switch (selectedQuest)
             {
                 case 0:
-                    if (solarQuesTutorialPlayed == 0)
+                    if (!solarQuesTutorialPlayed)
                     {
                         levelLoader.LoadLevel(1);
                     }

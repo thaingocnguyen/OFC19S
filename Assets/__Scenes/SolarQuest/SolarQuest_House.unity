@@ -47604,6 +47604,12 @@ PrefabInstance:
       propertyPath: solarGamesObjects.Array.data[0]
       value: 
       objectReference: {fileID: 961901938}
+    - target: {fileID: 5178904750024523711, guid: c6e4b5049cb764f65bfd617b8b819e91,
+        type: 3}
+      propertyPath: incrementPrefab
+      value: 
+      objectReference: {fileID: 6708729572081662879, guid: c0556d99ad31f40f88e450f78b9dc105,
+        type: 3}
     - target: {fileID: 6511250940860296405, guid: c6e4b5049cb764f65bfd617b8b819e91,
         type: 3}
       propertyPath: m_LocalPosition.x

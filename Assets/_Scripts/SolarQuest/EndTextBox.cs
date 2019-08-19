@@ -28,7 +28,7 @@ namespace SolarQuest
         public override void HandleNoSentencesLeft()
         {
             tapToContinueText.SetActive(false);
-            PlayerPrefs.SetInt("solarQuestTutorialPlayed", 1);
+            GlobalControl.Instance.solarQuestTutorialPlayed = true;
             levelLoader.GetComponent<LevelLoader>().LoadLevel(2);
         }
     }

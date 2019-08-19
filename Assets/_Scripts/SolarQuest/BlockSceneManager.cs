@@ -314,7 +314,7 @@ namespace SolarQuest
             }
 
             // SET THE HIGH SCORE
-            PlayerPrefs.SetInt("solarQuestHighScore", Mathf.RoundToInt(finalEnergyScore * 100));
+            GlobalControl.Instance.solarQuestHighScore = Mathf.RoundToInt(finalEnergyScore * 100);
 
             return outcome;
         }

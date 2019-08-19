@@ -67,7 +67,6 @@
     <Compile Include="Assets\_Scripts\Kitsilano\InfoPanel.cs" />
     <Compile Include="Assets\_Scripts\Kitsilano\IntroductionSequence.cs" />
     <Compile Include="Assets\_Scripts\Kitsilano\KitsilanoManager.cs" />
-    <Compile Include="Assets\_Scripts\Kitsilano\QuestInfo.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\BlockSceneEndTextbox.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\BlockSceneIntroBox.cs" />
     <Compile Include="Assets\_Scripts\SolarQuest\BlockSceneManager.cs" />

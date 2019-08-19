@@ -310,6 +310,7 @@ MonoBehaviour:
   dragDistance: 14.4
   gridManagerScript: {fileID: 437801304632359964}
   panel: {fileID: 1877860019546156786}
+  panelContainer: {fileID: 0}
 --- !u!1 &1877860019558036943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1813,7 @@ MonoBehaviour:
   dragDistance: 14.4
   gridManagerScript: {fileID: 437801304632359964}
   panel: {fileID: 1877860020973164198}
+  panelContainer: {fileID: 0}
 --- !u!1 &1877860021024005925
 GameObject:
   m_ObjectHideFlags: 0

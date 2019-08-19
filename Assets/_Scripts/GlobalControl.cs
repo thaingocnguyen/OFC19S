@@ -19,7 +19,13 @@ public class GlobalControl : MonoBehaviour
         }
     }
 
-	public bool startCutscenePlayed = false;
+	public bool startCutscenePlayed;
+
+    public bool solarQuestTutorialPlayed;
+
+    // High scores
+    public int solarQuestHighScore;
+    public int ufQuestHighScore;
 
     
 }
